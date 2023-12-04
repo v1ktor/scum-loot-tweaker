@@ -4,6 +4,8 @@
   "description": "Web app to tweak loot spawn in SCUM game",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
