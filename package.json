@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/v1ktor/scum-loot-tweaker#readme",
   "devDependencies": {
+    "@types/node": "^20.10.3",
     "typescript": "^5.3.2"
   }
 }
