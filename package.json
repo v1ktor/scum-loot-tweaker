@@ -1,0 +1,22 @@
+{
+  "name": "scum-loot-tweaker",
+  "version": "1.0.0",
+  "description": "Web app to tweak loot spawn in SCUM game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v1ktor/scum-loot-tweaker.git"
+  },
+  "author": "Viktor Kalinin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/v1ktor/scum-loot-tweaker/issues"
+  },
+  "homepage": "https://github.com/v1ktor/scum-loot-tweaker#readme",
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
+}
