@@ -1,5 +1,4 @@
 import { Item } from "../item";
-import exp from "node:constants";
 
 export const AMMO_22_CALIBER: Item = {
     id: 'Cal_22',
