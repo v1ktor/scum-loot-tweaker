@@ -36,12 +36,14 @@ import {
     AMMO_30_06_CALIBER_AP, AMMO_30_06_CALIBER_AP_AMMO_BOX,
     AMMO_30_06_CALIBER_TR, AMMO_30_06_CALIBER_TR_AMMO_BOX
 } from "./ammo/cal-30-06";
+import {
+    AMMO_38_CALIBER,
+    AMMO_38_CALIBER_AMMO_BOX,
+    AMMO_38_CALIBER_AP,
+    AMMO_38_CALIBER_AP_AMMO_BOX,
+    AMMO_38_CALIBER_TR, AMMO_38_CALIBER_TR_AMMO_BOX
+} from "./ammo/cal-38";
 
-const AMMO_38_CALIBER: Item = {
-    id: 'Cal_38',
-    name: '38 Caliber',
-    picture: '',
-} as const;
 
 const AMMO_45_CALIBER: Item = {
     id: 'Cal_45',
@@ -69,6 +71,13 @@ export const AMMO = new Set([
     AMMO_30_06_CALIBER_AP_AMMO_BOX,
     AMMO_30_06_CALIBER_TR,
     AMMO_30_06_CALIBER_TR_AMMO_BOX,
+
+    AMMO_38_CALIBER,
+    AMMO_38_CALIBER_AMMO_BOX,
+    AMMO_38_CALIBER_AP,
+    AMMO_38_CALIBER_AP_AMMO_BOX,
+    AMMO_38_CALIBER_TR,
+    AMMO_38_CALIBER_TR_AMMO_BOX,
 
     AMMO_308_CALIBER,
     AMMO_308_CALIBER_AMMO_BOX,
