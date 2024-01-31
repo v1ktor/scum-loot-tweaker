@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/v1ktor/scum-loot-tweaker/issues"
   },
-  "homepage": "https://github.com/v1ktor/scum-loot-tweaker#readme",
+  "homepage": "https://v1ktor.github.io/scum-loot-tweaker",
   "dependencies": {
     "gh-pages": "^6.1.1",
     "react": "^18.2.0",
