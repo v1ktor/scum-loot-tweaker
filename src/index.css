@@ -191,7 +191,7 @@ nav ul {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: max(2vw, 1rem);
+    gap: 16px;
 
 }
 
