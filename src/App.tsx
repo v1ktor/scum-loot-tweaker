@@ -6,6 +6,7 @@ import Spawners from "./pages/spawners/Spawners.tsx";
 import Parameters from "./pages/parameters/Parameters.tsx";
 import Nodes from "./pages/nodes/Nodes.tsx";
 import Changelog from "./pages/changelog/Changelog.tsx";
+import { NavigationPath } from "./data/navigationPath.ts";
 
 function App() {
   return (
@@ -13,10 +14,10 @@ function App() {
       <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/spawners" element={<Spawners />} />
-          <Route path="/parameters" element={<Parameters />} />
-          <Route path="/nodes" element={<Nodes />} />
-          <Route path="/changelog" element={<Changelog />} />
+          <Route path={NavigationPath.Spawners} element={<Spawners />} />
+          <Route path={NavigationPath.Parameters} element={<Parameters />} />
+          <Route path={NavigationPath.Nodes} element={<Nodes />} />
+          <Route path={NavigationPath.Changelog} element={<Changelog />} />
         </Routes>
       <Footer/>
     </>
