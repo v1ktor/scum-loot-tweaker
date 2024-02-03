@@ -1,4 +1,4 @@
-function Parameters() {
+export function Parameters() {
   return (
     <main className="flow content-grid">
 
@@ -8,5 +8,3 @@ function Parameters() {
     </main>
   );
 }
-
-export default Parameters;

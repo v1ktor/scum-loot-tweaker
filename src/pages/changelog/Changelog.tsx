@@ -1,4 +1,4 @@
-function Changelog() {
+export function Changelog() {
   return (
     <main className="flow content-grid">
 
@@ -8,5 +8,3 @@ function Changelog() {
     </main>
   );
 }
-
-export default Changelog;

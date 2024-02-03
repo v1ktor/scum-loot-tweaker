@@ -1,4 +1,4 @@
-function Home() {
+export function Home() {
   return (
     <main className="flow content-grid">
 
@@ -9,5 +9,3 @@ function Home() {
     </main>
   );
 }
-
-export default Home;

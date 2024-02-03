@@ -1,4 +1,4 @@
-function Footer() {
+export function Footer() {
   return (
     <footer className="primary-footer content-grid">
       <div className="primary-footer__layout breakout">
@@ -7,5 +7,3 @@ function Footer() {
     </footer>
   )
 }
-
-export default Footer;

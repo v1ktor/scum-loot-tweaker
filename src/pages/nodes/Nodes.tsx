@@ -1,4 +1,4 @@
-function Nodes() {
+export function Nodes() {
   return (
     <main className="flow content-grid">
 
@@ -8,5 +8,3 @@ function Nodes() {
     </main>
   );
 }
-
-export default Nodes;

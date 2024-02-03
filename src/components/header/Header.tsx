@@ -7,7 +7,7 @@ function useActiveMatch(path: string) {
   return useMatch({ path: resolvedPath.pathname, end: true });
 }
 
-function Header() {
+export function Header() {
   const isSpawnersActive = useActiveMatch(NavigationPath.Spawners);
   const isParametersActive = useActiveMatch(NavigationPath.Parameters);
   const isNodesActive = useActiveMatch(NavigationPath.Nodes);
@@ -32,5 +32,3 @@ function Header() {
     </>
   )
 }
-
-export default Header;

@@ -1,4 +1,4 @@
-function Spawners() {
+export function Spawners() {
   return (
     <main className="flow content-grid">
 
@@ -8,5 +8,3 @@ function Spawners() {
     </main>
   );
 }
-
-export default Spawners;
