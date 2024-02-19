@@ -1,8 +1,7 @@
 import Select, { GroupBase, SingleValue, StylesConfig } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useState } from "react";
-
-type Option = { label: string; value: string; }
+import { Option, Spawner } from "./Spawners.types.ts";
 
 const options: Option[] = [
   { value: 'Landscape-Examine_GroundRocks.json', label: 'Landscape-Examine_GroundRocks.json' },
@@ -77,9 +76,35 @@ export function Spawners() {
   }
 
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const [jsonData, setJsonData] = useState<Spawner | null>(null);
 
-  const handleChange = (newValue: SingleValue<Option | null>) => {
+  const readFile = async (option: Option): Promise<Spawner> => {
+    try {
+      const url = `./src/data/spawners/${option.value}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Could not fetch the spawner: ${option.value}`);
+      }
+
+      const jsonData = await response.json();
+      console.log(jsonData);
+
+      return jsonData as Spawner;
+    } catch (error) {
+      throw new Error(`Could not fetch the spawner: ${option.value}`);
+    }
+  }
+
+  const handleChange = async (newValue: SingleValue<Option | null>): Promise<void> => {
     setSelectedOption(newValue);
+
+    if (newValue) {
+      const data = await readFile(newValue);
+      if (data) {
+        setJsonData(data);
+      }
+    }
   }
 
   return (
@@ -121,35 +146,37 @@ export function Spawners() {
             <TabPanel>
               <div>
                 <label htmlFor="quantity-min">Quantity Min:</label>
-                <input type="text" id="quantity-min" name="apple"/>
+                <input type="text" id="quantity-min" name="quantity-min" defaultValue={jsonData?.QuantityMin}/>
               </div>
               <div>
                 <label htmlFor="quantity-max">Quantity Max:</label>
-                <input type="text" id="quantity-max" name="apple"/>
+                <input type="text" id="quantity-max" name="quantity-max" defaultValue={jsonData?.QuantityMax}/>
               </div>
               <div>
                 <label htmlFor="allow-duplicates">Allow duplicates:</label>
-                <input type="text" id="allow-duplicates" name="apple"/>
+                <input type="text" id="allow-duplicates" name="allow-duplicates"
+                       defaultValue={String(jsonData?.AllowDuplicates)}/>
               </div>
               <div>
                 <label htmlFor="should-filter-items-by-zone">Should filter items by zone:</label>
-                <input type="text" id="should-filter-items-by-zone" name="apple"/>
+                <input type="text" id="should-filter-items-by-zone" name="should-filter-items-by-zone"
+                       defaultValue={String(jsonData?.ShouldFilterItemsByZone)}/>
               </div>
               <div>
                 <label htmlFor="initial-damage">Initial damage:</label>
-                <input type="text" id="initial-damage" name="apple"/>
+                <input type="text" id="initial-damage" name="initial-damage" defaultValue={jsonData?.InitialDamage}/>
               </div>
               <div>
                 <label htmlFor="random-damage">Random damage:</label>
-                <input type="text" id="random-damage" name="apple"/>
+                <input type="text" id="random-damage" name="random-damage" defaultValue={jsonData?.RandomDamage}/>
               </div>
               <div>
                 <label htmlFor="initial-usage">Initial usage:</label>
-                <input type="text" id="initial-usage" name="apple"/>
+                <input type="text" id="initial-usage" name="initial-usage" defaultValue={jsonData?.InitialUsage}/>
               </div>
               <div>
                 <label htmlFor="random-usage">Random usage:</label>
-                <input type="text" id="random-usage" name="apple"/>
+                <input type="text" id="random-usage" name="random-usage" defaultValue={jsonData?.RandomDamage}/>
               </div>
             </TabPanel>
           </Tabs>
