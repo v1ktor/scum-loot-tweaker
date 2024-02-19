@@ -1,0 +1,17 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Olives"
+		}
+	],
+	"Probability": 18,
+	"QuantityMin": 2,
+	"QuantityMax": 5,
+	"AllowDuplicates": true,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 0,
+	"RandomDamage": 20,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

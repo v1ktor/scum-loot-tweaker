@@ -1,0 +1,19 @@
+{
+	"Nodes": [
+		{
+			"Rarity": "Uncommon",
+			"Ids": [
+				"ItemLootTreeNodes.Trash"
+			]
+		}
+	],
+	"Probability": 25,
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 40,
+	"RandomDamage": 40,
+	"InitialUsage": 40,
+	"RandomUsage": 40
+}
