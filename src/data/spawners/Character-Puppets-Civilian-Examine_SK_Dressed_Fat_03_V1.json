@@ -1,0 +1,27 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Boots_06_02"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Raincoat_01"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Inmate_pants"
+		}
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 2,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"InitialDamage": 93,
+	"RandomDamage": 3,
+	"InitialUsage": 93,
+	"RandomUsage": 3,
+	"PostSpawnActions": [
+		"SetClothesDirtiness_DeadPuppets"
+	]
+}

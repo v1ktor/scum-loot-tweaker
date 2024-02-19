@@ -1,0 +1,28 @@
+{
+	"Nodes": [
+		{
+			"Rarity": "Rare",
+			"Ids": [
+				"ItemLootTreeNodes.Pharmacy.Items.Fabric",
+				"ItemLootTreeNodes.Pharmacy.Items.Scissors",
+				"ItemLootTreeNodes.Pharmacy.Other.Money",
+				"ItemLootTreeNodes.Pharmacy"
+			]
+		},
+		{
+			"Rarity": "Uncommon",
+			"Ids": [
+				"ItemLootTreeNodes.Office.Items.Misc"
+			]
+		}
+	],
+	"Probability": 18,
+	"QuantityMin": 1,
+	"QuantityMax": 2,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 10,
+	"RandomDamage": 30,
+	"InitialUsage": 0,
+	"RandomUsage": 30
+}
