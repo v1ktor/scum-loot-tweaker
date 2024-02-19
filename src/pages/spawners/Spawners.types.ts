@@ -2,14 +2,13 @@ export type Option = { label: string; value: string; }
 
 export type SpawnerItem = {
   Id: string;
-  Rarirty: Rarity;
+  Rarity: Rarity;
 }
 
 export type SpawnerNode = {
   Ids: string[];
   Rarity: Rarity;
 }
-
 
 export type Spawner = {
   Nodes?: SpawnerNode[];
