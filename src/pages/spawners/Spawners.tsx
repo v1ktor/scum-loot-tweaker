@@ -145,6 +145,10 @@ export function Spawners() {
             </TabPanel>
             <TabPanel>
               <div>
+                <label htmlFor="probability">Probability:</label>
+                <input type="text" id="probability" name="probability" defaultValue={jsonData?.Probability}/>
+              </div>
+              <div>
                 <label htmlFor="quantity-min">Quantity Min:</label>
                 <input type="text" id="quantity-min" name="quantity-min" defaultValue={jsonData?.QuantityMin}/>
               </div>
