@@ -2,6 +2,7 @@ import Select, { GroupBase, SingleValue, StylesConfig } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { useState } from "react";
 import { Option, Spawner } from "./Spawners.types.ts";
+import { config } from "../../config.ts";
 
 const options: Option[] = [
   { value: 'Landscape-Examine_GroundRocks.json', label: 'Landscape-Examine_GroundRocks.json' },
@@ -80,7 +81,7 @@ export function Spawners() {
 
   const readFile = async (option: Option): Promise<Spawner> => {
     try {
-      const url = `./src/data/spawners/${option.value}`;
+      const url = `${config.DATA_PATH}/spawners/${option.value}`;
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -88,7 +89,6 @@ export function Spawners() {
       }
 
       const jsonData = await response.json();
-      console.log(jsonData);
 
       return jsonData as Spawner;
     } catch (error) {
