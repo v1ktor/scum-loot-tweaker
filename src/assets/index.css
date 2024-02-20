@@ -322,10 +322,26 @@ input:hover {
     display: none;
 }
 
-.react-tabs__tab-panel div {
+.react-tabs__tab-panel div:not(.alert) {
     padding: 4px 0 8px 0;
 }
 
 .react-tabs__tab-panel--selected {
     display: block;
+}
+
+.alert {
+    position: relative;
+    padding: 12px 20px;
+    border: 1px solid #087990;
+    border: 1px solid #343a40;
+    /*border: 1px solid #41464b;*/
+    margin-bottom: 1rem;
+    border-radius: 0.375rem;
+    background-color: #032830;
+    background-color: #1a1d20;
+    /*background-color: #161719;*/
+    color: #6edff6;
+    color: #dee2e6;
+    /*color: #a7acb1;*/
 }

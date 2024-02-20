@@ -137,6 +137,17 @@ export function Spawners() {
               </TabList>
 
               <TabPanel>
+                <div className="alert" role="alert">
+                  <ul>
+                    <li><strong>Abundant:</strong> 32 times more likely to be selected than <strong>Extremely Rare</strong></li>
+                    <li><strong>Common:</strong> 16 times more likely to be selected than <strong>Extremely Rare</strong></li>
+                    <li><strong>Uncommon:</strong> 8 times more likely to be selected than <strong>Extremely Rare</strong></li>
+                    <li><strong>Rare:</strong> 4 times more likely to be selected than <strong>Extremely Rare</strong></li>
+                    <li><strong>Very Rare:</strong> 2 times more likely to be selected than <strong>Extremely Rare</strong></li>
+                    <li><strong>Extremely Rare:</strong> The same likelihood to be selected as any other <strong>Extremely Rare</strong> object in the set</li>
+                  </ul>
+                </div>
+
                 {jsonData && jsonData.Items && jsonData.Items.map((item) => (
                   <p key={item.Id}>Id: {item.Id} - Rarity: {item.Rarity}</p>
                 ))}
