@@ -223,6 +223,7 @@ nav a:active,
     background: var(--clr-background-button);
     color: var(--clr-font-button);
     padding: 12px 20px;
+    text-decoration: none;
 }
 
 .button:hover,
@@ -254,6 +255,10 @@ input[type="text"] {
 
 .width-200 {
     width: 200px;
+}
+
+.text-weight-800 {
+    font-weight: 800;
 }
 
 input:focus,
