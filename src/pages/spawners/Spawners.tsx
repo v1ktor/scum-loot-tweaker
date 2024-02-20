@@ -3,16 +3,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import React, { useState } from "react";
 import { Option, Spawner } from "./Spawners.types.ts";
 import { config } from "../../config.ts";
-
-const options: Option[] = [
-  { value: 'Landscape-Examine_GroundRocks.json', label: 'Landscape-Examine_GroundRocks.json' },
-  {
-    value: 'Buildings-Store-Hunting_Store-Examine_CashRegister.json',
-    label: 'Buildings-Store-Hunting_Store-Examine_CashRegister.json'
-  },
-  { value: 'Buildings-Livingroom-Examine_Vine_Cabinet.json', label: 'Buildings-Livingroom-Examine_Vine_Cabinet.json' },
-  { value: 'Water-Shipwrecks-World_Shelf.json', label: 'Water-Shipwrecks-World_Shelf.json' }
-]
+import { SPAWNER_OPTIONS } from "../../data/spawnerOptions.ts";
 
 export function Spawners() {
   const styles: StylesConfig<Option, false, GroupBase<Option>> = {
@@ -115,7 +106,7 @@ export function Spawners() {
 
       <span>
         <Select<Option, false, GroupBase<Option>>
-          options={options}
+          options={SPAWNER_OPTIONS}
           value={selectedOption}
           isSearchable={true}
           isClearable={true}
