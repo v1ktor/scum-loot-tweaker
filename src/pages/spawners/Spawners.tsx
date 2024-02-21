@@ -2,36 +2,19 @@ import Select, { GroupBase, SingleValue } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import React, { useState } from "react";
 import { Option, Spawner } from "./Spawners.types.ts";
-import { config } from "../../config.ts";
 import { SPAWNER_OPTIONS } from "../../data/spawnerOptions.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
+import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
 
 export function Spawners() {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
   const [jsonData, setJsonData] = useState<Spawner | null>(null);
 
-  const readFile = async (option: Option): Promise<Spawner> => {
-    try {
-      const url = `${config.DATA_PATH}/spawners/${option.value}`;
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Could not fetch the spawner: ${option.value}`);
-      }
-
-      const jsonData = await response.json();
-
-      return jsonData as Spawner;
-    } catch (error) {
-      throw new Error(`Could not fetch the spawner: ${option.value}`);
-    }
-  }
-
   const handleChange = async (newValue: SingleValue<Option | null>): Promise<void> => {
     setSelectedOption(newValue);
 
     if (newValue) {
-      const data = await readFile(newValue);
+      const data = await readFile<Spawner>(newValue, FILE_TYPE.Spawners);
       if (data) {
         setJsonData(data);
       }
@@ -146,7 +129,8 @@ export function Spawners() {
                 </div>
               </TabPanel>
             </Tabs>
-            <a href="#" className="button text-weight-800 not-available" style={{ marginTop: 32, display: "block" }}>Download</a>
+            <a href="#" className="button text-weight-800 not-available"
+               style={{ marginTop: 32, display: "block" }}>Download</a>
           </>
         }
       </span>
