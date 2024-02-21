@@ -146,7 +146,7 @@ export function Spawners() {
                 </div>
               </TabPanel>
             </Tabs>
-            <a href="#" className="button text-weight-800" style={{ marginTop: 32, display: "block" }}>Download</a>
+            <a href="#" className="button text-weight-800 not-available" style={{ marginTop: 32, display: "block" }}>Download</a>
           </>
         }
       </span>
