@@ -21,8 +21,8 @@ export function Header() {
           <nav>
             <ul>
               <li><Link className={isSpawnersActive ? 'nav-active' : ''} to={NavigationPath.Spawners}>Spawners</Link></li>
-              <li><Link className={isParametersActive ? 'nav-active' : ''} to={NavigationPath.Parameters}>Parameters</Link></li>
               <li><Link className={isNodesActive ? 'nav-active' : ''} to={NavigationPath.Nodes}>Nodes</Link></li>
+              <li><Link className={isParametersActive ? 'nav-active' : ''} to={NavigationPath.Parameters}>Parameters</Link></li>
               <li><Link className={isChangelogActive ? 'nav-active' : ''} to={NavigationPath.Changelog}>Changelog</Link></li>
               <li><Link to="#" className="button not-available">Account</Link></li>
             </ul>
