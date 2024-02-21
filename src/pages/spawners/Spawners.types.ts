@@ -23,4 +23,5 @@ export type Spawner = {
   RandomDamage: number;
   InitialUsage: number;
   RandomUsage: number;
+  PostSpawnActions?: string[];
 }

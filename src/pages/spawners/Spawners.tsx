@@ -127,6 +127,12 @@ export function Spawners() {
                   <label htmlFor="random-usage">Random usage:</label>
                   <input type="text" id="random-usage" name="random-usage" defaultValue={jsonData?.RandomDamage}/>
                 </div>
+                <div>
+                  <label htmlFor="post-spawn-actions">Post spawn actions:</label>
+                  {jsonData && jsonData.PostSpawnActions && jsonData.PostSpawnActions.map((action) => (
+                    <p key={action}>{action}</p>
+                  ))}
+                </div>
               </TabPanel>
             </Tabs>
             <a href="#" className="button text-weight-800 not-available"
