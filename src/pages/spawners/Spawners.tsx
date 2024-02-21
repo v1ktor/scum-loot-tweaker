@@ -103,6 +103,9 @@ export function Spawners() {
     <main className="flow content-grid">
 
       <h1 className='site-title'>Spawners</h1>
+      <div className="alert" role="alert">
+        Here will be description of the spawners
+      </div>
 
       <span>
         <Select<Option, false, GroupBase<Option>>
@@ -129,28 +132,27 @@ export function Spawners() {
 
               <TabPanel>
                 <div className="alert" role="alert">
-                  <ul>
-                    <li><strong>Abundant:</strong> 32 times more likely to be selected than <strong>Extremely Rare</strong></li>
-                    <li><strong>Common:</strong> 16 times more likely to be selected than <strong>Extremely Rare</strong></li>
-                    <li><strong>Uncommon:</strong> 8 times more likely to be selected than <strong>Extremely Rare</strong></li>
-                    <li><strong>Rare:</strong> 4 times more likely to be selected than <strong>Extremely Rare</strong></li>
-                    <li><strong>Very Rare:</strong> 2 times more likely to be selected than <strong>Extremely Rare</strong></li>
-                    <li><strong>Extremely Rare:</strong> The same likelihood to be selected as any other <strong>Extremely Rare</strong> object in the set</li>
-                  </ul>
+                  Here will be a form for adding items and probability
                 </div>
 
                 {jsonData && jsonData.Items && jsonData.Items.map((item) => (
                   <p key={item.Id}>Id: {item.Id} - Rarity: {item.Rarity}</p>
                 ))}
-                <p>here will be a form for adding items and probability</p>
               </TabPanel>
               <TabPanel>
+                <div className="alert" role="alert">
+                  Here will be a form for adding fixed items
+                </div>
+
                 {jsonData && jsonData.FixedItems && jsonData.FixedItems.map((item) => (
                   <p key={item}>{item}</p>
                 ))}
-                <p>here will be a form for adding fixed items</p>
               </TabPanel>
               <TabPanel>
+                <div className="alert" role="alert">
+                  Here will be a form for adding pre-made nodes
+                </div>
+
                 {jsonData && jsonData.Nodes && jsonData.Nodes.map((node, key) => (
                   <React.Fragment key="node-wrapper">
                     <p key={key}>Rarity: {node.Rarity}</p>
@@ -159,9 +161,12 @@ export function Spawners() {
                     ))}
                   </React.Fragment>
                 ))}
-                <p>here will be a form for adding pre-made nodes</p>
               </TabPanel>
               <TabPanel>
+                <div className="alert" role="alert">
+                  Here will be tooltips with explanations for each field
+                </div>
+
                 <div>
                   <label htmlFor="probability">Probability:</label>
                   <input type="text" id="probability" name="probability" defaultValue={jsonData?.Probability}/>
@@ -177,12 +182,12 @@ export function Spawners() {
                 <div>
                   <label htmlFor="allow-duplicates">Allow duplicates:</label>
                   <input type="text" id="allow-duplicates" name="allow-duplicates"
-                         defaultValue={String(jsonData?.AllowDuplicates)}/>
+                         defaultValue={jsonData?.AllowDuplicates ? String(jsonData?.AllowDuplicates) : ""}/>
                 </div>
                 <div>
                   <label htmlFor="should-filter-items-by-zone">Should filter items by zone:</label>
                   <input type="text" id="should-filter-items-by-zone" name="should-filter-items-by-zone"
-                         defaultValue={String(jsonData?.ShouldFilterItemsByZone)}/>
+                         defaultValue={jsonData?.ShouldFilterItemsByZone ? String(jsonData?.ShouldFilterItemsByZone) : ""}/>
                 </div>
                 <div>
                   <label htmlFor="initial-damage">Initial damage:</label>
@@ -202,7 +207,7 @@ export function Spawners() {
                 </div>
               </TabPanel>
             </Tabs>
-            <a href="#" className="button text-weight-800" style={{marginTop: 32, display: "block"}}>Download</a>
+            <a href="#" className="button text-weight-800" style={{ marginTop: 32, display: "block" }}>Download</a>
           </>
         }
       </span>
