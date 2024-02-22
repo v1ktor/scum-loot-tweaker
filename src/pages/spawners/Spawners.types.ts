@@ -15,10 +15,10 @@ export type Spawner = {
   FixedItems?: string[];
   Items?: SpawnerItem[];
   Probability?: number;
-  QuantityMin: number;
-  QuantityMax: number;
-  AllowDuplicates: boolean;
-  ShouldFilterItemsByZone: boolean;
+  QuantityMin?: number;
+  QuantityMax?: number;
+  AllowDuplicates?: boolean;
+  ShouldFilterItemsByZone?: boolean;
   InitialDamage: number;
   RandomDamage: number;
   InitialUsage: number;
