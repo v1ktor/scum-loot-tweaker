@@ -5,6 +5,7 @@ import { NODES_OPTIONS } from "../../data/nodes-options.ts";
 import { Node } from "./Nodes.types.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
+import { Alert } from "../../components/alert/Alert.tsx";
 
 export function Nodes() {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
@@ -25,9 +26,7 @@ export function Nodes() {
     <main className="flow content-grid">
 
       <h1 className='site-title'>Nodes</h1>
-      <div className="alert" role="alert">
-        Here will be description of nodes
-      </div>
+      <Alert children={'Here will be description of nodes'} />
 
       <span>
         <Select<Option, false, GroupBase<Option>>

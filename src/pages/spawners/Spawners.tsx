@@ -5,6 +5,7 @@ import { Option, Spawner } from "./Spawners.types.ts";
 import { SPAWNER_OPTIONS } from "../../data/spawnerOptions.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
+import { Alert } from "../../components/alert/Alert.tsx";
 
 export function Spawners() {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
@@ -25,9 +26,7 @@ export function Spawners() {
     <main className="flow content-grid">
 
       <h1 className='site-title'>Spawners</h1>
-      <div className="alert" role="alert">
-        Here will be description of the spawners
-      </div>
+      <Alert children={'Here will be description of the spawners'} />
 
       <span>
         <Select<Option, false, GroupBase<Option>>
@@ -53,27 +52,21 @@ export function Spawners() {
               </TabList>
 
               <TabPanel>
-                <div className="alert" role="alert">
-                  Here will be a form for adding items and probability
-                </div>
+                <Alert children={'Here will be a form for adding items and probability'} />
 
                 {jsonData && jsonData.Items && jsonData.Items.map((item) => (
                   <p key={item.Id}>Id: {item.Id} - Rarity: {item.Rarity}</p>
                 ))}
               </TabPanel>
               <TabPanel>
-                <div className="alert" role="alert">
-                  Here will be a form for adding fixed items
-                </div>
+                <Alert children={'Here will be a form for adding fixed items'} />
 
                 {jsonData && jsonData.FixedItems && jsonData.FixedItems.map((item) => (
                   <p key={item}>{item}</p>
                 ))}
               </TabPanel>
               <TabPanel>
-                <div className="alert" role="alert">
-                  Here will be a form for adding pre-made nodes
-                </div>
+                <Alert children={'Here will be a form for adding pre-made nodes'} />
 
                 {jsonData && jsonData.Nodes && jsonData.Nodes.map((node, key) => (
                   <React.Fragment key="node-wrapper">
@@ -85,9 +78,7 @@ export function Spawners() {
                 ))}
               </TabPanel>
               <TabPanel>
-                <div className="alert" role="alert">
-                  Here will be tooltips with explanations for each field
-                </div>
+                <Alert children={'Here will be tooltips with explanations for each field'} />
 
                 <div>
                   <label htmlFor="probability">Probability:</label>
