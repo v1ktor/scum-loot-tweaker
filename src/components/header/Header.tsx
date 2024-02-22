@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import { NavigationPath } from "../../data/navigationPath.ts";
+import { NavigationPath } from "../../data/navigation-path.ts";
 
 function useActiveMatch(path: string) {
   const resolvedPath = useResolvedPath(path);

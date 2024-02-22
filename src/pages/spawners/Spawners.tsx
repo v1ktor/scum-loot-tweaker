@@ -2,7 +2,7 @@ import Select, { GroupBase, SingleValue } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import React, { useState } from "react";
 import { Option, Spawner } from "./Spawners.types.ts";
-import { SPAWNER_OPTIONS } from "../../data/spawnerOptions.ts";
+import { SPAWNER_OPTIONS } from "../../data/spawner-options.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
 import { Alert } from "../../components/alert/Alert.tsx";

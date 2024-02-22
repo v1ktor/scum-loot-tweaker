@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { NavigationPath } from "./data/navigationPath.ts";
+import { NavigationPath } from "./data/navigation-path.ts";
 import { Changelog } from "./pages/changelog/Changelog.tsx";
 import { Home } from "./pages/home/Home.tsx";
 import { Spawners } from "./pages/spawners/Spawners.tsx";
