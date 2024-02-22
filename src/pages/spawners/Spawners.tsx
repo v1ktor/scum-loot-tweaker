@@ -6,6 +6,7 @@ import { SPAWNER_OPTIONS } from "../../data/spawnerOptions.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
 import { Alert } from "../../components/alert/Alert.tsx";
+import { AMMO } from "../../app/items/ammo.ts";
 
 export function Spawners() {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
@@ -62,7 +63,7 @@ export function Spawners() {
                 <Alert children={'Here will be a form for adding fixed items'} />
 
                 {jsonData && jsonData.FixedItems && jsonData.FixedItems.map((item) => (
-                  <p key={item}>{item}</p>
+                  <p key={item}>{AMMO.get(item)?.name || item}</p>
                 ))}
               </TabPanel>
               <TabPanel>
