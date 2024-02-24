@@ -40,25 +40,28 @@ export function Spawners() {
 
   const handleSpawnerChange = async (spawnerValue: SingleValue<Option | null>) => {
     setSelectedSpawner(spawnerValue);
-
-    if (spawnerValue) {
-      const data = await readFile<Spawner>(spawnerValue, FILE_TYPE.Spawners);
-      if (data) {
-        setJsonData(data);
-
-        setSettingsFormValues({
-          probabilityValue: data.Probability ? BigNumber(data.Probability).toString() : '',
-          quantityMinValue: data.QuantityMin ? BigNumber(data.QuantityMin).toString() : '',
-          quantityMaxValue: data.QuantityMax ? BigNumber(data.QuantityMax).toString() : '',
-          allowDuplicatesValue: data.AllowDuplicates ? `${data.AllowDuplicates}` : '',
-          shouldFilterItemsByZoneValue: data.ShouldFilterItemsByZone ? `${data.ShouldFilterItemsByZone}` : '',
-          initialDamageValue: BigNumber(data.InitialDamage).toString(),
-          randomDamageValue: BigNumber(data.RandomDamage).toString(),
-          initialUsageValue: BigNumber(data.InitialUsage).toString(),
-          randomUsageValue: BigNumber(data.RandomUsage).toString(),
-        })
-      }
+    if (!spawnerValue) {
+      return
     }
+
+    const spawnerJsonData = await readFile<Spawner>(spawnerValue, FILE_TYPE.Spawners);
+    if (!spawnerJsonData) {
+      return
+    }
+
+    setJsonData(spawnerJsonData);
+
+    setSettingsFormValues({
+      probabilityValue: spawnerJsonData.Probability ? BigNumber(spawnerJsonData.Probability).toString() : '',
+      quantityMinValue: spawnerJsonData.QuantityMin ? BigNumber(spawnerJsonData.QuantityMin).toString() : '',
+      quantityMaxValue: spawnerJsonData.QuantityMax ? BigNumber(spawnerJsonData.QuantityMax).toString() : '',
+      allowDuplicatesValue: spawnerJsonData.AllowDuplicates ? `${spawnerJsonData.AllowDuplicates}` : '',
+      shouldFilterItemsByZoneValue: spawnerJsonData.ShouldFilterItemsByZone ? `${spawnerJsonData.ShouldFilterItemsByZone}` : '',
+      initialDamageValue: BigNumber(spawnerJsonData.InitialDamage).toString(),
+      randomDamageValue: BigNumber(spawnerJsonData.RandomDamage).toString(),
+      initialUsageValue: BigNumber(spawnerJsonData.InitialUsage).toString(),
+      randomUsageValue: BigNumber(spawnerJsonData.RandomUsage).toString(),
+    })
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,9 +80,9 @@ export function Spawners() {
   };
 
   const handleSelectMultiChange = (
-    newValue: MultiValue<Option>,
+    newValues: MultiValue<Option>,
   ) => {
-    setPostSpawnActionValues(newValue != null ? [...newValue] : []);
+    setPostSpawnActionValues([...newValues]);
   };
 
   const handleDownload = () => {
@@ -118,6 +121,8 @@ export function Spawners() {
       RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : 0,
       PostSpawnActions: postSpawnActionValuesMapped.length > 0 ? postSpawnActionValuesMapped : undefined,
     };
+
+    console.log(data);
 
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -184,13 +189,15 @@ export function Spawners() {
                 <div className={'form'}>
                   <div>
                     <label htmlFor="probability">Probability:</label>
-                    <input type="text" id="probability" name="probabilityValue" value={settingsFormValues.probabilityValue}
+                    <input type="text" id="probability" name="probabilityValue"
+                           value={settingsFormValues.probabilityValue}
                            onChange={handleChange}/>
                     <IconInfo dataTooltipId={'probability-tooltip'}/>
                     <Tooltip id="probability-tooltip" className="tooltip" border="1px solid #343a40">
                       <ul>
                         <li>
-                          "Probability": {settingsFormValues.probabilityValue || '15'}, indicates a {settingsFormValues.probabilityValue || '15'}% drop rate
+                          "Probability": {settingsFormValues.probabilityValue || '15'}, indicates
+                          a {settingsFormValues.probabilityValue || '15'}% drop rate
                           for the item,
                           which should be adjusted by
                           multiplying with the settings in your ServerSettings.ini and zone modifiers.
@@ -207,12 +214,14 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="quantity-min">Quantity Min:</label>
-                    <input type="text" id="quantity-min" name="quantityMinValue" value={settingsFormValues.quantityMinValue}
+                    <input type="text" id="quantity-min" name="quantityMinValue"
+                           value={settingsFormValues.quantityMinValue}
                            onChange={handleChange}/>
                   </div>
                   <div>
                     <label htmlFor="quantity-max">Quantity Max:</label>
-                    <input type="text" id="quantity-max" name="quantityMaxValue" value={settingsFormValues.quantityMaxValue}
+                    <input type="text" id="quantity-max" name="quantityMaxValue"
+                           value={settingsFormValues.quantityMaxValue}
                            onChange={handleChange}/>
                     <IconInfo dataTooltipId={'quantity-tooltip'}/>
                     <Tooltip id="quantity-tooltip" className="tooltip" border="1px solid #343a40">
@@ -297,7 +306,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="random-damage">Random damage:</label>
-                    <input type="text" id="random-damage" name="randomDamageValue" value={settingsFormValues.randomDamageValue}
+                    <input type="text" id="random-damage" name="randomDamageValue"
+                           value={settingsFormValues.randomDamageValue}
                            onChange={handleChange}/>
                     <IconInfo dataTooltipId={'random-damage-tooltip'}/>
                     <Tooltip id="random-damage-tooltip" className="tooltip" border="1px solid #343a40">
@@ -315,7 +325,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="initial-usage">Initial usage:</label>
-                    <input type="text" id="initial-usage" name="initialUsageValue" value={settingsFormValues.initialUsageValue}
+                    <input type="text" id="initial-usage" name="initialUsageValue"
+                           value={settingsFormValues.initialUsageValue}
                            onChange={handleChange}/>
                     <IconInfo dataTooltipId={'initial-usage-tooltip'}/>
                     <Tooltip id="initial-usage-tooltip" className="tooltip" border="1px solid #343a40">
@@ -327,7 +338,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="random-usage">Random usage:</label>
-                    <input type="text" id="random-usage" name="randomUsageValue" value={settingsFormValues.randomUsageValue}
+                    <input type="text" id="random-usage" name="randomUsageValue"
+                           value={settingsFormValues.randomUsageValue}
                            onChange={handleChange}/>
                     <IconInfo dataTooltipId={'random-usage-tooltip'}/>
                     <Tooltip id="random-usage-tooltip" className="tooltip" border="1px solid #343a40">
