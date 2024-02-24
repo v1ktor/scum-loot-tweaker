@@ -1,6 +1,6 @@
-import Select, { GroupBase, SingleValue } from "react-select";
+import Select, { GroupBase, MultiValue, SingleValue } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Option, Spawner } from "./Spawners.types.ts";
 import { SPAWNER_OPTIONS } from "../../data/spawner-options.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
@@ -12,6 +12,7 @@ import { isNumberAndGreaterThanZero } from "../../utils/validate-spawner.ts";
 import { BOOLEAN_OPTIONS } from "../../data/boolean-options.ts";
 import { Tooltip } from "react-tooltip";
 import { IconInfo } from "../../components/icon-info/IconInfo.tsx";
+import { POST_SPAWN_ACTIONS_OPTIONS } from "../../data/post-spawn-actions-options.ts";
 
 export function Spawners() {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
@@ -27,6 +28,25 @@ export function Spawners() {
   const [randomDamageValue, setRandomDamageValue] = useState<string | undefined>('');
   const [initialUsageValue, setInitialUsageValue] = useState<string | undefined>('');
   const [randomUsageValue, setRandomUsageValue] = useState<string | undefined>('');
+  const [postSpawnActionsValue, setPostSpawnActionsValue] = useState<Option[]>([]);
+
+  useEffect(() => {
+    const postSpawnActions = jsonData?.PostSpawnActions;
+
+    if (postSpawnActions) {
+      const combinedOptions = postSpawnActions.map((action) => {
+        const existingOption = POST_SPAWN_ACTIONS_OPTIONS.find((option) => option.value === action);
+
+        if (existingOption) {
+          return existingOption;
+        }
+
+        return { value: action, label: action };
+      })
+
+      setPostSpawnActionsValue(combinedOptions);
+    }
+  }, [jsonData?.PostSpawnActions]);
 
   const handleChange = async (newValue: SingleValue<Option | null>): Promise<void> => {
     setSelectedOption(newValue);
@@ -85,6 +105,7 @@ export function Spawners() {
     const randomDamage = randomDamageValue ? BigNumber(randomDamageValue).toNumber() : 0;
     const initialUsage = initialUsageValue ? BigNumber(initialUsageValue).toNumber() : 0;
     const randomUsage = randomUsageValue ? BigNumber(randomUsageValue).toNumber() : 0;
+    const postSpawnActions = postSpawnActionsValue.map((action) => action.value).length > 0 ? { PostSpawnActions: postSpawnActionsValue.map((action) => action.value) } : {};
 
     const data: Spawner = {
       ...probability,
@@ -96,6 +117,7 @@ export function Spawners() {
       RandomDamage: randomDamage,
       InitialUsage: initialUsage,
       RandomUsage: randomUsage,
+      ...postSpawnActions,
     }
 
     console.log(data);
@@ -127,6 +149,11 @@ export function Spawners() {
   const handleRandomUsageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRandomUsageValue(event.target.value);
   }
+  const handlePostSpawnActionsChange = (
+    newValue: MultiValue<Option>,
+  ) => {
+    setPostSpawnActionsValue(newValue != null ? [...newValue] : []);
+  };
 
   return (
     <main className="flow content-grid">
@@ -346,6 +373,29 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="post-spawn-actions">Post spawn actions:</label>
+                    <Select<Option, true, GroupBase<Option>>
+                      options={POST_SPAWN_ACTIONS_OPTIONS}
+                      value={postSpawnActionsValue}
+                      isMulti={true}
+                      isClearable={true}
+                      isSearchable={true}
+                      placeholder={"No value"}
+                      styles={DROPDOWN_STYLES<true>(true)}
+                      onChange={handlePostSpawnActionsChange}
+                    />
+                    <IconInfo dataTooltipId={'post-spawn-actions-tooltip'}/>
+                    <Tooltip id="post-spawn-actions-tooltip" className="tooltip" border="1px solid #343a40">
+                      <ul>
+                        <li>"RandomUsage": 35 means the system will select a random number between 0 and 35 and apply
+                          that percentage as damage to the item's maximum uses.
+                        </li>
+                        <li>In this scenario, with "InitialUsage": 5 and "RandomUsage": 35 having selected 15, our item
+                          will spawn with 16 out of 20 uses. This is calculated by first removing 5% of the maximum uses
+                          (which is 1 use from 20), and then removing an additional 15% of the maximum uses (which is 3
+                          uses from 20), resulting in 16 uses remaining (20 - 1 - 3 = 16).
+                        </li>
+                      </ul>
+                    </Tooltip>
                     {jsonData && jsonData.PostSpawnActions && jsonData.PostSpawnActions.map((action) => (
                       <p key={action}>{action}</p>
                     ))}
