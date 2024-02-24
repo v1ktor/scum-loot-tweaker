@@ -19,9 +19,10 @@ export type Spawner = {
   QuantityMax?: number;
   AllowDuplicates?: boolean;
   ShouldFilterItemsByZone?: boolean;
-  InitialDamage: number;
-  RandomDamage: number;
-  InitialUsage: number;
-  RandomUsage: number;
+  InitialDamage?: number;
+  RandomDamage?: number;
+  InitialUsage?: number;
+  RandomUsage?: number;
   PostSpawnActions?: string[];
+  Subpresets?: SpawnerItem[];
 }

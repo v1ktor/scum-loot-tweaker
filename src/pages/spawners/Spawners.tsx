@@ -57,10 +57,10 @@ export function Spawners() {
       quantityMaxValue: spawnerJsonData.QuantityMax ? BigNumber(spawnerJsonData.QuantityMax).toString() : '',
       allowDuplicatesValue: spawnerJsonData.AllowDuplicates ? `${spawnerJsonData.AllowDuplicates}` : '',
       shouldFilterItemsByZoneValue: spawnerJsonData.ShouldFilterItemsByZone ? `${spawnerJsonData.ShouldFilterItemsByZone}` : '',
-      initialDamageValue: BigNumber(spawnerJsonData.InitialDamage).toString(),
-      randomDamageValue: BigNumber(spawnerJsonData.RandomDamage).toString(),
-      initialUsageValue: BigNumber(spawnerJsonData.InitialUsage).toString(),
-      randomUsageValue: BigNumber(spawnerJsonData.RandomUsage).toString(),
+      initialDamageValue: spawnerJsonData.InitialDamage ? BigNumber(spawnerJsonData.InitialDamage).toString() : '',
+      randomDamageValue: spawnerJsonData.RandomDamage ? BigNumber(spawnerJsonData.RandomDamage).toString() : '',
+      initialUsageValue: spawnerJsonData.InitialUsage ? BigNumber(spawnerJsonData.InitialUsage).toString() : '',
+      randomUsageValue: spawnerJsonData.RandomUsage ? BigNumber(spawnerJsonData.RandomUsage).toString() : '',
     })
   }
 
@@ -115,10 +115,10 @@ export function Spawners() {
       ShouldFilterItemsByZone: shouldFilterItemsByZoneValue
         ? shouldFilterItemsByZoneValue === 'true'
         : undefined,
-      InitialDamage: initialDamageValue ? BigNumber(initialDamageValue).toNumber() : 0,
-      RandomDamage: randomDamageValue ? BigNumber(randomDamageValue).toNumber() : 0,
-      InitialUsage: initialUsageValue ? BigNumber(initialUsageValue).toNumber() : 0,
-      RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : 0,
+      InitialDamage: initialDamageValue ? BigNumber(initialDamageValue).toNumber() : undefined,
+      RandomDamage: randomDamageValue ? BigNumber(randomDamageValue).toNumber() : undefined,
+      InitialUsage: initialUsageValue ? BigNumber(initialUsageValue).toNumber() : undefined,
+      RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : undefined,
       PostSpawnActions: postSpawnActionValuesMapped.length > 0 ? postSpawnActionValuesMapped : undefined,
       Nodes: jsonData?.Nodes,
       FixedItems: jsonData?.FixedItems,
@@ -159,6 +159,7 @@ export function Spawners() {
                 <Tab>Items</Tab>
                 <Tab>Fixed Items</Tab>
                 <Tab>Nodes</Tab>
+                <Tab>Subpresets</Tab>
                 <Tab>Settings</Tab>
               </TabList>
 
@@ -187,6 +188,14 @@ export function Spawners() {
                     ))}
                   </React.Fragment>
                 ))}
+              </TabPanel>
+              <TabPanel>
+                <div>
+                  <Alert children={'Here will be a form for adding subpresets'}/>
+                  {jsonData && jsonData.Subpresets && jsonData.Subpresets.map((subpreset) => (
+                    <p key={subpreset.Id}>Id: {subpreset.Id} - Rarity: {subpreset.Rarity}</p>
+                  ))}
+                </div>
               </TabPanel>
               <TabPanel>
                 <div className={'form'}>
@@ -374,8 +383,12 @@ export function Spawners() {
                     <Tooltip id="post-spawn-actions-tooltip" className="tooltip" border="1px solid #343a40">
                       <ul>
                         <li>AB Keycard - if the item is a keycard, assign that it can open the closest bunker.</li>
-                        <li>Ammo Big Stash - if the item is ammo, sets the ammo count to 50-100% capacity of the caliber (example: cal_22 maximum number is 20, it will be 10-20/20).</li>
-                        <li>Ammo Small Stash - if the item is ammo, sets the ammo count to 0-35% capacity of the caliber (example: cal_22 maximum number is 20, it will be 0-7/20).</li>
+                        <li>Ammo Big Stash - if the item is ammo, sets the ammo count to 50-100% capacity of the caliber
+                          (example: cal_22 maximum number is 20, it will be 10-20/20).
+                        </li>
+                        <li>Ammo Small Stash - if the item is ammo, sets the ammo count to 0-35% capacity of the caliber
+                          (example: cal_22 maximum number is 20, it will be 0-7/20).
+                        </li>
                         <li>Cash 200-500 - If the item is Cash, sets it's value to 200-500.</li>
                         <li>Cash 50-200 - If the item is Cash, sets it's value to 50-200.</li>
                         <li>Cash 1-100 - If the item is Cash, sets it's value to 1-100.</li>
