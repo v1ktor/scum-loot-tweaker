@@ -15,145 +15,115 @@ import { IconInfo } from "../../components/icon-info/IconInfo.tsx";
 import { POST_SPAWN_ACTIONS_OPTIONS } from "../../data/post-spawn-actions-options.ts";
 
 export function Spawners() {
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const [selectedSpawner, setSelectedSpawner] = useState<Option | null>(null);
   const [jsonData, setJsonData] = useState<Spawner | null>(null);
   const [dataUrl, setDataUrl] = useState('');
-
-  const [probabilityValue, setProbabilityValue] = useState<string | undefined>('');
-  const [quantityMinValue, setQuantityMinValue] = useState<string | undefined>('');
-  const [quantityMaxValue, setQuantityMaxValue] = useState<string | undefined>('');
-  const [allowDuplicatesValue, setAllowDuplicatesValue] = useState<string | undefined>('');
-  const [shouldFilterItemsByZoneValue, setShouldFilterItemsByZoneValue] = useState<string | undefined>('');
-  const [initialDamageValue, setInitialDamageValue] = useState<string | undefined>('');
-  const [randomDamageValue, setRandomDamageValue] = useState<string | undefined>('');
-  const [initialUsageValue, setInitialUsageValue] = useState<string | undefined>('');
-  const [randomUsageValue, setRandomUsageValue] = useState<string | undefined>('');
-  const [postSpawnActionsValue, setPostSpawnActionsValue] = useState<Option[]>([]);
+  const [settingsFormValues, setSettingsFormValues] = useState({
+    probabilityValue: '',
+    quantityMinValue: '',
+    quantityMaxValue: '',
+    allowDuplicatesValue: '',
+    shouldFilterItemsByZoneValue: '',
+    initialDamageValue: '',
+    randomDamageValue: '',
+    initialUsageValue: '',
+    randomUsageValue: '',
+  })
+  const [postSpawnActionValues, setPostSpawnActionValues] = useState<Option[]>([]);
 
   useEffect(() => {
-    const postSpawnActions = jsonData?.PostSpawnActions;
-
-    if (postSpawnActions) {
-      const combinedOptions = postSpawnActions.map((action) => {
-        const existingOption = POST_SPAWN_ACTIONS_OPTIONS.find((option) => option.value === action);
-
-        if (existingOption) {
-          return existingOption;
-        }
-
-        return { value: action, label: action };
-      })
-
-      setPostSpawnActionsValue(combinedOptions);
-    }
+    const postSpawnActions = jsonData?.PostSpawnActions?.map((action) =>
+      POST_SPAWN_ACTIONS_OPTIONS.find((option) => option.value === action) || { value: action, label: action }
+    ) ?? [];
+    setPostSpawnActionValues(postSpawnActions);
   }, [jsonData?.PostSpawnActions]);
 
-  const handleChange = async (newValue: SingleValue<Option | null>): Promise<void> => {
-    setSelectedOption(newValue);
+  const handleSpawnerChange = async (spawnerValue: SingleValue<Option | null>) => {
+    setSelectedSpawner(spawnerValue);
 
-    if (newValue) {
-      const data = await readFile<Spawner>(newValue, FILE_TYPE.Spawners);
+    if (spawnerValue) {
+      const data = await readFile<Spawner>(spawnerValue, FILE_TYPE.Spawners);
       if (data) {
-        const probability = data.Probability ? BigNumber(data.Probability).toString() : '';
-        const quantityMin = data.QuantityMin ? BigNumber(data.QuantityMin).toString() : '';
-        const quantityMax = data.QuantityMax ? BigNumber(data.QuantityMax).toString() : '';
-        const allowDuplicates = `${data.AllowDuplicates}` === 'true' || `${data.AllowDuplicates}` === 'false' ? `${data.AllowDuplicates}` : '';
-        const shouldFilterItemsByZone = `${data.ShouldFilterItemsByZone}` === 'true' || `${data.ShouldFilterItemsByZone}` === 'false' ? `${data.ShouldFilterItemsByZone}` : '';
-        const initialDamage = BigNumber(data.InitialDamage).toString();
-        const randomDamage = BigNumber(data.RandomDamage).toString();
-        const initialUsage = BigNumber(data.InitialUsage).toString();
-        const randomUsage = BigNumber(data.RandomUsage).toString();
-
         setJsonData(data);
-        setProbabilityValue(probability);
-        setQuantityMinValue(quantityMin);
-        setQuantityMaxValue(quantityMax);
-        setAllowDuplicatesValue(allowDuplicates);
-        setShouldFilterItemsByZoneValue(shouldFilterItemsByZone);
-        setInitialDamageValue(initialDamage);
-        setRandomDamageValue(randomDamage);
-        setInitialUsageValue(initialUsage);
-        setRandomUsageValue(randomUsage);
+
+        setSettingsFormValues({
+          probabilityValue: data.Probability ? BigNumber(data.Probability).toString() : '',
+          quantityMinValue: data.QuantityMin ? BigNumber(data.QuantityMin).toString() : '',
+          quantityMaxValue: data.QuantityMax ? BigNumber(data.QuantityMax).toString() : '',
+          allowDuplicatesValue: data.AllowDuplicates ? `${data.AllowDuplicates}` : '',
+          shouldFilterItemsByZoneValue: data.ShouldFilterItemsByZone ? `${data.ShouldFilterItemsByZone}` : '',
+          initialDamageValue: BigNumber(data.InitialDamage).toString(),
+          randomDamageValue: BigNumber(data.RandomDamage).toString(),
+          initialUsageValue: BigNumber(data.InitialUsage).toString(),
+          randomUsageValue: BigNumber(data.RandomUsage).toString(),
+        })
       }
     }
   }
 
-  const handleAllowDuplicatesChange = (newValue: SingleValue<Option | null>): void => {
-    setAllowDuplicatesValue(newValue?.value);
-  }
-  const handleShouldFilterItemsByZoneChange = (newValue: SingleValue<Option | null>): void => {
-    setShouldFilterItemsByZoneValue(newValue?.value);
-  }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setSettingsFormValues(prevValues => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (name: string) => (newValue: SingleValue<Option | null>) => {
+    setSettingsFormValues(prevValues => ({
+      ...prevValues,
+      [name]: newValue?.value || '',
+    }));
+  };
+
+  const handleSelectMultiChange = (
+    newValue: MultiValue<Option>,
+  ) => {
+    setPostSpawnActionValues(newValue != null ? [...newValue] : []);
+  };
 
   const handleDownload = () => {
-    const probability = probabilityValue && isNumberAndGreaterThanZero(probabilityValue)
-      ? { Probability: BigNumber(probabilityValue).toNumber() }
-      : {}
-    const quantityMin = quantityMinValue && isNumberAndGreaterThanZero(quantityMinValue)
-      ? { QuantityMin: BigNumber(quantityMinValue).toNumber() }
-      : {}
-    const quantityMax = quantityMaxValue && isNumberAndGreaterThanZero(quantityMaxValue)
-      ? { QuantityMax: BigNumber(quantityMaxValue).toNumber() }
-      : {}
-    const allowDuplicates = allowDuplicatesValue
-      ? { AllowDuplicates: allowDuplicatesValue === 'true' }
-      : {}
-    const shouldFilterItemsByZone = shouldFilterItemsByZoneValue
-      ? { ShouldFilterItemsByZone: shouldFilterItemsByZoneValue === 'true' }
-      : {}
-    const initialDamage = initialDamageValue ? BigNumber(initialDamageValue).toNumber() : 0;
-    const randomDamage = randomDamageValue ? BigNumber(randomDamageValue).toNumber() : 0;
-    const initialUsage = initialUsageValue ? BigNumber(initialUsageValue).toNumber() : 0;
-    const randomUsage = randomUsageValue ? BigNumber(randomUsageValue).toNumber() : 0;
-    const postSpawnActions = postSpawnActionsValue.map((action) => action.value).length > 0 ? { PostSpawnActions: postSpawnActionsValue.map((action) => action.value) } : {};
+    const {
+      probabilityValue,
+      quantityMinValue,
+      quantityMaxValue,
+      initialUsageValue,
+      initialDamageValue,
+      randomDamageValue,
+      randomUsageValue,
+      allowDuplicatesValue,
+      shouldFilterItemsByZoneValue
+    } = settingsFormValues;
+    const postSpawnActionValuesMapped = postSpawnActionValues.map(action => action.value);
 
-    const data: Spawner = {
-      ...probability,
-      ...quantityMin,
-      ...quantityMax,
-      ...allowDuplicates,
-      ...shouldFilterItemsByZone,
-      InitialDamage: initialDamage,
-      RandomDamage: randomDamage,
-      InitialUsage: initialUsage,
-      RandomUsage: randomUsage,
-      ...postSpawnActions,
-    }
-
-    console.log(data);
+    const data: Partial<Spawner> = {
+      Probability: isNumberAndGreaterThanZero(probabilityValue)
+        ? BigNumber(probabilityValue).toNumber()
+        : undefined,
+      QuantityMin: isNumberAndGreaterThanZero(quantityMinValue)
+        ? BigNumber(quantityMinValue).toNumber()
+        : undefined,
+      QuantityMax: isNumberAndGreaterThanZero(quantityMaxValue)
+        ? BigNumber(quantityMaxValue).toNumber()
+        : undefined,
+      AllowDuplicates: allowDuplicatesValue
+        ? allowDuplicatesValue === 'true'
+        : undefined,
+      ShouldFilterItemsByZone: shouldFilterItemsByZoneValue
+        ? shouldFilterItemsByZoneValue === 'true'
+        : undefined,
+      InitialDamage: initialDamageValue ? BigNumber(initialDamageValue).toNumber() : 0,
+      RandomDamage: randomDamageValue ? BigNumber(randomDamageValue).toNumber() : 0,
+      InitialUsage: initialUsageValue ? BigNumber(initialUsageValue).toNumber() : 0,
+      RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : 0,
+      PostSpawnActions: postSpawnActionValuesMapped.length > 0 ? postSpawnActionValuesMapped : undefined,
+    };
 
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     setDataUrl(url);
   }
-
-  const handleProbabilityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setProbabilityValue(event.target.value);
-  }
-  const handleQuantityMinChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuantityMinValue(event.target.value);
-  }
-  const handleQuantityMaxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuantityMaxValue(event.target.value);
-  }
-  const handleInitialDamageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInitialDamageValue(event.target.value);
-  }
-  const handleRandomDamageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRandomDamageValue(event.target.value);
-  }
-  const handleInitialUsageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInitialUsageValue(event.target.value);
-  }
-  const handleRandomUsageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRandomUsageValue(event.target.value);
-  }
-  const handlePostSpawnActionsChange = (
-    newValue: MultiValue<Option>,
-  ) => {
-    setPostSpawnActionsValue(newValue != null ? [...newValue] : []);
-  };
 
   return (
     <main className="flow content-grid">
@@ -164,17 +134,17 @@ export function Spawners() {
       <span>
         <Select<Option, false, GroupBase<Option>>
           options={SPAWNER_OPTIONS}
-          value={selectedOption}
+          value={selectedSpawner}
           isSearchable={true}
           isClearable={true}
           styles={DROPDOWN_STYLES()}
           placeholder="Select spawner..."
-          onChange={handleChange}
+          onChange={handleSpawnerChange}
         />
       </span>
 
       <span>
-        {selectedOption &&
+        {selectedSpawner &&
           <>
             <Tabs>
               <TabList>
@@ -214,13 +184,13 @@ export function Spawners() {
                 <div className={'form'}>
                   <div>
                     <label htmlFor="probability">Probability:</label>
-                    <input type="text" id="probability" name="probability" value={probabilityValue}
-                           onChange={handleProbabilityChange}/>
+                    <input type="text" id="probability" name="probabilityValue" value={settingsFormValues.probabilityValue}
+                           onChange={handleChange}/>
                     <IconInfo dataTooltipId={'probability-tooltip'}/>
                     <Tooltip id="probability-tooltip" className="tooltip" border="1px solid #343a40">
                       <ul>
                         <li>
-                          "Probability": {probabilityValue || '15'}, indicates a {probabilityValue || '15'}% drop rate
+                          "Probability": {settingsFormValues.probabilityValue || '15'}, indicates a {settingsFormValues.probabilityValue || '15'}% drop rate
                           for the item,
                           which should be adjusted by
                           multiplying with the settings in your ServerSettings.ini and zone modifiers.
@@ -237,13 +207,13 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="quantity-min">Quantity Min:</label>
-                    <input type="text" id="quantity-min" name="quantity-min" value={quantityMinValue}
-                           onChange={handleQuantityMinChange}/>
+                    <input type="text" id="quantity-min" name="quantityMinValue" value={settingsFormValues.quantityMinValue}
+                           onChange={handleChange}/>
                   </div>
                   <div>
                     <label htmlFor="quantity-max">Quantity Max:</label>
-                    <input type="text" id="quantity-max" name="quantity-max" value={quantityMaxValue}
-                           onChange={handleQuantityMaxChange}/>
+                    <input type="text" id="quantity-max" name="quantityMaxValue" value={settingsFormValues.quantityMaxValue}
+                           onChange={handleChange}/>
                     <IconInfo dataTooltipId={'quantity-tooltip'}/>
                     <Tooltip id="quantity-tooltip" className="tooltip" border="1px solid #343a40">
                       <p>
@@ -256,16 +226,17 @@ export function Spawners() {
                     <label htmlFor="allow-duplicates">Allow duplicates:</label>
                     <Select<Option, false, GroupBase<Option>>
                       options={BOOLEAN_OPTIONS}
-                      value={allowDuplicatesValue ? {
-                        value: allowDuplicatesValue,
-                        label: allowDuplicatesValue
+                      value={settingsFormValues.allowDuplicatesValue ? {
+                        value: settingsFormValues.allowDuplicatesValue,
+                        label: settingsFormValues.allowDuplicatesValue
                       } : undefined}
                       isClearable={true}
                       isSearchable={false}
                       placeholder={"No value"}
                       className={'display-inline-block'}
                       styles={DROPDOWN_STYLES(false)}
-                      onChange={handleAllowDuplicatesChange}
+                      name={'allowDuplicatesValue'}
+                      onChange={handleSelectChange('allowDuplicatesValue')}
                     />
                     <IconInfo dataTooltipId={'allow-duplicates-tooltip'}/>
                     <Tooltip id="allow-duplicates-tooltip" className="tooltip" border="1px solid #343a40">
@@ -284,16 +255,17 @@ export function Spawners() {
                     <label htmlFor="should-filter-items-by-zone">Should filter items by zone:</label>
                     <Select<Option, false, GroupBase<Option>>
                       options={BOOLEAN_OPTIONS}
-                      value={shouldFilterItemsByZoneValue ? {
-                        value: shouldFilterItemsByZoneValue,
-                        label: shouldFilterItemsByZoneValue
+                      value={settingsFormValues.shouldFilterItemsByZoneValue ? {
+                        value: settingsFormValues.shouldFilterItemsByZoneValue,
+                        label: settingsFormValues.shouldFilterItemsByZoneValue
                       } : undefined}
                       isClearable={true}
                       isSearchable={false}
                       placeholder={"No value"}
                       className={'display-inline-block'}
+                      name={'shouldFilterItemsByZoneValue'}
                       styles={DROPDOWN_STYLES(false)}
-                      onChange={handleShouldFilterItemsByZoneChange}
+                      onChange={handleSelectChange('shouldFilterItemsByZoneValue')}
                     />
                     <IconInfo dataTooltipId={'should-filter-items-by-zone-tooltip'}/>
                     <Tooltip id="should-filter-items-by-zone-tooltip" className="tooltip" border="1px solid #343a40">
@@ -312,8 +284,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="initial-damage">Initial damage:</label>
-                    <input type="text" id="initial-damage" name="initial-damage"
-                           value={initialDamageValue} onChange={handleInitialDamageChange}/>
+                    <input type="text" id="initial-damage" name="initialDamageValue"
+                           value={settingsFormValues.initialDamageValue} onChange={handleChange}/>
                     <IconInfo dataTooltipId={'initial-damage-tooltip'}/>
                     <Tooltip id="initial-damage-tooltip" className="tooltip" border="1px solid #343a40">
                       <p>
@@ -325,8 +297,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="random-damage">Random damage:</label>
-                    <input type="text" id="random-damage" name="random-damage" value={randomDamageValue}
-                           onChange={handleRandomDamageChange}/>
+                    <input type="text" id="random-damage" name="randomDamageValue" value={settingsFormValues.randomDamageValue}
+                           onChange={handleChange}/>
                     <IconInfo dataTooltipId={'random-damage-tooltip'}/>
                     <Tooltip id="random-damage-tooltip" className="tooltip" border="1px solid #343a40">
                       <ul>
@@ -343,8 +315,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="initial-usage">Initial usage:</label>
-                    <input type="text" id="initial-usage" name="initial-usage" value={initialUsageValue}
-                           onChange={handleInitialUsageChange}/>
+                    <input type="text" id="initial-usage" name="initialUsageValue" value={settingsFormValues.initialUsageValue}
+                           onChange={handleChange}/>
                     <IconInfo dataTooltipId={'initial-usage-tooltip'}/>
                     <Tooltip id="initial-usage-tooltip" className="tooltip" border="1px solid #343a40">
                       <p>
@@ -355,8 +327,8 @@ export function Spawners() {
                   </div>
                   <div>
                     <label htmlFor="random-usage">Random usage:</label>
-                    <input type="text" id="random-usage" name="random-usage" value={randomUsageValue}
-                           onChange={handleRandomUsageChange}/>
+                    <input type="text" id="random-usage" name="randomUsageValue" value={settingsFormValues.randomUsageValue}
+                           onChange={handleChange}/>
                     <IconInfo dataTooltipId={'random-usage-tooltip'}/>
                     <Tooltip id="random-usage-tooltip" className="tooltip" border="1px solid #343a40">
                       <ul>
@@ -375,13 +347,13 @@ export function Spawners() {
                     <label htmlFor="post-spawn-actions">Post spawn actions:</label>
                     <Select<Option, true, GroupBase<Option>>
                       options={POST_SPAWN_ACTIONS_OPTIONS}
-                      value={postSpawnActionsValue}
+                      value={postSpawnActionValues}
                       isMulti={true}
                       isClearable={true}
                       isSearchable={true}
                       placeholder={"No value"}
                       styles={DROPDOWN_STYLES<true>(true)}
-                      onChange={handlePostSpawnActionsChange}
+                      onChange={handleSelectMultiChange}
                     />
                     <IconInfo dataTooltipId={'post-spawn-actions-tooltip'}/>
                     <Tooltip id="post-spawn-actions-tooltip" className="tooltip" border="1px solid #343a40">
@@ -403,7 +375,7 @@ export function Spawners() {
                 </div>
               </TabPanel>
             </Tabs>
-            <a href={dataUrl} download={selectedOption.value} onClick={handleDownload}
+            <a href={dataUrl} download={selectedSpawner.value} onClick={handleDownload}
                className="button text-weight-800"
                style={{ marginTop: 32, display: "block" }}>Download</a>
           </>
