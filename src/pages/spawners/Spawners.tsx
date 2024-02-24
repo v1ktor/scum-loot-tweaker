@@ -120,6 +120,9 @@ export function Spawners() {
       InitialUsage: initialUsageValue ? BigNumber(initialUsageValue).toNumber() : 0,
       RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : 0,
       PostSpawnActions: postSpawnActionValuesMapped.length > 0 ? postSpawnActionValuesMapped : undefined,
+      Nodes: jsonData?.Nodes,
+      FixedItems: jsonData?.FixedItems,
+      Items: jsonData?.Items,
     };
 
     console.log(data);
