@@ -34,7 +34,7 @@ export function Nodes() {
           value={selectedOption}
           isSearchable={true}
           isClearable={true}
-          styles={DROPDOWN_STYLES}
+          styles={DROPDOWN_STYLES()}
           placeholder="Select node..."
           onChange={handleChange}
         />
