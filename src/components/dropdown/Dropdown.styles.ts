@@ -63,5 +63,16 @@ export const DROPDOWN_STYLES = <T extends boolean = false>(isFullWidth: boolean 
       ...provided,
       color: '#9F9B93',
     }),
+    multiValue: (provided) => ({
+      ...provided,
+      backgroundColor: '#1a1d20',
+      border: '1px solid #343a40',
+      borderRadius: '0.375rem',
+    }),
+    multiValueLabel: (provided) => ({
+      ...provided,
+      color: '#dee2e6',
+      paddingLeft: '9px',
+    }),
   }
 }
