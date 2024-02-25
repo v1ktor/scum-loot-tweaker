@@ -123,9 +123,8 @@ export function Spawners() {
       Nodes: jsonData?.Nodes,
       FixedItems: jsonData?.FixedItems,
       Items: jsonData?.Items,
+      Subpresets: jsonData?.Subpresets,
     };
-
-    console.log(data);
 
     const json = JSON.stringify(data, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
@@ -402,9 +401,6 @@ export function Spawners() {
                         <li>KB Keycard Sentry - TBA.</li>
                       </ul>
                     </Tooltip>
-                    {jsonData && jsonData.PostSpawnActions && jsonData.PostSpawnActions.map((action) => (
-                      <p key={action}>{action}</p>
-                    ))}
                   </div>
                 </div>
               </TabPanel>
