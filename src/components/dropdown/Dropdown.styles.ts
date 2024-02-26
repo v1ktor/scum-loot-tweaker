@@ -5,7 +5,7 @@ export const DROPDOWN_STYLES = <T extends boolean = false>(isFullWidth: boolean 
   return {
     control: (provided, { isDisabled }) => ({
       ...provided,
-      width: isFullWidth ? '100%' : '200px',
+      width: isFullWidth ? '100%' : '300px',
       backgroundColor: isDisabled ? 'grey' : '#141414',
       border: '1px solid #272727',
       borderRadius: '8px',

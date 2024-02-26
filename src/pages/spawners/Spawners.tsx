@@ -449,7 +449,6 @@ export function Spawners() {
                 </div>
               </TabPanel>
               <TabPanel>
-                <Alert children={'Here will be a form for adding items and probability'}/>
                 {itemValues.map((item, index) => (
                     <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
                       <Select<Option, false, GroupBase<Option>>
