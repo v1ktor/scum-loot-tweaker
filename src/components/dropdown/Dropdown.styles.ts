@@ -3,10 +3,10 @@ import { Option } from "../../pages/spawners/Spawners.types.ts";
 
 export const DROPDOWN_STYLES = <T extends boolean = false>(isFullWidth: boolean = true): StylesConfig<Option, T, GroupBase<Option>> => {
   return {
-    control: (provided) => ({
+    control: (provided, { isDisabled }) => ({
       ...provided,
       width: isFullWidth ? '100%' : '200px',
-      backgroundColor: '#141414',
+      backgroundColor: isDisabled ? 'grey' : '#141414',
       border: '1px solid #272727',
       borderRadius: '8px',
       boxShadow: 'none',
@@ -40,6 +40,10 @@ export const DROPDOWN_STYLES = <T extends boolean = false>(isFullWidth: boolean 
     singleValue: (provided) => ({
       ...provided,
       color: '#9F9B93',
+    }),
+    placeholder: (provided, { isDisabled }) => ({
+      ...provided,
+      color: isDisabled ? '#272727' : '#9F9B93',
     }),
     dropdownIndicator: (provided) => ({
       ...provided,

@@ -357,3 +357,10 @@ input:hover {
 .form .tooltip ul {
     margin: 0 0 0 -16px;
 }
+
+.disabled-link {
+    pointer-events: none;
+    color: white;
+    cursor: default;
+    background-color: grey;
+}

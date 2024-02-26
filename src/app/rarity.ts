@@ -1,4 +1,4 @@
-enum Rarity {
+export enum Rarity {
     Abundant = 'Abundant',
     Common = 'Common',
     Uncommon = 'Uncommon',

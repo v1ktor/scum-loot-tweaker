@@ -1,7 +1,7 @@
 import Select, { GroupBase, MultiValue, SingleValue } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import React, { useEffect, useState } from "react";
-import { Option, Spawner } from "./Spawners.types.ts";
+import { Option, Spawner, SpawnerItem } from "./Spawners.types.ts";
 import { SPAWNER_OPTIONS } from "../../data/spawner-options.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
@@ -13,6 +13,13 @@ import { Tooltip } from "react-tooltip";
 import { IconInfo } from "../../components/icon-info/IconInfo.tsx";
 import { POST_SPAWN_ACTIONS_OPTIONS } from "../../data/post-spawn-actions-options.ts";
 import { ITEMS_OPTIONS } from "../../data/items-options.ts";
+import { RARITY_OPTIONS } from "../../data/rarity-options.ts";
+import { Rarity } from "../../app/rarity.ts";
+
+type ItemSelection = {
+  selectedItem: Option | null;
+  selectedRarity: Option | null;
+}
 
 export function Spawners() {
   const [selectedSpawner, setSelectedSpawner] = useState<Option | null>(null);
@@ -31,6 +38,9 @@ export function Spawners() {
   })
   const [postSpawnActionValues, setPostSpawnActionValues] = useState<Option[]>([]);
   const [fixedItemValues, setFixedItemValues] = useState<SingleValue<Option>[]>([null]);
+  const [itemValues, setItemValues] = useState<ItemSelection[]>([
+    { selectedItem: null, selectedRarity: null }
+  ]);
 
   useEffect(() => {
     if (!jsonData) {
@@ -43,7 +53,22 @@ export function Spawners() {
     const postSpawnActions = displayItemsInMultiSelect(jsonData.PostSpawnActions || [], POST_SPAWN_ACTIONS_OPTIONS);
     setPostSpawnActionValues(postSpawnActions);
 
+    const itemsAndRarity = mapItemsAndRarity(jsonData.Items || [], ITEMS_OPTIONS, RARITY_OPTIONS);
+    setItemValues(itemsAndRarity);
+
   }, [jsonData]);
+
+  const mapItemsAndRarity = (items: SpawnerItem[], itemsDb: Option[], rarityDb: Option[]) => {
+    return items.map((item) => {
+      const foundItem = itemsDb.find((dbItem) => dbItem.value === item.Id) || { value: item.Id, label: item.Id };
+      const foundRarity = rarityDb.find((rarity) => rarity.value === item.Rarity) || { value: item.Rarity, label: item.Rarity };
+
+      return {
+        selectedItem: foundItem,
+        selectedRarity: foundRarity,
+      };
+    });
+  };
 
   const addFixedItemSelect = () => {
     setFixedItemValues([...fixedItemValues, null]);
@@ -121,6 +146,13 @@ export function Spawners() {
       shouldFilterItemsByZoneValue
     } = settingsFormValues;
     const filteredFixedItems = fixedItemValues.map(item => item?.value).filter((value): value is string => value !== undefined);
+    const items = itemValues
+      .filter((item): item is { selectedItem: Option; selectedRarity: Option } => item.selectedItem !== null && item.selectedRarity !== null)
+      .map((item) => {
+        const Id = item.selectedItem.value;
+        const RarityValue = item.selectedRarity.value as Rarity;
+        return { Id, Rarity: RarityValue };
+      })
 
     const data: Partial<Spawner> = {
       Probability: isNumberAndGreaterThanZero(probabilityValue)
@@ -145,7 +177,7 @@ export function Spawners() {
       PostSpawnActions: postSpawnActionValues.length > 0 ? postSpawnActionValues.map(action => action.value) : undefined,
       Nodes: jsonData?.Nodes,
       FixedItems: filteredFixedItems.length > 0 ? filteredFixedItems : undefined,
-      Items: jsonData?.Items,
+      Items: items.length > 0 ? items : undefined,
       Subpresets: jsonData?.Subpresets,
     };
 
@@ -153,6 +185,29 @@ export function Spawners() {
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     setDataUrl(url);
+  }
+
+  const isDownloadDisabled = itemValues.some(item => item.selectedItem && !item.selectedRarity);
+
+  const handleItemChange = (selectedOption: SingleValue<Option>, index: number) => {
+    const newSelections = [...itemValues];
+    newSelections[index].selectedItem = selectedOption;
+
+    if (!selectedOption) {
+      newSelections[index].selectedRarity = null;
+    }
+
+    setItemValues(newSelections);
+  };
+
+  const handleRarityChange = (selectedOption: SingleValue<Option>, index: number) => {
+    const newSelections = [...itemValues];
+    newSelections[index].selectedRarity = selectedOption;
+    setItemValues(newSelections);
+  };
+
+  const handleAddNewItemRow = () => {
+    setItemValues([...itemValues, { selectedItem: null, selectedRarity: null }]);
   }
 
   return (
@@ -395,13 +450,34 @@ export function Spawners() {
               </TabPanel>
               <TabPanel>
                 <Alert children={'Here will be a form for adding items and probability'}/>
-
-                {jsonData && jsonData.Items && jsonData.Items.map((item) => (
-                  <p key={item.Id}>Id: {item.Id} - Rarity: {item.Rarity}</p>
+                {itemValues.map((item, index) => (
+                    <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                      <Select<Option, false, GroupBase<Option>>
+                        options={ITEMS_OPTIONS}
+                        value={item.selectedItem}
+                        onChange={(option) => handleItemChange(option, index)}
+                        isClearable={true}
+                        isSearchable={true}
+                        placeholder={"Select item"}
+                        styles={DROPDOWN_STYLES(false)}
+                      />
+                      <Select<Option, false, GroupBase<Option>>
+                        options={RARITY_OPTIONS}
+                        value={item.selectedRarity}
+                        onChange={(option) => handleRarityChange(option, index)}
+                        isSearchable={true}
+                        isClearable={true}
+                        placeholder={"Select rarity"}
+                        styles={DROPDOWN_STYLES(false)}
+                        isDisabled={!item.selectedItem}
+                      />
+                      <br/>
+                    </div>
                 ))}
+                <button onClick={handleAddNewItemRow} style={{ padding: '8px 16px' }}>Add Row</button>
               </TabPanel>
               <TabPanel>
-                <label htmlFor="post-spawn-actions">Fixed items</label>
+                <label htmlFor="fixed-items">Fixed items</label>
                 {fixedItemValues && fixedItemValues.map((item, index) => (
                   <div key={index}> {/* Ensure each select has a unique key */}
                     <Select<Option, false, GroupBase<Option>>
@@ -441,12 +517,11 @@ export function Spawners() {
               </TabPanel>
             </Tabs>
             <a href={dataUrl} download={selectedSpawner.value} onClick={handleDownload}
-               className="button text-weight-800"
+               className={`button text-weight-800 ${isDownloadDisabled ? 'disabled-link' : ''}`}
                style={{ marginTop: 32, display: "block" }}>Download</a>
           </>
         }
-</span>
+      </span>
     </main>
-  )
-    ;
+  );
 }
