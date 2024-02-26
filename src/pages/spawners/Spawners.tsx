@@ -178,59 +178,13 @@ export function Spawners() {
           <>
             <Tabs>
               <TabList>
+                <Tab>Settings</Tab>
                 <Tab>Items</Tab>
                 <Tab>Fixed Items</Tab>
                 <Tab>Nodes</Tab>
                 <Tab>Subpresets</Tab>
-                <Tab>Settings</Tab>
               </TabList>
 
-              <TabPanel>
-                <Alert children={'Here will be a form for adding items and probability'}/>
-
-                {jsonData && jsonData.Items && jsonData.Items.map((item) => (
-                  <p key={item.Id}>Id: {item.Id} - Rarity: {item.Rarity}</p>
-                ))}
-              </TabPanel>
-              <TabPanel>
-                <label htmlFor="post-spawn-actions">Fixed items</label>
-                {fixedItemValues && fixedItemValues.map((item, index) => (
-                  <div key={index}> {/* Ensure each select has a unique key */}
-                    <Select<Option, false, GroupBase<Option>>
-                      options={ITEMS_OPTIONS}
-                      value={item}
-                      onChange={(value) => handleFixedItemsChange(value, index)}
-                      isClearable={true}
-                      isSearchable={true}
-                      placeholder={"No value"}
-                      styles={DROPDOWN_STYLES(true)}
-                    />
-                  </div>
-                ))}
-                <div>
-                  <button onClick={addFixedItemSelect} style={{ padding: '8px 16px' }}>Add Fixed Item</button>
-                </div>
-              </TabPanel>
-              <TabPanel>
-                <Alert children={'Here will be a form for adding pre-made nodes'}/>
-
-                {jsonData && jsonData.Nodes && jsonData.Nodes.map((node, key) => (
-                  <React.Fragment key="node-wrapper">
-                    <p key={key}>Rarity: {node.Rarity}</p>
-                    {node.Ids.map((id) => (
-                      <p key={id}>{id}</p>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </TabPanel>
-              <TabPanel>
-                <div>
-                  <Alert children={'Here will be a form for adding subpresets'}/>
-                  {jsonData && jsonData.Subpresets && jsonData.Subpresets.map((subpreset) => (
-                    <p key={subpreset.Id}>Id: {subpreset.Id} - Rarity: {subpreset.Rarity}</p>
-                  ))}
-                </div>
-              </TabPanel>
               <TabPanel>
                 <div className={'form'}>
                   <div>
@@ -437,6 +391,52 @@ export function Spawners() {
                       </ul>
                     </Tooltip>
                   </div>
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <Alert children={'Here will be a form for adding items and probability'}/>
+
+                {jsonData && jsonData.Items && jsonData.Items.map((item) => (
+                  <p key={item.Id}>Id: {item.Id} - Rarity: {item.Rarity}</p>
+                ))}
+              </TabPanel>
+              <TabPanel>
+                <label htmlFor="post-spawn-actions">Fixed items</label>
+                {fixedItemValues && fixedItemValues.map((item, index) => (
+                  <div key={index}> {/* Ensure each select has a unique key */}
+                    <Select<Option, false, GroupBase<Option>>
+                      options={ITEMS_OPTIONS}
+                      value={item}
+                      onChange={(value) => handleFixedItemsChange(value, index)}
+                      isClearable={true}
+                      isSearchable={true}
+                      placeholder={"No value"}
+                      styles={DROPDOWN_STYLES(true)}
+                    />
+                  </div>
+                ))}
+                <div>
+                  <button onClick={addFixedItemSelect} style={{ padding: '8px 16px' }}>Add Fixed Item</button>
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <Alert children={'Here will be a form for adding pre-made nodes'}/>
+
+                {jsonData && jsonData.Nodes && jsonData.Nodes.map((node, key) => (
+                  <React.Fragment key="node-wrapper">
+                    <p key={key}>Rarity: {node.Rarity}</p>
+                    {node.Ids.map((id) => (
+                      <p key={id}>{id}</p>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </TabPanel>
+              <TabPanel>
+                <div>
+                  <Alert children={'Here will be a form for adding subpresets'}/>
+                  {jsonData && jsonData.Subpresets && jsonData.Subpresets.map((subpreset) => (
+                    <p key={subpreset.Id}>Id: {subpreset.Id} - Rarity: {subpreset.Rarity}</p>
+                  ))}
                 </div>
               </TabPanel>
             </Tabs>
