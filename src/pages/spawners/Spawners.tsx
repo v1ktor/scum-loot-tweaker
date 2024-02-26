@@ -6,13 +6,13 @@ import { SPAWNER_OPTIONS } from "../../data/spawner-options.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
 import { Alert } from "../../components/alert/Alert.tsx";
-import { AMMO } from "../../app/items/ammo.ts";
 import BigNumber from "bignumber.js";
 import { isNumberAndGreaterThanZero } from "../../utils/validate-spawner.ts";
 import { BOOLEAN_OPTIONS } from "../../data/boolean-options.ts";
 import { Tooltip } from "react-tooltip";
 import { IconInfo } from "../../components/icon-info/IconInfo.tsx";
 import { POST_SPAWN_ACTIONS_OPTIONS } from "../../data/post-spawn-actions-options.ts";
+import { ITEMS_OPTIONS } from "../../data/items-options.ts";
 
 export function Spawners() {
   const [selectedSpawner, setSelectedSpawner] = useState<Option | null>(null);
@@ -30,13 +30,37 @@ export function Spawners() {
     randomUsageValue: '',
   })
   const [postSpawnActionValues, setPostSpawnActionValues] = useState<Option[]>([]);
+  const [fixedItemValues, setFixedItemValues] = useState<SingleValue<Option>[]>([null]);
 
   useEffect(() => {
-    const postSpawnActions = jsonData?.PostSpawnActions?.map((action) =>
-      POST_SPAWN_ACTIONS_OPTIONS.find((option) => option.value === action) || { value: action, label: action }
-    ) ?? [];
+    if (!jsonData) {
+      return;
+    }
+
+    const fixedItems = displayItemsInMultiSelect(jsonData.FixedItems || [], ITEMS_OPTIONS);
+    setFixedItemValues(fixedItems);
+
+    const postSpawnActions = displayItemsInMultiSelect(jsonData.PostSpawnActions || [], POST_SPAWN_ACTIONS_OPTIONS);
     setPostSpawnActionValues(postSpawnActions);
-  }, [jsonData?.PostSpawnActions]);
+
+  }, [jsonData]);
+
+  const addFixedItemSelect = () => {
+    setFixedItemValues([...fixedItemValues, null]);
+  }
+
+  const handleFixedItemsChange = (value: SingleValue<Option>, index: number) => {
+    const updatedValues = fixedItemValues.map((item, i) =>
+      i === index ? value : item
+    );
+    setFixedItemValues(updatedValues);
+  }
+
+  const displayItemsInMultiSelect = (itemNames: string[], itemsDb: Option[]) => {
+    return itemNames.map((itemName) => {
+      return itemsDb.find((item) => item.value === itemName) || { value: itemName, label: itemName }
+    }) ?? [];
+  }
 
   const handleSpawnerChange = async (spawnerValue: SingleValue<Option | null>) => {
     setSelectedSpawner(spawnerValue);
@@ -50,7 +74,6 @@ export function Spawners() {
     }
 
     setJsonData(spawnerJsonData);
-
     setSettingsFormValues({
       probabilityValue: spawnerJsonData.Probability ? BigNumber(spawnerJsonData.Probability).toString() : '',
       quantityMinValue: spawnerJsonData.QuantityMin ? BigNumber(spawnerJsonData.QuantityMin).toString() : '',
@@ -79,7 +102,7 @@ export function Spawners() {
     }));
   };
 
-  const handleSelectMultiChange = (
+  const handlePostSpawnSelectMultiChange = (
     newValues: MultiValue<Option>,
   ) => {
     setPostSpawnActionValues([...newValues]);
@@ -97,7 +120,7 @@ export function Spawners() {
       allowDuplicatesValue,
       shouldFilterItemsByZoneValue
     } = settingsFormValues;
-    const postSpawnActionValuesMapped = postSpawnActionValues.map(action => action.value);
+    const filteredFixedItems = fixedItemValues.map(item => item?.value).filter((value): value is string => value !== undefined);
 
     const data: Partial<Spawner> = {
       Probability: isNumberAndGreaterThanZero(probabilityValue)
@@ -119,9 +142,9 @@ export function Spawners() {
       RandomDamage: randomDamageValue ? BigNumber(randomDamageValue).toNumber() : undefined,
       InitialUsage: initialUsageValue ? BigNumber(initialUsageValue).toNumber() : undefined,
       RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : undefined,
-      PostSpawnActions: postSpawnActionValuesMapped.length > 0 ? postSpawnActionValuesMapped : undefined,
+      PostSpawnActions: postSpawnActionValues.length > 0 ? postSpawnActionValues.map(action => action.value) : undefined,
       Nodes: jsonData?.Nodes,
-      FixedItems: jsonData?.FixedItems,
+      FixedItems: filteredFixedItems.length > 0 ? filteredFixedItems : undefined,
       Items: jsonData?.Items,
       Subpresets: jsonData?.Subpresets,
     };
@@ -170,11 +193,23 @@ export function Spawners() {
                 ))}
               </TabPanel>
               <TabPanel>
-                <Alert children={'Here will be a form for adding fixed items'}/>
-
-                {jsonData && jsonData.FixedItems && jsonData.FixedItems.map((item) => (
-                  <p key={item}>{AMMO.get(item)?.name || item}</p>
+                <label htmlFor="post-spawn-actions">Fixed items</label>
+                {fixedItemValues && fixedItemValues.map((item, index) => (
+                  <div key={index}> {/* Ensure each select has a unique key */}
+                    <Select<Option, false, GroupBase<Option>>
+                      options={ITEMS_OPTIONS}
+                      value={item}
+                      onChange={(value) => handleFixedItemsChange(value, index)}
+                      isClearable={true}
+                      isSearchable={true}
+                      placeholder={"No value"}
+                      styles={DROPDOWN_STYLES(true)}
+                    />
+                  </div>
                 ))}
+                <div>
+                  <button onClick={addFixedItemSelect} style={{ padding: '8px 16px' }}>Add Fixed Item</button>
+                </div>
               </TabPanel>
               <TabPanel>
                 <Alert children={'Here will be a form for adding pre-made nodes'}/>
@@ -376,7 +411,7 @@ export function Spawners() {
                       isSearchable={true}
                       placeholder={"No value"}
                       styles={DROPDOWN_STYLES<true>(true)}
-                      onChange={handleSelectMultiChange}
+                      onChange={handlePostSpawnSelectMultiChange}
                     />
                     <IconInfo dataTooltipId={'post-spawn-actions-tooltip'}/>
                     <Tooltip id="post-spawn-actions-tooltip" className="tooltip" border="1px solid #343a40">
@@ -410,7 +445,8 @@ export function Spawners() {
                style={{ marginTop: 32, display: "block" }}>Download</a>
           </>
         }
-      </span>
+</span>
     </main>
-  );
+  )
+    ;
 }
