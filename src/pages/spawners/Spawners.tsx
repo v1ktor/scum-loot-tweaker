@@ -1,7 +1,7 @@
 import Select, { GroupBase, MultiValue, SingleValue } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import React, { useEffect, useState } from "react";
-import { Option, Spawner, SpawnerItem } from "./Spawners.types.ts";
+import { ItemSelection, Option, settingsInitialState, Spawner, SpawnerItem } from "./Spawners.types.ts";
 import { SPAWNER_OPTIONS } from "../../data/spawner-options.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
@@ -16,26 +16,11 @@ import { ITEMS_OPTIONS } from "../../data/items-options.ts";
 import { RARITY_OPTIONS } from "../../data/rarity-options.ts";
 import { Rarity } from "../../app/rarity.ts";
 
-type ItemSelection = {
-  selectedItem: Option | null;
-  selectedRarity: Option | null;
-}
-
 export function Spawners() {
   const [selectedSpawner, setSelectedSpawner] = useState<Option | null>(null);
   const [jsonData, setJsonData] = useState<Spawner | null>(null);
   const [dataUrl, setDataUrl] = useState('');
-  const [settingsFormValues, setSettingsFormValues] = useState({
-    probabilityValue: '',
-    quantityMinValue: '',
-    quantityMaxValue: '',
-    allowDuplicatesValue: '',
-    shouldFilterItemsByZoneValue: '',
-    initialDamageValue: '',
-    randomDamageValue: '',
-    initialUsageValue: '',
-    randomUsageValue: '',
-  })
+  const [settingsFormValues, setSettingsFormValues] = useState(settingsInitialState);
   const [postSpawnActionValues, setPostSpawnActionValues] = useState<Option[]>([]);
   const [fixedItemValues, setFixedItemValues] = useState<SingleValue<Option>[]>([null]);
   const [itemValues, setItemValues] = useState<ItemSelection[]>([

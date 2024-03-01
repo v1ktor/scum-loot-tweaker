@@ -28,3 +28,32 @@ export type Spawner = {
   PostSpawnActions?: string[];
   Subpresets?: SpawnerItem[];
 }
+
+export type ItemSelection = {
+  selectedItem: Option | null;
+  selectedRarity: Option | null;
+}
+
+export type SettingsState = {
+  probabilityValue: string;
+  quantityMinValue: string;
+  quantityMaxValue: string;
+  allowDuplicatesValue: string;
+  shouldFilterItemsByZoneValue: string;
+  initialDamageValue: string;
+  randomDamageValue: string;
+  initialUsageValue: string;
+  randomUsageValue: string;
+}
+
+export const settingsInitialState: SettingsState = {
+    probabilityValue: '',
+    quantityMinValue: '',
+    quantityMaxValue: '',
+    allowDuplicatesValue: '',
+    shouldFilterItemsByZoneValue: '',
+    initialDamageValue: '',
+    randomDamageValue: '',
+    initialUsageValue: '',
+    randomUsageValue: '',
+}
