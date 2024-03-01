@@ -9,12 +9,20 @@ import { Alert } from "../../components/alert/Alert.tsx";
 import BigNumber from "bignumber.js";
 import { isNumberAndGreaterThanZero } from "../../utils/validate-spawner.ts";
 import { BOOLEAN_OPTIONS } from "../../data/boolean-options.ts";
-import { Tooltip } from "react-tooltip";
 import { IconInfo } from "../../components/icon-info/IconInfo.tsx";
 import { POST_SPAWN_ACTIONS_OPTIONS } from "../../data/post-spawn-actions-options.ts";
 import { ITEMS_OPTIONS } from "../../data/items-options.ts";
 import { RARITY_OPTIONS } from "../../data/rarity-options.ts";
 import { Rarity } from "../../app/rarity.ts";
+import { ProbabilityTooltip } from "./tooltips/ProbabilityTooltip.tsx";
+import { QuantityTooltip } from "./tooltips/QuantityTooltip.tsx";
+import { AllowDuplicatesTooltip } from "./tooltips/AllowDuplicatesTooltip.tsx";
+import { ShouldFilterItemsByZoneTooltip } from "./tooltips/ShouldFilterItemsByZoneTooltip.tsx";
+import { InitialDamageTooltip } from "./tooltips/InitialDamageTooltip.tsx";
+import { RandomDamageTooltip } from "./tooltips/RandomDamageTooltip.tsx";
+import { InitialUsageTooltip } from "./tooltips/InitialUsageTooltip.tsx";
+import { PostSpawnActionsTooltip } from "./tooltips/PostSpawnActionsTooltip.tsx";
+import { RandomUsageTooltip } from "./tooltips/RandomUsageTooltip.tsx";
 
 export function Spawners() {
   const [selectedSpawner, setSelectedSpawner] = useState<Option | null>(null);
@@ -46,7 +54,10 @@ export function Spawners() {
   const mapItemsAndRarity = (items: SpawnerItem[], itemsDb: Option[], rarityDb: Option[]) => {
     return items.map((item) => {
       const foundItem = itemsDb.find((dbItem) => dbItem.value === item.Id) || { value: item.Id, label: item.Id };
-      const foundRarity = rarityDb.find((rarity) => rarity.value === item.Rarity) || { value: item.Rarity, label: item.Rarity };
+      const foundRarity = rarityDb.find((rarity) => rarity.value === item.Rarity) || {
+        value: item.Rarity,
+        label: item.Rarity
+      };
 
       return {
         selectedItem: foundItem,
@@ -132,7 +143,10 @@ export function Spawners() {
     } = settingsFormValues;
     const filteredFixedItems = fixedItemValues.map(item => item?.value).filter((value): value is string => value !== undefined);
     const items = itemValues
-      .filter((item): item is { selectedItem: Option; selectedRarity: Option } => item.selectedItem !== null && item.selectedRarity !== null)
+      .filter((item): item is {
+        selectedItem: Option;
+        selectedRarity: Option
+      } => item.selectedItem !== null && item.selectedRarity !== null)
       .map((item) => {
         const Id = item.selectedItem.value;
         const RarityValue = item.selectedRarity.value as Rarity;
@@ -232,25 +246,7 @@ export function Spawners() {
                     <input type="text" id="probability" name="probabilityValue"
                            value={settingsFormValues.probabilityValue}
                            onChange={handleChange}/>
-                    <IconInfo dataTooltipId={'probability-tooltip'}/>
-                    <Tooltip id="probability-tooltip" className="tooltip" border="1px solid #343a40">
-                      <ul>
-                        <li>
-                          "Probability": {settingsFormValues.probabilityValue || '15'}, indicates
-                          a {settingsFormValues.probabilityValue || '15'}% drop rate
-                          for the item,
-                          which should be adjusted by
-                          multiplying with the settings in your ServerSettings.ini and zone modifiers.
-                        </li>
-                        <li>If you desire a 100% drop chance, you can either remove the probability value or set it to
-                          0.
-                        </li>
-                        <li>
-                          If you set the probability to 100, the final drop chance won't be 100% because it still gets
-                          adjusted by the ServerSettings.ini and zone modifiers.
-                        </li>
-                      </ul>
-                    </Tooltip>
+                    <ProbabilityTooltip probabilityValue={settingsFormValues.probabilityValue}/>
                   </div>
                   <div>
                     <label htmlFor="quantity-min">Quantity Min:</label>
@@ -263,13 +259,7 @@ export function Spawners() {
                     <input type="text" id="quantity-max" name="quantityMaxValue"
                            value={settingsFormValues.quantityMaxValue}
                            onChange={handleChange}/>
-                    <IconInfo dataTooltipId={'quantity-tooltip'}/>
-                    <Tooltip id="quantity-tooltip" className="tooltip" border="1px solid #343a40">
-                      <p>
-                        If you set "QuantityMin" to 4 and "QuantityMax" to 9, the spawner will pick a number between 4
-                        and 9 to determine how many items are dropped.
-                      </p>
-                    </Tooltip>
+                    <QuantityTooltip/>
                   </div>
                   <div>
                     <label htmlFor="allow-duplicates">Allow duplicates:</label>
@@ -287,18 +277,7 @@ export function Spawners() {
                       name={'allowDuplicatesValue'}
                       onChange={handleSelectChange('allowDuplicatesValue')}
                     />
-                    <IconInfo dataTooltipId={'allow-duplicates-tooltip'}/>
-                    <Tooltip id="allow-duplicates-tooltip" className="tooltip" border="1px solid #343a40">
-                      <ul>
-                        <li>
-                          "AllowDuplicates": false means you won't receive two of the same item. So, if the spawner
-                          decides to drop 7 items but 3 are duplicates, you'll only receive 4 unique items.
-                        </li>
-                        <li>
-                          "AllowDuplicates": true allows the spawner to spawn the same item multiple times.
-                        </li>
-                      </ul>
-                    </Tooltip>
+                    <AllowDuplicatesTooltip/>
                   </div>
                   <div>
                     <label htmlFor="should-filter-items-by-zone">Should filter items by zone:</label>
@@ -317,64 +296,27 @@ export function Spawners() {
                       onChange={handleSelectChange('shouldFilterItemsByZoneValue')}
                     />
                     <IconInfo dataTooltipId={'should-filter-items-by-zone-tooltip'}/>
-                    <Tooltip id="should-filter-items-by-zone-tooltip" className="tooltip" border="1px solid #343a40">
-                      <ul>
-                        <li>
-                          This refers to the "Coastal," "Continental," and "Mountain" zone locations that are specified
-                          in the Parameters.json file.
-                        </li>
-                        <li>
-                          "ShouldFilterItemsByZone": true means that item spawning will be based on the zone
-                          locations
-                          set in the Parameters.json. If set to false, items can spawn in any location.
-                        </li>
-                      </ul>
-                    </Tooltip>
+                    <ShouldFilterItemsByZoneTooltip/>
                   </div>
                   <div>
                     <label htmlFor="initial-damage">Initial damage:</label>
                     <input type="text" id="initial-damage" name="initialDamageValue"
                            value={settingsFormValues.initialDamageValue} onChange={handleChange}/>
-                    <IconInfo dataTooltipId={'initial-damage-tooltip'}/>
-                    <Tooltip id="initial-damage-tooltip" className="tooltip" border="1px solid #343a40">
-                      <p>
-                        "InitialDamage": 5 means that although the item spawns with 100% durability, the spawner
-                        preset
-                        will apply 5% durability damage to it. Therefore, you will receive the item at 95% durability.
-                      </p>
-                    </Tooltip>
+                    <InitialDamageTooltip/>
                   </div>
                   <div>
                     <label htmlFor="random-damage">Random damage:</label>
                     <input type="text" id="random-damage" name="randomDamageValue"
                            value={settingsFormValues.randomDamageValue}
                            onChange={handleChange}/>
-                    <IconInfo dataTooltipId={'random-damage-tooltip'}/>
-                    <Tooltip id="random-damage-tooltip" className="tooltip" border="1px solid #343a40">
-                      <ul>
-                        <li>"RandomDamage": 35 means the system will choose a random number between 0 and 35 and apply
-                          that percentage as damage to the item's maximum durability.
-                        </li>
-                        <li>
-                          In this case, with "InitialDamage": 5 and "RandomDamage": 35 having selected 25, the item will
-                          spawn with 70% durability. This is calculated by subtracting the initial damage (5%) and the
-                          random damage (25%) from 100%, resulting in 70% (100 - 5 - 25 = 70).
-                        </li>
-                      </ul>
-                    </Tooltip>
+                    <RandomDamageTooltip/>
                   </div>
                   <div>
                     <label htmlFor="initial-usage">Initial usage:</label>
                     <input type="text" id="initial-usage" name="initialUsageValue"
                            value={settingsFormValues.initialUsageValue}
                            onChange={handleChange}/>
-                    <IconInfo dataTooltipId={'initial-usage-tooltip'}/>
-                    <Tooltip id="initial-usage-tooltip" className="tooltip" border="1px solid #343a40">
-                      <p>
-                        "InitialUsage": 5 means that 5% of the maximum uses of an item are removed. If the item has 20
-                        uses, it will remove 1 use.
-                      </p>
-                    </Tooltip>
+                    <InitialUsageTooltip/>
                   </div>
                   <div>
                     <label htmlFor="random-usage">Random usage:</label>
@@ -382,18 +324,7 @@ export function Spawners() {
                            value={settingsFormValues.randomUsageValue}
                            onChange={handleChange}/>
                     <IconInfo dataTooltipId={'random-usage-tooltip'}/>
-                    <Tooltip id="random-usage-tooltip" className="tooltip" border="1px solid #343a40">
-                      <ul>
-                        <li>"RandomUsage": 35 means the system will select a random number between 0 and 35 and apply
-                          that percentage as damage to the item's maximum uses.
-                        </li>
-                        <li>In this scenario, with "InitialUsage": 5 and "RandomUsage": 35 having selected 15, our item
-                          will spawn with 16 out of 20 uses. This is calculated by first removing 5% of the maximum uses
-                          (which is 1 use from 20), and then removing an additional 15% of the maximum uses (which is 3
-                          uses from 20), resulting in 16 uses remaining (20 - 1 - 3 = 16).
-                        </li>
-                      </ul>
-                    </Tooltip>
+                    <RandomUsageTooltip/>
                   </div>
                   <div>
                     <label htmlFor="post-spawn-actions">Post spawn actions:</label>
@@ -407,56 +338,34 @@ export function Spawners() {
                       styles={DROPDOWN_STYLES<true>(true)}
                       onChange={handlePostSpawnSelectMultiChange}
                     />
-                    <IconInfo dataTooltipId={'post-spawn-actions-tooltip'}/>
-                    <Tooltip id="post-spawn-actions-tooltip" className="tooltip" border="1px solid #343a40">
-                      <ul>
-                        <li>AB Keycard - if the item is a keycard, assign that it can open the closest bunker.</li>
-                        <li>Ammo Big Stash - if the item is ammo, sets the ammo count to 50-100% capacity of the caliber
-                          (example: cal_22 maximum number is 20, it will be 10-20/20).
-                        </li>
-                        <li>Ammo Small Stash - if the item is ammo, sets the ammo count to 0-35% capacity of the caliber
-                          (example: cal_22 maximum number is 20, it will be 0-7/20).
-                        </li>
-                        <li>Cash 200-500 - If the item is Cash, sets it's value to 200-500.</li>
-                        <li>Cash 50-200 - If the item is Cash, sets it's value to 50-200.</li>
-                        <li>Cash 1-100 - If the item is Cash, sets it's value to 1-100.</li>
-                        <li>Clothes Dirtiness 93%-96% - if the item is clothes, sets the dirtiness to 93-96%.</li>
-                        <li>Clothes Dirtiness 60%-85% - if the item is clothes, sets the dirtiness to 60-85%.</li>
-                        <li>Clothes Dirtiness 0%-20% - if the item is clothes, sets the dirtiness to 0-20%.</li>
-                        <li>0 Uses - All items with uses will spawn with 0 uses.</li>
-                        <li>KB Keycard Cargo - TBA.</li>
-                        <li>KB Keycard Police - TBA.</li>
-                        <li>KB Keycard Radiation - TBA.</li>
-                        <li>KB Keycard Sentry - TBA.</li>
-                      </ul>
-                    </Tooltip>
+                    <PostSpawnActionsTooltip/>
                   </div>
                 </div>
               </TabPanel>
               <TabPanel>
                 {itemValues.map((item, index) => (
-                    <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                      <Select<Option, false, GroupBase<Option>>
-                        options={ITEMS_OPTIONS}
-                        value={item.selectedItem}
-                        onChange={(option) => handleItemChange(option, index)}
-                        isClearable={true}
-                        isSearchable={true}
-                        placeholder={"Select item"}
-                        styles={DROPDOWN_STYLES(false)}
-                      />
-                      <Select<Option, false, GroupBase<Option>>
-                        options={RARITY_OPTIONS}
-                        value={item.selectedRarity}
-                        onChange={(option) => handleRarityChange(option, index)}
-                        isSearchable={true}
-                        isClearable={true}
-                        placeholder={"Select rarity"}
-                        styles={DROPDOWN_STYLES(false)}
-                        isDisabled={!item.selectedItem}
-                      />
-                      <br/>
-                    </div>
+                  <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                    <Select<Option, false, GroupBase<Option>>
+                      options={ITEMS_OPTIONS}
+                      value={item.selectedItem}
+                      onChange={(option) => handleItemChange(option, index)}
+                      isClearable={true}
+                      isSearchable={true}
+                      placeholder={"Select item"}
+                      styles={DROPDOWN_STYLES(false)}
+                    />
+                    <Select<Option, false, GroupBase<Option>>
+                      options={RARITY_OPTIONS}
+                      value={item.selectedRarity}
+                      onChange={(option) => handleRarityChange(option, index)}
+                      isSearchable={true}
+                      isClearable={true}
+                      placeholder={"Select rarity"}
+                      styles={DROPDOWN_STYLES(false)}
+                      isDisabled={!item.selectedItem}
+                    />
+                    <br/>
+                  </div>
                 ))}
                 <button onClick={handleAddNewItemRow} style={{ padding: '8px 16px' }}>Add Row</button>
               </TabPanel>
