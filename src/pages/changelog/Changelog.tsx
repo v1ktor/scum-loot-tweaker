@@ -1,13 +1,21 @@
 import { Alert } from "../../components/alert/Alert.tsx";
 
 export function Changelog() {
-  const currentVersion = '0.0.2';
+  const currentVersion = '0.0.3';
 
   return (
     <main className="flow content-grid">
 
       <h1 className='site-title'>Changelog</h1>
       <Alert children={`Current version: ${currentVersion}`}></Alert>
+      <div>
+        <h2 style={{ display: 'inline' }}>0.0.3</h2> - 03.03.2024
+        <ul>
+          <li>Added helper text that explains where to put spawner files.</li>
+          <li>Added a placeholder image for the spawner, which will show a screenshot of how the spawner looks in the game.</li>
+          <li>Fixed layout for Items and Fixed Items forms.</li>
+        </ul>
+      </div>
       <div>
         <h2 style={{ display: 'inline' }}>0.0.2</h2> - 27.02.2024
         <ul>
