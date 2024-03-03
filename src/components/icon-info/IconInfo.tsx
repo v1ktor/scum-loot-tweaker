@@ -4,7 +4,7 @@ export interface IconInfoProps {
 
 export function IconInfo(props: IconInfoProps) {
   return (
-    <svg style={{ display: "inline-block", verticalAlign: "middle", margin: "0 16px" }}
+    <svg style={{ display: "inline-block", verticalAlign: "middle", margin: "0 16px 0 4px" }}
          data-tooltip-id={props.dataTooltipId}
          width="24px" height="24px" fill="#9f9b93" version="1.1"
          id="Capa_1" xmlns="http://www.w3.org/2000/svg"

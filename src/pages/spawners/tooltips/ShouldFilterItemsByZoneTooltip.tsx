@@ -1,8 +1,10 @@
 import { Tooltip } from "react-tooltip";
+import { IconInfo } from "../../../components/icon-info/IconInfo.tsx";
 
 export function ShouldFilterItemsByZoneTooltip() {
   return (
     <>
+      <IconInfo dataTooltipId={'should-filter-items-by-zone-tooltip'}/>
       <Tooltip id="should-filter-items-by-zone-tooltip" className="tooltip" border="1px solid #343a40">
         <ul>
           <li>

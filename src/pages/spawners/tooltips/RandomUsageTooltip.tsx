@@ -1,8 +1,10 @@
 import { Tooltip } from "react-tooltip";
+import { IconInfo } from "../../../components/icon-info/IconInfo.tsx";
 
 export function RandomUsageTooltip() {
   return (
     <>
+      <IconInfo dataTooltipId={'random-usage-tooltip'}/>
       <Tooltip id="random-usage-tooltip" className="tooltip" border="1px solid #343a40">
         <ul>
           <li>"RandomUsage": 35 means the system will select a random number between 0 and 35 and apply

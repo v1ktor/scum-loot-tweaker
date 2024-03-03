@@ -9,7 +9,6 @@ import { Alert } from "../../components/alert/Alert.tsx";
 import BigNumber from "bignumber.js";
 import { isNumberAndGreaterThanZero } from "../../utils/validate-spawner.ts";
 import { BOOLEAN_OPTIONS } from "../../data/boolean-options.ts";
-import { IconInfo } from "../../components/icon-info/IconInfo.tsx";
 import { POST_SPAWN_ACTIONS_OPTIONS } from "../../data/post-spawn-actions-options.ts";
 import { ITEMS_OPTIONS } from "../../data/items-options.ts";
 import { RARITY_OPTIONS } from "../../data/rarity-options.ts";
@@ -213,7 +212,16 @@ export function Spawners() {
     <main className="flow content-grid">
 
       <h1 className='site-title'>Spawners</h1>
-      <Alert children={'Here will be description of the spawners'}/>
+      <Alert>
+        <p>
+          Place downloaded files in the following directories:<br/>
+          Single Player: %LocalAppData%\SCUM\Saved\Config\WindowsNoEditor\Loot\Spawners\Presets\Override\<br/>
+          Multiplayer: %Server%\SCUM\Saved\Config\WindowsServer\Loot\Spawners\Presets\Override\
+          <br/>
+          <br/>
+          Do not rename the files, as the name is used to reference the spawner in the game!
+        </p>
+      </Alert>
 
       <span>
         <Select<Option, false, GroupBase<Option>>
@@ -240,29 +248,54 @@ export function Spawners() {
               </TabList>
 
               <TabPanel>
-                <div className={'form'}>
-                  <div>
+                <div className="spawner-settings-form">
+
+                  <div className="probability-label">
                     <label htmlFor="probability">Probability:</label>
-                    <input type="text" id="probability" name="probabilityValue"
+                  </div>
+                  <div className="probability-input">
+                    <input type="text"
+                           id="probability"
+                           name="probabilityValue"
                            value={settingsFormValues.probabilityValue}
                            onChange={handleChange}/>
-                    <ProbabilityTooltip probabilityValue={settingsFormValues.probabilityValue}/>
                   </div>
-                  <div>
+                  <div className="probability-tooltip">
+                    <ProbabilityTooltip
+                      probabilityValue={settingsFormValues.probabilityValue}/>
+                  </div>
+
+                  <div className="quantity-min-label">
                     <label htmlFor="quantity-min">Quantity Min:</label>
-                    <input type="text" id="quantity-min" name="quantityMinValue"
-                           value={settingsFormValues.quantityMinValue}
-                           onChange={handleChange}/>
                   </div>
-                  <div>
+                  <div className="quantity-min-input">
+                    <input
+                      type="text"
+                      id="quantity-min"
+                      name="quantityMinValue"
+                      value={settingsFormValues.quantityMinValue}
+                      onChange={handleChange}/>
+                  </div>
+
+                  <div className="quantity-max-label">
                     <label htmlFor="quantity-max">Quantity Max:</label>
-                    <input type="text" id="quantity-max" name="quantityMaxValue"
-                           value={settingsFormValues.quantityMaxValue}
-                           onChange={handleChange}/>
+                  </div>
+                  <div className="quantity-max-input">
+                    <input
+                      type="text"
+                      id="quantity-max"
+                      name="quantityMaxValue"
+                      value={settingsFormValues.quantityMaxValue}
+                      onChange={handleChange}/>
+                  </div>
+                  <div className="quantity-max-tooltip">
                     <QuantityTooltip/>
                   </div>
-                  <div>
+
+                  <div className="allow-duplicates-label">
                     <label htmlFor="allow-duplicates">Allow duplicates:</label>
+                  </div>
+                  <div className="allow-duplicates-input">
                     <Select<Option, false, GroupBase<Option>>
                       options={BOOLEAN_OPTIONS}
                       value={settingsFormValues.allowDuplicatesValue ? {
@@ -277,10 +310,15 @@ export function Spawners() {
                       name={'allowDuplicatesValue'}
                       onChange={handleSelectChange('allowDuplicatesValue')}
                     />
+                  </div>
+                  <div className="allow-duplicates-tooltip">
                     <AllowDuplicatesTooltip/>
                   </div>
-                  <div>
+
+                  <div className="should-filter-items-by-zone-label">
                     <label htmlFor="should-filter-items-by-zone">Should filter items by zone:</label>
+                  </div>
+                  <div className="should-filter-items-by-zone-input">
                     <Select<Option, false, GroupBase<Option>>
                       options={BOOLEAN_OPTIONS}
                       value={settingsFormValues.shouldFilterItemsByZoneValue ? {
@@ -295,39 +333,75 @@ export function Spawners() {
                       styles={DROPDOWN_STYLES(false)}
                       onChange={handleSelectChange('shouldFilterItemsByZoneValue')}
                     />
-                    <IconInfo dataTooltipId={'should-filter-items-by-zone-tooltip'}/>
+                  </div>
+                  <div className="should-filter-items-by-zone-tooltip">
                     <ShouldFilterItemsByZoneTooltip/>
                   </div>
-                  <div>
+
+                  <div className="initial-damage-label">
                     <label htmlFor="initial-damage">Initial damage:</label>
-                    <input type="text" id="initial-damage" name="initialDamageValue"
-                           value={settingsFormValues.initialDamageValue} onChange={handleChange}/>
+                  </div>
+                  <div className="initial-damage-input">
+                    <input
+                      type="text"
+                      id="initial-damage"
+                      name="initialDamageValue"
+                      value={settingsFormValues.initialDamageValue}
+                      onChange={handleChange}/>
+                  </div>
+                  <div className="initial-damage-tooltip">
                     <InitialDamageTooltip/>
                   </div>
-                  <div>
+
+                  <div className="random-damage-label">
                     <label htmlFor="random-damage">Random damage:</label>
-                    <input type="text" id="random-damage" name="randomDamageValue"
-                           value={settingsFormValues.randomDamageValue}
-                           onChange={handleChange}/>
+                  </div>
+                  <div className="random-damage-input">
+                    <input
+                      type="text"
+                      id="random-damage"
+                      name="randomDamageValue"
+                      value={settingsFormValues.randomDamageValue}
+                      onChange={handleChange}/>
+                  </div>
+                  <div className="random-damage-tooltip">
                     <RandomDamageTooltip/>
                   </div>
-                  <div>
+
+                  <div className="initial-usage-label">
                     <label htmlFor="initial-usage">Initial usage:</label>
-                    <input type="text" id="initial-usage" name="initialUsageValue"
-                           value={settingsFormValues.initialUsageValue}
-                           onChange={handleChange}/>
+                  </div>
+                  <div className="initial-usage-input">
+                    <input
+                      type="text"
+                      id="initial-usage"
+                      name="initialUsageValue"
+                      value={settingsFormValues.initialUsageValue}
+                      onChange={handleChange}/>
+                  </div>
+                  <div className="initial-usage-tooltip">
                     <InitialUsageTooltip/>
                   </div>
-                  <div>
+
+                  <div className="random-usage-label">
                     <label htmlFor="random-usage">Random usage:</label>
-                    <input type="text" id="random-usage" name="randomUsageValue"
-                           value={settingsFormValues.randomUsageValue}
-                           onChange={handleChange}/>
-                    <IconInfo dataTooltipId={'random-usage-tooltip'}/>
+                  </div>
+                  <div className="random-usage-input">
+                    <input
+                      type="text"
+                      id="random-usage"
+                      name="randomUsageValue"
+                      value={settingsFormValues.randomUsageValue}
+                      onChange={handleChange}/>
+                  </div>
+                  <div className="random-usage-tooltip">
                     <RandomUsageTooltip/>
                   </div>
-                  <div>
+
+                  <div className="post-spawn-actions-label">
                     <label htmlFor="post-spawn-actions">Post spawn actions:</label>
+                  </div>
+                  <div className="post-spawn-actions-input">
                     <Select<Option, true, GroupBase<Option>>
                       options={POST_SPAWN_ACTIONS_OPTIONS}
                       value={postSpawnActionValues}
@@ -338,7 +412,15 @@ export function Spawners() {
                       styles={DROPDOWN_STYLES<true>(true)}
                       onChange={handlePostSpawnSelectMultiChange}
                     />
+                  </div>
+                  <div className="post-span-actions-tooltip">
                     <PostSpawnActionsTooltip/>
+                  </div>
+
+                  <div className="spawner-image">
+                    <img
+                      src="https://placehold.co/400x400?text=Spawner+Image+\nComing+Later"
+                      alt="spawner image placeholder"/>
                   </div>
                 </div>
               </TabPanel>

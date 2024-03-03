@@ -326,10 +326,6 @@ input:hover {
     display: block;
 }
 
-.form > div {
-    padding: 4px 0 8px 0;
-}
-
 .display-inline-block {
     display: inline-block;
 }
@@ -344,7 +340,34 @@ input:hover {
     color: #dee2e6;
 }
 
-.form .tooltip {
+.disabled-link {
+    pointer-events: none;
+    color: white;
+    cursor: default;
+    background-color: grey;
+}
+
+.spawner-settings-form {
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr 0.1fr 1.7fr;
+    grid-template-rows: repeat(10, 0.15fr);
+    gap: 12px 12px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "probability-label probability-input probability-tooltip spawner-image"
+    "quantity-min-label quantity-min-input . spawner-image"
+    "quantity-max-label quantity-max-input quantity-max-tooltip spawner-image"
+    "allow-duplicates-label allow-duplicates-input allow-duplicates-tooltip spawner-image"
+    "should-filter-items-by-zone-label should-filter-items-by-zone-input should-filter-items-by-zone-tooltip spawner-image"
+    "initial-damage-label initial-damage-input initial-damage-tooltip spawner-image"
+    "random-damage-label random-damage-input random-damage-tooltip spawner-image"
+    "initial-usage-label initial-usage-input initial-usage-tooltip spawner-image"
+    "random-usage-label random-usage-input random-usage-tooltip spawner-image"
+    "post-spawn-actions-label post-spawn-actions-input post-span-actions-tooltip spawner-image";
+    align-items: baseline;
+}
+
+.spawner-settings-form .tooltip {
     max-width: 500px;
     padding: 12px 20px;
     border-radius: 0.375rem;
@@ -354,13 +377,133 @@ input:hover {
     z-index: 999;
 }
 
-.form .tooltip ul {
+.spawner-settings-form .tooltip ul {
     margin: 0 0 0 -16px;
 }
 
-.disabled-link {
-    pointer-events: none;
-    color: white;
-    cursor: default;
-    background-color: grey;
+.spawner-settings-form input {
+    width: 100%;
+    vertical-align: baseline;
+}
+
+.probability-label {
+    grid-area: probability-label;
+}
+
+.probability-input {
+    grid-area: probability-input;
+}
+
+.probability-tooltip {
+    grid-area: probability-tooltip;
+}
+
+.quantity-min-label {
+    grid-area: quantity-min-label;
+}
+
+.quantity-min-input {
+    grid-area: quantity-min-input;
+}
+
+.quantity-max-label {
+    grid-area: quantity-max-label;
+}
+
+.quantity-max-input {
+    grid-area: quantity-max-input;
+}
+
+.quantity-max-tooltip {
+    grid-area: quantity-max-tooltip;
+}
+
+.allow-duplicates-label {
+    grid-area: allow-duplicates-label;
+}
+
+.allow-duplicates-input {
+    grid-area: allow-duplicates-input;
+}
+
+.allow-duplicates-tooltip {
+    grid-area: allow-duplicates-tooltip;
+}
+
+.should-filter-items-by-zone-label {
+    grid-area: should-filter-items-by-zone-label;
+}
+
+.should-filter-items-by-zone-input {
+    grid-area: should-filter-items-by-zone-input;
+}
+
+.should-filter-items-by-zone-tooltip {
+    grid-area: should-filter-items-by-zone-tooltip;
+}
+
+.initial-damage-label {
+    grid-area: initial-damage-label;
+}
+
+.initial-damage-input {
+    grid-area: initial-damage-input;
+}
+
+.initial-damage-tooltip {
+    grid-area: initial-damage-tooltip;
+}
+
+.random-damage-label {
+    grid-area: random-damage-label;
+}
+
+.random-damage-input {
+    grid-area: random-damage-input;
+}
+
+.random-damage-tooltip {
+    grid-area: random-damage-tooltip;
+}
+
+.initial-usage-label {
+    grid-area: initial-usage-label;
+}
+
+.initial-usage-input {
+    grid-area: initial-usage-input;
+}
+
+.initial-usage-tooltip {
+    grid-area: initial-usage-tooltip;
+}
+
+.random-usage-label {
+    grid-area: random-usage-label;
+}
+
+.random-usage-input {
+    grid-area: random-usage-input;
+}
+
+.random-usage-tooltip {
+    grid-area: random-usage-tooltip;
+}
+
+.post-spawn-actions-label {
+    grid-area: post-spawn-actions-label;
+}
+
+.post-spawn-actions-input {
+    grid-area: post-spawn-actions-input;
+}
+
+.post-span-actions-tooltip {
+    grid-area: post-span-actions-tooltip;
+}
+
+.spawner-image {
+    grid-area: spawner-image;
+    height: 100%;
+    margin-left: 24px;
 }
