@@ -571,7 +571,7 @@ export function Spawners() {
                     <button onClick={() => handleNodeIdRowCreate(nodeIndex)} className="button text-weight-800">Add Id</button>
                   </div>
                 ))}
-                <button onClick={handleNodeGroupCreate} className="button text-weight-800" style={{marginTop: '16px'}}>Add Node Group</button>
+                <button onClick={handleNodeGroupCreate} className="button text-weight-800">Add Node Group</button>
               </TabPanel>
               <TabPanel>
                 <div>
