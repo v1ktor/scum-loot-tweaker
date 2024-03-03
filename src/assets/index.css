@@ -507,3 +507,24 @@ input:hover {
     height: 100%;
     margin-left: 24px;
 }
+
+.spawner-items-form,
+.spawner-fixed-items-form{
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.spawner-items-item-name-input,
+.spawner-items-item-rarity-input,
+.spawner-items-delete-row,
+.spawner-fixed-items-item-name,
+.spawner-fixed-items-delete-row {
+    align-self:baseline;
+}
+
+button {
+    border: none;
+}

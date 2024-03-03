@@ -426,48 +426,55 @@ export function Spawners() {
               </TabPanel>
               <TabPanel>
                 {itemValues.map((item, index) => (
-                  <div key={index} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                    <Select<Option, false, GroupBase<Option>>
-                      options={ITEMS_OPTIONS}
-                      value={item.selectedItem}
-                      onChange={(option) => handleItemChange(option, index)}
-                      isClearable={true}
-                      isSearchable={true}
-                      placeholder={"Select item"}
-                      styles={DROPDOWN_STYLES(false)}
-                    />
-                    <Select<Option, false, GroupBase<Option>>
-                      options={RARITY_OPTIONS}
-                      value={item.selectedRarity}
-                      onChange={(option) => handleRarityChange(option, index)}
-                      isSearchable={true}
-                      isClearable={true}
-                      placeholder={"Select rarity"}
-                      styles={DROPDOWN_STYLES(false)}
-                      isDisabled={!item.selectedItem}
-                    />
+                  <div key={index} className="spawner-items-form">
+                    <div className="spawner-items-item-name-input">
+                      <Select<Option, false, GroupBase<Option>>
+                        options={ITEMS_OPTIONS}
+                        value={item.selectedItem}
+                        onChange={(option) => handleItemChange(option, index)}
+                        isClearable={true}
+                        isSearchable={true}
+                        placeholder={"Select item"}
+                        styles={DROPDOWN_STYLES(false)}
+                      />
+                    </div>
+                    <div className="spawner-items-item-rarity-input">
+                      <Select<Option, false, GroupBase<Option>>
+                        options={RARITY_OPTIONS}
+                        value={item.selectedRarity}
+                        onChange={(option) => handleRarityChange(option, index)}
+                        isSearchable={true}
+                        isClearable={true}
+                        placeholder={"Select rarity"}
+                        styles={DROPDOWN_STYLES(false)}
+                        isDisabled={!item.selectedItem}
+                      />
+                    </div>
+                    <div className="spawner-items-delete-row"></div>
                     <br/>
                   </div>
                 ))}
-                <button onClick={handleAddNewItemRow} style={{ padding: '8px 16px' }}>Add Row</button>
+                <button onClick={handleAddNewItemRow} className="button text-weight-800">Add Item</button>
               </TabPanel>
               <TabPanel>
-                <label htmlFor="fixed-items">Fixed items</label>
                 {fixedItemValues && fixedItemValues.map((item, index) => (
-                  <div key={index}> {/* Ensure each select has a unique key */}
-                    <Select<Option, false, GroupBase<Option>>
-                      options={ITEMS_OPTIONS}
-                      value={item}
-                      onChange={(value) => handleFixedItemsChange(value, index)}
-                      isClearable={true}
-                      isSearchable={true}
-                      placeholder={"No value"}
-                      styles={DROPDOWN_STYLES(true)}
-                    />
+                  <div key={index} className="spawner-fixed-items-form">
+                    <div className="spawner-fixed-items-item-name-input">
+                      <Select<Option, false, GroupBase<Option>>
+                        options={ITEMS_OPTIONS}
+                        value={item}
+                        onChange={(value) => handleFixedItemsChange(value, index)}
+                        isClearable={true}
+                        isSearchable={true}
+                        placeholder={"No value"}
+                        styles={DROPDOWN_STYLES(false)}
+                      />
+                    </div>
+                    <div className="spawner-fixed-items-delete-row"></div>
                   </div>
                 ))}
                 <div>
-                  <button onClick={addFixedItemSelect} style={{ padding: '8px 16px' }}>Add Fixed Item</button>
+                  <button onClick={addFixedItemSelect} className="button text-weight-800">Add Fixed Item</button>
                 </div>
               </TabPanel>
               <TabPanel>
@@ -493,7 +500,7 @@ export function Spawners() {
             </Tabs>
             <a href={dataUrl} download={selectedSpawner.value} onClick={handleDownload}
                className={`button text-weight-800 ${isDownloadDisabled ? 'disabled-link' : ''}`}
-               style={{ marginTop: 32, display: "block" }}>Download</a>
+               style={{ marginTop: 48, display: "block" }}>Download</a>
           </>
         }
       </span>
