@@ -8,9 +8,10 @@ export function Home() {
       <Alert>
         Upcoming features:
         <ul>
-          <li>Adding & removing items to/from the spawners</li>
-          <li>Adding & removing fixed items to/from the spawners</li>
-          <li>Adding & removing nodes to/from the spawners</li>
+          <li>Adding in-game items for spawners</li>
+          <li>Adding in-game images for spawners</li>
+          <li>Adding autocomplete for nodes in spawners</li>
+          <li>Adding preview (items and their rarities) for nodes in spawners</li>
           <li>Adding & removing subpresets</li>
           <li>Copying settings, items and nodes between spawners (e.g. customize one puppet spawner and copy those
             settings to other puppet spawners)
