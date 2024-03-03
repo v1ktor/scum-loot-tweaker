@@ -1,7 +1,7 @@
 import Select, { GroupBase, MultiValue, SingleValue } from "react-select";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import React, { useEffect, useState } from "react";
-import { ItemSelection, Option, settingsInitialState, Spawner, SpawnerItem } from "./Spawners.types.ts";
+import { ItemSelection, Option, settingsInitialState, Spawner, SpawnerItem, SpawnerNode } from "./Spawners.types.ts";
 import { SPAWNER_OPTIONS } from "../../data/spawner-options.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
@@ -22,6 +22,9 @@ import { RandomDamageTooltip } from "./tooltips/RandomDamageTooltip.tsx";
 import { InitialUsageTooltip } from "./tooltips/InitialUsageTooltip.tsx";
 import { PostSpawnActionsTooltip } from "./tooltips/PostSpawnActionsTooltip.tsx";
 import { RandomUsageTooltip } from "./tooltips/RandomUsageTooltip.tsx";
+import { IconDelete } from "../../components/icon-delete/IconDelete.tsx";
+import { IconClear } from "../../components/icon-clear/IconClear.tsx";
+import { IconPreview } from "../../components/icon-preview/IconPreview.tsx";
 
 export function Spawners() {
   const [selectedSpawner, setSelectedSpawner] = useState<Option | null>(null);
@@ -33,6 +36,7 @@ export function Spawners() {
   const [itemValues, setItemValues] = useState<ItemSelection[]>([
     { selectedItem: null, selectedRarity: null }
   ]);
+  const [nodesValues, setNodesValues] = useState<SpawnerNode[]>([]);
 
   useEffect(() => {
     if (!jsonData) {
@@ -47,7 +51,6 @@ export function Spawners() {
 
     const itemsAndRarity = mapItemsAndRarity(jsonData.Items || [], ITEMS_OPTIONS, RARITY_OPTIONS);
     setItemValues(itemsAndRarity);
-
   }, [jsonData]);
 
   const mapItemsAndRarity = (items: SpawnerItem[], itemsDb: Option[], rarityDb: Option[]) => {
@@ -94,6 +97,7 @@ export function Spawners() {
     }
 
     setJsonData(spawnerJsonData);
+    setNodesValues(spawnerJsonData.Nodes ?? []);
     setSettingsFormValues({
       probabilityValue: spawnerJsonData.Probability ? BigNumber(spawnerJsonData.Probability).toString() : '',
       quantityMinValue: spawnerJsonData.QuantityMin ? BigNumber(spawnerJsonData.QuantityMin).toString() : '',
@@ -152,6 +156,15 @@ export function Spawners() {
         return { Id, Rarity: RarityValue };
       })
 
+    const nodes = nodesValues.map(node => {
+      const ids = node.Ids.filter(id => id !== '');
+
+      return {
+        Ids: ids,
+        Rarity: node.Rarity
+      }
+    })
+
     const data: Partial<Spawner> = {
       Probability: isNumberAndGreaterThanZero(probabilityValue)
         ? BigNumber(probabilityValue).toNumber()
@@ -173,7 +186,7 @@ export function Spawners() {
       InitialUsage: initialUsageValue ? BigNumber(initialUsageValue).toNumber() : undefined,
       RandomUsage: randomUsageValue ? BigNumber(randomUsageValue).toNumber() : undefined,
       PostSpawnActions: postSpawnActionValues.length > 0 ? postSpawnActionValues.map(action => action.value) : undefined,
-      Nodes: jsonData?.Nodes,
+      Nodes: nodes.length > 0 ? nodes : undefined,
       FixedItems: filteredFixedItems.length > 0 ? filteredFixedItems : undefined,
       Items: items.length > 0 ? items : undefined,
       Subpresets: jsonData?.Subpresets,
@@ -185,7 +198,12 @@ export function Spawners() {
     setDataUrl(url);
   }
 
-  const isDownloadDisabled = itemValues.some(item => item.selectedItem && !item.selectedRarity);
+  const isDownloadDisabled = () => {
+    const notValidItemValues = itemValues.some(item => item.selectedItem && !item.selectedRarity);
+    const notValidNodesValues = nodesValues.some(node => node.Ids.join('').trim() === '' || !node.Rarity);
+
+    return notValidItemValues || notValidNodesValues;
+  }
 
   const handleItemChange = (selectedOption: SingleValue<Option>, index: number) => {
     const newSelections = [...itemValues];
@@ -208,19 +226,61 @@ export function Spawners() {
     setItemValues([...itemValues, { selectedItem: null, selectedRarity: null }]);
   }
 
+  const handleNodeIdChange = (nodeIndex: number, idIndex: number, value: string) => {
+    const newNodes = [...nodesValues];
+    newNodes[nodeIndex].Ids[idIndex] = value;
+
+    setNodesValues(newNodes);
+  }
+
+  const handleNodeRarityChange = (selectedOption: SingleValue<Option>, index: number) => {
+    const newNodes = [...nodesValues];
+    newNodes[index].Rarity = selectedOption?.value as Rarity;
+
+    setNodesValues(newNodes);
+  }
+
+  const handleNodeIdRowDelete = (nodeIndex: number, idIndex: number) => {
+    const itemsToDelete = 1;
+
+    const newNodes = [...nodesValues];
+    newNodes[nodeIndex].Ids.splice(idIndex, itemsToDelete);
+
+    setNodesValues(newNodes);
+  }
+
+  const handleNodeIdRowClear = (nodeIndex: number, idIndex: number) => {
+    const newNodes = [...nodesValues];
+    newNodes[nodeIndex].Ids[idIndex] = '';
+
+    setNodesValues(newNodes);
+  }
+
+  const handleNodeIdRowCreate = (nodeIndex: number) => {
+    const newNodes = [...nodesValues];
+    newNodes[nodeIndex].Ids.push('');
+
+    setNodesValues(newNodes);
+  }
+
+  const handleNodeGroupCreate = () => {
+    setNodesValues([...nodesValues, { Ids: [''], Rarity: null as unknown as Rarity }]);
+  }
+
+  const handleNodeGroupDelete = (nodeIndex: number) => {
+    setNodesValues(nodesValues.filter((_, i) => i !== nodeIndex))
+  }
+
   return (
     <main className="flow content-grid">
 
       <h1 className='site-title'>Spawners</h1>
       <Alert>
-        <p>
-          Place downloaded files in the following directories:<br/>
-          Single Player: %LocalAppData%\SCUM\Saved\Config\WindowsNoEditor\Loot\Spawners\Presets\Override\<br/>
-          Multiplayer: %Server%\SCUM\Saved\Config\WindowsServer\Loot\Spawners\Presets\Override\
-          <br/>
-          <br/>
-          Do not rename the files, as the name is used to reference the spawner in the game!
-        </p>
+        <p>Place downloaded files in the following directories:</p>
+        <p>Single-Player: <strong>%LocalAppData%\SCUM\Saved\Config\WindowsNoEditor\Loot\Spawners\Presets\Override\</strong></p>
+        <p>Multiplayer: <strong>%Server%\SCUM\Saved\Config\WindowsServer\Loot\Spawners\Presets\Override\</strong></p>
+        <br/>
+        <p>Do not rename the files, as the name is used to reference the spawner in the game!</p>
       </Alert>
 
       <span>
@@ -305,8 +365,7 @@ export function Spawners() {
                       isClearable={true}
                       isSearchable={false}
                       placeholder={"No value"}
-                      className={'display-inline-block'}
-                      styles={DROPDOWN_STYLES(false)}
+                      styles={DROPDOWN_STYLES(true)}
                       name={'allowDuplicatesValue'}
                       onChange={handleSelectChange('allowDuplicatesValue')}
                     />
@@ -328,9 +387,8 @@ export function Spawners() {
                       isClearable={true}
                       isSearchable={false}
                       placeholder={"No value"}
-                      className={'display-inline-block'}
                       name={'shouldFilterItemsByZoneValue'}
-                      styles={DROPDOWN_STYLES(false)}
+                      styles={DROPDOWN_STYLES(true)}
                       onChange={handleSelectChange('shouldFilterItemsByZoneValue')}
                     />
                   </div>
@@ -478,16 +536,42 @@ export function Spawners() {
                 </div>
               </TabPanel>
               <TabPanel>
-                <Alert children={'Here will be a form for adding pre-made nodes'}/>
-
-                {jsonData && jsonData.Nodes && jsonData.Nodes.map((node, key) => (
-                  <React.Fragment key="node-wrapper">
-                    <p key={key}>Rarity: {node.Rarity}</p>
-                    {node.Ids.map((id) => (
-                      <p key={id}>{id}</p>
+                {nodesValues.length > 0 && nodesValues.map((node, nodeIndex) => (
+                  <div key={nodeIndex} className="spawner-nodes-form">
+                    <div className="spawner-nodes-delete">
+                      <IconDelete onClick={() => handleNodeGroupDelete(nodeIndex)}/>
+                    </div>
+                    <div className="spawner-nodes-rarity-row">
+                      <label>Rarity</label>
+                      <Select<Option, false, GroupBase<Option>>
+                        options={RARITY_OPTIONS}
+                        value={RARITY_OPTIONS.find((rarityOption) => rarityOption.value === node.Rarity)}
+                        onChange={(value) => handleNodeRarityChange(value, nodeIndex)}
+                        placeholder={"Select rarity"}
+                        isClearable={true}
+                        isSearchable={true}
+                        styles={DROPDOWN_STYLES(false)}
+                      />
+                    </div>
+                    {node.Ids.map((id, idIndex) => (
+                      <div key={idIndex} className="spawner-nodes-id-row">
+                        <label>Id</label>
+                        <input
+                          type="text"
+                          value={id}
+                          onChange={(e) => handleNodeIdChange(nodeIndex, idIndex, e.target.value)}
+                        />
+                        <div className="spawner-nodes-id-row-icons">
+                          <IconPreview/>
+                          <IconClear onClick={() => handleNodeIdRowClear(nodeIndex, idIndex)}/>
+                          <IconDelete onClick={() => handleNodeIdRowDelete(nodeIndex, idIndex)}/>
+                        </div>
+                      </div>
                     ))}
-                  </React.Fragment>
+                    <button onClick={() => handleNodeIdRowCreate(nodeIndex)} className="button text-weight-800">Add Id</button>
+                  </div>
                 ))}
+                <button onClick={handleNodeGroupCreate} className="button text-weight-800" style={{marginTop: '16px'}}>Add Node Group</button>
               </TabPanel>
               <TabPanel>
                 <div>
@@ -499,7 +583,7 @@ export function Spawners() {
               </TabPanel>
             </Tabs>
             <a href={dataUrl} download={selectedSpawner.value} onClick={handleDownload}
-               className={`button text-weight-800 ${isDownloadDisabled ? 'disabled-link' : ''}`}
+               className={`button text-weight-800 ${isDownloadDisabled() ? 'disabled-link' : ''}`}
                style={{ marginTop: 48, display: "block" }}>Download</a>
           </>
         }

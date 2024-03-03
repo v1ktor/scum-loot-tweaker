@@ -242,6 +242,7 @@ label {
 }
 
 input[type="text"] {
+    font-size: var(--fs-default);
     padding: 12px 16px;
     border-radius: 8px;
     border: 1px solid var(--clr-border);
@@ -349,7 +350,7 @@ input:hover {
 
 .spawner-settings-form {
     display: grid;
-    grid-template-columns: 0.9fr 1.3fr 0.1fr 1.7fr;
+    grid-template-columns: 0.8fr 1.6fr 0.1fr 1.5fr;
     grid-template-rows: repeat(10, 0.15fr);
     gap: 12px 12px;
     grid-auto-flow: row;
@@ -509,7 +510,7 @@ input:hover {
 }
 
 .spawner-items-form,
-.spawner-fixed-items-form{
+.spawner-fixed-items-form {
     display: flex;
     justify-content: flex-start;
     height: 100%;
@@ -522,9 +523,66 @@ input:hover {
 .spawner-items-delete-row,
 .spawner-fixed-items-item-name,
 .spawner-fixed-items-delete-row {
-    align-self:baseline;
+    align-self: baseline;
 }
 
 button {
     border: none;
+    cursor: pointer;
+}
+
+.spawner-nodes-form {
+    border: 1px solid var(--clr-border);
+    border-radius: 5px;
+    padding: 16px 24px;
+    margin-bottom: 16px;
+}
+
+.spawner-nodes-form label {
+    min-width: 40px;
+}
+
+.spawner-nodes-form input {
+    width: 80%;
+}
+
+.spawner-nodes-delete {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-right: -8px;
+}
+
+.spawner-nodes-rarity-row,
+.spawner-nodes-id-row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.spawner-nodes-id-row-icons {
+    margin-left: 12px;
+    display: flex;
+    gap: 12px;
+    align-self: center;
+}
+
+.icon {
+    fill: #ffffff;
+    cursor: pointer;
+}
+
+.icon:hover,
+.icon:active {
+    fill: var(--clr-link);
+}
+
+.icon-danger {
+    fill: #B14852;
+    cursor: pointer;
+}
+
+.icon-danger:hover,
+.icon-danger:active {
+    fill: #dc3545;
 }
