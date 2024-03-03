@@ -9,7 +9,7 @@ export function Home() {
         Upcoming features:
         <ul>
           <li>Adding in-game items for spawners</li>
-          <li>Adding in-game images for spawners</li>
+          <li>In-game images for spawners</li>
           <li>Adding autocomplete for nodes in spawners</li>
           <li>Adding preview (items and their rarities) for nodes in spawners</li>
           <li>Adding & removing subpresets</li>
@@ -21,7 +21,7 @@ export function Home() {
             cooldowns, etc)
           </li>
           <li>Allowing to customize spawners for specific zones or sectors (e.g. selecting a region on the map and
-            allowing to spawn only guns in that region)
+            allowing to spawn specified items in that region)
           </li>
         </ul>
       </Alert>
