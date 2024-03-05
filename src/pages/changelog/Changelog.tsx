@@ -1,13 +1,21 @@
 import { Alert } from "../../components/alert/Alert.tsx";
 
 export function Changelog() {
-  const currentVersion = '0.0.4';
+  const currentVersion = '0.0.5';
 
   return (
     <main className="flow content-grid">
 
       <h1 className='site-title'>Changelog</h1>
       <Alert children={`Current version: ${currentVersion}`}></Alert>
+      <div>
+        <h2 style={{ display: 'inline' }}>0.0.5</h2> - 05.03.2024
+        <ul>
+          <li>It's now possible to inspect in-game nodes. It will show the name of the node and its rarity. If the node
+            contains items, they will also be displayed along with their rarities.
+          </li>
+        </ul>
+      </div>
       <div>
         <h2 style={{ display: 'inline' }}>0.0.4</h2> - 03.03.2024
         <ul>
@@ -16,7 +24,7 @@ export function Changelog() {
           <li>It's now possible to change id of the node in the spawner. Autocomplete of available nodes will come
             later.
           </li>
-          <li>It's not possible to remove id of the node from the spawner.</li>
+          <li>It's now possible to remove id of the node from the spawner.</li>
         </ul>
       </div>
       <div>
