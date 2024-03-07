@@ -347,6 +347,24 @@ import {
   SUPPRESSOR_MP5,
   SUPPRESSOR_SVD
 } from "../app/items/weapons/suppressors.ts";
+import {
+  SCOPE_ACOG_01,
+  SCOPE_DRAGUNOV,
+  SCOPE_HUNTINGSCOPE,
+  SCOPE_M82A1,
+  SCOPE_M82A1_BLACK, SCOPE_M82A1_DESERT, SCOPE_M82A1_SNOW, SCOPE_POSP, SCOPE_PU, SCOPE_VAMPYR, SCOPE_ZF39
+} from "../app/items/weapons/scopes.ts";
+import {
+  SIGHT_AIM_PRO,
+  SIGHT_DEAGLE_RED_DOT,
+  SIGHT_M16A4_FOLDING_SIGHTS,
+  SIGHT_M1_EXPERIMENTAL,
+  SIGHT_M1_SCOPE_AND_SIGHTS,
+  SIGHT_MRO_RED_DOT,
+  SIGHT_OKP_7_HOLOGRAPHIC,
+  SIGHT_RED_DOT_CA401B,
+  SIGHT_SENTRY_RDRS, SIGHT_SHARK, SIGHT_SNAKE, SIGHT_V3_HOLOGRAPHIC, SIGHT_WASP, SIGHT_XPS300_HOLOGRAPHIC
+} from "../app/items/weapons/sights.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -724,4 +742,33 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SUPPRESSOR_SVD.id, label: SUPPRESSOR_SVD.name },
   { value: SUPPRESSOR_BOW_SILENCER.id, label: SUPPRESSOR_BOW_SILENCER.name },
   { value: SUPPRESSOR_BOW_SILENCER_SLIP_ON.id, label: SUPPRESSOR_BOW_SILENCER_SLIP_ON.name },
+
+  { value: SCOPE_ACOG_01.id, label: SCOPE_ACOG_01.name },
+  { value: SCOPE_DRAGUNOV.id, label: SCOPE_DRAGUNOV.name },
+  { value: SCOPE_HUNTINGSCOPE.id, label: SCOPE_HUNTINGSCOPE.name },
+  { value: SCOPE_M82A1.id, label: SCOPE_M82A1.name },
+  { value: SCOPE_M82A1_BLACK.id, label: SCOPE_M82A1_BLACK.name },
+  { value: SCOPE_M82A1_DESERT.id, label: SCOPE_M82A1_DESERT.name },
+  { value: SCOPE_M82A1_SNOW.id, label: SCOPE_M82A1_SNOW.name },
+  { value: SCOPE_POSP.id, label: SCOPE_POSP.name },
+  { value: SCOPE_PU.id, label: SCOPE_PU.name },
+  { value: SCOPE_VAMPYR.id, label: SCOPE_VAMPYR.name },
+  { value: SCOPE_ZF39.id, label: SCOPE_ZF39.name },
+
+  { value: SIGHT_AIM_PRO.id, label: SIGHT_AIM_PRO.name },
+  { value: SIGHT_DEAGLE_RED_DOT.id, label: SIGHT_DEAGLE_RED_DOT.name },
+  { value: SIGHT_M16A4_FOLDING_SIGHTS.id, label: SIGHT_M16A4_FOLDING_SIGHTS.name },
+  { value: SIGHT_M1_EXPERIMENTAL.id, label: SIGHT_M1_EXPERIMENTAL.name },
+  { value: SIGHT_M1_SCOPE_AND_SIGHTS.id, label: SIGHT_M1_SCOPE_AND_SIGHTS.name },
+  { value: SIGHT_MRO_RED_DOT.id, label: SIGHT_MRO_RED_DOT.name },
+  { value: SIGHT_OKP_7_HOLOGRAPHIC.id, label: SIGHT_OKP_7_HOLOGRAPHIC.name },
+  { value: SIGHT_RED_DOT_CA401B.id, label: SIGHT_RED_DOT_CA401B.name },
+  { value: SIGHT_SENTRY_RDRS.id, label: SIGHT_SENTRY_RDRS.name },
+  { value: SIGHT_SHARK.id, label: SIGHT_SHARK.name },
+  { value: SIGHT_SNAKE.id, label: SIGHT_SNAKE.name },
+  { value: SIGHT_V3_HOLOGRAPHIC.id, label: SIGHT_V3_HOLOGRAPHIC.name },
+  { value: SIGHT_WASP.id, label: SIGHT_WASP.name },
+  { value: SIGHT_XPS300_HOLOGRAPHIC.id, label: SIGHT_XPS300_HOLOGRAPHIC.name },
+
+
 ];
