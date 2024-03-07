@@ -365,6 +365,7 @@ import {
   SIGHT_RED_DOT_CA401B,
   SIGHT_SENTRY_RDRS, SIGHT_SHARK, SIGHT_SNAKE, SIGHT_V3_HOLOGRAPHIC, SIGHT_WASP, SIGHT_XPS300_HOLOGRAPHIC
 } from "../app/items/weapons/sights.ts";
+import { BAYONET_KAR98, BAYONET_M1, BAYONET_M70, BAYONET_MOSIN } from "../app/items/weapons/bayonets.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -770,5 +771,8 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SIGHT_WASP.id, label: SIGHT_WASP.name },
   { value: SIGHT_XPS300_HOLOGRAPHIC.id, label: SIGHT_XPS300_HOLOGRAPHIC.name },
 
-
+  { value: BAYONET_KAR98.id, label: BAYONET_KAR98.name },
+  { value: BAYONET_M1.id, label: BAYONET_M1.name },
+  { value: BAYONET_M70.id, label: BAYONET_M70.name },
+  { value: BAYONET_MOSIN.id, label: BAYONET_MOSIN.name },
 ];
