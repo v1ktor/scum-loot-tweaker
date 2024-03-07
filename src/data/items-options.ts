@@ -324,6 +324,29 @@ import {
   MAGAZINE_UMP45,
   MAGAZINE_VHS2
 } from "../app/items/weapons/magazines.ts";
+import {
+  SUPPRESSOR_12_GAUGE,
+  SUPPRESSOR_308_BLACK,
+  SUPPRESSOR_30_06,
+  SUPPRESSOR_338_BLACK,
+  SUPPRESSOR_338_GREEN,
+  SUPPRESSOR_338_TAN,
+  SUPPRESSOR_45ACP,
+  SUPPRESSOR_5_45X39,
+  SUPPRESSOR_AK15, SUPPRESSOR_BOW_SILENCER, SUPPRESSOR_BOW_SILENCER_SLIP_ON,
+  SUPPRESSOR_HANDGUN,
+  SUPPRESSOR_HUNTER,
+  SUPPRESSOR_KAR98K,
+  SUPPRESSOR_M1,
+  SUPPRESSOR_M1891,
+  SUPPRESSOR_M82A1,
+  SUPPRESSOR_M82A1_BLACK,
+  SUPPRESSOR_M82A1_DESERT,
+  SUPPRESSOR_M82A1_SNOW,
+  SUPPRESSOR_MK18,
+  SUPPRESSOR_MP5,
+  SUPPRESSOR_SVD
+} from "../app/items/weapons/suppressors.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -677,4 +700,28 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: MAGAZINE_UMP45.id, label: MAGAZINE_UMP45.name },
   { value: MAGAZINE_VHS2.id, label: MAGAZINE_VHS2.name },
   { value: MAGAZINE_M1.id, label: MAGAZINE_M1.name },
+
+  { value: SUPPRESSOR_12_GAUGE.id, label: SUPPRESSOR_12_GAUGE.name },
+  { value: SUPPRESSOR_308_BLACK.id, label: SUPPRESSOR_308_BLACK.name },
+  { value: SUPPRESSOR_30_06.id, label: SUPPRESSOR_30_06.name },
+  { value: SUPPRESSOR_338_BLACK.id, label: SUPPRESSOR_338_BLACK.name },
+  { value: SUPPRESSOR_338_GREEN.id, label: SUPPRESSOR_338_GREEN.name },
+  { value: SUPPRESSOR_338_TAN.id, label: SUPPRESSOR_338_TAN.name },
+  { value: SUPPRESSOR_45ACP.id, label: SUPPRESSOR_45ACP.name },
+  { value: SUPPRESSOR_5_45X39.id, label: SUPPRESSOR_5_45X39.name },
+  { value: SUPPRESSOR_AK15.id, label: SUPPRESSOR_AK15.name },
+  { value: SUPPRESSOR_HANDGUN.id, label: SUPPRESSOR_HANDGUN.name },
+  { value: SUPPRESSOR_HUNTER.id, label: SUPPRESSOR_HUNTER.name },
+  { value: SUPPRESSOR_KAR98K.id, label: SUPPRESSOR_KAR98K.name },
+  { value: SUPPRESSOR_M1.id, label: SUPPRESSOR_M1.name },
+  { value: SUPPRESSOR_M1891.id, label: SUPPRESSOR_M1891.name },
+  { value: SUPPRESSOR_M82A1.id, label: SUPPRESSOR_M82A1.name },
+  { value: SUPPRESSOR_M82A1_BLACK.id, label: SUPPRESSOR_M82A1_BLACK.name },
+  { value: SUPPRESSOR_M82A1_DESERT.id, label: SUPPRESSOR_M82A1_DESERT.name },
+  { value: SUPPRESSOR_M82A1_SNOW.id, label: SUPPRESSOR_M82A1_SNOW.name },
+  { value: SUPPRESSOR_MK18.id, label: SUPPRESSOR_MK18.name },
+  { value: SUPPRESSOR_MP5.id, label: SUPPRESSOR_MP5.name },
+  { value: SUPPRESSOR_SVD.id, label: SUPPRESSOR_SVD.name },
+  { value: SUPPRESSOR_BOW_SILENCER.id, label: SUPPRESSOR_BOW_SILENCER.name },
+  { value: SUPPRESSOR_BOW_SILENCER_SLIP_ON.id, label: SUPPRESSOR_BOW_SILENCER_SLIP_ON.name },
 ];
