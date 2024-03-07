@@ -6,6 +6,7 @@ import { Node } from "./Nodes.types.ts";
 import { DROPDOWN_STYLES } from "../../components/dropdown/Dropdown.styles.ts";
 import { FILE_TYPE, readFile } from "../../utils/read-file.ts";
 import { Alert } from "../../components/alert/Alert.tsx";
+import { getItemName } from "../../utils/get-item-name.ts";
 
 export function Nodes() {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
@@ -80,7 +81,7 @@ export function Nodes() {
             }}>
               <strong>{node.Name}</strong> <span style={{ color: '#f9c666' }}>{node.Rarity}</span>
               {node.Children && node.Children.map((item, index) => (
-                <div key={index}>{item.Name} <span style={{ color: '#f9c666' }}>{item.Rarity}</span></div>
+                <div key={index}>{getItemName(item.Name)} <span style={{ color: '#f9c666' }}>{item.Rarity}</span></div>
               ))}
             </div>
           </div>
