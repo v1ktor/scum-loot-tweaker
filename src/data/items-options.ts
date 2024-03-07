@@ -103,6 +103,18 @@ import {
   AMMO_792_57_CALIBER_AMMO_BOX,
   AMMO_792_57_CALIBER_AP, AMMO_792_57_CALIBER_AP_AMMO_BOX, AMMO_792_57_CALIBER_TR, AMMO_792_57_CALIBER_TR_AMMO_BOX
 } from "../app/items/ammo/cal-792-57.ts";
+import { AMMO_40_PG_7M, AMMO_40x46 } from "../app/items/ammo/cal-40.ts";
+import {
+  AMMO_CARBON_ARROW,
+  AMMO_CARBON_BROADHEAD_ARROW,
+  AMMO_METAL_ARROW,
+  AMMO_METAL_BROADHEAD_ARROW
+} from "../app/items/ammo/arrows.ts";
+import {
+  AMMO_CROSSBOW_BOLT_CARBON,
+  AMMO_CROSSBOW_BOLT_METAL,
+  AMMO_CROSSBOW_BOLT_WOODEN
+} from "../app/items/ammo/bolts.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -228,4 +240,16 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_792_57_CALIBER_AP_AMMO_BOX.id, label: AMMO_792_57_CALIBER_AP_AMMO_BOX.name },
   { value: AMMO_792_57_CALIBER_TR.id, label: AMMO_792_57_CALIBER_TR.name },
   { value: AMMO_792_57_CALIBER_TR_AMMO_BOX.id, label: AMMO_792_57_CALIBER_TR_AMMO_BOX.name },
+
+  { value: AMMO_40_PG_7M.id, label: AMMO_40_PG_7M.name },
+  { value: AMMO_40x46.id, label: AMMO_40x46.name },
+
+  { value: AMMO_CARBON_ARROW.id, label: AMMO_CARBON_ARROW.name },
+  { value: AMMO_CARBON_BROADHEAD_ARROW.id, label: AMMO_CARBON_BROADHEAD_ARROW.name },
+  { value: AMMO_METAL_ARROW.id, label: AMMO_METAL_ARROW.name },
+  { value: AMMO_METAL_BROADHEAD_ARROW.id, label: AMMO_METAL_BROADHEAD_ARROW.name },
+
+  { value: AMMO_CROSSBOW_BOLT_WOODEN.id, label: AMMO_CROSSBOW_BOLT_WOODEN.name },
+  { value: AMMO_CROSSBOW_BOLT_METAL.id, label: AMMO_CROSSBOW_BOLT_METAL.name },
+  { value: AMMO_CROSSBOW_BOLT_CARBON.id, label: AMMO_CROSSBOW_BOLT_CARBON.name },
 ];
