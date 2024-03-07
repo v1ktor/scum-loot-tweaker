@@ -78,7 +78,7 @@ export const WEAPONS_1H_KITCHEN_KNIFE_04: Item = {
   picture: '',
 } as const
 
-export const WEAPONS_1H_Kunai: Item = {
+export const WEAPONS_1H_KUNAI: Item = {
   id: '1H_Kunai',
   name: 'Kunai',
   picture: '',
@@ -198,7 +198,7 @@ export const WEAPONS_2H_BASEBALL_BAT_BLAZE: Item = {
   picture: '',
 } as const
 
-export const WEAPONS_2H_INDUSTRIAL_GARDERING_HOE: Item = {
+export const WEAPONS_2H_INDUSTRIAL_GARDENING_HOE: Item = {
   id: '2H_Industrial_Gardening_Hoe',
   name: 'Industrial Gardening Hoe',
   picture: '',
@@ -279,5 +279,11 @@ export const WEAPONS_2H_TANG_DAO_BLACK_DRAGON: Item = {
 export const WEAPONS_2H_TANG_DAO_DAMASCUS: Item = {
   id: '2H_Tang_Dao_Damascus',
   name: 'Tang Dao Damascus',
+  picture: '',
+} as const
+
+export const WEAPONS_SLEDGEHAMMER: Item = {
+  id: 'Sledgehammer',
+  name: 'Sledgehammer',
   picture: '',
 } as const
