@@ -149,3 +149,9 @@ export const DRINKS_CANTEEN: Item = {
   name: 'Canteen',
   picture: ''
 } as const;
+
+export const DRINKS_HIP_FLASK: Item = {
+  id: 'Hip_Flask',
+  name: 'Hip Flask',
+  picture: ''
+} as const;
