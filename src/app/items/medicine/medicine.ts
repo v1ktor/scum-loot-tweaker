@@ -173,3 +173,21 @@ export const MEDICINE_VITAMINS_03: Item = {
   name: 'Vitamins Big',
   picture: ''
 } as const;
+
+export const MEDICINE_POTASSIUM_IODIDE_PILLS_SMALL: Item = {
+  id: 'PotassiumIodide_Pills_01',
+  name: 'Potassium Iodide Pills Small',
+  picture: ''
+} as const;
+
+export const MEDICINE_POTASSIUM_IODIDE_PILLS_MEDIUM: Item = {
+  id: 'PotassiumIodide_Pills_02',
+  name: 'Potassium Iodide Pills Medium',
+  picture: ''
+} as const;
+
+export const MEDICINE_POTASSIUM_IODIDE_PILLS_BIG: Item = {
+  id: 'PotassiumIodide_Pills_03',
+  name: 'Potassium Iodide Pills Big',
+  picture: ''
+} as const;
