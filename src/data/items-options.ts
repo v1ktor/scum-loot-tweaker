@@ -492,6 +492,7 @@ import {
 } from "../app/items/clothes/armor.ts";
 import { FUSE_1000A, FUSE_200A, FUSE_400A, FUSE_600A, FUSE_800A } from "../app/items/misc/fuses.ts";
 import { C4_CIRCUIT_BOARD, C4_DETONATOR, C4_KEYPAD, C4_PACK } from "../app/items/misc/c4.ts";
+import { SCREWDRIVER, SCREWDRIVER_SMALL } from "../app/items/misc/screwdrivers.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1039,4 +1040,7 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: C4_DETONATOR.id, label: C4_DETONATOR.name },
   { value: C4_KEYPAD.id, label: C4_KEYPAD.name },
   { value: C4_PACK.id, label: C4_PACK.name },
+
+  { value: SCREWDRIVER.id, label: SCREWDRIVER.name },
+  { value: SCREWDRIVER_SMALL.id, label: SCREWDRIVER_SMALL.name },
 ];
