@@ -258,15 +258,15 @@ export const ARMOR_POLICE_BULLETPROOF_VEST_01: Item = {
   picture: ''
 } as const;
 
-export const ARMOR_STABP_ROOF_VEST_01_01: Item = {
+export const ARMOR_STAB_PROOF_VEST_01_01: Item = {
   id: 'Stabproof_Vest_01_01',
-  name: 'Stabp-roof Vest 01',
+  name: 'Stab-proof Vest 01',
   picture: ''
 } as const;
 
-export const ARMOR_STABP_ROOF_VEST_01_02: Item = {
+export const ARMOR_STAB_PROOF_VEST_01_02: Item = {
   id: 'Stabproof_Vest_01_02',
-  name: 'Stabp-roof Vest 02',
+  name: 'Stab-proof Vest 02',
   picture: ''
 } as const;
 
