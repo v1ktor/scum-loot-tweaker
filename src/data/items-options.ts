@@ -491,6 +491,7 @@ import {
   ARMOR_WW2_GERMAN_HELMET_01
 } from "../app/items/clothes/armor.ts";
 import { FUSE_1000A, FUSE_200A, FUSE_400A, FUSE_600A, FUSE_800A } from "../app/items/misc/fuses.ts";
+import { C4_CIRCUIT_BOARD, C4_DETONATOR, C4_KEYPAD, C4_PACK } from "../app/items/misc/c4.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1033,4 +1034,9 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: FUSE_600A.id, label: FUSE_600A.name },
   { value: FUSE_400A.id, label: FUSE_400A.name },
   { value: FUSE_200A.id, label: FUSE_200A.name },
+
+  { value: C4_CIRCUIT_BOARD.id, label: C4_CIRCUIT_BOARD.name },
+  { value: C4_DETONATOR.id, label: C4_DETONATOR.name },
+  { value: C4_KEYPAD.id, label: C4_KEYPAD.name },
+  { value: C4_PACK.id, label: C4_PACK.name },
 ];
