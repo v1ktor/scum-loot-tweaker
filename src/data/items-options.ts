@@ -733,6 +733,15 @@ import {
   HOODIE_INMATE,
   HOODIE_RK
 } from "../app/items/clothes/hoodies.ts";
+import {
+  VEST_01,
+  VEST_02,
+  VEST_03,
+  VEST_04, VEST_05,
+  VEST_CHRISTMAS,
+  VEST_SHIMORO,
+  VEST_TACTICAL
+} from "../app/items/clothes/vests.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1527,4 +1536,13 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: HOODIE_05.id, label: HOODIE_05.name },
   { value: HOODIE_INMATE.id, label: HOODIE_INMATE.name },
   { value: HOODIE_RK.id, label: HOODIE_RK.name },
+
+  { value: VEST_TACTICAL.id, label: VEST_TACTICAL.name },
+  { value: VEST_CHRISTMAS.id, label: VEST_CHRISTMAS.name },
+  { value: VEST_SHIMORO.id, label: VEST_SHIMORO.name },
+  { value: VEST_01.id, label: VEST_01.name },
+  { value: VEST_02.id, label: VEST_02.name },
+  { value: VEST_03.id, label: VEST_03.name },
+  { value: VEST_04.id, label: VEST_04.name },
+  { value: VEST_05.id, label: VEST_05.name },
 ];
