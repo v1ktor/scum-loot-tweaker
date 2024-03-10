@@ -724,6 +724,15 @@ import {
   SWEATER_TACTICAL_04,
   SWEATER_TACTICAL_05, SWEATER_TACTICAL_06, SWEATER_TACTICAL_07
 } from "../app/items/clothes/sweaters.ts";
+import {
+  HOODIE_01,
+  HOODIE_02,
+  HOODIE_03,
+  HOODIE_04,
+  HOODIE_05,
+  HOODIE_INMATE,
+  HOODIE_RK
+} from "../app/items/clothes/hoodies.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1510,4 +1519,12 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SWEATER_TACTICAL_05.id, label: SWEATER_TACTICAL_05.name },
   { value: SWEATER_TACTICAL_06.id, label: SWEATER_TACTICAL_06.name },
   { value: SWEATER_TACTICAL_07.id, label: SWEATER_TACTICAL_07.name },
+
+  { value: HOODIE_01.id, label: HOODIE_01.name },
+  { value: HOODIE_02.id, label: HOODIE_02.name },
+  { value: HOODIE_03.id, label: HOODIE_03.name },
+  { value: HOODIE_04.id, label: HOODIE_04.name },
+  { value: HOODIE_05.id, label: HOODIE_05.name },
+  { value: HOODIE_INMATE.id, label: HOODIE_INMATE.name },
+  { value: HOODIE_RK.id, label: HOODIE_RK.name },
 ];
