@@ -490,6 +490,7 @@ import {
   ARMOR_WORKING_HELMET_04,
   ARMOR_WW2_GERMAN_HELMET_01
 } from "../app/items/clothes/armor.ts";
+import { FUSE_1000A, FUSE_200A, FUSE_400A, FUSE_600A, FUSE_800A } from "../app/items/misc/fuses.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1026,4 +1027,10 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: ARMOR_STAB_PROOF_VEST_01_07.id, label: ARMOR_STAB_PROOF_VEST_01_07.name },
   { value: ARMOR_STAB_PROOF_VEST_01_08.id, label: ARMOR_STAB_PROOF_VEST_01_08.name },
   { value: ARMOR_STAB_PROOF_VEST_01_09.id, label: ARMOR_STAB_PROOF_VEST_01_09.name },
+
+  { value: FUSE_1000A.id, label: FUSE_1000A.name },
+  { value: FUSE_800A.id, label: FUSE_800A.name },
+  { value: FUSE_600A.id, label: FUSE_600A.name },
+  { value: FUSE_400A.id, label: FUSE_400A.name },
+  { value: FUSE_200A.id, label: FUSE_200A.name },
 ];
