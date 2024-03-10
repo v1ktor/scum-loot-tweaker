@@ -345,7 +345,7 @@ import {
   SUPPRESSOR_M82A1_SNOW,
   SUPPRESSOR_MK18,
   SUPPRESSOR_MP5,
-  SUPPRESSOR_SVD
+  SUPPRESSOR_SVD, SUPPRESSOR_WEAPON_FLASH_HIDER
 } from "../app/items/weapons/suppressors.ts";
 import {
   SCOPE_ACOG_01,
@@ -940,6 +940,7 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SUPPRESSOR_SVD.id, label: SUPPRESSOR_SVD.name },
   { value: SUPPRESSOR_BOW_SILENCER.id, label: SUPPRESSOR_BOW_SILENCER.name },
   { value: SUPPRESSOR_BOW_SILENCER_SLIP_ON.id, label: SUPPRESSOR_BOW_SILENCER_SLIP_ON.name },
+  { value: SUPPRESSOR_WEAPON_FLASH_HIDER.id, label: SUPPRESSOR_WEAPON_FLASH_HIDER.name },
 
   { value: SCOPE_ACOG_01.id, label: SCOPE_ACOG_01.name },
   { value: SCOPE_DRAGUNOV.id, label: SCOPE_DRAGUNOV.name },

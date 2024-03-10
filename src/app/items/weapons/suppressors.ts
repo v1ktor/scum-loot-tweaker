@@ -138,3 +138,10 @@ export const SUPPRESSOR_BOW_SILENCER_SLIP_ON: Item = {
   picture: ''
 } as const;
 
+export const SUPPRESSOR_WEAPON_FLASH_HIDER: Item = {
+  id: 'WeaponFlashHider',
+  name: 'M1 Flash Hider',
+  picture: ''
+} as const;
+
+
