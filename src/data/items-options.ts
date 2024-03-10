@@ -782,6 +782,7 @@ import {
   SHIRT_WOODCUTTERS_01,
   SHIRT_WOODCUTTERS_02, SHIRT_WOODCUTTERS_03
 } from "../app/items/clothes/shirts.ts";
+import { COMPASS, COMPASS_ADVANCED, COMPASS_BASIC } from "../app/items/misc/compass.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1625,4 +1626,8 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SHIRT_WOODCUTTERS_01.id, label: SHIRT_WOODCUTTERS_01.name },
   { value: SHIRT_WOODCUTTERS_02.id, label: SHIRT_WOODCUTTERS_02.name },
   { value: SHIRT_WOODCUTTERS_03.id, label: SHIRT_WOODCUTTERS_03.name },
+
+  { value: COMPASS.id, label: COMPASS.name },
+  { value: COMPASS_BASIC.id, label: COMPASS_BASIC.name },
+  { value: COMPASS_ADVANCED.id, label: COMPASS_ADVANCED.name },
 ];
