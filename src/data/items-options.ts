@@ -493,6 +493,20 @@ import {
 import { FUSE_1000A, FUSE_200A, FUSE_400A, FUSE_600A, FUSE_800A } from "../app/items/misc/fuses.ts";
 import { C4_CIRCUIT_BOARD, C4_DETONATOR, C4_KEYPAD, C4_PACK } from "../app/items/misc/c4.ts";
 import { SCREWDRIVER, SCREWDRIVER_SMALL } from "../app/items/misc/screwdrivers.ts";
+import {
+  CANNED_CAT_FOOD,
+  CANNED_CORN,
+  CANNED_DOG_FOOD,
+  CANNED_FRUIT_COCKTAIL,
+  CANNED_GOULASH,
+  CANNED_PEACH,
+  CANNED_PEAR,
+  CANNED_PEAS,
+  CANNED_SARDINE,
+  CANNED_SEAFOOD_MIX,
+  CANNED_SPAGHETTI,
+  CANNED_TUNA
+} from "../app/items/food/canned-food.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1043,4 +1057,17 @@ export const ITEMS_OPTIONS: Option[] = [
 
   { value: SCREWDRIVER.id, label: SCREWDRIVER.name },
   { value: SCREWDRIVER_SMALL.id, label: SCREWDRIVER_SMALL.name },
+
+  { value: CANNED_CORN.id, label: CANNED_CORN.name },
+  { value: CANNED_TUNA.id, label: CANNED_TUNA.name },
+  { value: CANNED_CAT_FOOD.id, label: CANNED_CAT_FOOD.name },
+  { value: CANNED_DOG_FOOD.id, label: CANNED_DOG_FOOD.name },
+  { value: CANNED_FRUIT_COCKTAIL.id, label: CANNED_FRUIT_COCKTAIL.name },
+  { value: CANNED_GOULASH.id, label: CANNED_GOULASH.name },
+  { value: CANNED_PEACH.id, label: CANNED_PEACH.name },
+  { value: CANNED_PEAR.id, label: CANNED_PEAR.name },
+  { value: CANNED_PEAS.id, label: CANNED_PEAS.name },
+  { value: CANNED_SARDINE.id, label: CANNED_SARDINE.name },
+  { value: CANNED_SEAFOOD_MIX.id, label: CANNED_SEAFOOD_MIX.name },
+  { value: CANNED_SPAGHETTI.id, label: CANNED_SPAGHETTI.name },
 ];
