@@ -657,6 +657,13 @@ import {
   PANTS_WORKING_01_02,
   PANTS_WORKING_01_03
 } from "../app/items/clothes/pants.ts";
+import {
+  LOCK_BCU_ITEM,
+  LOCK_DIAL_ITEM,
+  LOCK_ITEM_ADVANCED,
+  LOCK_ITEM_BASIC,
+  LOCK_ITEMS_MEDIUM
+} from "../app/items/misc/locks.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1373,4 +1380,10 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: PANTS_JEANS_02_09.id, label: PANTS_JEANS_02_09.name },
   { value: PANTS_JEANS_JERSEY_JACKET_01.id, label: PANTS_JEANS_JERSEY_JACKET_01.name },
   { value: PANTS_JEANS_JERSEY_JACKET_02.id, label: PANTS_JEANS_JERSEY_JACKET_02.name },
+
+  { value: LOCK_ITEM_ADVANCED.id, label: LOCK_ITEM_ADVANCED.name },
+  { value: LOCK_ITEM_BASIC.id, label: LOCK_ITEM_BASIC.name },
+  { value: LOCK_ITEMS_MEDIUM.id, label: LOCK_ITEMS_MEDIUM.name },
+  { value: LOCK_BCU_ITEM.id, label: LOCK_BCU_ITEM.name },
+  { value: LOCK_DIAL_ITEM.id, label: LOCK_DIAL_ITEM.name },
 ];
