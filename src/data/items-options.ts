@@ -783,6 +783,7 @@ import {
   SHIRT_WOODCUTTERS_02, SHIRT_WOODCUTTERS_03
 } from "../app/items/clothes/shirts.ts";
 import { COMPASS, COMPASS_ADVANCED, COMPASS_BASIC } from "../app/items/misc/compass.ts";
+import { KEY_CARD, KEY_CARD_BUNKER_LEVEL01, KEY_CARD_BUNKER_LEVEL02 } from "../app/items/misc/key-cards.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1630,4 +1631,8 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: COMPASS.id, label: COMPASS.name },
   { value: COMPASS_BASIC.id, label: COMPASS_BASIC.name },
   { value: COMPASS_ADVANCED.id, label: COMPASS_ADVANCED.name },
+
+  { value: KEY_CARD.id, label: KEY_CARD.name },
+  { value: KEY_CARD_BUNKER_LEVEL01.id, label: KEY_CARD_BUNKER_LEVEL01.name },
+  { value: KEY_CARD_BUNKER_LEVEL02.id, label: KEY_CARD_BUNKER_LEVEL02.name },
 ];
