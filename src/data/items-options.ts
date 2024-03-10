@@ -711,6 +711,19 @@ import {
   MASK_MOTORCYCLE_01, MASK_MOTORCYCLE_02, MASK_POLICE_01,
   MASK_RABBIT_01, MASK_TYRONE_SHOELACEZ
 } from "../app/items/clothes/masks.ts";
+import {
+  SWEATER_01,
+  SWEATER_02,
+  SWEATER_03,
+  SWEATER_04,
+  SWEATER_05,
+  SWEATER_POLICE,
+  SWEATER_TACTICAL_01,
+  SWEATER_TACTICAL_02,
+  SWEATER_TACTICAL_03,
+  SWEATER_TACTICAL_04,
+  SWEATER_TACTICAL_05, SWEATER_TACTICAL_06, SWEATER_TACTICAL_07
+} from "../app/items/clothes/sweaters.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1483,4 +1496,18 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: MASK_MOTORCYCLE_02.id, label: MASK_MOTORCYCLE_02.name },
   { value: MASK_POLICE_01.id, label: MASK_POLICE_01.name },
   { value: MASK_TYRONE_SHOELACEZ.id, label: MASK_TYRONE_SHOELACEZ.name },
+
+  { value: SWEATER_POLICE.id, label: SWEATER_POLICE.name },
+  { value: SWEATER_01.id, label: SWEATER_01.name },
+  { value: SWEATER_02.id, label: SWEATER_02.name },
+  { value: SWEATER_03.id, label: SWEATER_03.name },
+  { value: SWEATER_04.id, label: SWEATER_04.name },
+  { value: SWEATER_05.id, label: SWEATER_05.name },
+  { value: SWEATER_TACTICAL_01.id, label: SWEATER_TACTICAL_01.name },
+  { value: SWEATER_TACTICAL_02.id, label: SWEATER_TACTICAL_02.name },
+  { value: SWEATER_TACTICAL_03.id, label: SWEATER_TACTICAL_03.name },
+  { value: SWEATER_TACTICAL_04.id, label: SWEATER_TACTICAL_04.name },
+  { value: SWEATER_TACTICAL_05.id, label: SWEATER_TACTICAL_05.name },
+  { value: SWEATER_TACTICAL_06.id, label: SWEATER_TACTICAL_06.name },
+  { value: SWEATER_TACTICAL_07.id, label: SWEATER_TACTICAL_07.name },
 ];
