@@ -664,6 +664,7 @@ import {
   LOCK_ITEM_BASIC,
   LOCK_ITEMS_MEDIUM
 } from "../app/items/misc/locks.ts";
+import { LOCK_PICK_ADVANCED_ITEM, LOCK_PICK_ITEM } from "../app/items/misc/lockpicks.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -1386,4 +1387,7 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: LOCK_ITEMS_MEDIUM.id, label: LOCK_ITEMS_MEDIUM.name },
   { value: LOCK_BCU_ITEM.id, label: LOCK_BCU_ITEM.name },
   { value: LOCK_DIAL_ITEM.id, label: LOCK_DIAL_ITEM.name },
+
+  { value: LOCK_PICK_ADVANCED_ITEM.id, label: LOCK_PICK_ADVANCED_ITEM.name },
+  { value: LOCK_PICK_ITEM.id, label: LOCK_PICK_ITEM.name },
 ];
