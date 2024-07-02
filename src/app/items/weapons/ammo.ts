@@ -5,13 +5,13 @@ import {
   AMMO_12_GAUGE_BUCKSHOT_AMMO_BOX,
   AMMO_12_GAUGE_SLUG,
   AMMO_12_GAUGE_SLUG_AMMO_BOX
-} from "./ammo/cal-12";
+} from "../ammo/cal-12.ts";
 import {
   AMMO_22_CALIBER,
   AMMO_22_CALIBER_AMMO_BOX,
   AMMO_22_CALIBER_TR,
   AMMO_22_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-22";
+} from "../ammo/cal-22.ts";
 import {
   AMMO_308_CALIBER,
   AMMO_308_CALIBER_AMMO_BOX,
@@ -19,7 +19,7 @@ import {
   AMMO_308_CALIBER_AP_AMMO_BOX,
   AMMO_308_CALIBER_TR,
   AMMO_308_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-308";
+} from "../ammo/cal-308.ts";
 import {
   AMMO_338_CALIBER,
   AMMO_338_CALIBER_AMMO_BOX,
@@ -27,7 +27,7 @@ import {
   AMMO_338_CALIBER_AP_AMMO_BOX,
   AMMO_338_CALIBER_TR,
   AMMO_338_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-338";
+} from "../ammo/cal-338.ts";
 import {
   AMMO_357_CALIBER,
   AMMO_357_CALIBER_AMMO_BOX,
@@ -35,7 +35,7 @@ import {
   AMMO_357_CALIBER_AP_AMMO_BOX,
   AMMO_357_CALIBER_TR,
   AMMO_357_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-357";
+} from "../ammo/cal-357.ts";
 import {
   AMMO_30_06_CALIBER,
   AMMO_30_06_CALIBER_AMMO_BOX,
@@ -43,7 +43,7 @@ import {
   AMMO_30_06_CALIBER_AP_AMMO_BOX,
   AMMO_30_06_CALIBER_TR,
   AMMO_30_06_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-30-06";
+} from "../ammo/cal-30-06.ts";
 import {
   AMMO_38_CALIBER,
   AMMO_38_CALIBER_AMMO_BOX,
@@ -51,7 +51,7 @@ import {
   AMMO_38_CALIBER_AP_AMMO_BOX,
   AMMO_38_CALIBER_TR,
   AMMO_38_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-38";
+} from "../ammo/cal-38.ts";
 import {
   AMMO_45_CALIBER,
   AMMO_45_CALIBER_AMMO_BOX,
@@ -59,7 +59,7 @@ import {
   AMMO_45_CALIBER_AP_AMMO_BOX,
   AMMO_45_CALIBER_TR,
   AMMO_45_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-45";
+} from "../ammo/cal-45.ts";
 import {
   AMMO_44_CALIBER,
   AMMO_44_CALIBER_AMMO_BOX,
@@ -67,62 +67,62 @@ import {
   AMMO_44_CALIBER_AP_AMMO_BOX,
   AMMO_44_CALIBER_TR,
   AMMO_44_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-44";
+} from "../ammo/cal-44.ts";
 import {
   AMMO_50_AE_CALIBER,
   AMMO_50_AE_CALIBER_AMMO_BOX,
   AMMO_50_AE_CALIBER_AP, AMMO_50_AE_CALIBER_AP_AMMO_BOX,
   AMMO_50_AE_CALIBER_TR, AMMO_50_AE_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-50-ae";
+} from "../ammo/cal-50-ae.ts";
 import {
   AMMO_50_BMG_CALIBER,
   AMMO_50_BMG_CALIBER_AMMO_BOX,
   AMMO_50_BMG_CALIBER_AP, AMMO_50_BMG_CALIBER_AP_AMMO_BOX, AMMO_50_BMG_CALIBER_TR,
   AMMO_50_BMG_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-50-bmg";
+} from "../ammo/cal-50-bmg.ts";
 import {
   AMMO_545_39_CALIBER,
   AMMO_545_39_CALIBER_AMMO_BOX,
   AMMO_545_39_CALIBER_AP, AMMO_545_39_CALIBER_AP_AMMO_BOX,
   AMMO_545_39_CALIBER_TR, AMMO_545_39_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-545-39";
+} from "../ammo/cal-545-39.ts";
 import {
   AMMO_556_45_CALIBER,
   AMMO_556_45_CALIBER_AMMO_BOX,
   AMMO_556_45_CALIBER_AP, AMMO_556_45_CALIBER_AP_AMMO_BOX,
   AMMO_556_45_CALIBER_TR, AMMO_556_45_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-556-45";
+} from "../ammo/cal-556-45.ts";
 import {
   AMMO_762_39_CALIBER,
   AMMO_762_39_CALIBER_AMMO_BOX,
   AMMO_762_39_CALIBER_AP, AMMO_762_39_CALIBER_AP_AMMO_BOX,
   AMMO_762_39_CALIBER_TR, AMMO_762_39_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-762-39";
+} from "../ammo/cal-762-39.ts";
 import {
   AMMO_762_54_CALIBER,
   AMMO_762_54_CALIBER_AMMO_BOX,
   AMMO_762_54_CALIBER_AP,
   AMMO_762_54_CALIBER_AP_AMMO_BOX, AMMO_762_54_CALIBER_TR, AMMO_762_54_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-762-54";
+} from "../ammo/cal-762-54.ts";
 import {
   AMMO_792_57_CALIBER,
   AMMO_792_57_CALIBER_AMMO_BOX,
   AMMO_792_57_CALIBER_AP, AMMO_792_57_CALIBER_AP_AMMO_BOX,
   AMMO_792_57_CALIBER_TR, AMMO_792_57_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-792-57";
+} from "../ammo/cal-792-57.ts";
 import {
   AMMO_9_CALIBER,
   AMMO_9_CALIBER_AMMO_BOX,
   AMMO_9_CALIBER_AP,
   AMMO_9_CALIBER_AP_AMMO_BOX,
   AMMO_9_CALIBER_TR, AMMO_9_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-9";
+} from "../ammo/cal-9.ts";
 import {
   AMMO_9_39_CALIBER,
   AMMO_9_39_CALIBER_AMMO_BOX,
   AMMO_9_39_CALIBER_AP, AMMO_9_39_CALIBER_AP_AMMO_BOX,
   AMMO_9_39_CALIBER_TR, AMMO_9_39_CALIBER_TR_AMMO_BOX
-} from "./ammo/cal-9-39";
+} from "../ammo/cal-9-39.ts";
 
 export const AMMO = new Map([
   [AMMO_12_GAUGE_BIRDSHOT.id, AMMO_12_GAUGE_BIRDSHOT],
