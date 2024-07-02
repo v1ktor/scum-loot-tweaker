@@ -1229,6 +1229,13 @@ import {
   HOLSTER_TACTICAL_HANDGUN_06,
   HOLSTER_TACTICAL_HANDGUN_07
 } from "../app/items/clothes/holsters.ts";
+import {
+  GRENADE_EMP,
+  GRENADE_FRAG,
+  GRENADE_SMOKE,
+  GRENADE_SMOKE_GREEN,
+  GRENADE_SMOKE_RED, GRENADE_SMOKE_VIOLET, GRENADE_SMOKE_YELLOW, GRENADE_TEAR_GAS
+} from "../app/items/weapons/grenades.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2441,4 +2448,13 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: HOLSTER_TACTICAL_HANDGUN_07.id, label: HOLSTER_TACTICAL_HANDGUN_07.name },
   { value: HOLSTER_BELT_PISTOL.id, label: HOLSTER_BELT_PISTOL.name },
   { value: HOLSTER_POLICE_HANDGUN.id, label: HOLSTER_POLICE_HANDGUN.name },
+
+  { value: GRENADE_EMP.id, label: GRENADE_EMP.name },
+  { value: GRENADE_FRAG.id, label: GRENADE_FRAG.name },
+  { value: GRENADE_SMOKE.id, label: GRENADE_SMOKE.name },
+  { value: GRENADE_SMOKE_GREEN.id, label: GRENADE_SMOKE_GREEN.name },
+  { value: GRENADE_SMOKE_RED.id, label: GRENADE_SMOKE_RED.name },
+  { value: GRENADE_SMOKE_VIOLET.id, label: GRENADE_SMOKE_VIOLET.name },
+  { value: GRENADE_SMOKE_YELLOW.id, label: GRENADE_SMOKE_YELLOW.name },
+  { value: GRENADE_TEAR_GAS.id, label: GRENADE_TEAR_GAS.name },
 ];
