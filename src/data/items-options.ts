@@ -1237,6 +1237,7 @@ import {
   GRENADE_SMOKE_RED, GRENADE_SMOKE_VIOLET, GRENADE_SMOKE_YELLOW, GRENADE_TEAR_GAS
 } from "../app/items/weapons/grenades.ts";
 import {
+  TRAP_CLAYMORE,
   TRAP_FIREWORKS_BIG,
   TRAP_FIREWORKS_SMALL,
   TRAP_MINE_01,
@@ -2483,4 +2484,5 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: TRAP_FIREWORKS_BIG.id, label: TRAP_FIREWORKS_BIG.name },
   { value: TRAP_FIREWORKS_SMALL.id, label: TRAP_FIREWORKS_SMALL.name },
   { value: TRAP_PROM_TRAP.id, label: TRAP_PROM_TRAP.name },
+  { value: TRAP_CLAYMORE.id, label: TRAP_CLAYMORE.name },
 ];

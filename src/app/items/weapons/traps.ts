@@ -35,3 +35,9 @@ export const TRAP_PROM_TRAP: Item = {
   name: 'Prom Trap',
   picture: ''
 } as const;
+
+export const TRAP_CLAYMORE: Item = {
+  id: 'Claymore',
+  name: 'Claymore',
+  picture: ''
+} as const;
