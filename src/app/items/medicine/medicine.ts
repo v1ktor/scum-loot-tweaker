@@ -191,3 +191,21 @@ export const MEDICINE_POTASSIUM_IODIDE_PILLS_BIG: Item = {
   name: 'Potassium Iodide Pills Big',
   picture: ''
 } as const;
+
+export const MEDICINE_ANTIBURN_GEL: Item = {
+  id: 'AntiburnGel',
+  name: 'Antiburn Gel',
+  picture: ''
+} as const;
+
+export const MEDICINE_ASPIRIN: Item = {
+  id: 'Aspirin',
+  name: 'Aspirin',
+  picture: ''
+} as const;
+
+export const MEDICINE_CUBAN_CIGAR: Item = {
+  id: 'Cuban_Cigar',
+  name: 'Cuban Cigar',
+  picture: ''
+} as const;
