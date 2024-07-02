@@ -1236,6 +1236,13 @@ import {
   GRENADE_SMOKE_GREEN,
   GRENADE_SMOKE_RED, GRENADE_SMOKE_VIOLET, GRENADE_SMOKE_YELLOW, GRENADE_TEAR_GAS
 } from "../app/items/weapons/grenades.ts";
+import {
+  TRAP_FIREWORKS_BIG,
+  TRAP_FIREWORKS_SMALL,
+  TRAP_MINE_01,
+  TRAP_MINE_02, TRAP_PROM_TRAP,
+  TRAP_TNT
+} from "../app/items/weapons/traps.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2469,4 +2476,11 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: GRENADE_SMOKE_VIOLET.id, label: GRENADE_SMOKE_VIOLET.name },
   { value: GRENADE_SMOKE_YELLOW.id, label: GRENADE_SMOKE_YELLOW.name },
   { value: GRENADE_TEAR_GAS.id, label: GRENADE_TEAR_GAS.name },
+
+  { value: TRAP_TNT.id, label: TRAP_TNT.name },
+  { value: TRAP_MINE_01.id, label: TRAP_MINE_01.name },
+  { value: TRAP_MINE_02.id, label: TRAP_MINE_02.name },
+  { value: TRAP_FIREWORKS_BIG.id, label: TRAP_FIREWORKS_BIG.name },
+  { value: TRAP_FIREWORKS_SMALL.id, label: TRAP_FIREWORKS_SMALL.name },
+  { value: TRAP_PROM_TRAP.id, label: TRAP_PROM_TRAP.name },
 ];
