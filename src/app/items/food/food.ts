@@ -623,3 +623,75 @@ export const FOOD_ZUCCHINI: Item = {
   name: 'Zucchini',
   picture: ''
 } as const;
+
+export const FOOD_ALOE_VERA: Item = {
+  id: 'Aloe_Vera',
+  name: 'Aloe Vera',
+  picture: ''
+} as const;
+
+export const FOOD_BELL_PEPPER: Item = {
+  id: 'Bell_Pepper',
+  name: 'Bell Pepper',
+  picture: ''
+} as const;
+
+export const FOOD_CRICKET: Item = {
+  id: 'Cricket',
+  name: 'Cricket',
+  picture: ''
+} as const;
+
+export const FOOD_CURRANT: Item = {
+  id: 'Currant',
+  name: 'Currant',
+  picture: ''
+} as const;
+
+export const FOOD_DANDELION: Item = {
+  id: 'Dandelion',
+  name: 'Dandelion',
+  picture: ''
+} as const;
+
+export const FOOD_DATE: Item = {
+  id: 'Date',
+  name: 'Date',
+  picture: ''
+} as const;
+
+export const FOOD_DOG_ROSE: Item = {
+  id: 'Dog_Rose',
+  name: 'Dog Rose',
+  picture: ''
+} as const;
+
+export const FOOD_EARTHWORM: Item = {
+  id: 'Earthworm',
+  name: 'Earthworm',
+  picture: ''
+} as const;
+
+export const FOOD_FIG: Item = {
+  id: 'Fig',
+  name: 'Fig',
+  picture: ''
+} as const;
+
+export const FOOD_GRASSHOPPER: Item = {
+  id: 'Grasshopper',
+  name: 'Grasshopper',
+  picture: ''
+} as const;
+
+export const FOOD_LARVE: Item = {
+  id: 'Larve',
+  name: 'Larve',
+  picture: ''
+} as const;
+
+export const FOOD_RAMSONS: Item = {
+  id: 'Ramsons',
+  name: 'Ramsons',
+  picture: ''
+} as const;
