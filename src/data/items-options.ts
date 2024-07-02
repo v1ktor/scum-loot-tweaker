@@ -1201,6 +1201,24 @@ import {
   MUSHROOMS_OPUNTIA_FIG,
   MUSHROOMS_PSILOCYBE_CYANESCENS
 } from "../app/items/food/mushrooms.ts";
+import {
+  FISHING_FLOATER,
+  FISHING_FLOATER1,
+  FISHING_FLOATER_PACK1,
+  FISHING_FLOATER_PACK2,
+  FISHING_HOOK1,
+  FISHING_HOOK2,
+  FISHING_HOOK3,
+  FISHING_HOOK4,
+  FISHING_HOOK_PACK1,
+  FISHING_HOOK_PACK2,
+  FISHING_HOOK_PACK3,
+  FISHING_HOOK_PACK4,
+  FISHING_LINE_1,
+  FISHING_LINE_2,
+  FISHING_LINE_3,
+  FISHING_LINE_4, FISHING_REEL, FISHING_REEL_PRO, FISHING_ROD, FISHING_ROD_A, FISHING_ROD_B
+} from "../app/items/misc/fishing.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2381,4 +2399,26 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: MUSHROOMS_LYCOPERDON_GIGANTEA.id, label: MUSHROOMS_LYCOPERDON_GIGANTEA.name },
   { value: MUSHROOMS_OPUNTIA_FIG.id, label: MUSHROOMS_OPUNTIA_FIG.name },
   { value: MUSHROOMS_PSILOCYBE_CYANESCENS.id, label: MUSHROOMS_PSILOCYBE_CYANESCENS.name },
+
+  { value: FISHING_FLOATER.id, label: FISHING_FLOATER.name },
+  { value: FISHING_FLOATER1.id, label: FISHING_FLOATER1.name },
+  { value: FISHING_FLOATER_PACK1.id, label: FISHING_FLOATER_PACK1.name },
+  { value: FISHING_FLOATER_PACK2.id, label: FISHING_FLOATER_PACK2.name },
+  { value: FISHING_HOOK1.id, label: FISHING_HOOK1.name },
+  { value: FISHING_HOOK2.id, label: FISHING_HOOK2.name },
+  { value: FISHING_HOOK3.id, label: FISHING_HOOK3.name },
+  { value: FISHING_HOOK4.id, label: FISHING_HOOK4.name },
+  { value: FISHING_HOOK_PACK1.id, label: FISHING_HOOK_PACK1.name },
+  { value: FISHING_HOOK_PACK2.id, label: FISHING_HOOK_PACK2.name },
+  { value: FISHING_HOOK_PACK3.id, label: FISHING_HOOK_PACK3.name },
+  { value: FISHING_HOOK_PACK4.id, label: FISHING_HOOK_PACK4.name },
+  { value: FISHING_LINE_1.id, label: FISHING_LINE_1.name },
+  { value: FISHING_LINE_2.id, label: FISHING_LINE_2.name },
+  { value: FISHING_LINE_3.id, label: FISHING_LINE_3.name },
+  { value: FISHING_LINE_4.id, label: FISHING_LINE_4.name },
+  { value: FISHING_REEL.id, label: FISHING_REEL.name },
+  { value: FISHING_REEL_PRO.id, label: FISHING_REEL_PRO.name },
+  { value: FISHING_ROD.id, label: FISHING_ROD.name },
+  { value: FISHING_ROD_A.id, label: FISHING_ROD_A.name },
+  { value: FISHING_ROD_B.id, label: FISHING_ROD_B.name },
 ];
