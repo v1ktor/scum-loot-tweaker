@@ -191,3 +191,9 @@ export const MASK_TYRONE_SHOELACEZ: Item = {
   name: 'Tyrone Shoelacez Mask',
   picture: ''
 } as const;
+
+export const MASK_BREATHING_TUBE_01: Item = {
+  id: 'Breathing_Tube_01',
+  name: 'Breathing Tube',
+  picture: ''
+} as const;

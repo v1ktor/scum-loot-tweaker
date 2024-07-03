@@ -772,6 +772,7 @@ import {
   VEHICLE_MISC_WHEEL_265_60_R18_ITEM
 } from "../app/items/vehicles/vehicle-misc.ts";
 import {
+  MASK_BREATHING_TUBE_01,
   MASK_DISPOSABLE,
   MASK_DIVING,
   MASK_DIVING_WITH_BREATHING_TUBE,
@@ -2093,6 +2094,7 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: MASK_MOTORCYCLE_02.id, label: MASK_MOTORCYCLE_02.name },
   { value: MASK_POLICE_01.id, label: MASK_POLICE_01.name },
   { value: MASK_TYRONE_SHOELACEZ.id, label: MASK_TYRONE_SHOELACEZ.name },
+  { value: MASK_BREATHING_TUBE_01.id, label: MASK_BREATHING_TUBE_01.name },
 
   { value: SWEATER_POLICE.id, label: SWEATER_POLICE.name },
   { value: SWEATER_01.id, label: SWEATER_01.name },
