@@ -742,7 +742,12 @@ import {
   LOCK_ITEM_BASIC,
   LOCK_ITEMS_MEDIUM
 } from "../app/items/misc/locks.ts";
-import { LOCK_PICK_ADVANCED_ITEM, LOCK_PICK_ITEM } from "../app/items/misc/lockpicks.ts";
+import {
+  LOCK_PICK_ADVANCED_ITEM,
+  LOCK_PICK_BOBBY_PIN,
+  LOCK_PICK_BOBBY_PIN_PACKAGE, LOCK_PICK_BUNDLE_OF_BOBBY_PINS,
+  LOCK_PICK_ITEM
+} from "../app/items/misc/lockpicks.ts";
 import {
   VEHICLE_MISC_AEROPLANE_REPAIR_KIT,
   VEHICLE_MISC_BICYCLE_WHEEL_54_622_ITEM,
@@ -1969,9 +1974,12 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: LOCK_ITEMS_MEDIUM.id, label: LOCK_ITEMS_MEDIUM.name },
   { value: LOCK_BCU_ITEM.id, label: LOCK_BCU_ITEM.name },
   { value: LOCK_DIAL_ITEM.id, label: LOCK_DIAL_ITEM.name },
+  { value: LOCK_PICK_BUNDLE_OF_BOBBY_PINS.id, label: LOCK_PICK_BUNDLE_OF_BOBBY_PINS.name },
 
   { value: LOCK_PICK_ADVANCED_ITEM.id, label: LOCK_PICK_ADVANCED_ITEM.name },
   { value: LOCK_PICK_ITEM.id, label: LOCK_PICK_ITEM.name },
+  { value: LOCK_PICK_BOBBY_PIN.id, label: LOCK_PICK_BOBBY_PIN.name },
+  { value: LOCK_PICK_BOBBY_PIN_PACKAGE.id, label: LOCK_PICK_BOBBY_PIN_PACKAGE.name },
 
   { value: VEHICLE_MISC_CAR_BATTERY.id, label: VEHICLE_MISC_CAR_BATTERY.name },
   { value: VEHICLE_MISC_CAR_BATTERY_CABLES.id, label: VEHICLE_MISC_CAR_BATTERY_CABLES.name },
