@@ -640,6 +640,7 @@ import {
   ATTACHMENT_WEAPON_FLASHLIGHT_M9
 } from "../app/items/weapons/attachments.ts";
 import {
+  PANTS_BOXER_BRIEFS_01,
   PANTS_CHRISTMAS_01,
   PANTS_CHRISTMAS_02,
   PANTS_CONSTRUCTION_01,
@@ -670,6 +671,12 @@ import {
   PANTS_JEANS_02_09,
   PANTS_JEANS_JERSEY_JACKET_01,
   PANTS_JEANS_JERSEY_JACKET_02,
+  PANTS_KILT_01,
+  PANTS_KILT_02,
+  PANTS_KILT_03,
+  PANTS_KILT_04,
+  PANTS_KILT_05,
+  PANTS_KILT_06,
   PANTS_MILITARY_01,
   PANTS_MILITARY_02,
   PANTS_MILITARY_03,
@@ -2013,6 +2020,13 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: PANTS_JEANS_02_09.id, label: PANTS_JEANS_02_09.name },
   { value: PANTS_JEANS_JERSEY_JACKET_01.id, label: PANTS_JEANS_JERSEY_JACKET_01.name },
   { value: PANTS_JEANS_JERSEY_JACKET_02.id, label: PANTS_JEANS_JERSEY_JACKET_02.name },
+  { value: PANTS_BOXER_BRIEFS_01.id, label: PANTS_BOXER_BRIEFS_01.name },
+  { value: PANTS_KILT_01.id, label: PANTS_KILT_01.name },
+  { value: PANTS_KILT_02.id, label: PANTS_KILT_02.name },
+  { value: PANTS_KILT_03.id, label: PANTS_KILT_03.name },
+  { value: PANTS_KILT_04.id, label: PANTS_KILT_04.name },
+  { value: PANTS_KILT_05.id, label: PANTS_KILT_05.name },
+  { value: PANTS_KILT_06.id, label: PANTS_KILT_06.name },
 
   { value: LOCK_ITEM_ADVANCED.id, label: LOCK_ITEM_ADVANCED.name },
   { value: LOCK_ITEM_BASIC.id, label: LOCK_ITEM_BASIC.name },

@@ -569,3 +569,45 @@ export const PANTS_JEANS_JERSEY_JACKET_02: Item = {
   name: 'Jeans Jersey Jacket 02',
   picture: ''
 } as const;
+
+export const PANTS_BOXER_BRIEFS_01: Item = {
+  id: 'Boxer_Briefs_01',
+  name: 'Boxer Briefs 01',
+  picture: ''
+} as const;
+
+export const PANTS_KILT_01: Item = {
+  id: 'Kilt_01',
+  name: 'Kilt 01',
+  picture: ''
+} as const;
+
+export const PANTS_KILT_02: Item = {
+  id: 'Kilt_02',
+  name: 'Kilt 02',
+  picture: ''
+} as const;
+
+export const PANTS_KILT_03: Item = {
+  id: 'Kilt_03',
+  name: 'Kilt 03',
+  picture: ''
+} as const;
+
+export const PANTS_KILT_04: Item = {
+  id: 'Kilt_04',
+  name: 'Kilt 04',
+  picture: ''
+} as const;
+
+export const PANTS_KILT_05: Item = {
+  id: 'Kilt_05',
+  name: 'Kilt 05',
+  picture: ''
+} as const;
+
+export const PANTS_KILT_06: Item = {
+  id: 'Kilt_06',
+  name: 'Kilt 06',
+  picture: ''
+} as const;
