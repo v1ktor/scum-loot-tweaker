@@ -1306,6 +1306,12 @@ import {
   SOCKS_TIGHTS_01_02,
   SOCKS_TIGHTS_01_03, SOCKS_TIGHTS_01_04, SOCKS_TIGHTS_01_05, SOCKS_TIGHTS_01_06
 } from "../app/items/clothes/socks.ts";
+import {
+  QUIVER_MILITARY_01,
+  QUIVER_MILITARY_02,
+  QUIVER_MILITARY_03, QUIVER_MILITARY_04, QUIVER_MILITARY_05,
+  QUIVER_MILITARY_06, QUIVER_MILITARY_07
+} from "../app/items/clothes/quivers.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2619,4 +2625,12 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SOCKS_KILT_04.id, label: SOCKS_KILT_04.name },
   { value: SOCKS_KILT_05.id, label: SOCKS_KILT_05.name },
   { value: SOCKS_KILT_06.id, label: SOCKS_KILT_06.name },
+
+  { value: QUIVER_MILITARY_01.id, label: QUIVER_MILITARY_01.name },
+  { value: QUIVER_MILITARY_02.id, label: QUIVER_MILITARY_02.name },
+  { value: QUIVER_MILITARY_03.id, label: QUIVER_MILITARY_03.name },
+  { value: QUIVER_MILITARY_04.id, label: QUIVER_MILITARY_04.name },
+  { value: QUIVER_MILITARY_05.id, label: QUIVER_MILITARY_05.name },
+  { value: QUIVER_MILITARY_06.id, label: QUIVER_MILITARY_06.name },
+  { value: QUIVER_MILITARY_07.id, label: QUIVER_MILITARY_07.name },
 ];
