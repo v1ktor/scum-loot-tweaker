@@ -1298,6 +1298,13 @@ import {
   BAG_WAIST_SMALL_02,
   BAG_WAIST_SMALL_03
 } from "../app/items/clothes/bags.ts";
+import {
+  SOCKS_01,
+  SOCKS_02, SOCKS_KILT_01, SOCKS_KILT_02, SOCKS_KILT_03, SOCKS_KILT_04, SOCKS_KILT_05, SOCKS_KILT_06, SOCKS_RH_TIGHTS,
+  SOCKS_TIGHTS_01_01,
+  SOCKS_TIGHTS_01_02,
+  SOCKS_TIGHTS_01_03, SOCKS_TIGHTS_01_04, SOCKS_TIGHTS_01_05, SOCKS_TIGHTS_01_06
+} from "../app/items/clothes/socks.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2594,4 +2601,20 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: BAG_WAIST_SMALL_01.id, label: BAG_WAIST_SMALL_01.name },
   { value: BAG_WAIST_SMALL_02.id, label: BAG_WAIST_SMALL_02.name },
   { value: BAG_WAIST_SMALL_03.id, label: BAG_WAIST_SMALL_03.name },
+
+  { value: SOCKS_01.id, label: SOCKS_01.name },
+  { value: SOCKS_02.id, label: SOCKS_02.name },
+  { value: SOCKS_TIGHTS_01_01.id, label: SOCKS_TIGHTS_01_01.name },
+  { value: SOCKS_TIGHTS_01_02.id, label: SOCKS_TIGHTS_01_02.name },
+  { value: SOCKS_TIGHTS_01_03.id, label: SOCKS_TIGHTS_01_03.name },
+  { value: SOCKS_TIGHTS_01_04.id, label: SOCKS_TIGHTS_01_04.name },
+  { value: SOCKS_TIGHTS_01_05.id, label: SOCKS_TIGHTS_01_05.name },
+  { value: SOCKS_TIGHTS_01_06.id, label: SOCKS_TIGHTS_01_06.name },
+  { value: SOCKS_RH_TIGHTS.id, label: SOCKS_RH_TIGHTS.name },
+  { value: SOCKS_KILT_01.id, label: SOCKS_KILT_01.name },
+  { value: SOCKS_KILT_02.id, label: SOCKS_KILT_02.name },
+  { value: SOCKS_KILT_03.id, label: SOCKS_KILT_03.name },
+  { value: SOCKS_KILT_04.id, label: SOCKS_KILT_04.name },
+  { value: SOCKS_KILT_05.id, label: SOCKS_KILT_05.name },
+  { value: SOCKS_KILT_06.id, label: SOCKS_KILT_06.name },
 ];
