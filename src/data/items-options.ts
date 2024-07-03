@@ -1250,6 +1250,20 @@ import {
   TRAP_MINE_02, TRAP_PROM_TRAP,
   TRAP_TNT
 } from "../app/items/weapons/traps.ts";
+import {
+  TOOL_BOX,
+  TOOL_BOX_SMALL,
+  TOOL_CAN_OPENER,
+  TOOL_CHAINSAW,
+  TOOL_DRILL,
+  TOOL_ELECTRICAL_REPAIR_KIT,
+  TOOL_ELECTRICIAN_TOOLS, TOOL_GEIGER_COUNTER_ANALOGUE,
+  TOOL_GRINDING_STONE_01,
+  TOOL_GRINDING_STONE_02, TOOL_METAL_DETECTOR, TOOL_REBAR_CUTTER,
+  TOOL_SAW,
+  TOOL_SEWING_KIT,
+  TOOL_WEAPON_CLEANING_KIT
+} from "../app/items/misc/tools.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2497,4 +2511,20 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: TRAP_FIREWORKS_SMALL.id, label: TRAP_FIREWORKS_SMALL.name },
   { value: TRAP_PROM_TRAP.id, label: TRAP_PROM_TRAP.name },
   { value: TRAP_CLAYMORE.id, label: TRAP_CLAYMORE.name },
+
+  { value: TOOL_ELECTRICAL_REPAIR_KIT.id, label: TOOL_ELECTRICAL_REPAIR_KIT.name },
+  { value: TOOL_ELECTRICIAN_TOOLS.id, label: TOOL_ELECTRICIAN_TOOLS.name },
+  { value: TOOL_BOX.id, label: TOOL_BOX.name },
+  { value: TOOL_BOX_SMALL.id, label: TOOL_BOX_SMALL.name },
+  { value: TOOL_WEAPON_CLEANING_KIT.id, label: TOOL_WEAPON_CLEANING_KIT.name },
+  { value: TOOL_SEWING_KIT.id, label: TOOL_SEWING_KIT.name },
+  { value: TOOL_GRINDING_STONE_01.id, label: TOOL_GRINDING_STONE_01.name },
+  { value: TOOL_GRINDING_STONE_02.id, label: TOOL_GRINDING_STONE_02.name },
+  { value: TOOL_CAN_OPENER.id, label: TOOL_CAN_OPENER.name },
+  { value: TOOL_CHAINSAW.id, label: TOOL_CHAINSAW.name },
+  { value: TOOL_DRILL.id, label: TOOL_DRILL.name },
+  { value: TOOL_SAW.id, label: TOOL_SAW.name },
+  { value: TOOL_GEIGER_COUNTER_ANALOGUE.id, label: TOOL_GEIGER_COUNTER_ANALOGUE.name },
+  { value: TOOL_METAL_DETECTOR.id, label: TOOL_METAL_DETECTOR.name },
+  { value: TOOL_REBAR_CUTTER.id, label: TOOL_REBAR_CUTTER.name },
 ];
