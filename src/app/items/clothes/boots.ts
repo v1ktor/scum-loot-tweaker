@@ -275,3 +275,45 @@ export const BOOTS_LEATHER_SHOES_02: Item = {
   name: 'Leather Shoes 02',
   picture: ''
 } as const;
+
+export const BOOTS_CHRISTMAS_SLIPPERS: Item = {
+  id: 'Christmas_Slippers',
+  name: 'Christmas Slippers',
+  picture: ''
+} as const;
+
+export const BOOTS_SLIPPERS_01: Item = {
+  id: 'Slippers_01',
+  name: 'Slippers 01',
+  picture: ''
+} as const;
+
+export const BOOTS_SLIPPERS_03: Item = {
+  id: 'Slippers_03',
+  name: 'Slippers 03',
+  picture: ''
+} as const;
+
+export const BOOTS_SNEAKERS_02_01: Item = {
+  id: 'Sneakers_02_01',
+  name: 'Sneakers 02 01',
+  picture: ''
+} as const;
+
+export const BOOTS_SNEAKERS_02_02: Item = {
+  id: 'Sneakers_02_02',
+  name: 'Sneakers 02 02',
+  picture: ''
+} as const;
+
+export const BOOTS_SNEAKERS_02_03: Item = {
+  id: 'Sneakers_02_03',
+  name: 'Sneakers 02 03',
+  picture: ''
+} as const;
+
+export const BOOTS_SNEAKERS_02_04: Item = {
+  id: 'Sneakers_02_04',
+  name: 'Sneakers 02 04',
+  picture: ''
+} as const;
