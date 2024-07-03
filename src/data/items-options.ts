@@ -1316,6 +1316,14 @@ import {
   QUIVER_MILITARY_03, QUIVER_MILITARY_04, QUIVER_MILITARY_05,
   QUIVER_MILITARY_06, QUIVER_MILITARY_07
 } from "../app/items/clothes/quivers.ts";
+import {
+  RAINCOAT_01,
+  RAINCOAT_02,
+  RAINCOAT_03,
+  RAINCOAT_04,
+  RAINCOAT_05,
+  RAINCOAT_06
+} from "../app/items/clothes/raincoats.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2645,4 +2653,11 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: QUIVER_MILITARY_05.id, label: QUIVER_MILITARY_05.name },
   { value: QUIVER_MILITARY_06.id, label: QUIVER_MILITARY_06.name },
   { value: QUIVER_MILITARY_07.id, label: QUIVER_MILITARY_07.name },
+
+  { value: RAINCOAT_01.id, label: RAINCOAT_01.name },
+  { value: RAINCOAT_02.id, label: RAINCOAT_02.name },
+  { value: RAINCOAT_03.id, label: RAINCOAT_03.name },
+  { value: RAINCOAT_04.id, label: RAINCOAT_04.name },
+  { value: RAINCOAT_05.id, label: RAINCOAT_05.name },
+  { value: RAINCOAT_06.id, label: RAINCOAT_06.name },
 ];
