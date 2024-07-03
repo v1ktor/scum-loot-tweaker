@@ -1285,6 +1285,12 @@ import {
   GOGGLES_SAFETY,
   GOGGLES_TACTICAL_SUNGLASSES_01, GOGGLES_TACTICAL_SUNGLASSES_02
 } from "../app/items/clothes/goggles.ts";
+import {
+  BAG_SCOTTISH_SPORRAN_01,
+  BAG_WAIST_SMALL_01,
+  BAG_WAIST_SMALL_02,
+  BAG_WAIST_SMALL_03
+} from "../app/items/clothes/bags.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2569,4 +2575,9 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: GOGGLES_SAFETY.id, label: GOGGLES_SAFETY.name },
   { value: GOGGLES_TACTICAL_SUNGLASSES_01.id, label: GOGGLES_TACTICAL_SUNGLASSES_01.name },
   { value: GOGGLES_TACTICAL_SUNGLASSES_02.id, label: GOGGLES_TACTICAL_SUNGLASSES_02.name },
+
+  { value: BAG_SCOTTISH_SPORRAN_01.id, label: BAG_SCOTTISH_SPORRAN_01.name },
+  { value: BAG_WAIST_SMALL_01.id, label: BAG_WAIST_SMALL_01.name },
+  { value: BAG_WAIST_SMALL_02.id, label: BAG_WAIST_SMALL_02.name },
+  { value: BAG_WAIST_SMALL_03.id, label: BAG_WAIST_SMALL_03.name },
 ];
