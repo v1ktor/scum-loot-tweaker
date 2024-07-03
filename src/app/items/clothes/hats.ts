@@ -479,3 +479,51 @@ export const HATS_BEANIE_09: Item = {
   name: 'Beanie 09',
   picture: ''
 } as const;
+
+export const HATS_CHRISTMAS_HEADBAND_01: Item = {
+  id: 'Christmas_Headband_01',
+  name: 'Christmas Headband 01',
+  picture: ''
+} as const;
+
+export const HATS_CONSTRUCTION_EARMUFFS_01: Item = {
+  id: 'Construction_Earmuffs_01',
+  name: 'Construction Earmuffs 01',
+  picture: ''
+} as const;
+
+export const HATS_CONSTRUCTION_EARMUFFS_02: Item = {
+  id: 'Construction_Earmuffs_02',
+  name: 'Construction Earmuffs 02',
+  picture: ''
+} as const;
+
+export const HATS_CONSTRUCTION_EARMUFFS_03: Item = {
+  id: 'Construction_Earmuffs_03',
+  name: 'Construction Earmuffs 03',
+  picture: ''
+} as const;
+
+export const HATS_CONSTRUCTION_EARMUFFS_04: Item = {
+  id: 'Construction_Earmuffs_04',
+  name: 'Construction Earmuffs 04',
+  picture: ''
+} as const;
+
+export const HATS_EAR_PLUGS: Item = {
+  id: 'Ear_Plugs',
+  name: 'Ear Plugs',
+  picture: ''
+} as const;
+
+export const HATS_HEAD_BAGS_01: Item = {
+  id: 'Head_Bags_01',
+  name: 'Head Bags 01',
+  picture: ''
+} as const;
+
+export const HATS_RH_BYCOKET_01: Item = {
+  id: 'RH_Bycoket_01',
+  name: 'RH Bycoket 01',
+  picture: ''
+} as const;
