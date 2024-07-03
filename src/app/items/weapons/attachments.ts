@@ -41,3 +41,21 @@ export const ATTACHMENT_WEAPON_FLASHLIGHT_M9: Item = {
   name: 'Weapon Flashlight M9',
   picture: ''
 } as const;
+
+export const ATTACHMENT_BOW_MICRO_STABILIZER: Item = {
+  id: 'Bow_MicroStabilizer',
+  name: 'Bow Micro Stabilizer',
+  picture: ''
+} as const;
+
+export const ATTACHMENT_COMPOUND_BOW_SIGHT_3_PIN: Item = {
+  id: 'CompoundBowSight_3_Pin',
+  name: 'Compound Bow Sight 3 Pin',
+  picture: ''
+} as const;
+
+export const ATTACHMENT_COMPOUND_BOW_SIGHT_5_PIN: Item = {
+  id: 'CompoundBowSight_5_Pin',
+  name: 'Compound Bow Sight 5 Pin',
+  picture: ''
+} as const;
