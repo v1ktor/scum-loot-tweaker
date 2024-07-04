@@ -233,3 +233,57 @@ export const SHIRT_WOODCUTTERS_03: Item = {
   name: 'Woodcutters Shirt 03',
   picture: ''
 } as const;
+
+export const SHIRT_JERSEY_01: Item = {
+  id: 'Jersey_01',
+  name: 'Jersey 01',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_02: Item = {
+  id: 'Jersey_02',
+  name: 'Jersey 02',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_03: Item = {
+  id: 'Jersey_03',
+  name: 'Jersey 03',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_04: Item = {
+  id: 'Jersey_04',
+  name: 'Jersey 04',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_05: Item = {
+  id: 'Jersey_05',
+  name: 'Jersey 05',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_06: Item = {
+  id: 'Jersey_06',
+  name: 'Jersey 06',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_07: Item = {
+  id: 'Jersey_07',
+  name: 'Jersey 07',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_08: Item = {
+  id: 'Jersey_08',
+  name: 'Jersey 08',
+  picture: ''
+} as const;
+
+export const SHIRT_JERSEY_09: Item = {
+  id: 'Jersey_09',
+  name: 'Jersey 09',
+  picture: ''
+} as const;
