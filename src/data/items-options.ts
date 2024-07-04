@@ -828,7 +828,16 @@ import {
   HOODIE_04,
   HOODIE_05,
   HOODIE_INMATE,
-  HOODIE_RK
+  HOODIE_MA1_SPITFIRE_01,
+  HOODIE_MA1_SPITFIRE_02,
+  HOODIE_MA1_SPITFIRE_03,
+  HOODIE_MA1_SPITFIRE_04,
+  HOODIE_RK,
+  HOODIE_TRACKSUIT_TOP_01,
+  HOODIE_TRACKSUIT_TOP_02,
+  HOODIE_TRACKSUIT_TOP_03,
+  HOODIE_TRACKSUIT_TOP_04,
+  HOODIE_TRACKSUIT_TOP_05
 } from "../app/items/clothes/hoodies.ts";
 import {
   VEST_01,
@@ -2142,6 +2151,15 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: HOODIE_05.id, label: HOODIE_05.name },
   { value: HOODIE_INMATE.id, label: HOODIE_INMATE.name },
   { value: HOODIE_RK.id, label: HOODIE_RK.name },
+  { value: HOODIE_MA1_SPITFIRE_01.id, label: HOODIE_MA1_SPITFIRE_01.name },
+  { value: HOODIE_MA1_SPITFIRE_02.id, label: HOODIE_MA1_SPITFIRE_02.name },
+  { value: HOODIE_MA1_SPITFIRE_03.id, label: HOODIE_MA1_SPITFIRE_03.name },
+  { value: HOODIE_MA1_SPITFIRE_04.id, label: HOODIE_MA1_SPITFIRE_04.name },
+  { value: HOODIE_TRACKSUIT_TOP_01.id, label: HOODIE_TRACKSUIT_TOP_01.name },
+  { value: HOODIE_TRACKSUIT_TOP_02.id, label: HOODIE_TRACKSUIT_TOP_02.name },
+  { value: HOODIE_TRACKSUIT_TOP_03.id, label: HOODIE_TRACKSUIT_TOP_03.name },
+  { value: HOODIE_TRACKSUIT_TOP_04.id, label: HOODIE_TRACKSUIT_TOP_04.name },
+  { value: HOODIE_TRACKSUIT_TOP_05.id, label: HOODIE_TRACKSUIT_TOP_05.name },
 
   { value: VEST_TACTICAL.id, label: VEST_TACTICAL.name },
   { value: VEST_CHRISTMAS.id, label: VEST_CHRISTMAS.name },
