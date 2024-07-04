@@ -89,3 +89,15 @@ export const MUSHROOMS_PSILOCYBE_CYANESCENS: Item = {
   name: 'Psilocybe Cyanescens',
   picture: ''
 } as const;
+
+export const MUSHROOMS_FISTULA_HEPATICA: Item = {
+  id: 'Fistula_Hepatica',
+  name: 'Fistula Hepatica',
+  picture: ''
+} as const;
+
+export const MUSHROOMS_INONOTUS_OBLIQUUS: Item = {
+  id: 'Inonotus_Obliquus',
+  name: 'Inonotus Obliquus',
+  picture: ''
+} as const;
