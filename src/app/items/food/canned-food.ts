@@ -71,3 +71,15 @@ export const CANNED_SPAGHETTI: Item = {
   name: 'Canned Spaghetti',
   picture: ''
 } as const;
+
+export const CANNED_CHOW_MEIN: Item = {
+  id: 'Chow_Mein',
+  name: 'Chow Mein',
+  picture: ''
+} as const;
+
+export const CANNED_GUAVA_HALVES: Item = {
+  id: 'GuavaHalves',
+  name: 'Guava Halves',
+  picture: ''
+} as const;

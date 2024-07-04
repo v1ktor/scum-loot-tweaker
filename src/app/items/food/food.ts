@@ -695,3 +695,105 @@ export const FOOD_RAMSONS: Item = {
   name: 'Ramsons',
   picture: ''
 } as const;
+
+export const FOOD_BAKING_SODA: Item = {
+  id: 'BakingSoda',
+  name: 'Baking Soda',
+  picture: ''
+} as const;
+
+export const FOOD_BLACK_PEPPER: Item = {
+  id: 'BlackPepper',
+  name: 'Black Pepper',
+  picture: ''
+} as const;
+
+export const FOOD_BONE: Item = {
+  id: 'Bone',
+  name: 'Bone',
+  picture: ''
+} as const;
+
+export const FOOD_ICING_SUGAR: Item = {
+  id: 'Icing_Sugar',
+  name: 'Icing Sugar',
+  picture: ''
+} as const;
+
+export const FOOD_PAN: Item = {
+  id: 'Pan',
+  name: 'Pan',
+  picture: ''
+} as const;
+
+export const FOOD_POT1: Item = {
+  id: 'Pot1',
+  name: 'Pot',
+  picture: ''
+} as const;
+
+export const FOOD_SALT_BAG: Item = {
+  id: 'SaltBag',
+  name: 'Salt Bag',
+  picture: ''
+} as const;
+
+export const FOOD_SALT_GRAIN: Item = {
+  id: 'SaltGrain',
+  name: 'Salt Grain',
+  picture: ''
+} as const;
+
+export const FOOD_SEA_SALT_01: Item = {
+  id: 'SeaSalt_01',
+  name: 'Sea Salt 01',
+  picture: ''
+} as const;
+
+export const FOOD_SEA_SALT_02: Item = {
+  id: 'SeaSalt_02',
+  name: 'Sea Salt 02',
+  picture: ''
+} as const;
+
+export const FOOD_SNOWBALLS_01: Item = {
+  id: 'Snowballs_01',
+  name: 'Snowballs 01',
+  picture: ''
+} as const;
+
+export const FOOD_SNOWBALLS_02: Item = {
+  id: 'Snowballs_02',
+  name: 'Snowballs 02',
+  picture: ''
+} as const;
+
+export const FOOD_SPON: Item = {
+  id: 'Spon',
+  name: 'Spon',
+  picture: ''
+} as const;
+
+export const FOOD_VEGETABLE_OIL: Item = {
+  id: 'VegetableOil',
+  name: 'Vegetable Oil',
+  picture: ''
+} as const;
+
+export const FOOD_VINEGAR: Item = {
+  id: 'Vinegar',
+  name: 'Vinegar',
+  picture: ''
+} as const;
+
+export const FOOD_WHITE_FLOUR: Item = {
+  id: 'WhiteFlour',
+  name: 'White Flour',
+  picture: ''
+} as const;
+
+export const FOOD_YEAST: Item = {
+  id: 'Yeast',
+  name: 'Yeast',
+  picture: ''
+} as const;
