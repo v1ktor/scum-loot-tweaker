@@ -299,3 +299,9 @@ export const WEAPONS_WUSHU_SPEAR_WOODEN: Item = {
   name: 'Wushu Spear Wooden',
   picture: ''
 } as const;
+
+export const WEAPONS_FACEROLL_SMASHER: Item = {
+  id: 'Faceroll_Smasher',
+  name: 'Faceroll Smasher',
+  picture: ''
+} as const;
