@@ -1427,6 +1427,12 @@ import {
   SEEDS_WATERMELON,
   SEEDS_ZUCCHINI
 } from "../app/items/food/seeds.ts";
+import {
+  POWER_PLANT_DEPLETED_URANIUM, POWER_PLANT_DEPLETED_URANIUM_CONTAINER,
+  POWER_PLANT_GRAPHITE,
+  POWER_PLANT_HAZMAT_SUIT_MODERN,
+  POWER_PLANT_HAZMAT_SUIT_VINTAGE
+} from "../app/items/misc/power-plant.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2868,4 +2874,10 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: SEEDS_BAG_ZUCCHINI.id, label: SEEDS_BAG_ZUCCHINI.name },
   { value: SEEDS_BAG_CANNABIS.id, label: SEEDS_BAG_CANNABIS.name },
   { value: SEEDS_BAG_TOBACCO.id, label: SEEDS_BAG_TOBACCO.name },
+
+  { value: POWER_PLANT_HAZMAT_SUIT_MODERN.id, label: POWER_PLANT_HAZMAT_SUIT_MODERN.name },
+  { value: POWER_PLANT_HAZMAT_SUIT_VINTAGE.id, label: POWER_PLANT_HAZMAT_SUIT_VINTAGE.name },
+  { value: POWER_PLANT_GRAPHITE.id, label: POWER_PLANT_GRAPHITE.name },
+  { value: POWER_PLANT_DEPLETED_URANIUM.id, label: POWER_PLANT_DEPLETED_URANIUM.name },
+  { value: POWER_PLANT_DEPLETED_URANIUM_CONTAINER.id, label: POWER_PLANT_DEPLETED_URANIUM_CONTAINER.name },
 ];
