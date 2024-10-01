@@ -850,7 +850,7 @@ const filenames = [
 ];
 
 export const SPAWNER_OPTIONS: Option[] = filenames.map((filename) => {
-  const label = filename.replace(/-/g, ' ').replace(/_/g, ' ');
+  const label = filename.replace(/-/g, ' ').replace(/_/g, ' ').replace('.json', '');
 
   return {
     value: filename,
