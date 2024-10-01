@@ -1442,6 +1442,17 @@ import {
   UTILITIES_REFRIGERATOR_PORTABLE_SMALL
 } from "../app/items/misc/utilities.ts";
 import { FUEL_GAS_TANK, FUEL_GASOLINE_CANISTER, FUEL_GASOLINE_CANISTER_SMALL } from "../app/items/misc/fuel.ts";
+import {
+  BOOKS_COOKING_BBQ,
+  BOOKS_COOKING_CAKE,
+  BOOKS_COOKING_CASSEROLES,
+  BOOKS_COOKING_DRINKS,
+  BOOKS_COOKING_PASTA,
+  BOOKS_COOKING_PIZZA,
+  BOOKS_COOKING_RICE,
+  BOOKS_COOKING_SOUP,
+  BOOKS_COOKING_STEW
+} from "../app/items/misc/books.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2900,4 +2911,14 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: FUEL_GASOLINE_CANISTER.id, label: FUEL_GASOLINE_CANISTER.name },
   { value: FUEL_GASOLINE_CANISTER_SMALL.id, label: FUEL_GASOLINE_CANISTER_SMALL.name },
   { value: FUEL_GAS_TANK.id, label: FUEL_GAS_TANK.name },
+
+  { value: BOOKS_COOKING_BBQ.id, label: BOOKS_COOKING_BBQ.name },
+  { value: BOOKS_COOKING_CAKE.id, label: BOOKS_COOKING_CAKE.name },
+  { value: BOOKS_COOKING_CASSEROLES.id, label: BOOKS_COOKING_CASSEROLES.name },
+  { value: BOOKS_COOKING_DRINKS.id, label: BOOKS_COOKING_DRINKS.name },
+  { value: BOOKS_COOKING_PASTA.id, label: BOOKS_COOKING_PASTA.name },
+  { value: BOOKS_COOKING_PIZZA.id, label: BOOKS_COOKING_PIZZA.name },
+  { value: BOOKS_COOKING_RICE.id, label: BOOKS_COOKING_RICE.name },
+  { value: BOOKS_COOKING_SOUP.id, label: BOOKS_COOKING_SOUP.name },
+  { value: BOOKS_COOKING_STEW.id, label: BOOKS_COOKING_STEW.name },
 ];
