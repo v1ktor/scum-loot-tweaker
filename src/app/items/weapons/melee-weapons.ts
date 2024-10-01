@@ -287,3 +287,15 @@ export const WEAPONS_SLEDGEHAMMER: Item = {
   name: 'Sledgehammer',
   picture: '',
 } as const
+
+export const WEAPONS_WUSHU_SPEAR_METAL: Item = {
+  id: 'Wushu_Spear_Metal',
+  name: 'Wushu Spear Metal',
+  picture: ''
+} as const;
+
+export const WEAPONS_WUSHU_SPEAR_WOODEN: Item = {
+  id: 'Wushu_Spear_Wooden',
+  name: 'Wushu Spear Wooden',
+  picture: ''
+} as const;
