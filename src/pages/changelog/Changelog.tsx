@@ -1,13 +1,20 @@
 import { Alert } from "../../components/alert/Alert.tsx";
 
 export function Changelog() {
-  const currentVersion = '0.0.5';
+  const currentVersion = '0.0.6';
 
   return (
     <main className="flow content-grid">
 
       <h1 className='site-title'>Changelog</h1>
       <Alert children={`Current version: ${currentVersion}`}></Alert>
+      <div>
+        <h2 style={{ display: 'inline' }}>0.0.6</h2> - 01.10.2024
+        <ul>
+          <li>Most of the items can now be changed in the spawners</li>
+          <li>Added spawners, nodes, parameters and cooldown groups from 0.9542.80211 game version</li>
+        </ul>
+      </div>
       <div>
         <h2 style={{ display: 'inline' }}>0.0.5</h2> - 05.03.2024
         <ul>
