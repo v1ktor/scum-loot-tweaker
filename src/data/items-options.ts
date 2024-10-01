@@ -1441,6 +1441,7 @@ import {
   UTILITIES_PORTABLE_GAS_STOVE,
   UTILITIES_REFRIGERATOR_PORTABLE_SMALL
 } from "../app/items/misc/utilities.ts";
+import { FUEL_GAS_TANK, FUEL_GASOLINE_CANISTER, FUEL_GASOLINE_CANISTER_SMALL } from "../app/items/misc/fuel.ts";
 
 export const ITEMS_OPTIONS: Option[] = [
   { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },
@@ -2895,4 +2896,8 @@ export const ITEMS_OPTIONS: Option[] = [
   { value: UTILITIES_PORTABLE_ELECTRIC_STOVE.id, label: UTILITIES_PORTABLE_ELECTRIC_STOVE.name },
   { value: UTILITIES_PORTABLE_GAS_STOVE.id, label: UTILITIES_PORTABLE_GAS_STOVE.name },
   { value: UTILITIES_GRILL_GRID.id, label: UTILITIES_GRILL_GRID.name },
+
+  { value: FUEL_GASOLINE_CANISTER.id, label: FUEL_GASOLINE_CANISTER.name },
+  { value: FUEL_GASOLINE_CANISTER_SMALL.id, label: FUEL_GASOLINE_CANISTER_SMALL.name },
+  { value: FUEL_GAS_TANK.id, label: FUEL_GAS_TANK.name },
 ];
