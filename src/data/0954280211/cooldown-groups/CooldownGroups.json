@@ -1,0 +1,156 @@
+{
+	"DeleteAllDefaultCooldownGroups": false,
+	"DefaultCooldownGroupsToDelete": [],
+	"CooldownGroups": [
+		{
+			"Name": "Weapons.Handguns.Tier.Low",
+			"CooldownMin": 0.5,
+			"CooldownMax": 1,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Rifles.Tier.Low",
+			"CooldownMin": 1,
+			"CooldownMax": 2,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Explosives.Tier.Low",
+			"CooldownMin": 1.5,
+			"CooldownMax": 2,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Handguns.Tier.Mid",
+			"CooldownMin": 1.5,
+			"CooldownMax": 2,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Shotguns.Tier.Low",
+			"CooldownMin": 2.5,
+			"CooldownMax": 3,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Handguns.Tier.High",
+			"CooldownMin": 3,
+			"CooldownMax": 4,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Shotguns.Tier.Mid",
+			"CooldownMin": 4,
+			"CooldownMax": 5,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Shotguns.Tier.High",
+			"CooldownMin": 6,
+			"CooldownMax": 7,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.SMGs.Tier.Low",
+			"CooldownMin": 6,
+			"CooldownMax": 7,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.SMGs.Tier.Mid",
+			"CooldownMin": 7,
+			"CooldownMax": 8,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Explosives.Tier.Mid",
+			"CooldownMin": 7,
+			"CooldownMax": 8,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.SMGs.Tier.High",
+			"CooldownMin": 9,
+			"CooldownMax": 10,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Rifles.Tier.Mid",
+			"CooldownMin": 9,
+			"CooldownMax": 10,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.AssaultRifles.Tier.Low",
+			"CooldownMin": 10,
+			"CooldownMax": 12,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Rifles.Tier.High",
+			"CooldownMin": 12,
+			"CooldownMax": 14,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.AssaultRifles.Tier.Mid",
+			"CooldownMin": 12,
+			"CooldownMax": 14,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.RPGs.Tier.Low",
+			"CooldownMin": 12,
+			"CooldownMax": 14,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.AssaultRifles.Tier.High",
+			"CooldownMin": 14,
+			"CooldownMax": 16,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.Explosives.Tier.High",
+			"CooldownMin": 14,
+			"CooldownMax": 16,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.LMGs",
+			"CooldownMin": 20,
+			"CooldownMax": 22,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.RPGs.Tier.Mid",
+			"CooldownMin": 22,
+			"CooldownMax": 24,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.DMRSnipers.Tier.Low",
+			"CooldownMin": 24,
+			"CooldownMax": 26,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.DMRSnipers.Tier.Mid",
+			"CooldownMin": 44,
+			"CooldownMax": 48,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.DMRSnipers.Tier.High",
+			"CooldownMin": 90,
+			"CooldownMax": 100,
+			"IsAffectedByLowerGroups": true
+		},
+		{
+			"Name": "Weapons.RPGs.Tier.High",
+			"CooldownMin": 90,
+			"CooldownMax": 100,
+			"IsAffectedByLowerGroups": true
+		}
+	]
+}

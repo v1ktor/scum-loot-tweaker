@@ -9,9 +9,9 @@ export default defineConfig({
     react(),
     viteStaticCopy({
       targets: [
-        { src: 'src/data/spawners/*.json', dest: 'data/spawners/' },
-        { src: 'src/data/nodes/*.json', dest: 'data/nodes/' },
-        { src: 'src/data/parameters/*.json', dest: 'data/parameters/' },
+        { src: `src/data/0954280211/spawners/*.json`, dest: `data/0954280211/spawners/` },
+        { src: `src/data/0954280211/nodes/*.json`, dest: `data/0954280211/nodes/` },
+        { src: `src/data/0954280211/parameters/*.json`, dest: `data/0954280211/parameters/` },
       ]
     })
   ],
