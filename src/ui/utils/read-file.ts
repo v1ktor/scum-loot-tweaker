@@ -20,6 +20,10 @@ export async function readFile<T>(option: Option, fileType: FILE_TYPE): Promise<
     const url = `${config.DATA_PATH}/${SCUM_VERSION}/${fileType}/${option.value}`;
     const response = await fetch(url);
 
+    console.log(config.DATA_PATH);
+    console.log(import.meta.env);
+    console.log(url);
+
     if (!response.ok) {
       throw new Error(`Could not fetch the ${singleFileType[fileType]}: ${option.value}`);
     }
