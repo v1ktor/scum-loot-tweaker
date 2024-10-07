@@ -1,4 +1,4 @@
-import { Rarity } from "../../app/rarity";
+import { Rarity } from "../../app/rarity.ts";
 
 export type Option = { label: string; value: string; }
 

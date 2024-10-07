@@ -1,4 +1,4 @@
-import { Item } from "../item";
+import { Item } from "../item.ts";
 
 export const AMMO_556_45_CALIBER: Item = {
     id: 'Cal_5_56x45mm',
