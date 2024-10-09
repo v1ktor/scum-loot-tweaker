@@ -5,14 +5,12 @@
   "description": "Web app to tweak loot spawn in SCUM game",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "node dist/index.js",
-    "dev:nodemon": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts"
+    "ui:dev": "vite",
+    "ui:build": "rm -rf dist && tsc && vite build",
+    "ui:deploy": "gh-pages -d dist",
+    "ui:preview": "vite preview",
+    "server:dev": "npx tsx watch src/server.ts",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "repository": {
     "type": "git",
@@ -47,9 +45,10 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "nodemon": "^3.0.2",
-    "ts-node": "^10.9.1",
+    "pino-pretty": "^11.2.2",
+    "tsx": "^4.19.1",
     "typescript": "^5.3.2",
-    "vite": "^5.0.8",
+    "vite": "5.4.6",
     "vite-plugin-static-copy": "^1.0.1"
   }
 }
