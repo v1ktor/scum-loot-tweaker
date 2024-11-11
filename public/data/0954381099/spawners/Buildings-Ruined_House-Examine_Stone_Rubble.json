@@ -1,0 +1,20 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Stone_Large"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Stone_Small"
+		}
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 2,
+	"AllowDuplicates": true,
+	"ShouldFilterItemsByZone": false,
+	"InitialDamage": 40,
+	"RandomDamage": 20,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

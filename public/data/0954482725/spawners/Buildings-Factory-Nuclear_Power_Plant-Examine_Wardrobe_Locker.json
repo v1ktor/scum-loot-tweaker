@@ -1,0 +1,26 @@
+{
+	"Nodes": [
+		{
+			"Rarity": "Uncommon",
+			"Ids": [
+				"ItemLootTreeNodes.Workshop.WorkClothes"
+			]
+		},
+		{
+			"Rarity": "Rare",
+			"Ids": [
+				"ItemLootTreeNodes.LivingRoom.Items.Misc"
+			]
+		}
+	],
+	"Probability": 20,
+	"QuantityMin": 1,
+	"QuantityMax": 2,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 40,
+	"RandomDamage": 30,
+	"InitialUsage": 40,
+	"RandomUsage": 30,
+	"PostSpawnActions": []
+}
