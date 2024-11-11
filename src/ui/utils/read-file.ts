@@ -1,8 +1,6 @@
 import { Option } from "../pages/spawners/Spawners.types.ts";
 import { config } from "../config.ts";
 
-export const SCUM_VERSION = '0954280211';
-
 export enum FILE_TYPE {
   Nodes = 'nodes',
   Spawners = 'spawners',
@@ -17,12 +15,8 @@ const singleFileType: Record<FILE_TYPE, string> = {
 
 export async function readFile<T>(option: Option, fileType: FILE_TYPE): Promise<T> {
   try {
-    const url = `${config.DATA_PATH}/${SCUM_VERSION}/${fileType}/${option.value}`;
+    const url = `${config.DATA_PATH}/${import.meta.env.VITE_CURRENT_SCUM_VERSION}/${fileType}/${option.value}`;
     const response = await fetch(url);
-
-    console.log(config.DATA_PATH);
-    console.log(import.meta.env);
-    console.log(url);
 
     if (!response.ok) {
       throw new Error(`Could not fetch the ${singleFileType[fileType]}: ${option.value}`);
