@@ -10,22 +10,35 @@ export const GetSpawnerSchema = Type.Object({
     Type.Object({
       Rarity: RaritySchema,
       Ids: Type.Array(Type.String())
-    })
-  )),
-  Probability: Type.Optional(Type.Integer({ minimum: 0 })),
-  QuantityMin: Type.Optional(Type.Integer({ minimum: 0 })),
-  QuantityMax: Type.Optional(Type.Integer({ minimum: 0 })),
-  AllowDuplicates: Type.Optional(Type.Boolean()),
-  ShouldFilterItemsByZone: Type.Optional(Type.Boolean()),
-  InitialDamage: Type.Optional(Type.Integer({ minimum: 0 })),
-  RandomDamage: Type.Optional(Type.Integer({ minimum: 0 })),
-  InitialUsage: Type.Optional(Type.Integer({ minimum: 0 })),
-  RandomUsage: Type.Optional(Type.Integer({ minimum: 0 })),
-  PostSpawnActions: Type.Optional(Type.Array(Type.String())),
+    }),
+    {
+      examples: [
+        [{
+          Rarity: "Uncommon",
+          Ids: ["ItemLootTreeNodes.Airfield.Misc", "ItemLootTreeNodes.Airfield.Medical"]
+        }]
+      ]
+    })),
+  Probability: Type.Optional(Type.Integer({ minimum: 0, examples: [15] })),
+  QuantityMin: Type.Optional(Type.Integer({ minimum: 0, examples: [1] })),
+  QuantityMax: Type.Optional(Type.Integer({ minimum: 0, examples: [2] })),
+  AllowDuplicates: Type.Optional(Type.Boolean({ examples: [false] })),
+  ShouldFilterItemsByZone: Type.Optional(Type.Boolean({ examples: [true] })),
+  InitialDamage: Type.Optional(Type.Integer({ minimum: 0, examples: [20] })),
+  RandomDamage: Type.Optional(Type.Integer({ minimum: 0, examples: [20] })),
+  InitialUsage: Type.Optional(Type.Integer({ minimum: 0, examples: [20] })),
+  RandomUsage: Type.Optional(Type.Integer({ minimum: 0, examples: [20] })),
+  PostSpawnActions: Type.Optional(Type.Array(Type.String(), { examples: [["SetAmmoAmount_BigStash", "SetClothesDirtiness_ResidentialClothes"]] })),
   Subpresets: Type.Optional(Type.Array(
     Type.Object({
       Id: Type.String(),
       Rarity: RaritySchema
-    })
+    }),
+    {
+      examples: [[{
+        "Rarity": "Uncommon",
+        "Id": "Special_Packages-Vault-Examine_Pistols_Deagle_Judge_Vault_Pack"
+      }]]
+    }
   ))
 })

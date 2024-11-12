@@ -47,7 +47,15 @@ const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance
         tags: ["Spawners"],
         response: {
           200: GetSpawnerSchema,
-          404: { $ref: 'HttpError' }
+          404: {
+            $ref: 'HttpError',
+            description: "Spawner not found",
+            examples: [{
+              statusCode: 404,
+              error: "Not Found",
+              message: "Spawner MyCustomSpawner.json not found"
+            }]
+          }
         },
         params: Type.Object({
           spawner: Type.String()
