@@ -5,6 +5,7 @@ import * as fs from "node:fs";
 import { VITE_CURRENT_SCUM_VERSION } from "../../../server.ts";
 import path from "path";
 import { GetSpawnerSchema, GetSpawnersSchema } from "../../../schemas/v1/spawners";
+import { isFile } from "../../../utils/is-file.ts";
 
 
 const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance) => {
@@ -19,10 +20,6 @@ const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance
       }
     },
     async (request) => {
-      const isFile = (fileName: fs.PathLike) => {
-        return fs.lstatSync(fileName).isFile();
-      }
-
       let filenames = <string[]>[];
 
       try {

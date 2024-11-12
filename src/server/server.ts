@@ -6,6 +6,7 @@ import fastifyEnv from "@fastify/env";
 import { fastifySwagger } from "@fastify/swagger";
 import { fastifySwaggerUi } from "@fastify/swagger-ui";
 import { fastifySensible } from "@fastify/sensible";
+import { GetNodeSchema } from "./schemas/v1/nodes";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -50,6 +51,8 @@ fastify.register(fastifySwagger, {
 fastify.register(fastifySwaggerUi, {
   routePrefix: '/documentation'
 });
+
+fastify.addSchema(GetNodeSchema);
 
 fastify.register(fastifySensible, {
   sharedSchemaId: 'HttpError'
