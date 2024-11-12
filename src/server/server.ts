@@ -3,6 +3,8 @@ import AutoLoad from '@fastify/autoload';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fastifyEnv from "@fastify/env";
+import { fastifySwagger } from "@fastify/swagger";
+import { fastifySwaggerUi } from "@fastify/swagger-ui";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +37,11 @@ const envOptions = {
 }
 
 await fastify.register(fastifyEnv, envOptions);
+
+fastify.register(fastifySwagger);
+fastify.register(fastifySwaggerUi, {
+  routePrefix: '/documentation',
+});
 
 fastify.register(AutoLoad, {
   dir: `${__dirname}/routes`
