@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import fastifyEnv from "@fastify/env";
 import { fastifySwagger } from "@fastify/swagger";
 import { fastifySwaggerUi } from "@fastify/swagger-ui";
+import { fastifySensible } from "@fastify/sensible";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,14 +34,25 @@ const envOptions = {
   confKey: "config",
   schema: envSchema,
   dotenv: true,
-  data: process.env,
+  data: process.env
 }
 
 await fastify.register(fastifyEnv, envOptions);
 
-fastify.register(fastifySwagger);
+fastify.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: "SCUM Loot Tweaker API",
+      version: "1.0.0"
+    }
+  }
+});
 fastify.register(fastifySwaggerUi, {
-  routePrefix: '/documentation',
+  routePrefix: '/documentation'
+});
+
+fastify.register(fastifySensible, {
+  sharedSchemaId: 'HttpError'
 });
 
 fastify.register(AutoLoad, {

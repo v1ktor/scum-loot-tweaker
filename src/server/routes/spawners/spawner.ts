@@ -4,9 +4,8 @@ import { Type } from "@sinclair/typebox";
 import * as fs from "node:fs";
 import { VITE_CURRENT_SCUM_VERSION } from "../../server.ts";
 import path from "path";
+import { GetSpawnerSchema, GetSpawnersSchema } from "../../schemas/spawners";
 
-const StringEnum = <T extends string[]>(items: [...T]) =>
-  Type.Unsafe<T[number]>({ type: "string", enum: items });
 
 const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance) => {
   const folderPath = `public/data/${VITE_CURRENT_SCUM_VERSION}/spawners`;
@@ -15,9 +14,7 @@ const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance
       schema: {
         tags: ["Spawners"],
         response: {
-          200: Type.Object({
-            filenames: Type.Array(Type.String())
-          })
+          200: GetSpawnersSchema
         }
       }
     },
@@ -52,38 +49,22 @@ const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance
       schema: {
         tags: ["Spawners"],
         response: {
-          200: Type.Object({
-            Nodes: Type.Optional(Type.Array(
-              Type.Object({
-                Rarity: StringEnum(["Abundant", "Common", "Uncommon", "Rare", "Very Rare", "Extremely Rare"]),
-                Ids: Type.Array(Type.String())
-              })
-            )),
-            Probability: Type.Optional(Type.Integer({ minimum: 0 })),
-            QuantityMin: Type.Optional(Type.Integer({ minimum: 0 })),
-            QuantityMax: Type.Optional(Type.Integer({ minimum: 0 })),
-            AllowDuplicates: Type.Optional(Type.Boolean()),
-            ShouldFilterItemsByZone: Type.Optional(Type.Boolean()),
-            InitialDamage: Type.Optional(Type.Integer({ minimum: 0 })),
-            RandomDamage: Type.Optional(Type.Integer({ minimum: 0 })),
-            InitialUsage: Type.Optional(Type.Integer({ minimum: 0 })),
-            RandomUsage: Type.Optional(Type.Integer({ minimum: 0 })),
-            PostSpawnActions: Type.Optional(Type.Array(Type.String())),
-            Subpresets: Type.Optional(Type.Array(
-              Type.Object({
-                Id: Type.String(),
-                Rarity: StringEnum(["Abundant", "Common", "Uncommon", "Rare", "Very Rare", "Extremely Rare"])
-              })
-            ))
-          })
+          200: GetSpawnerSchema,
+          404: { $ref: 'HttpError' }
         },
         params: Type.Object({
           spawner: Type.String()
         })
       }
     },
-    async (request: FastifyRequest<{ Params: { spawner: string } }>) => {
-      const data = fs.readFileSync(`${folderPath}/${request.params.spawner}`, "utf8");
+    async (request: FastifyRequest<{ Params: { spawner: string } }>, reply) => {
+      let data;
+
+      try {
+        data = fs.readFileSync(`${folderPath}/${request.params.spawner}`, "utf8");
+      } catch (error) {
+        return reply.notFound(`Spawner ${request.params.spawner} not found`);
+      }
 
       return JSON.parse(data);
     })
