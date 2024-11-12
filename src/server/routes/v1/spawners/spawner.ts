@@ -2,9 +2,9 @@ import { FastifyInstance, FastifyRequest } from "fastify";
 import { FastifyPluginAsyncTypebox } from "@fastify/type-provider-typebox";
 import { Type } from "@sinclair/typebox";
 import * as fs from "node:fs";
-import { VITE_CURRENT_SCUM_VERSION } from "../../server.ts";
+import { VITE_CURRENT_SCUM_VERSION } from "../../../server.ts";
 import path from "path";
-import { GetSpawnerSchema, GetSpawnersSchema } from "../../schemas/spawners";
+import { GetSpawnerSchema, GetSpawnersSchema } from "../../../schemas/v1/spawners";
 
 
 const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance) => {

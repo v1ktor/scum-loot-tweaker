@@ -1,5 +1,5 @@
 import { Type } from "@sinclair/typebox";
-import { StringEnum } from "../../utils/swagger-typebox-enum.ts";
+import { StringEnum } from "../../../utils/swagger-typebox-enum.ts";
 
 export const GetSpawnersSchema = Type.Object({
   filenames: Type.Array(Type.String())

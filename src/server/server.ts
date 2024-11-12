@@ -56,7 +56,10 @@ fastify.register(fastifySensible, {
 });
 
 fastify.register(AutoLoad, {
-  dir: `${__dirname}/routes`
+  dir: `${__dirname}/routes`,
+  options: {
+    prefix: '/api',
+  }
 })
 
 export const { VITE_CURRENT_SCUM_VERSION } = fastify.getEnvs<Envs>();
