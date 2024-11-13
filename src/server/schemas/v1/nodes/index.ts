@@ -2,7 +2,11 @@ import { Type } from "@sinclair/typebox";
 import { RaritySchema } from "../common";
 
 export const GetNodesSchema = Type.Object({
-  filenames: Type.Array(Type.String())
+  filenames: Type.Array(Type.String(), {
+    examples: [["Airfield.json",
+      "Bar.json",
+      "Barn.json"]]
+  })
 });
 
 export const GetNodeSchema = Type.Recursive((Node) => Type.Object({
@@ -19,8 +23,8 @@ export const GetNodeSchema = Type.Recursive((Node) => Type.Object({
         }
       ]
     })),
-    Variations: Type.Optional(Type.Array(Type.String())),
-    PostSpawnActions: Type.Optional(Type.Array(Type.String()))
+    Variations: Type.Optional(Type.Array(Type.String(), { examples: [['1H_MK5000_Metal']] })),
+    PostSpawnActions: Type.Optional(Type.Array(Type.String(), { examples: [['SetAmmoAmount_BigStash', 'SetClothesDirtiness_ResidentialClothes']] }))
   }),
   { $id: 'GetNodeSchema' }
 );

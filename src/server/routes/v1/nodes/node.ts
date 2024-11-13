@@ -34,7 +34,15 @@ const nodesRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance) 
       tags: ["Nodes"],
       response: {
         200: { $ref: 'GetNodeSchema' },
-        404: { $ref: 'HttpError' }
+        404: {
+          $ref: 'HttpError',
+          description: "Node not found",
+          examples: [{
+            statusCode: 404,
+            error: "Not Found",
+            message: "Node Airfield.json not found"
+          }]
+        }
       },
       params: Type.Object({
         node: Type.String()

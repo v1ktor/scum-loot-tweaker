@@ -12,7 +12,15 @@ const parametersRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInsta
       tags: ["Parameters"],
       response: {
         200: GetParametersSchema,
-        404: { $ref: 'HttpError' }
+        404: {
+          $ref: 'HttpError',
+          description: "Parameters.json not found",
+          examples: [{
+            statusCode: 404,
+            error: "Not Found",
+            message: "Parameters.json not found"
+          }]
+        }
       }
     }
   }, async (_, reply) => {

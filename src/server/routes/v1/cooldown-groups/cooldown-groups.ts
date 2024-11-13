@@ -12,7 +12,15 @@ const cooldownGroupsRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyI
       tags: ["Cooldown Groups"],
       response: {
         200: GetCooldownGroupsSchema,
-        404: { $ref: 'HttpError' }
+        404: {
+          $ref: 'HttpError',
+          description: "CooldownGroups.json not found",
+          examples: [{
+            statusCode: 404,
+            error: "Not Found",
+            message: "CooldownGroups.json not found"
+          }]
+        }
       }
     }
   }, async (_, reply) => {

@@ -14,4 +14,40 @@ export const GetParametersSchema = Type.Object({
     InitialUsageOverride: Type.Integer({ minimum: 0 }),
     RandomUsageOverrideUsage: Type.Integer({ minimum: 0 })
   }))
+}, {
+  examples: [{
+    Parameters: [
+      {
+        Id: "12_Gauge_Birdshot",
+        IsDisabledForSpawning: false,
+        AllowedLocations: [
+          "Coastal",
+          "Continental",
+          "Mountain"
+        ],
+        CooldownPerSquadMemberMin: 0,
+        CooldownPerSquadMemberMax: 0,
+        CooldownGroup: "CooldownGroup_Ammo",
+        Variations: [],
+        ShouldOverrideInitialAndRandomUsage: false,
+        InitialUsageOverride: 0,
+        RandomUsageOverrideUsage: 0
+      },
+      {
+        Id: "12_Gauge_Birdshot_Ammobox",
+        IsDisabledForSpawning: false,
+        AllowedLocations: [
+          "Coastal",
+          "Continental",
+          "Mountain"
+        ],
+        CooldownPerSquadMemberMin: 0,
+        CooldownPerSquadMemberMax: 0,
+        CooldownGroup: "",
+        Variations: [],
+        ShouldOverrideInitialAndRandomUsage: false,
+        InitialUsageOverride: 0,
+        RandomUsageOverrideUsage: 0
+      }]
+  }]
 });

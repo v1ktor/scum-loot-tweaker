@@ -2,7 +2,12 @@ import { Type } from "@sinclair/typebox";
 import { RaritySchema } from "../common";
 
 export const GetSpawnersSchema = Type.Object({
-  filenames: Type.Array(Type.String())
+  filenames: Type.Array(Type.String(), {
+    examples: [["Special_Packages-Killbox-Examine_MP5_KillBox_Pack.json",
+      "Special_Packages-Killbox-Examine_Ninja_KillBox_Pack.json",
+      "Special_Packages-Killbox-Examine_Pink_KillBox_Pack.json",
+      "Special_Packages-Killbox-Examine_RPG_KillBox_Pack.json"]]
+  })
 })
 
 export const GetSpawnerSchema = Type.Object({
