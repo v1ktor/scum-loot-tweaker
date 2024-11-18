@@ -45,7 +45,7 @@ const nodesRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance) 
         }
       },
       params: Type.Object({
-        node: Type.String()
+        node: Type.String({ examples: ["Airfield.json"] })
       })
     }
   }, async (request: FastifyRequest<{ Params: { node: string } }>, reply) => {

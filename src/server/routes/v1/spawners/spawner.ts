@@ -58,7 +58,7 @@ const spawnerRoutes: FastifyPluginAsyncTypebox = async (fastify: FastifyInstance
           }
         },
         params: Type.Object({
-          spawner: Type.String()
+          spawner: Type.String({ examples: ["Buildings-Airfield_Hangar-Examine_CardBox.json"] })
         })
       }
     },
