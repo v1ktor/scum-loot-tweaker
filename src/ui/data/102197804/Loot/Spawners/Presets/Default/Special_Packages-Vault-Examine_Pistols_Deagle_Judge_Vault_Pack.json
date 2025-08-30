@@ -1,0 +1,14 @@
+{
+	"FixedItems": [
+		"Weapon_Judge44",
+		"WeaponFlashlight_DesertEagle",
+		"WeaponSights_Deagle_RedDot",
+		"Tactical_Handgun_Holster_03",
+		"DW715_Rail"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

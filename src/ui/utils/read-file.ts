@@ -2,9 +2,9 @@ import { Option } from "../pages/spawners/Spawners.types.ts";
 import { config } from "../config.ts";
 
 export enum FILE_TYPE {
-  Nodes = 'nodes',
-  Spawners = 'spawners',
-  Parameters = 'parameters',
+  Nodes = 'Nodes',
+  Spawners = 'Spawners',
+  Parameters = 'Items',
 }
 
 const singleFileType: Record<FILE_TYPE, string> = {
@@ -15,7 +15,9 @@ const singleFileType: Record<FILE_TYPE, string> = {
 
 export async function readFile<T>(option: Option, fileType: FILE_TYPE): Promise<T> {
   try {
-    const url = `${config.DATA_PATH}/${import.meta.env.VITE_CURRENT_SCUM_VERSION}/${fileType}/${option.value}`;
+    const url = fileType === FILE_TYPE.Spawners
+      ? `${config.DATA_PATH}/${import.meta.env.VITE_CURRENT_SCUM_VERSION}/Loot/${fileType}/Presets/Default/${option.value}`
+      : `${config.DATA_PATH}/${import.meta.env.VITE_CURRENT_SCUM_VERSION}/Loot/${fileType}/Default/${option.value}`;
     const response = await fetch(url);
 
     if (!response.ok) {

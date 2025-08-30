@@ -1,0 +1,21 @@
+{
+	"FixedItems": [
+		"C4_Keypad",
+		"C4_CircuitBoard",
+		"BCULock_Item",
+		"Frag_Grenade",
+		"Frag_Grenade",
+		"Frag_Grenade",
+		"TearGasGrenade",
+		"TearGasGrenade",
+		"KeyCard"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 20,
+	"RandomDamage": 10,
+	"InitialUsage": 0,
+	"RandomUsage": 0,
+	"PostSpawnActions": [
+		"KillboxKeycard_Sentry"
+	]
+}
