@@ -1,0 +1,12 @@
+{
+	"FixedItems": [
+		"Weapon_RPK-74",
+		"ScopeRail_AK47",
+		"WeaponSights_V3_Holographic"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

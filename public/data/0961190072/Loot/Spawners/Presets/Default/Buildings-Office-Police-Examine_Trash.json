@@ -1,0 +1,34 @@
+{
+	"Nodes": [
+		{
+			"Rarity": "Rare",
+			"Ids": [
+				"ItemLootTreeNodes.Police.Clothes",
+				"ItemLootTreeNodes.Police.FoodDrink",
+				"ItemLootTreeNodes.Police.Gear.Armor",
+				"ItemLootTreeNodes.Police.Gear.Backpacks",
+				"ItemLootTreeNodes.Police.Gear.Tools"
+			]
+		},
+		{
+			"Rarity": "Uncommon",
+			"Ids": [
+				"ItemLootTreeNodes.Trash"
+			]
+		}
+	],
+	"Probability": 15,
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 50,
+	"RandomDamage": 40,
+	"InitialUsage": 50,
+	"RandomUsage": 40,
+	"PostSpawnActions": [
+		"SetAmmoAmount_SmallStash",
+		"SetCashAmount_SmallStash",
+		"SetClothesDirtiness_ResidentialClothes"
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"FixedItems": [
+		"Car_Battery",
+		"Laika_Engine_Alternator_Item"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

@@ -1,0 +1,98 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Lighter"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Scissors_01"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Pineapple"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Banana"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Apple"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Apple_2"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "CannedSpaghetti"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "ChocolateCandy_10"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "ChocolateCandy_11"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "ChocolateCandy_01"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Can02"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Can01"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Magazine_SVD_Dragunov"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Magazine_MP5"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Magazine_M9"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Magazine_AKS_74U"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Magazine_AK47"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "1H_Dildo"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Halloween_Mask_Hockey_04"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Compass_Basic"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Thread"
+		}
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

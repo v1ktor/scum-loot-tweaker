@@ -1,0 +1,162 @@
+{
+	"AssociatedNPC": "Armorer",
+	"Tier": 1,
+	"Title": "Example Interact TradeDeal MapLocation",
+	"Description": "Example Interact quest with TradeDeal rewards, and map markers",
+	"TimeLimitHours": 3.5,
+	"RewardPool": [
+		{
+			"CurrencyNormal": 420,
+			"CurrencyGold": 0,
+			"Fame": 69,
+			"TradeDeals": [
+				{
+					"Item": "C4",
+					"Price": 420,
+					"Amount": 1,
+					"AllowExcluded": true,
+					"Fame": 0
+				},
+				{
+					"Item": "Weapon_M9",
+					"Price": 0,
+					"Amount": 2,
+					"Fame": 69
+				}
+			]
+		}
+	],
+	"Conditions": [
+		{
+			"TrackingCaption": "Interact with any 4 of these things",
+			"SequenceIndex": 0,
+			"CanBeAutoCompleted": true,
+
+			"LocationsShownOnMap": [
+				{
+					"Location": "{X=-160901.625 Y=-681902.188 Z=787.616|P=0.000000 Y=0.000000 R=0.000000}",
+					"SizeFactor": 0.7
+				},
+			],
+
+			"Type": "Interaction",
+			"Locations": [
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 18,
+					"FallbackTransform": "-160956.515625,-682914.875000,655.923828|0.028905,89.642578,-0.001068|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 19,
+					"FallbackTransform": "-160954.625000,-682614.812500,656.107910|0.035025,89.639603,-0.003448|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 20,
+					"FallbackTransform": "-160952.765625,-682314.750000,656.219910|-0.000704,89.657051,-0.006378|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 21,
+					"FallbackTransform": "-160951.093750,-682013.062500,655.948914|-0.129698,89.720062,-0.009094|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 1,
+					"FallbackTransform": "-160956.218750,-681800.000000,656.275146|0.000000,0.000000,0.000000|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 2,
+					"FallbackTransform": "-160656.218750,-681800.000000,656.275146|0.000000,0.000000,0.000000|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Z_2_Novigrad_05.Z_2_Novigrad_05:PersistentLevel.SM_Bollard_01HISMA.HierarchicalInstancedStaticMesh",
+					"Instance": 3,
+					"FallbackTransform": "-160456.218750,-681800.000000,656.275146|0.000000,0.000000,0.000000|1.001000,1.001000,1.001000",
+					"VisibleMesh": "/Game/ConZ_Files/Models/Objects/Outdoor/Bollard/SM_Bollard_01.SM_Bollard_01"
+				}
+			],
+			"MinNeeded": 4,
+			"MaxNeeded": 4,
+			"SpawnOnlyNeeded": false
+		},
+		{
+			"TrackingCaption": "Interact with specific 4 of these other things",
+			"SequenceIndex": 1,
+			"CanBeAutoCompleted": true,
+
+			"LocationsShownOnMap": [
+				{
+					"Location": {
+						"X": -157845.640625,
+						"Y": -683564.125000
+					},
+					"SizeFactor": 1.0
+				},
+			],
+
+			"Type": "Interaction",
+			"Locations": [
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 18,
+					"FallbackTransform": "-157561.281250,-685538.250000,659.895508|0.000000,168.656235,0.000000|1.023065,1.023065,1.023065",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+					{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 17,
+					"FallbackTransform": "-157730.484375,-684546.312500,654.948364|0.000000,-112.668221,0.000000|0.816528,0.816528,0.816528",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 16,
+					"FallbackTransform": "-157845.640625,-683564.125000,659.629578|0.000000,40.002426,0.000000|0.913674,0.913674,0.913674",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 15,
+					"FallbackTransform": "-157993.187500,-682572.562500,656.230225|0.000000,171.666611,0.000000|0.907314,0.907314,0.907314",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 14,
+					"FallbackTransform": "-158058.328125,-681570.187500,653.156494|0.000000,128.225327,0.000000|1.014300,1.014300,1.014300",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 13,
+					"FallbackTransform": "-158125.312500,-680563.312500,651.561401|0.000000,-69.666466,0.000000|0.864100,0.864100,0.864100",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 6,
+					"FallbackTransform": "-158255.734375,-679565.375000,641.175720|0.000000,173.830994,0.000000|1.169347,1.169347,1.169346",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				},
+				{
+					"AnchorMesh": "/Game/ConZ_Files/Maps/The_Island/UEDPIE_0_Landscape_Z_2_3b.Landscape_Z_2_3b:PersistentLevel.InstancedFoliageActor_1.FoliageInstancedStaticMeshComponent_13",
+					"Instance": 5,
+					"FallbackTransform": "-158397.062500,-678586.750000,653.624084|0.000000,88.189926,0.000000|0.840894,0.840894,0.840894",
+					"VisibleMesh": "/Game/ConZ_Files/Foliage/Mediterranean/Trees/Palm_Tree_01/Palm_Tree_01.Palm_Tree_01"
+				}
+			],
+			"MinNeeded": 4,
+			"MaxNeeded": 4,
+			"SpawnOnlyNeeded": true
+		}
+	]
+}

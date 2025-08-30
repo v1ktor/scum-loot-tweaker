@@ -1,0 +1,25 @@
+{
+	"Nodes": [
+		{
+			"Rarity": "Uncommon",
+			"Ids": [
+				"ItemLootTreeNodes.Police.Ammo",
+				"ItemLootTreeNodes.Police.Weapons.Handguns",
+				"ItemLootTreeNodes.Police.Weapons.SMGs",
+				"ItemLootTreeNodes.Police.Weapons.Shotguns",
+				"ItemLootTreeNodes.Police.Gear.Magazines.Handguns",
+				"ItemLootTreeNodes.Police.Gear.Magazines.SMGs",
+				"ItemLootTreeNodes.Police.Clothes"
+			]
+		}
+	],
+	"Probability": 12,
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 30,
+	"RandomDamage": 50,
+	"InitialUsage": 30,
+	"RandomUsage": 50
+}

@@ -1,0 +1,42 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Gas_Mask_02"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Raincoat_Improvised"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Shemagh_Scarf_08"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Improvised_Ghillie_Pants"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "MilitaryBoots_JNA"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Electrician_Glove_01_03"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Military_Backpack_01_05"
+		}
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 2,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 60,
+	"RandomDamage": 20,
+	"InitialUsage": 70,
+	"RandomUsage": 3
+}

@@ -1,0 +1,17 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Coal_01"
+		}
+	],
+	"Probability": 75,
+	"QuantityMin": 1,
+	"QuantityMax": 2,
+	"AllowDuplicates": true,
+	"ShouldFilterItemsByZone": true,
+	"InitialDamage": 0,
+	"RandomDamage": 20,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}
