@@ -18,10 +18,11 @@ export default defineConfig(({ mode }) => {
       react(),
       viteStaticCopy({
         targets: [
-          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/spawners/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/spawners/` },
-          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/nodes/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/nodes/` },
-          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/parameters/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/parameters/` },
-          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/cooldown-groups/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/cooldown-groups/` },
+          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/Spawners/Presets/Default/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/Spawners/Presets/Default/` },
+          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/Nodes/Default/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/Nodes/Default/` },
+          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/Items/Default/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/Items/Default/` },
+          { src: `../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/CooldownGroups/Default/*.json`, dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/CooldownGroups/Default/` },
+          { src: `../../public/CNAME`, dest: `.` },
         ]
       })
     ],
