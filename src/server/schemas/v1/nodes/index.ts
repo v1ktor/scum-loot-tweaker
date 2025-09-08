@@ -1,4 +1,4 @@
-import { Type } from "@sinclair/typebox";
+import { Static, Type } from "@sinclair/typebox";
 import { RaritySchema } from "../common";
 
 export const GetNodesSchema = Type.Object({
@@ -28,3 +28,23 @@ export const GetNodeSchema = Type.Recursive((Node) => Type.Object({
   }),
   { $id: 'GetNodeSchema' }
 );
+
+export const GetChildrenSchema = Type.Recursive((Node) => Type.Object({
+    Name: Type.String({ examples: ['ItemLootTreeNodes'] }),
+    Rarity: RaritySchema,
+    Children: Type.Optional(Type.Array(Node, {
+      examples: [
+        {
+          Name: 'Airfield', Rarity: 'Uncommon', Children: [{
+            Name: "tools", Rarity: "Uncommon", Children: [{
+              Name: "Car_Battery", Rarity: "Rare"
+            }]
+          }]
+        }
+      ]
+    })),
+  }),
+  { $id: 'GetChildrenSchema' }
+);
+
+export type LootNode = Static<typeof GetNodeSchema>;
