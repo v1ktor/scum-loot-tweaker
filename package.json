@@ -10,7 +10,7 @@
     "ui:deploy": "gh-pages -d dist",
     "ui:preview": "vite preview",
     "server:dev": "npx tsx watch src/server/server.ts",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "npx biome check --write ./src"
   },
   "repository": {
     "type": "git",
@@ -46,12 +46,7 @@
     "@types/node": "^20.10.3",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
     "nodemon": "^3.0.2",
     "pino-pretty": "^11.2.2",
     "shx": "^0.3.4",
