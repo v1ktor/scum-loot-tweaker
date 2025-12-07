@@ -1,43 +1,16 @@
-import {Cog, Info, PocketKnife} from 'lucide-react'
+import {Cog, Info} from 'lucide-react'
 
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuBadge,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from '@/components/ui/sidebar.tsx'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu.tsx';
-import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar.tsx';
-import {
-  IconBrandDiscordFilled,
-  IconBrandGithubFilled,
-  IconDotsVertical,
-  IconLogin2,
-  IconLogout,
-  IconSettings,
-  IconTagFilled,
-  IconUserCircle
-} from '@tabler/icons-react';
+import {Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar,} from '@/components/ui/sidebar.tsx'
+import {IconBrandDiscordFilled, IconBrandGithubFilled, IconTagFilled} from '@tabler/icons-react';
 import {useState} from 'react';
+import {AppSidebarHeader} from '@/components/app-sidebar-header/app-sidebar-header.tsx';
+import {AppSidebarLootTweakerNav} from '@/components/app-sidebar-loot-tweaker-nav/app-sidebar-loot-tweaker-nav.tsx';
+import {AppSidebarQuestsNav} from '@/components/app-sidebar-quests-nav/app-sidebar-quests-nav.tsx';
+import {NavItem} from '@/components/app-sidebar-nav/app-sidebar-nav.types.ts';
+import {AppSidebarMiscNav} from '@/components/app-sidebar-misc-nav/app-sidebar-misc-nav.tsx';
+import {AppSidebarProfile} from '@/components/app-sidebar-profile/app-sidebar-profile.tsx';
 
-// Menu items.
-const scumLootTweakerMenuItems = [
+const scumLootTweakerMenuItems: NavItem[] = [
   {
     title: 'Spawners',
     url: '#',
@@ -60,7 +33,7 @@ const scumLootTweakerMenuItems = [
   }
 ]
 
-const scumQuestMenuItems = [
+const scumQuestMenuItems: NavItem[] = [
   {
     title: 'Quest Editor',
     url: '#',
@@ -79,7 +52,7 @@ const user = {
   avatar: '/avatars/no-picture.jpg',
 }
 
-const items = [
+const items: NavItem[] = [
   {
     title: 'Discord',
     url: 'https://discord.gg/8T6q6Xf945',
@@ -104,150 +77,15 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible={'icon'}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild tooltip={'SCUM Tools'}>
-              <a href="#">
-                <div
-                  className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <PocketKnife/>
-                </div>
-                <div className="grid flex-1 text-left leading-tight">
-                  <span className="truncate font-medium text-base">SCUM Tools</span>
-                </div>
-              </a>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <AppSidebarHeader/>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>SCUM Loot Tweaker</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {scumLootTweakerMenuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title}>
-                    <a href={item.url}>
-                      <item.icon/>
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>SCUM Quests</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {scumQuestMenuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title}>
-                    <a href={item.url}>
-                      <item.icon/>
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                  <SidebarMenuBadge className={'text-muted-foreground'}>Coming soon!</SidebarMenuBadge>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup className={'mt-auto'}>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title}>
-                    <a href={item.url} target={item.title.startsWith('Version') ? '_self' : '_blank'}>
-                      <item.icon/>
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <AppSidebarLootTweakerNav items={scumLootTweakerMenuItems}/>
+        <AppSidebarQuestsNav items={scumQuestMenuItems}/>
+        <AppSidebarMiscNav items={items}/>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarMenu>
-          {isLoggedIn ? (
-            <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton
-                    size="lg"
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                    tooltip={user.name}
-                  >
-                    <Avatar className="h-8 w-8 rounded-lg grayscale">
-                      <AvatarImage src={user.avatar} alt={user.name}/>
-                      <AvatarFallback className="rounded-lg">v1</AvatarFallback>
-                    </Avatar>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
-                      <span className="truncate font-medium">{user.name}</span>
-                      <span className="text-muted-foreground truncate text-xs">
-                  {user.email}
-                </span>
-                    </div>
-                    <IconDotsVertical className="ml-auto size-4"/>
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-                  side={isMobile ? 'bottom' : 'right'}
-                  align="end"
-                  sideOffset={4}
-                >
-                  <DropdownMenuLabel className="p-0 font-normal">
-                    <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                      <Avatar className="h-8 w-8 rounded-lg">
-                        <AvatarImage src={user.avatar} alt={user.name}/>
-                        <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                      </Avatar>
-                      <div className="grid flex-1 text-left text-sm leading-tight">
-                        <span className="truncate font-medium">{user.name}</span>
-                        <span className="text-muted-foreground truncate text-xs">
-                    {user.email}
-                  </span>
-                      </div>
-                    </div>
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator/>
-                  <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <IconUserCircle/>
-                      Account
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <IconSettings/>
-                      Settings
-                    </DropdownMenuItem>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator/>
-                  <DropdownMenuItem>
-                    <IconLogout/>
-                    Log out
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </SidebarMenuItem>
-          ) : (
-            <SidebarMenuItem>
-              <SidebarMenuButton asChild tooltip={'Log In'}>
-                <a href={'#'}>
-                  <IconLogin2/>
-                  <span>Log In</span>
-                </a>
-              </SidebarMenuButton>
-              <SidebarMenuBadge className={'text-muted-foreground'}>Coming soon!</SidebarMenuBadge>
-            </SidebarMenuItem>
-          )}
-        </SidebarMenu>
+        <AppSidebarProfile isLoggedIn={isLoggedIn} isMobile={isMobile} user={user}/>
       </SidebarFooter>
     </Sidebar>
   )
