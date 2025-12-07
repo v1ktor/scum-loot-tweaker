@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/ui/*"]
+    },
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": [
@@ -29,5 +33,5 @@
     {
       "path": "tsconfig.node.json"
     }
-  ]
+  ],
 }
