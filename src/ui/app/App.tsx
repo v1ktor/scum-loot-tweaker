@@ -8,7 +8,7 @@ export function App() {
   return (
     <ThemeProvider defaultTheme={'dark'} storageKey={'vite-ui-theme'}>
       <Layout>
-        <div>Something is here</div>
+        <></>
       </Layout>
     </ThemeProvider>
   )

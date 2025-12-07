@@ -72,7 +72,7 @@ const items: NavItem[] = [
 
 export function AppSidebar() {
   const {isMobile} = useSidebar();
-  const [isLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(true);
 
   return (
     <Sidebar collapsible={'icon'}>
