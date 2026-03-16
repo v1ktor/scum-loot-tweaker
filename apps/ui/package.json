@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "shx rm -rf dist && tsc && vite build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "node scripts/deploy.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

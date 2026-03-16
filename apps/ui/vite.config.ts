@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
     base: '/',
     root: 'src/',
     envDir: '../../../',
-    publicDir: '../../../public',
+    publicDir: false,
     build: {
       outDir: '../dist',
       emptyOutDir: true,
