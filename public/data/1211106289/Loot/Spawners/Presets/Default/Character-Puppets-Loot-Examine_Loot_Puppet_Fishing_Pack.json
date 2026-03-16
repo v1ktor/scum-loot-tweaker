@@ -1,0 +1,37 @@
+{
+	"FixedItems": [
+		"FishingRod",
+		"FishingHookPack1",
+		"FishingHookPack2",
+		"FishingHookPack3",
+		"FishingHookPack4",
+		"FishingLine_1",
+		"FishingLine_2",
+		"FishingLine_3",
+		"FishingLine_4",
+		"FishingFloaterPack1",
+		"FishingFloaterPack2",
+		"FishingReel",
+		"FishingReelPro",
+		"PremiumBoiliesPack",
+		"PremiumBoiliesPack",
+		"FishingBait_Corn",
+		"FishingBait_Meat",
+		"FishingBait_Worm",
+		"FishingBait_Bleak",
+		"FishingBait_Bread",
+		"FishingBait_Cheese",
+		"FishingBait_Cricket",
+		"FishingBait_RedWorm",
+		"FishingBait_Sardine",
+		"FishingBait_Grasshopper"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0,
+	"PostSpawnActions": [
+		"SetCashAmount_BigStash"
+	]
+}

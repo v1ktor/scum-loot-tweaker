@@ -1,0 +1,24 @@
+{
+	"FixedItems": [
+		"Weapon_SF19",
+		"Magazine_SF19",
+		"Magazine_SF19",
+		"Magazine_SF19",
+		"Magazine_SF19",
+		"Cal_9mm_Ammobox",
+		"Cal_9mm_Ammobox",
+		"Cal_9mm_Ammobox_TR",
+		"Cal_9mm_Ammobox_TR",
+		"Cal_9mm_AP_Ammobox",
+		"WeaponSuppressor_Handgun",
+		"WeaponSights_Wasp",
+		"WeaponFlashlight_M9",
+		"Batteries",
+		"Weapon_Parts_SF19"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

@@ -1,0 +1,37 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_DEagle_50Gold"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_DEagle_50"
+		}
+	],
+	"FixedItems": [
+		"Magazine_DEagle_50",
+		"Magazine_DEagle_50",
+		"Magazine_DEagle_50",
+		"Magazine_DEagle_50",
+		"Cal_50_AE_Ammobox",
+		"Cal_50_AE_Ammobox",
+		"Cal_50_AE_Ammobox_TR",
+		"Cal_50_AE_Ammobox_TR",
+		"Cal_50_AE_AP_Ammobox",
+		"WeaponSights_Deagle_RedDot",
+		"WeaponFlashlight_DesertEagle",
+		"Batteries",
+		"Weapon_Parts_Deagle_50"
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}
