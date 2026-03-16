@@ -124,7 +124,7 @@ export function Spawners() {
             <SettingsTab spawner={spawner} setSpawner={setSpawner}/>
           </TabsContent>
           <TabsContent value="items" className="mt-0">
-            <ItemsTab spawner={spawner} setSpawner={setSpawner}/>
+            <ItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner}/>
           </TabsContent>
           <TabsContent value="fixed-items" className="mt-0">
             <FixedItemsTab spawner={spawner} setSpawner={setSpawner}/>

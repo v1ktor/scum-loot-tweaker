@@ -1,15 +1,96 @@
-import {Dispatch, SetStateAction} from 'react';
-import {Spawner} from '@/pages/spawners/Spawners.types.ts';
+import {Dispatch, SetStateAction, useState} from 'react';
+import {Spawner, SpawnerItem} from '@/pages/spawners/Spawners.types.ts';
+import {DataTable} from '@/pages/spawners/items/data-table.tsx';
+import {columns} from '@/pages/spawners/items/columns.tsx';
+import {Rarity} from '@/data/rarity.ts';
+import {SortingState} from '@tanstack/react-table';
+import {ITEMS_OPTIONS} from '@/data/items-options.ts';
 
 interface ItemsTabProps {
   spawner: Spawner;
   setSpawner: Dispatch<SetStateAction<Spawner>>;
 }
 
-export function ItemsTab(_props: ItemsTabProps) {
+export function ItemsTab(props: ItemsTabProps) {
+  const {spawner, setSpawner} = props;
+  const [rows, setRows] = useState<SpawnerItem[]>(spawner.Items ?? []);
+
+  const syncToSpawner = (updatedRows: SpawnerItem[]) => {
+    setSpawner((prev) => ({
+      ...prev,
+      Items: updatedRows.filter((item) => item.Id !== ''),
+    }));
+  };
+
+  const handleDelete = (rowIndex: number) => {
+    const next = rows.filter((_, i) => i !== rowIndex);
+    setRows(next);
+    syncToSpawner(next);
+  };
+
+  const handleDeleteSelected = (rowIndices: number[]) => {
+    const indexSet = new Set(rowIndices);
+    const next = rows.filter((_, i) => !indexSet.has(i));
+    setRows(next);
+    syncToSpawner(next);
+  };
+
+  const handleUpdateRarity = (rowIndex: number, rarity: Rarity) => {
+    const next = rows.map((item, i) =>
+      i === rowIndex ? { ...item, Rarity: rarity } : item
+    );
+    setRows(next);
+    syncToSpawner(next);
+  };
+
+  const handleUpdateItem = (rowIndex: number, itemId: string) => {
+    const next = rows.map((item, i) =>
+      i === rowIndex ? { ...item, Id: itemId } : item
+    );
+    setRows(next);
+    syncToSpawner(next);
+  };
+
+  const handleSort = (sorting: SortingState) => {
+    if (sorting.length === 0) return;
+    const { id, desc } = sorting[0];
+
+    setRows((prev) => {
+      const filled = prev.filter((item) => item.Id !== '');
+      const empty = prev.filter((item) => item.Id === '');
+
+      filled.sort((a, b) => {
+        let cmp = 0;
+        if (id === 'Id') {
+          const labelA = ITEMS_OPTIONS.find((o) => o.value === a.Id)?.label ?? '';
+          const labelB = ITEMS_OPTIONS.find((o) => o.value === b.Id)?.label ?? '';
+          cmp = labelA.localeCompare(labelB);
+        } else if (id === 'Rarity') {
+          cmp = (a.Rarity ?? '').localeCompare(b.Rarity ?? '');
+        }
+        return desc ? -cmp : cmp;
+      });
+
+      return [...filled, ...empty];
+    });
+  };
+
+  const handleAddRow = () => {
+    setRows((prev) => [...prev, { Id: '', Rarity: Rarity.Common }]);
+  };
+
   return (
     <div className="mt-4">
-      <p>Items tab content coming soon.</p>
+      <DataTable
+        columns={columns}
+        data={rows}
+        onDelete={handleDelete}
+        onDeleteSelected={handleDeleteSelected}
+        onUpdateRarity={handleUpdateRarity}
+        onUpdateItem={handleUpdateItem}
+        onSort={handleSort}
+        onAddRow={handleAddRow}
+      />
     </div>
   );
 }

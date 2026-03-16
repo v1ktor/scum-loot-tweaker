@@ -48,6 +48,12 @@ export type SettingsState = {
   randomUsageValue: string;
 }
 
+export type DataTableMeta = {
+  onDelete?: (rowIndex: number) => void;
+  onUpdateRarity?: (rowIndex: number, rarity: Rarity) => void;
+  onUpdateItem?: (rowIndex: number, itemId: string) => void;
+}
+
 export const settingsInitialState: SettingsState = {
     probabilityValue: '',
     quantityMinValue: '',

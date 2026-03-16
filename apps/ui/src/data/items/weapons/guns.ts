@@ -241,19 +241,19 @@ export const WEAPONS_M82A1: Item = {
 } as const;
 
 export const WEAPONS_M82A1_BLACK: Item = {
-  id: 'Weapon_M82A1',
+  id: 'Weapon_M82A1_Black',
   name: 'M82A1 Black',
   picture: ''
 } as const;
 
 export const WEAPONS_M82A1_DESERT: Item = {
-  id: 'Weapon_M82A1',
+  id: 'Weapon_M82A1_Desert',
   name: 'M82A1 Desert',
   picture: ''
 } as const;
 
 export const WEAPONS_M82A1_SNOW: Item = {
-  id: 'Weapon_M82A1',
+  id: 'Weapon_M82A1_Snow',
   name: 'M82A1 Snow',
   picture: ''
 } as const;
