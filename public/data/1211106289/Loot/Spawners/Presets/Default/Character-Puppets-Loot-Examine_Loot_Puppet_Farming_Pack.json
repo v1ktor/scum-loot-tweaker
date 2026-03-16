@@ -1,0 +1,27 @@
+{
+	"Nodes": [
+		{
+			"Rarity": "Uncommon",
+			"Ids": [
+				"ItemLootTreeNodes.Farm.Seeds.SeedBags"
+			]
+		}
+	],
+	"FixedItems": [
+		"Organic_Fertilizer",
+		"Fungicide",
+		"Herbicide",
+		"Pesticide",
+		"Watering_Can"
+	],
+	"QuantityMin": 7,
+	"QuantityMax": 7,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

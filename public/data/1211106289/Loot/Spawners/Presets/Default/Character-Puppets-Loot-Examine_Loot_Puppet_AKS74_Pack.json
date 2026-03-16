@@ -1,0 +1,23 @@
+{
+	"FixedItems": [
+		"Weapon_AKS_74U",
+		"Magazine_AKS_74U",
+		"Magazine_AKS_74U",
+		"Magazine_AKS_74U",
+		"Magazine_AKS_74U",
+		"Cal_5_45x39mm_Ammobox",
+		"Cal_5_45x39mm_Ammobox",
+		"Cal_5_45x39mm_Ammobox_TR",
+		"Cal_5_45x39mm_Ammobox_TR",
+		"Cal_5_45x39mm_AP_Ammobox",
+		"WeaponSuppressor_5_45x39",
+		"Weapon_Parts_AKS_74U",
+		"WeaponSights_RedDot_CA401B",
+		"ScopeRail_AK47"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

@@ -1,0 +1,29 @@
+{
+	"AssociatedNPC": "Armorer",
+	"Tier": 1,
+	"Title": "Example Eliminate Simple Rewards",
+	"Description": "Basic elimination quest, simple rewards and simple conditions",
+	"TimeLimitHours": 1.5,
+	"RewardPool": [
+		{
+			"CurrencyNormal": 1000,
+			"CurrencyGold": 0,
+			"Fame": 200
+		}
+	],
+	"Conditions": [
+		{
+			"TrackingCaption": "Eliminate puppets or animals",
+			"SequenceIndex": 0,
+			"CanBeAutoCompleted": true,
+
+			"Type": "Elimination",
+			"TargetCharacters": [
+				"Puppet",
+				"Animal"
+			],
+
+			"Amount": 10
+		}
+	]
+}

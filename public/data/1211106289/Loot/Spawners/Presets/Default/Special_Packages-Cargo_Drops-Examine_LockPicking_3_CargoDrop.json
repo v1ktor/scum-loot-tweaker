@@ -1,0 +1,12 @@
+{
+	"FixedItems": [
+		"Lockpick_Advanced_Item",
+		"Lockpick_Advanced_Item",
+		"Lockpick_Advanced_Item"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

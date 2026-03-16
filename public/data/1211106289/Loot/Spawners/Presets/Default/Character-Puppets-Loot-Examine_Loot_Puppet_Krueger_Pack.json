@@ -1,0 +1,20 @@
+{
+	"FixedItems": [
+		"Weapon_Krueger",
+		"Magazine_Krueger",
+		"Magazine_Krueger",
+		"Magazine_Krueger",
+		"Magazine_Krueger",
+		"Cal_22_Ammobox",
+		"Cal_22_Ammobox",
+		"Cal_22_Ammobox_TR",
+		"Cal_22_Ammobox_TR",
+		"WeaponSuppressor_Handgun",
+		"Weapon_Parts_Krueger"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

@@ -1,0 +1,23 @@
+{
+	"FixedItems": [
+		"Weapon_DEagle_357",
+		"Magazine_DEagle_357",
+		"Magazine_DEagle_357",
+		"Magazine_DEagle_357",
+		"Magazine_DEagle_357",
+		"Cal_357_Ammobox",
+		"Cal_357_Ammobox",
+		"Cal_357_Ammobox_TR",
+		"Cal_357_Ammobox_TR",
+		"Cal_357_Ammobox_AP",
+		"WeaponSights_Deagle_RedDot",
+		"WeaponFlashlight_DesertEagle",
+		"Batteries",
+		"Weapon_Parts_Deagle_357"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

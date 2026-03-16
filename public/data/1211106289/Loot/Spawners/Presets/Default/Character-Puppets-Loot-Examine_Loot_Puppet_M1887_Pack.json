@@ -1,0 +1,30 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_M1887"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_M1887_Sawed_off"
+		}
+	],
+	"FixedItems": [
+		"12_Gauge_Buckshot_Ammobox",
+		"12_Gauge_Buckshot_Ammobox",
+		"12_Gauge_Birdshot_Ammobox",
+		"12_Gauge_Birdshot_Ammobox",
+		"12_Gauge_Slug_Ammobox",
+		"Weapon_Parts_M1887"
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

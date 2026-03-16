@@ -1,0 +1,18 @@
+{
+	"FixedItems": [
+		"Weapon_590A11",
+		"12_Gauge_Buckshot_Ammobox",
+		"12_Gauge_Buckshot_Ammobox",
+		"12_Gauge_Birdshot_Ammobox",
+		"12_Gauge_Birdshot_Ammobox",
+		"12_Gauge_Slug_Ammobox",
+		"Weapon_Parts_590A11",
+		"WeaponSuppressor_12_Gauge",
+		"WeaponSights_OKP-7_Holographic"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

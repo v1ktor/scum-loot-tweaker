@@ -1,0 +1,17 @@
+{
+	"FixedItems": [
+		"Weapon_PeaceKeeper38",
+		"Cal_38_Ammobox",
+		"Cal_38_Ammobox",
+		"Cal_38_Ammobox_TR",
+		"Cal_38_Ammobox_TR",
+		"Cal_38_Ammobox_AP",
+		"WeaponSights_Sentry_RDRS",
+		"Weapon_Parts_Peacekeeper38"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

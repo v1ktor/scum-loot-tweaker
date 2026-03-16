@@ -1,0 +1,13 @@
+{
+	"FixedItems": [
+		"Gasoline_Canister"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0,
+	"PostSpawnActions": [
+		"SetResourceAmount_CargoDropGasolineCanister"
+	]
+}

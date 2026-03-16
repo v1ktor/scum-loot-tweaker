@@ -1,0 +1,26 @@
+{
+	"FixedItems": [
+		"Phoenix_Tears_Small",
+		"Tourniquet",
+		"Tourniquet",
+		"Pressure_Dressing",
+		"Pressure_Dressing",
+		"Pressure_Dressing",
+		"Hemostatic_Dressing",
+		"Hemostatic_Dressing",
+		"Hemostatic_Dressing",
+		"Emergency_bandage_Big",
+		"Isopropyl_alcohol",
+		"AntiburnGel",
+		"AntiburnGel",
+		"Vitamins_03",
+		"PainKillers_03",
+		"PotassiumIodide_Pills_03",
+		"Antibiotics_03"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

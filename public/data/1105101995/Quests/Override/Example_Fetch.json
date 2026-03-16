@@ -1,0 +1,125 @@
+{
+	"AssociatedNPC": "GeneralGoods",
+	"Tier": 1,
+	"Title": "Example Fetch Multi Condition",
+	"Description": "Fetch quest that has multiple conditions with multiple accepted items, with two conditions sharing the same SequenceIndex. Gives gold and survival and archery skill points as reward",
+	"TimeLimitHours": 1.5,
+	"RewardPool": [
+		{
+			"CurrencyGold": 1,
+			"Skills": [
+				{
+					"Skill": "Survival",
+					"Experience": 15000
+				},
+				{
+					"Skill": "Archery",
+					"Experience": 10000
+				}
+			]
+		}
+	],
+	"Conditions": [
+		{
+			"TrackingCaption": "Find or craft a bow",
+			"SequenceIndex": 0,
+			"CanBeAutoCompleted": true,
+
+			"Type": "Fetch",
+			"DisablePurchaseOfRequiredItems": false,
+			"PlayerKeepsItems": true,
+			"RequiredItems": [
+				{
+					"AcceptedItems": [
+						"Compound_Bow",
+						"Compound_Bow_Desert",
+						"Compound_Bow_Digital",
+						"Compound_Bow_Snow",
+						"Compound_Bow_US_Scorpion",
+						"Compound_Bow_Woodland",
+						"Improvised_Bow",
+						"Improvised_Bow_25",
+						"Improvised_Bow_30",
+						"Improvised_Bow_35",
+						"Manchu_Bow_50",
+						"Recurve_Bow",
+						"Recurve_Bow_100",
+						"Recurve_Bow_50",
+						"Recurve_Bow_60",
+						"Recurve_Bow_70",
+						"Recurve_Bow_80",
+						"Recurve_Bow_90",
+						"Takedown_Bow"
+					],
+					"RequiredNum": 1
+				}
+			]
+		},
+		{
+			"TrackingCaption": "Find or craft 5 stone tip arrows and 5 metal tip arrows",
+			"SequenceIndex": 1,
+			"CanBeAutoCompleted": true,
+
+			"Type": "Fetch",
+			"DisablePurchaseOfRequiredItems": false,
+			"PlayerKeepsItems": true,
+			"RequiredItems": [
+				{
+					"AcceptedItems": [
+						"Wooden_ArrowMetalTip"
+					],
+					"RequiredNum": 5
+				},
+				{
+					"AcceptedItems": [
+						"Wooden_ArrowStoneTip"
+					],
+					"RequiredNum": 5
+				}
+			]
+		},
+		{
+			"TrackingCaption": "Bring back 10 steaks of any kind",
+			"SequenceIndex": 2,
+			"CanBeAutoCompleted": false,
+
+			"Type": "Fetch",
+			"DisablePurchaseOfRequiredItems": true,
+			"PlayerKeepsItems": false,
+			"RequiredItems": [
+				{
+					"AcceptedItems": [
+						"Bear_Steak",
+						"Deer_Steak",
+						"Doe_01_Steak",
+						"Donkey_Steak",
+						"Goat_Steak",
+						"Horse_Steak",
+						"Human_Steak",
+						"Pork_Steak",
+						"Wolf_Steak"
+					],
+					"RequiredNum": 10
+				}
+			]
+		},
+		{
+			"TrackingCaption": "Also bring back 5 pieces of fat of any kind",
+			"SequenceIndex": 2,
+			"CanBeAutoCompleted": false,
+
+			"Type": "Fetch",
+			"DisablePurchaseOfRequiredItems": true,
+			"PlayerKeepsItems": false,
+			"RequiredItems": [
+				{
+					"AcceptedItems": [
+						"Big_Animal_Fat",
+						"Small_Animal_Fat"
+					],
+					"RequiredNum": 5
+				}
+			]
+		}
+	]
+}

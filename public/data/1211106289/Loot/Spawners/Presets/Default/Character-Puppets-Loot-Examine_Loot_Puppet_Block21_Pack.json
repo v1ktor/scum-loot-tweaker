@@ -1,0 +1,38 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_BayRifferBlock21"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_Block21"
+		}
+	],
+	"FixedItems": [
+		"Magazine_Block21",
+		"Magazine_Block21",
+		"Magazine_Block21",
+		"Magazine_Block21",
+		"Cal_45_Ammobox",
+		"Cal_45_Ammobox",
+		"Cal_45_Ammobox_TR",
+		"Cal_45_Ammobox_TR",
+		"Cal_45_AP_Ammobox",
+		"WeaponSuppressor_45ACP",
+		"WeaponSights_Snake",
+		"WeaponFlashlight_M9",
+		"Batteries",
+		"Weapon_Parts_Block21"
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}
