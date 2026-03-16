@@ -42,9 +42,6 @@ export function Spawners() {
     const json = JSON.stringify(spawner, null, 2);
     const blob = new Blob([json], {type: 'application/json'});
 
-    console.dir(spawner);
-    console.dir(json);
-
     if (downloadUrl) {
       URL.revokeObjectURL(downloadUrl);
     }
