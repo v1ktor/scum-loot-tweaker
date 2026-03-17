@@ -46,8 +46,6 @@ export function Spawners() {
       URL.revokeObjectURL(downloadUrl);
     }
 
-    console.log(json);
-
     setDownloadUrl(URL.createObjectURL(blob));
   }
 
