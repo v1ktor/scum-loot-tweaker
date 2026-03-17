@@ -12,6 +12,47 @@ export function Changelog() {
 
         <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
           <span className="text-3xl font-semibold tracking-tight">
+            0.1.2
+          </span>
+          <span className="text-sm text-muted-foreground">
+            Mar 17, 2026
+          </span>
+        </h2>
+        <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+          <li>Fixed Items tab improvements:
+            <ul className="my-2 ml-6 list-disc [&>li]:mt-1">
+              <li>Added ability to change items</li>
+              <li>Added ability to add new items</li>
+              <li>Added ability to delete items</li>
+              <li>Added ability to mass delete selected items</li>
+              <li>Added sorting by item name and rarity</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+          <span className="text-3xl font-semibold tracking-tight">
+            0.1.1
+          </span>
+          <span className="text-sm text-muted-foreground">
+            Mar 17, 2026
+          </span>
+        </h2>
+        <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+          <li>Items tab improvements:
+            <ul className="my-2 ml-6 list-disc [&>li]:mt-1">
+              <li>Added ability to change items</li>
+              <li>Added ability to change item rarity</li>
+              <li>Added ability to add new items</li>
+              <li>Added ability to delete items</li>
+              <li>Added ability to mass delete selected items</li>
+              <li>Added sorting by item name and rarity</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+          <span className="text-3xl font-semibold tracking-tight">
             0.1.0
           </span>
           <span className="text-sm text-muted-foreground">

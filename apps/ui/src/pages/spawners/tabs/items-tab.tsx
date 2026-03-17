@@ -51,6 +51,10 @@ export function ItemsTab(props: ItemsTabProps) {
     syncToSpawner(next);
   };
 
+  const handleAddRow = () => {
+    setRows((prev) => [...prev, { Id: '', Rarity: Rarity.Common }]);
+  };
+
   const handleSort = (sorting: SortingState) => {
     if (sorting.length === 0) return;
     const { id, desc } = sorting[0];
@@ -75,10 +79,6 @@ export function ItemsTab(props: ItemsTabProps) {
     });
   };
 
-  const handleAddRow = () => {
-    setRows((prev) => [...prev, { Id: '', Rarity: Rarity.Common }]);
-  };
-
   return (
     <div className="mt-4">
       <DataTable
@@ -88,8 +88,8 @@ export function ItemsTab(props: ItemsTabProps) {
         onDeleteSelected={handleDeleteSelected}
         onUpdateRarity={handleUpdateRarity}
         onUpdateItem={handleUpdateItem}
-        onSort={handleSort}
         onAddRow={handleAddRow}
+        onSort={handleSort}
       />
     </div>
   );

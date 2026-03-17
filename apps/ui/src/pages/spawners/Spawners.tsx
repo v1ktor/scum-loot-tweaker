@@ -46,6 +46,8 @@ export function Spawners() {
       URL.revokeObjectURL(downloadUrl);
     }
 
+    console.log(json);
+
     setDownloadUrl(URL.createObjectURL(blob));
   }
 
@@ -124,7 +126,7 @@ export function Spawners() {
             <ItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner}/>
           </TabsContent>
           <TabsContent value="fixed-items" className="mt-0">
-            <FixedItemsTab spawner={spawner} setSpawner={setSpawner}/>
+            <FixedItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner}/>
           </TabsContent>
           <TabsContent value="nodes" className="mt-0">
             <NodesTab spawner={spawner} setSpawner={setSpawner}/>

@@ -41,11 +41,6 @@ export function DataTable<TData, TValue>({columns, data, onDelete, onDeleteSelec
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
     onRowSelectionChange: setRowSelection,
-    initialState: {
-      pagination: {
-        pageSize: Number.MAX_SAFE_INTEGER,
-      },
-    },
     meta: {
       onDelete,
       onUpdateRarity,
