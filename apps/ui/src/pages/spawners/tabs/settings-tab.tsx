@@ -23,43 +23,50 @@ export function SettingsTab(props: SettingsTabProps) {
   const { spawner, setSpawner } = props;
 
   const handleFieldChange = (field: keyof Spawner) => (value: string) => {
-    setSpawner(prev => ({...prev, [field]: value}));
+    if (value === undefined) {
+      return handleFieldClear(field)();
+    }
+    const num = Number(value);
+    setSpawner(prev => ({...prev, [field]: Number.isNaN(num) ? value : num}));
   };
 
   const handleFieldClear = (field: keyof Spawner) => () => {
-    setSpawner(prev => ({...prev, [field]: undefined}));
+    setSpawner(prev => {
+      const { [field]: _, ...rest } = prev;
+      return rest;
+    });
   };
 
   return (
     <div className="grid grid-cols-[7fr_3fr] gap-8 mt-4">
       <div>
-        <InputField value={spawner.Probability ? spawner.Probability : ''} id="probability"
+        <InputField value={spawner.Probability ?? ''} id="probability"
                     label="Probability"
                     onChange={handleFieldChange('Probability')} onClear={handleFieldClear('Probability')}
                     tooltipContent={<ProbabilityTooltip probability={spawner.Probability}/>}/>
         <div className="flex gap-4">
-          <InputField value={spawner.QuantityMin ? spawner.QuantityMin : ''} id="quantity-min"
+          <InputField value={spawner.QuantityMin ?? ''} id="quantity-min"
                       label="Quantity Min"
                       onChange={handleFieldChange('QuantityMin')} onClear={handleFieldClear('QuantityMin')}
                       tooltipContent={<QuantityTooltip/>}/>
-          <InputField value={spawner.QuantityMax ? spawner.QuantityMax : ''} id="quantity-max"
+          <InputField value={spawner.QuantityMax ?? ''} id="quantity-max"
                       label="Quantity Max"
                       onChange={handleFieldChange('QuantityMax')} onClear={handleFieldClear('QuantityMax')}
                       tooltipContent={<QuantityTooltip/>}/>
         </div>
         <div className="flex gap-4">
-          <InputField value={spawner.InitialDamage ? spawner.InitialDamage : ''} id="initial-damage"
+          <InputField value={spawner.InitialDamage ?? ''} id="initial-damage"
                       label="Initial damage" onChange={handleFieldChange('InitialDamage')}
                       onClear={handleFieldClear('InitialDamage')} tooltipContent={<InitialDamageTooltip/>}/>
-          <InputField value={spawner.RandomDamage ? spawner.RandomDamage : ''} id="random-damage"
+          <InputField value={spawner.RandomDamage ?? ''} id="random-damage"
                       label="Random damage" onChange={handleFieldChange('RandomDamage')}
                       onClear={handleFieldClear('RandomDamage')} tooltipContent={<RandomDamageTooltip/>}/>
         </div>
         <div className="flex gap-4">
-          <InputField value={spawner.InitialUsage ? spawner.InitialUsage : ''} id="initial-usage"
+          <InputField value={spawner.InitialUsage ?? ''} id="initial-usage"
                       label="Initial Usage" onChange={handleFieldChange('InitialUsage')}
                       onClear={handleFieldClear('InitialUsage')} tooltipContent={<InitialUsageTooltip/>}/>
-          <InputField value={spawner.RandomUsage ? spawner.RandomUsage : ''} id="random-usage"
+          <InputField value={spawner.RandomUsage ?? ''} id="random-usage"
                       label="Random Usage"
                       onChange={handleFieldChange('RandomUsage')} onClear={handleFieldClear('RandomUsage')}
                       tooltipContent={<RandomUsageTooltip/>}/>

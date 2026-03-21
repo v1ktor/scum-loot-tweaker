@@ -19,6 +19,7 @@ import {ItemsTab} from '@/pages/spawners/tabs/items-tab.tsx';
 import {FixedItemsTab} from '@/pages/spawners/tabs/fixed-items-tab.tsx';
 import {NodesTab} from '@/pages/spawners/tabs/nodes-tab.tsx';
 import {SubpresetsTab} from '@/pages/spawners/tabs/subpresets-tab.tsx';
+import {Badge} from '@/components/ui/badge.tsx';
 
 export function Spawners() {
   const [spawner, setSpawner] = useState<Spawner>({});
@@ -47,6 +48,15 @@ export function Spawners() {
     }
 
     setDownloadUrl(URL.createObjectURL(blob));
+  }
+
+  const calculateNumberOfSettings = (data: Spawner) => {
+    const excludedKeys: (keyof Spawner)[] = ['Items', 'Subpresets', 'FixedItems', 'Nodes'];
+    const settingsKeys = Object.keys(data).filter(
+      (key) => !excludedKeys.includes(key as keyof Spawner)
+    );
+
+    return settingsKeys.length;
   }
 
   return (
@@ -110,11 +120,11 @@ export function Spawners() {
 
         <Tabs defaultValue="settings">
           <TabsList>
-            <TabsTrigger value="settings">Settings</TabsTrigger>
-            <TabsTrigger value="items">Items</TabsTrigger>
-            <TabsTrigger value="fixed-items">Fixed Items</TabsTrigger>
-            <TabsTrigger value="nodes">Nodes</TabsTrigger>
-            <TabsTrigger value="subpresets">Subpresets</TabsTrigger>
+            <TabsTrigger value="settings">Settings<Badge variant='secondary'>{calculateNumberOfSettings(spawner)}</Badge></TabsTrigger>
+            <TabsTrigger value="items">Items <Badge variant='secondary'>{spawner.Items?.length ?? 0}</Badge></TabsTrigger>
+            <TabsTrigger value="fixed-items">Fixed Items<Badge variant='secondary'>{spawner.FixedItems?.length ?? 0}</Badge></TabsTrigger>
+            <TabsTrigger value="nodes">Nodes <Badge variant='secondary'>{spawner.Nodes?.length ?? 0}</Badge></TabsTrigger>
+            <TabsTrigger value="subpresets">Subpresets <Badge variant='secondary'>{spawner.Subpresets?.length ?? 0}</Badge></TabsTrigger>
           </TabsList>
 
           <TabsContent value="settings" className="mt-0">
