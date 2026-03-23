@@ -12,6 +12,21 @@ export function Changelog() {
 
         <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
           <span className="text-3xl font-semibold tracking-tight">
+            0.1.4
+          </span>
+          <span className="text-sm text-muted-foreground">
+            Mar 23, 2026
+          </span>
+        </h2>
+        <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+          <li>Added spawners, nodes, parameters and cooldown groups from <code
+            className="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm">1.2.2.1.108938</code> game
+            version
+          </li>
+        </ul>
+
+        <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+          <span className="text-3xl font-semibold tracking-tight">
             0.1.3
           </span>
           <span className="text-sm text-muted-foreground">

@@ -17,7 +17,7 @@ export function FixedItemsTab(props: FixedItemsTabProps) {
   const syncToSpawner = (updatedRows: string[]) => {
     setSpawner((prev) => ({
       ...prev,
-      FixedItems: updatedRows.filter((item) => item !== ''),
+      FixedItems: updatedRows.filter((item) => item !== '' || item),
     }));
   };
 

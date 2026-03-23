@@ -1,0 +1,20 @@
+{
+	"FixedItems": [
+		"Tool_Box",
+		"1H_Military_Shovel",
+		"2H_Axe",
+		"Sewing_kit",
+		"Sewing_kit",
+		"Grinding_Stone_02",
+		"Weapon_Cleaning_Kit",
+		"Car_Jack",
+		"Electrical_Repair_Kit",
+		"Electrician_Tools",
+		"Car_Repair_Kit"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

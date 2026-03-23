@@ -66,7 +66,7 @@ export const columns: ColumnDef<String>[] = [
     cell: ({row, table}) => {
       const meta = table.options.meta as DataTableMeta | undefined;
       const currentId = row.getValue('Id') as string;
-      const currentOption = ITEMS_OPTIONS.find((o) => o.value === currentId);
+      const currentOption = ITEMS_OPTIONS.find((o) => o.value === currentId) || currentId as unknown as Option;
 
       return (
         <Combobox

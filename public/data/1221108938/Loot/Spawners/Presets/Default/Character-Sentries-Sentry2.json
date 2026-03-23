@@ -1,0 +1,31 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Cal_50BMG"
+		}
+	],
+	"FixedItems": [
+		"C4_CircuitBoard",
+		"BCULock_Item",
+		"PortableWorkLight",
+		"PortableWorkLight",
+		"Laser_Detonator",
+		"Sentry_Aiming_Kit",
+		"Sentry_50cal_Rifle",
+		"KeyCard"
+	],
+	"QuantityMin": 5,
+	"QuantityMax": 15,
+	"AllowDuplicates": true,
+	"ShouldFilterItemsByZone": true,
+	"ShouldApplyLocationSpecificProbabilityModifier": true,
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 20,
+	"RandomDamage": 10,
+	"InitialUsage": 0,
+	"RandomUsage": 0,
+	"PostSpawnActions": [
+		"KillboxKeycard_Sentry"
+	]
+}

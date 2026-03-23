@@ -1,0 +1,37 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Cal_7_62x39mm_AP"
+		}
+	],
+	"FixedItems": [
+		"C4_Keypad",
+		"C4_CircuitBoard",
+		"Laser_Detonator",
+		"BCULock_Item",
+		"Cal_40x46",
+		"Cal_40x46",
+		"Cal_40x46",
+		"Cal_40x46",
+		"TearGasGrenade",
+		"TearGasGrenade",
+		"KeyCard",
+		"Sentry_Aiming_Kit",
+		"Flashbang",
+		"Flashbang"
+	],
+	"QuantityMin": 60,
+	"QuantityMax": 120,
+	"AllowDuplicates": true,
+	"ShouldFilterItemsByZone": true,
+	"ShouldApplyLocationSpecificProbabilityModifier": true,
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 20,
+	"RandomDamage": 10,
+	"InitialUsage": 0,
+	"RandomUsage": 0,
+	"PostSpawnActions": [
+		"KillboxKeycard_Sentry"
+	]
+}
