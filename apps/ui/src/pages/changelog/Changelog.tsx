@@ -19,7 +19,7 @@ export function Changelog() {
           </span>
         </h2>
         <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
-          <li>Add ability to view and search items inside the spawners node</li>
+          <li>Added ability to view and search items inside the spawners node</li>
         </ul>
 
         <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
