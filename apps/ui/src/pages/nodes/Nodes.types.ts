@@ -1,4 +1,4 @@
-import { Rarity } from "../../data/rarity.ts";
+import { Rarity } from '@/data/rarity.ts';
 
 export type Node = {
   Name: string;

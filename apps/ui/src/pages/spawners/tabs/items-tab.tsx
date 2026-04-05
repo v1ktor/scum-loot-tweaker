@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction, useState} from 'react';
+import {Dispatch, SetStateAction, useCallback, useEffect, useState} from 'react';
 import {Spawner, SpawnerItem} from '@/pages/spawners/Spawners.types.ts';
 import {DataTable} from '@/pages/spawners/items/data-table.tsx';
 import {columns} from '@/pages/spawners/items/columns.tsx';
@@ -15,48 +15,46 @@ export function ItemsTab(props: ItemsTabProps) {
   const {spawner, setSpawner} = props;
   const [rows, setRows] = useState<SpawnerItem[]>(spawner.Items ?? []);
 
-  const syncToSpawner = (updatedRows: SpawnerItem[]) => {
+  const syncToSpawner = useCallback((updatedRows: SpawnerItem[]) => {
     setSpawner((prev) => ({
       ...prev,
       Items: updatedRows.filter((item) => item.Id !== ''),
     }));
-  };
+  }, [setSpawner]);
+
+  useEffect(() => {
+    syncToSpawner(rows);
+  }, [rows, syncToSpawner]);
 
   const handleDelete = (rowIndex: number) => {
-    const next = rows.filter((_, i) => i !== rowIndex);
-    setRows(next);
-    syncToSpawner(next);
+    setRows(prev => prev.filter((_, i) => i !== rowIndex));
   };
 
   const handleDeleteSelected = (rowIndices: number[]) => {
     const indexSet = new Set(rowIndices);
-    const next = rows.filter((_, i) => !indexSet.has(i));
-    setRows(next);
-    syncToSpawner(next);
+
+    setRows(prev => prev.filter((_, i) => !indexSet.has(i)));
   };
 
   const handleUpdateRarity = (rowIndex: number, rarity: Rarity) => {
-    const next = rows.map((item, i) =>
+    setRows(prev => prev.map((item, i) =>
       i === rowIndex ? { ...item, Rarity: rarity } : item
-    );
-    setRows(next);
-    syncToSpawner(next);
+    ));
   };
 
   const handleUpdateItem = (rowIndex: number, itemId: string) => {
-    const next = rows.map((item, i) =>
+    setRows(prev => prev.map((item, i) =>
       i === rowIndex ? { ...item, Id: itemId } : item
-    );
-    setRows(next);
-    syncToSpawner(next);
+    ));
   };
 
   const handleAddRow = () => {
-    setRows((prev) => [...prev, { Id: '', Rarity: Rarity.Common }]);
+    setRows(prev => [...prev, { Id: '', Rarity: Rarity.Common }]);
   };
 
   const handleSort = (sorting: SortingState) => {
     if (sorting.length === 0) return;
+
     const { id, desc } = sorting[0];
 
     setRows((prev) => {
@@ -65,13 +63,18 @@ export function ItemsTab(props: ItemsTabProps) {
 
       filled.sort((a, b) => {
         let cmp = 0;
+
         if (id === 'Id') {
           const labelA = ITEMS_OPTIONS.find((o) => o.value === a.Id)?.label ?? '';
           const labelB = ITEMS_OPTIONS.find((o) => o.value === b.Id)?.label ?? '';
+
           cmp = labelA.localeCompare(labelB);
-        } else if (id === 'Rarity') {
+        }
+
+        if (id === 'Rarity') {
           cmp = (a.Rarity ?? '').localeCompare(b.Rarity ?? '');
         }
+
         return desc ? -cmp : cmp;
       });
 
@@ -94,5 +97,3 @@ export function ItemsTab(props: ItemsTabProps) {
     </div>
   );
 }
-
-

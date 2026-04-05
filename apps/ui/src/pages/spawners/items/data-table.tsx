@@ -11,6 +11,8 @@ import React from 'react';
 import {Input} from '@/components/ui/input.tsx';
 
 import {Rarity} from '@/data/rarity.ts';
+import {IconButton} from '@/components/icon-button/icon-button.tsx';
+import { PlusIcon } from 'lucide-react';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -79,9 +81,7 @@ export function DataTable<TData, TValue>({columns, data, onDelete, onDeleteSelec
             </Button>
           )}
           {onAddRow && (
-            <Button variant="outline" size="sm" onClick={onAddRow}>
-              Add item
-            </Button>
+            <IconButton onClick={onAddRow} leftOrnament={<PlusIcon className="h-4 w-4"/>} variant="outline" text="Add item"/>
           )}
         </div>
       </div>

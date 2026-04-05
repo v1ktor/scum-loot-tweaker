@@ -20,7 +20,7 @@ export function InputField(props: Props) {
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
   return (
-    <Field className="grid w-full max-w-xs items-center gap-1 pb-4">
+    <Field className="grid w-full max-w- items-center gap-1 pb-4">
       <FieldLabel htmlFor={id}>{label}:</FieldLabel>
       <ButtonGroup>
         <InputGroup>

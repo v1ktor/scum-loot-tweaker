@@ -36,7 +36,7 @@ export function MultiSelect(props: MultiSelectProps) {
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
   return (
-    <Field className="grid w-full max-w-164 items-center gap-1 pb-4">
+    <Field className="grid w-full max-w-full items-center gap-1 pb-4">
       <label className="text-sm font-medium" htmlFor={id}>{label}</label>
       <ButtonGroup className="w-full">
         <Combobox

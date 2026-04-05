@@ -2,6 +2,7 @@ import ReactGA from 'react-ga4';
 import Layout from '@/app/layout.tsx';
 import {ThemeProvider} from '@/components/theme-provider/theme-provider.tsx';
 import {Route, Routes} from 'react-router-dom';
+import {Toaster} from '@/components/ui/sonner.tsx';
 import {NavigationPath} from '@/data/navigation-path.ts';
 import {Changelog} from '@/pages/changelog/Changelog.tsx';
 import {Spawners} from '@/pages/spawners/Spawners.tsx';
@@ -18,6 +19,7 @@ export function App() {
           <Route path={NavigationPath.Spawners} element={<Spawners/>}/>
         </Routes>
       </Layout>
+      <Toaster />
     </ThemeProvider>
   )
 }
