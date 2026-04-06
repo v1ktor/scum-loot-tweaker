@@ -19,7 +19,15 @@ export interface TreeSidebarItemProps {
   path?: string[];
 }
 
-export function TreeSidebarItem({node, depth, filter, selectedNode, onSelect, defaultExpanded = false, path = []}: TreeSidebarItemProps) {
+export function TreeSidebarItem({
+                                  node,
+                                  depth,
+                                  filter,
+                                  selectedNode,
+                                  onSelect,
+                                  defaultExpanded = false,
+                                  path = []
+                                }: TreeSidebarItemProps) {
   const [expanded, setExpanded] = useState(depth === 0 || defaultExpanded);
   const currentPath = [...path, node.Name];
   const branchChildren = node.Children?.filter((c) => c.Children && c.Children.length > 0) ?? [];
