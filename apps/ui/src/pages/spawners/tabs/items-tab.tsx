@@ -38,24 +38,24 @@ export function ItemsTab(props: ItemsTabProps) {
 
   const handleUpdateRarity = (rowIndex: number, rarity: Rarity) => {
     setRows(prev => prev.map((item, i) =>
-      i === rowIndex ? { ...item, Rarity: rarity } : item
+      i === rowIndex ? {...item, Rarity: rarity} : item
     ));
   };
 
   const handleUpdateItem = (rowIndex: number, itemId: string) => {
     setRows(prev => prev.map((item, i) =>
-      i === rowIndex ? { ...item, Id: itemId } : item
+      i === rowIndex ? {...item, Id: itemId} : item
     ));
   };
 
   const handleAddRow = () => {
-    setRows(prev => [...prev, { Id: '', Rarity: Rarity.Common }]);
+    setRows(prev => [...prev, {Id: '', Rarity: Rarity.Common}]);
   };
 
   const handleSort = (sorting: SortingState) => {
     if (sorting.length === 0) return;
 
-    const { id, desc } = sorting[0];
+    const {id, desc} = sorting[0];
 
     setRows((prev) => {
       const filled = prev.filter((item) => item.Id !== '');
