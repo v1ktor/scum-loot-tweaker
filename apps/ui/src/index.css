@@ -113,6 +113,16 @@
     --sidebar-ring: oklch(0.556 0 0);
 }
 
+@utility card-gradient {
+    background-image: linear-gradient(
+        to top,
+        color-mix(in oklch, var(--primary) 5%, var(--card)) 0%,
+        color-mix(in oklch, var(--primary) 4%, var(--card)) 25%,
+        color-mix(in oklch, var(--primary) 3%, var(--card)) 50%,
+        color-mix(in oklch, var(--primary) 1%, var(--card)) 75%,
+        var(--card) 100%
+    );
+}
 @layer base {
     * {
         @apply border-border outline-ring/50;
