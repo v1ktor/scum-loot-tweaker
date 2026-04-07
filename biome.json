@@ -1,0 +1,135 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.10/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true,
+        "defaultBranch": "main"
+    },
+    "files": {
+        "ignoreUnknown": false
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineEnding": "lf",
+        "lineWidth": 120,
+        "attributePosition": "auto",
+        "bracketSameLine": false,
+        "bracketSpacing": true,
+        "expand": "auto",
+        "useEditorconfig": true
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "complexity": {
+                "noAdjacentSpacesInRegex": "error",
+                "noArguments": "error",
+                "noBannedTypes": "error",
+                "noExtraBooleanCast": "error",
+                "noUselessCatch": "error",
+                "noUselessEscapeInRegex": "error",
+                "noUselessThisAlias": "error",
+                "noUselessTypeConstraint": "error",
+                "useArrowFunction": "off",
+                "useFlatMap": "error",
+                "useLiteralKeys": "off",
+                "useOptionalChain": "off",
+                "useRegexLiterals": "off"
+            },
+            "correctness": {
+                "noConstructorReturn": "off",
+                "noInvalidUseBeforeDeclaration": "off",
+                "noUndeclaredVariables": "error",
+                "noUnusedFunctionParameters": {
+                    "level": "error",
+                    "options": {
+                        "ignoreRestSiblings": true
+                    }
+                },
+                "noUnusedImports": "error",
+                "noUnusedLabels": "error",
+                "noUnusedVariables": {
+                    "level": "error",
+                    "options": {
+                        "ignoreRestSiblings": true
+                    }
+                },
+                "useParseIntRadix": "off",
+                "useValidForDirection": "error"
+            },
+            "performance": {
+                "noAccumulatingSpread": "error"
+            },
+            "style": {
+                "noCommonJs": "error",
+                "noNonNullAssertion": "off",
+                "useArrayLiterals": "error",
+                "useAsConstAssertion": "error",
+                "useConst": "error",
+                "useExponentiationOperator": "off",
+                "useImportType": "error",
+                "useLiteralEnumMembers": "off",
+                "useNodejsImportProtocol": "error",
+                "useTemplate": "error"
+            },
+            "suspicious": {
+                "noArrayIndexKey": "off",
+                "noAssignInExpressions": "error",
+                "noCatchAssign": "error",
+                "noConfusingVoidType": "off",
+                "noConsole": "error",
+                "noConstEnum": "off",
+                "noExplicitAny": "error",
+                "noExtraNonNullAssertion": "error",
+                "noGlobalIsNan": "off",
+                "noImplicitAnyLet": "off",
+                "noIrregularWhitespace": "error",
+                "noPrototypeBuiltins": "error",
+                "noTemplateCurlyInString": "off",
+                "noTsIgnore": "error",
+                "noUselessRegexBackrefs": "error",
+                "noVar": "error",
+                "useAwait": "error",
+                "useIterableCallbackReturn": "off"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "trailingCommas": "all",
+            "semicolons": "always",
+            "arrowParentheses": "always",
+            "bracketSameLine": false,
+            "quoteStyle": "single",
+            "attributePosition": "auto",
+            "bracketSpacing": true
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["**/package.json"],
+            "formatter": {
+                "expand": "always"
+            }
+        },
+        {
+            "includes": ["**/deploy.mjs"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noConsole": "off"
+                    }
+                }
+            }
+        }
+    ],
+    "assist": {
+        "enabled": true
+    }
+}

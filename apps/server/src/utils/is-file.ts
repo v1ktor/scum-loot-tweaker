@@ -1,5 +1,6 @@
-import * as fs from "node:fs";
+import * as fs from 'node:fs/promises';
 
-export const isFile = (fileName: fs.PathLike) => {
-  return fs.lstatSync(fileName).isFile();
-}
+export const isFile = async (fileName: string) => {
+    const stat = await fs.lstat(fileName);
+    return stat.isFile();
+};

@@ -3,21 +3,16 @@
     --content-max-width: 900px;
     --breakout-max-width: 1200px;
 
-    --breakout-size: calc(
-            (var(--breakout-max-width) - var(--content-max-width)) / 2
-    );
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
     display: grid;
     grid-template-columns:
-    [full-width-start] minmax(var(--padding-inline), 1fr)
-    [breakout-start] minmax(0, var(--breakout-size))
-    [content-start] min(
-      100% - (var(--padding-inline) * 2),
-      var(--content-max-width)
-    )
-    [content-end]
-    minmax(0, var(--breakout-size)) [breakout-end]
-    minmax(var(--padding-inline), 1fr) [full-width-end];
+        [full-width-start] minmax(var(--padding-inline), 1fr)
+        [breakout-start] minmax(0, var(--breakout-size))
+        [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+        [content-end]
+        minmax(0, var(--breakout-size)) [breakout-end]
+        minmax(var(--padding-inline), 1fr) [full-width-end];
 }
 
 .content-grid > :not(.breakout, .full-width),
@@ -193,7 +188,6 @@ nav ul {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-
 }
 
 nav a {
@@ -355,16 +349,16 @@ input:hover {
     gap: 12px 12px;
     grid-auto-flow: row;
     grid-template-areas:
-    "probability-label probability-input probability-tooltip spawner-image"
-    "quantity-min-label quantity-min-input . spawner-image"
-    "quantity-max-label quantity-max-input quantity-max-tooltip spawner-image"
-    "allow-duplicates-label allow-duplicates-input allow-duplicates-tooltip spawner-image"
-    "should-filter-items-by-zone-label should-filter-items-by-zone-input should-filter-items-by-zone-tooltip spawner-image"
-    "initial-damage-label initial-damage-input initial-damage-tooltip spawner-image"
-    "random-damage-label random-damage-input random-damage-tooltip spawner-image"
-    "initial-usage-label initial-usage-input initial-usage-tooltip spawner-image"
-    "random-usage-label random-usage-input random-usage-tooltip spawner-image"
-    "post-spawn-actions-label post-spawn-actions-input post-span-actions-tooltip spawner-image";
+        "probability-label probability-input probability-tooltip spawner-image"
+        "quantity-min-label quantity-min-input . spawner-image"
+        "quantity-max-label quantity-max-input quantity-max-tooltip spawner-image"
+        "allow-duplicates-label allow-duplicates-input allow-duplicates-tooltip spawner-image"
+        "should-filter-items-by-zone-label should-filter-items-by-zone-input should-filter-items-by-zone-tooltip spawner-image"
+        "initial-damage-label initial-damage-input initial-damage-tooltip spawner-image"
+        "random-damage-label random-damage-input random-damage-tooltip spawner-image"
+        "initial-usage-label initial-usage-input initial-usage-tooltip spawner-image"
+        "random-usage-label random-usage-input random-usage-tooltip spawner-image"
+        "post-spawn-actions-label post-spawn-actions-input post-span-actions-tooltip spawner-image";
     align-items: baseline;
 }
 
@@ -578,7 +572,7 @@ button {
 }
 
 .icon-danger {
-    fill: #B14852;
+    fill: #b14852;
     cursor: pointer;
 }
 

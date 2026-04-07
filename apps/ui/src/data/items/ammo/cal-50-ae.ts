@@ -1,4 +1,4 @@
-import { Item } from "../item.ts";
+import type { Item } from '../item.ts';
 
 export const AMMO_50_AE_CALIBER: Item = {
     id: 'Cal_50_AE',
@@ -34,4 +34,4 @@ export const AMMO_50_AE_CALIBER_TR_AMMO_BOX: Item = {
     id: 'Cal_50_AE_Ammobox_TR',
     name: '.50 AE TR Ammo Box',
     picture: '',
-}
+};

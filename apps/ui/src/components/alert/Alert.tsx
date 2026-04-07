@@ -1,13 +1,13 @@
-import React from "react";
+import type React from 'react';
 
 export interface AlertProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export function Alert(props: AlertProps) {
-  return (
-    <div className="alert" role="alert">
-      {props.children}
-    </div>
-  );
+    return (
+        <div className="alert" role="alert">
+            {props.children}
+        </div>
+    );
 }

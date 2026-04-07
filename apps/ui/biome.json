@@ -1,0 +1,55 @@
+{
+    "root": false,
+    "extends": "//",
+    "linter": {
+        "rules": {
+            "a11y": {
+                "noAutofocus": "off",
+                "noLabelWithoutControl": "off",
+                "noNoninteractiveElementToInteractiveRole": "off",
+                "noNoninteractiveTabindex": "off",
+                "noStaticElementInteractions": "off",
+                "noSvgWithoutTitle": "off",
+                "useAltText": "off",
+                "useButtonType": "off",
+                "useIframeTitle": "off",
+                "useKeyWithClickEvents": "off",
+                "useSemanticElements": "off",
+                "useValidAnchor": "off"
+            },
+            "complexity": {
+                "noArguments": "off",
+                "noUselessFragments": "error",
+                "useArrowFunction": "off"
+            },
+            "correctness": {
+                "noChildrenProp": "off",
+                "useExhaustiveDependencies": "off",
+                "useHookAtTopLevel": {
+                    "level": "error"
+                },
+                "useJsxKeyInIterable": "error"
+            },
+            "performance": {
+                "noDynamicNamespaceImportAccess": "off"
+            },
+            "security": {
+                "noDangerouslySetInnerHtml": "off"
+            },
+            "style": { "useConsistentCurlyBraces": "error", "useConst": "off" },
+            "suspicious": {
+                "noConfusingLabels": "off",
+                "noDocumentCookie": "off",
+                "noDoubleEquals": "off",
+                "noPrototypeBuiltins": "off",
+                "noRedeclare": "off"
+            }
+        }
+    },
+    "html": {
+        "formatter": { "enabled": false }
+    },
+    "css": {
+        "parser": { "tailwindDirectives": true }
+    }
+}

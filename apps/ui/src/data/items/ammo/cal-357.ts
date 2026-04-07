@@ -1,4 +1,4 @@
-import { Item } from "../item.ts";
+import type { Item } from '../item.ts';
 
 export const AMMO_357_CALIBER: Item = {
     id: 'Cal_357_Viper',

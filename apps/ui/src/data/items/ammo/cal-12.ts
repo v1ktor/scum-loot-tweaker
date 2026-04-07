@@ -1,4 +1,4 @@
-import { Item } from "../item.ts";
+import type { Item } from '../item.ts';
 
 export const AMMO_12_GAUGE_BIRDSHOT: Item = {
     id: '12_Gauge_Birdshot',
@@ -10,7 +10,7 @@ export const AMMO_12_GAUGE_BIRDSHOT_AMMO_BOX: Item = {
     id: '12_Gauge_Birdshot_Ammobox',
     name: '12 Gauge Birdshot Ammo Box',
     picture: '',
-} as const
+} as const;
 
 export const AMMO_12_GAUGE_BUCKSHOT: Item = {
     id: '12_Gauge_Buckshot',

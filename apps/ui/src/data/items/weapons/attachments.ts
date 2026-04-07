@@ -1,61 +1,61 @@
-import { Item } from "../item.ts";
+import type { Item } from '../item.ts';
 
 export const ATTACHMENT_DW715_RAIL: Item = {
-  id: 'DW715_Rail',
-  name: 'DW715 Rail',
-  picture: ''
+    id: 'DW715_Rail',
+    name: 'DW715 Rail',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_M1911_RAIL: Item = {
-  id: 'M1911_Rail',
-  name: 'M1911 Rail',
-  picture: ''
+    id: 'M1911_Rail',
+    name: 'M1911 Rail',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_MP5_RAIL_SHORT: Item = {
-  id: 'MP5_Rail_Short',
-  name: 'MP5 Rail Short',
-  picture: ''
+    id: 'MP5_Rail_Short',
+    name: 'MP5 Rail Short',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_SCOPE_RAIL_AK47: Item = {
-  id: 'ScopeRail_AK47',
-  name: 'Scope Rail AK47',
-  picture: ''
+    id: 'ScopeRail_AK47',
+    name: 'Scope Rail AK47',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_WEAPON_FLASHLIGHT_AS_VAL: Item = {
-  id: 'WeaponFlashlight_AS_Val',
-  name: 'Weapon Flashlight AS Val',
-  picture: ''
+    id: 'WeaponFlashlight_AS_Val',
+    name: 'Weapon Flashlight AS Val',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_WEAPON_FLASHLIGHT_DESERT_EAGLE: Item = {
-  id: 'WeaponFlashlight_DesertEagle',
-  name: 'Weapon Flashlight Desert Eagle',
-  picture: ''
+    id: 'WeaponFlashlight_DesertEagle',
+    name: 'Weapon Flashlight Desert Eagle',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_WEAPON_FLASHLIGHT_M9: Item = {
-  id: 'WeaponFlashlight_M9',
-  name: 'Weapon Flashlight M9',
-  picture: ''
+    id: 'WeaponFlashlight_M9',
+    name: 'Weapon Flashlight M9',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_BOW_MICRO_STABILIZER: Item = {
-  id: 'Bow_MicroStabilizer',
-  name: 'Bow Micro Stabilizer',
-  picture: ''
+    id: 'Bow_MicroStabilizer',
+    name: 'Bow Micro Stabilizer',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_COMPOUND_BOW_SIGHT_3_PIN: Item = {
-  id: 'CompoundBowSight_3_Pin',
-  name: 'Compound Bow Sight 3 Pin',
-  picture: ''
+    id: 'CompoundBowSight_3_Pin',
+    name: 'Compound Bow Sight 3 Pin',
+    picture: '',
 } as const;
 
 export const ATTACHMENT_COMPOUND_BOW_SIGHT_5_PIN: Item = {
-  id: 'CompoundBowSight_5_Pin',
-  name: 'Compound Bow Sight 5 Pin',
-  picture: ''
+    id: 'CompoundBowSight_5_Pin',
+    name: 'Compound Bow Sight 5 Pin',
+    picture: '',
 } as const;

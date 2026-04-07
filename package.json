@@ -1,33 +1,33 @@
 {
-  "name": "scum-loot-tweaker",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Web app to tweak loot spawn in SCUM game",
-  "type": "module",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "ui:dev": "npm run dev --workspace=apps/ui",
-    "ui:build": "npm run build --workspace=apps/ui",
-    "ui:deploy": "npm run deploy --workspace=apps/ui",
-    "ui:preview": "npm run preview --workspace=apps/ui",
-    "server:dev": "npm run dev --workspace=apps/server",
-    "lint": "npx biome check --write ./apps ./packages"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/v1ktor/scum-loot-tweaker.git"
-  },
-  "author": "Viktor Kalinin",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/v1ktor/scum-loot-tweaker/issues"
-  },
-  "homepage": "https://v1ktor.github.io/scum-loot-tweaker",
-  "devDependencies": {
-    "@biomejs/biome": "2.2.7",
-    "typescript": "^5.9.3"
-  }
+    "name": "scum-loot-tweaker",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Web app to tweak loot spawn in SCUM game",
+    "type": "module",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "ui:dev": "npm run dev --workspace=apps/ui",
+        "ui:build": "npm run build --workspace=apps/ui",
+        "ui:deploy": "npm run deploy --workspace=apps/ui",
+        "ui:preview": "npm run preview --workspace=apps/ui",
+        "server:dev": "npm run dev --workspace=apps/server",
+        "lint": "npx biome check --write ./apps ./packages"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/v1ktor/scum-loot-tweaker.git"
+    },
+    "author": "Viktor Kalinin",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/v1ktor/scum-loot-tweaker/issues"
+    },
+    "homepage": "https://v1ktor.github.io/scum-loot-tweaker",
+    "devDependencies": {
+        "@biomejs/biome": "2.4.10",
+        "typescript": "^5.9.3"
+    }
 }
