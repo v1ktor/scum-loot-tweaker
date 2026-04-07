@@ -6,7 +6,7 @@ import { NavigationPath } from '@/data/navigation-path.ts';
 
 export function Home() {
     return (
-        <div className="px-4 lg:px-6">
+        <div className="px-4 lg:px-6 w-full max-w-6xl mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight text-balance mb-2">Loot Tweaker</h1>
             <div className="grid grid-cols-2 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
                 <Link to={NavigationPath.Spawners} className="group h-full">
