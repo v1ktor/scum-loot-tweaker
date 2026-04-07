@@ -1,4 +1,4 @@
-import { Alert } from '../../components/alert/Alert.tsx';
+import { Alert } from '@/components/alert/Alert.tsx';
 
 export function Parameters() {
     return (

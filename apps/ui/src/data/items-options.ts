@@ -1666,7 +1666,7 @@ import {
     TRAP_PROM_TRAP,
     TRAP_TNT,
 } from '@/data/items/weapons/traps.ts';
-import type { Option } from '../pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/Spawners.types.ts';
 
 export const ITEMS_OPTIONS: Option[] = [
     { value: AMMO_9_CALIBER.id, label: AMMO_9_CALIBER.name },

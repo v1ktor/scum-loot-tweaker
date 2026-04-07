@@ -2,6 +2,7 @@
 
 import { IconLogout, IconSettings, IconUserCircle } from '@tabler/icons-react';
 import { ChevronDown } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import {
     DropdownMenu,
@@ -12,7 +13,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar.tsx';
 
 export function NavActions() {
     return (

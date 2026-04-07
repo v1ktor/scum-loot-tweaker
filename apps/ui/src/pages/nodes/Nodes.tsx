@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Select, { type GroupBase, type SingleValue } from 'react-select';
-import { Alert } from '../../components/alert/Alert.tsx';
-import { DROPDOWN_STYLES } from '../../components/dropdown/Dropdown.styles.ts';
-import { NODES_OPTIONS } from '../../data/nodes-options.ts';
-import { getItemName } from '../../utils/get-item-name.ts';
-import { FILE_TYPE, readFile } from '../../utils/read-file.ts';
-import type { Option } from '../spawners/Spawners.types.ts';
+import { Alert } from '@/components/alert/Alert.tsx';
+import { DROPDOWN_STYLES } from '@/components/dropdown/Dropdown.styles.ts';
+import { NODES_OPTIONS } from '@/data/nodes-options.ts';
+import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import { getItemName } from '@/utils/get-item-name.ts';
+import { FILE_TYPE, readFile } from '@/utils/read-file.ts';
 import type { Node } from './Nodes.types.ts';
 
 export function Nodes() {

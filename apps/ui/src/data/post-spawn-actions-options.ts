@@ -1,4 +1,4 @@
-import type { Option } from '../pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/Spawners.types.ts';
 
 export const POST_SPAWN_ACTIONS_OPTIONS: Option[] = [
     { value: 'AbandonedBunkerKeycard', label: 'AB Keycard' },

@@ -1,5 +1,5 @@
 import { spawnerFiles } from 'virtual:file-list';
-import type { Option } from '../pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/Spawners.types.ts';
 
 function filenameToLabel(filename: string): string {
     return filename.replace(/-/g, ' ').replace(/_/g, ' ').replace('.json', '');
