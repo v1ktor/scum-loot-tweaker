@@ -156,7 +156,7 @@ export function Spawners() {
                         <NodesTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
                     </TabsContent>
                     <TabsContent value="subpresets" className="mt-0">
-                        <SubpresetsTab spawner={spawner} setSpawner={setSpawner} />
+                        <SubpresetsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
                     </TabsContent>
                 </Tabs>
                 <div className="flex flex-wrap items-center gap-2 md:flex-row pt-8">

@@ -1,15 +1,116 @@
-import type { Dispatch, SetStateAction } from 'react';
-import type { Spawner } from '@/pages/spawners/Spawners.types.ts';
+import type { SortingState } from '@tanstack/react-table';
+import { type Dispatch, type SetStateAction, useCallback, useEffect, useState } from 'react';
+import { toast } from 'sonner';
+import { Rarity } from '@/data/rarity.ts';
+import { SUBPRESET_OPTIONS } from '@/data/subpreset-options.ts';
+import { DataTable } from '@/pages/spawners/items/data-table.tsx';
+import type { Spawner, SpawnerItem } from '@/pages/spawners/Spawners.types.ts';
+import { columns } from '@/pages/spawners/subpresets/columns.tsx';
 
 interface SubpresetsTabProps {
     spawner: Spawner;
     setSpawner: Dispatch<SetStateAction<Spawner>>;
 }
 
-export function SubpresetsTab({ spawner: _spawner, setSpawner: _setSpawner }: SubpresetsTabProps) {
+export function SubpresetsTab({ spawner, setSpawner }: SubpresetsTabProps) {
+    const [rows, setRows] = useState<SpawnerItem[]>(spawner.Subpresets ?? []);
+
+    const syncToSpawner = useCallback(
+        (updatedRows: SpawnerItem[]) => {
+            setSpawner((prev) => ({
+                ...prev,
+                Subpresets: updatedRows.filter((item) => item.Id !== ''),
+            }));
+        },
+        [setSpawner],
+    );
+
+    useEffect(() => {
+        syncToSpawner(rows);
+    }, [rows, syncToSpawner]);
+
+    const handleDelete = (rowIndex: number) => {
+        const snapshot = [...rows];
+
+        setRows((prev) => prev.filter((_, i) => i !== rowIndex));
+
+        toast('Subpreset deleted', {
+            action: {
+                label: 'Undo',
+                onClick: () => setRows(snapshot),
+            },
+        });
+    };
+
+    const handleDeleteSelected = (rowIndices: number[]) => {
+        const snapshot = [...rows];
+        const indexSet = new Set(rowIndices);
+
+        setRows((prev) => prev.filter((_, i) => !indexSet.has(i)));
+
+        toast(`${rowIndices.length} subpreset(s) deleted`, {
+            action: {
+                label: 'Undo',
+                onClick: () => setRows(snapshot),
+            },
+        });
+    };
+
+    const handleUpdateRarity = (rowIndex: number, rarity: Rarity) => {
+        setRows((prev) => prev.map((item, i) => (i === rowIndex ? { ...item, Rarity: rarity } : item)));
+    };
+
+    const handleUpdateItem = (rowIndex: number, itemId: string) => {
+        setRows((prev) => prev.map((item, i) => (i === rowIndex ? { ...item, Id: itemId } : item)));
+    };
+
+    const handleAddRow = () => {
+        setRows((prev) => [...prev, { Id: '', Rarity: Rarity.Common }]);
+    };
+
+    const handleSort = (sorting: SortingState) => {
+        if (sorting.length === 0) return;
+
+        const { id, desc } = sorting[0];
+
+        setRows((prev) => {
+            const filled = prev.filter((item) => item.Id !== '');
+            const empty = prev.filter((item) => item.Id === '');
+
+            filled.sort((a, b) => {
+                let cmp = 0;
+
+                if (id === 'Id') {
+                    const labelA = SUBPRESET_OPTIONS.find((o) => o.value === a.Id)?.label ?? '';
+                    const labelB = SUBPRESET_OPTIONS.find((o) => o.value === b.Id)?.label ?? '';
+                    cmp = labelA.localeCompare(labelB);
+                }
+
+                if (id === 'Rarity') {
+                    cmp = (a.Rarity ?? '').localeCompare(b.Rarity ?? '');
+                }
+
+                return desc ? -cmp : cmp;
+            });
+
+            return [...filled, ...empty];
+        });
+    };
+
     return (
         <div className="mt-4">
-            <p>Subpresets tab content coming soon.</p>
+            <DataTable
+                columns={columns}
+                data={rows}
+                onDelete={handleDelete}
+                onDeleteSelected={handleDeleteSelected}
+                onUpdateRarity={handleUpdateRarity}
+                onUpdateItem={handleUpdateItem}
+                onAddRow={handleAddRow}
+                onSort={handleSort}
+                filterPlaceholder="Filter by subpreset..."
+                addRowLabel="Add subpreset"
+            />
         </div>
     );
 }

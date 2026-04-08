@@ -26,6 +26,8 @@ interface DataTableProps<TData, TValue> {
     onUpdateItem?: (rowIndex: number, itemId: string) => void;
     onSort?: (sorting: SortingState) => void;
     onAddRow?: () => void;
+    filterPlaceholder?: string;
+    addRowLabel?: string;
 }
 
 export function DataTable<TData, TValue>({
@@ -37,6 +39,8 @@ export function DataTable<TData, TValue>({
     onUpdateItem,
     onSort,
     onAddRow,
+    filterPlaceholder = 'Filter by item...',
+    addRowLabel = 'Add item',
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -71,7 +75,7 @@ export function DataTable<TData, TValue>({
         <div>
             <div className="flex items-center py-4">
                 <Input
-                    placeholder="Filter by item..."
+                    placeholder={filterPlaceholder}
                     value={(table.getColumn('Id')?.getFilterValue() as string) ?? ''}
                     onChange={(event) => table.getColumn('Id')?.setFilterValue(event.target.value)}
                     className="max-w-sm"
@@ -95,7 +99,7 @@ export function DataTable<TData, TValue>({
                             onClick={onAddRow}
                             leftOrnament={<PlusIcon className="h-4 w-4" />}
                             variant="outline"
-                            text="Add item"
+                            text={addRowLabel}
                         />
                     )}
                 </div>

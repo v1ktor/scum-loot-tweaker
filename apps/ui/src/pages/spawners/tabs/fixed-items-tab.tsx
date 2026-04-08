@@ -1,5 +1,6 @@
 import type { SortingState } from '@tanstack/react-table';
 import { type Dispatch, type SetStateAction, useState } from 'react';
+import { toast } from 'sonner';
 import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import { columns } from '@/pages/spawners/fixed-items/columns.tsx';
 import { DataTable } from '@/pages/spawners/items/data-table.tsx';
@@ -22,16 +23,38 @@ export function FixedItemsTab(props: FixedItemsTabProps) {
     };
 
     const handleDelete = (rowIndex: number) => {
+        const snapshot = [...rows];
         const next = rows.filter((_, i) => i !== rowIndex);
         setRows(next);
         syncToSpawner(next);
+
+        toast('Fixed item deleted', {
+            action: {
+                label: 'Undo',
+                onClick: () => {
+                    setRows(snapshot);
+                    syncToSpawner(snapshot);
+                },
+            },
+        });
     };
 
     const handleDeleteSelected = (rowIndices: number[]) => {
+        const snapshot = [...rows];
         const indexSet = new Set(rowIndices);
         const next = rows.filter((_, i) => !indexSet.has(i));
         setRows(next);
         syncToSpawner(next);
+
+        toast(`${rowIndices.length} fixed item(s) deleted`, {
+            action: {
+                label: 'Undo',
+                onClick: () => {
+                    setRows(snapshot);
+                    syncToSpawner(snapshot);
+                },
+            },
+        });
     };
 
     const handleUpdateItem = (rowIndex: number, itemId: string) => {

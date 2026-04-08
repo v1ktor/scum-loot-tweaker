@@ -1,5 +1,6 @@
 import type { SortingState } from '@tanstack/react-table';
 import { type Dispatch, type SetStateAction, useCallback, useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import { Rarity } from '@/data/rarity.ts';
 import { columns } from '@/pages/spawners/items/columns.tsx';
@@ -30,13 +31,30 @@ export function ItemsTab(props: ItemsTabProps) {
     }, [rows, syncToSpawner]);
 
     const handleDelete = (rowIndex: number) => {
+        const snapshot = [...rows];
+
         setRows((prev) => prev.filter((_, i) => i !== rowIndex));
+
+        toast('Item deleted', {
+            action: {
+                label: 'Undo',
+                onClick: () => setRows(snapshot),
+            },
+        });
     };
 
     const handleDeleteSelected = (rowIndices: number[]) => {
+        const snapshot = [...rows];
         const indexSet = new Set(rowIndices);
 
         setRows((prev) => prev.filter((_, i) => !indexSet.has(i)));
+
+        toast(`${rowIndices.length} item(s) deleted`, {
+            action: {
+                label: 'Undo',
+                onClick: () => setRows(snapshot),
+            },
+        });
     };
 
     const handleUpdateRarity = (rowIndex: number, rarity: Rarity) => {
