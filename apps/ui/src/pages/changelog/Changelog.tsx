@@ -11,6 +11,14 @@ export function Changelog() {
                 </h1>
 
                 <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+                    <span className="text-3xl font-semibold tracking-tight">0.1.6</span>
+                    <span className="text-sm text-muted-foreground">Apr 08, 2026</span>
+                </h2>
+                <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+                    <li>Added table to view and modify subpresets of the spawners</li>
+                </ul>
+
+                <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
                     <span className="text-3xl font-semibold tracking-tight">0.1.5</span>
                     <span className="text-sm text-muted-foreground">Apr 05, 2026</span>
                 </h2>
