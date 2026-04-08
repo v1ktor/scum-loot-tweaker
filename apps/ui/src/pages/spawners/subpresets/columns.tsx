@@ -23,7 +23,7 @@ import {
 import type { Rarity } from '@/data/rarity.ts';
 import { RARITY_OPTIONS } from '@/data/rarity-options.ts';
 import { SUBPRESET_OPTIONS } from '@/data/subpreset-options.ts';
-import type { DataTableMeta, Option, SpawnerItem } from '@/pages/spawners/Spawners.types.ts';
+import type { DataTableMeta, Option, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
 
 export const columns: ColumnDef<SpawnerItem>[] = [
     {

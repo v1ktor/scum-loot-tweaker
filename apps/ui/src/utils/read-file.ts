@@ -1,5 +1,5 @@
 import { config } from '@/config.ts';
-import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 
 export enum FILE_TYPE {
     Nodes = 'Nodes',

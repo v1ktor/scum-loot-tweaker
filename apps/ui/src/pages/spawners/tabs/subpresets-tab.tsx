@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 import { Rarity } from '@/data/rarity.ts';
 import { SUBPRESET_OPTIONS } from '@/data/subpreset-options.ts';
 import { DataTable } from '@/pages/spawners/items/data-table.tsx';
-import type { Spawner, SpawnerItem } from '@/pages/spawners/Spawners.types.ts';
+import type { Spawner, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
 import { columns } from '@/pages/spawners/subpresets/columns.tsx';
 
 interface SubpresetsTabProps {

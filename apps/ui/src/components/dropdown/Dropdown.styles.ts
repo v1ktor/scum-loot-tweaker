@@ -1,5 +1,5 @@
 import type { GroupBase, StylesConfig } from 'react-select';
-import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 
 export const DROPDOWN_STYLES = <T extends boolean = false>(
     isFullWidth: boolean = true,

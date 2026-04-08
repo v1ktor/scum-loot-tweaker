@@ -1,4 +1,4 @@
-import type { Node } from '@/pages/nodes/Nodes.types.ts';
+import type { Node } from '@/pages/nodes/nodes.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
 type Branch = Node & { Children: Node[] };

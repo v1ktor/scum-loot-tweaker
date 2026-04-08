@@ -1,5 +1,5 @@
 import { nodeFiles } from 'virtual:file-list';
-import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 
 export const NODES_OPTIONS: Option[] = nodeFiles
     .map((filename) => ({

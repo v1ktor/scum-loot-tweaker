@@ -20,7 +20,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx';
 import { ITEMS_OPTIONS } from '@/data/items-options.ts';
-import type { DataTableMeta, Option } from '@/pages/spawners/Spawners.types.ts';
+import type { DataTableMeta, Option } from '@/pages/spawners/spawners.types.ts';
 
 export const columns: ColumnDef<string>[] = [
     {

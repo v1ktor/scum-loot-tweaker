@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/combobox.tsx';
 import { Field } from '@/components/ui/field.tsx';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip.tsx';
-import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 
 interface MultiSelectProps {
     id: string;

@@ -3,10 +3,10 @@ import Select, { type GroupBase, type SingleValue } from 'react-select';
 import { Alert } from '@/components/alert/Alert.tsx';
 import { DROPDOWN_STYLES } from '@/components/dropdown/Dropdown.styles.ts';
 import { NODES_OPTIONS } from '@/data/nodes-options.ts';
-import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 import { FILE_TYPE, readFile } from '@/utils/read-file.ts';
-import type { Node } from './Nodes.types.ts';
+import type { Node } from './nodes.types.ts';
 
 export function Nodes() {
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);

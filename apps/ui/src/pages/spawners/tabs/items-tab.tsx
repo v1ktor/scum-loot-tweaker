@@ -5,7 +5,7 @@ import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import { Rarity } from '@/data/rarity.ts';
 import { columns } from '@/pages/spawners/items/columns.tsx';
 import { DataTable } from '@/pages/spawners/items/data-table.tsx';
-import type { Spawner, SpawnerItem } from '@/pages/spawners/Spawners.types.ts';
+import type { Spawner, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
 
 interface ItemsTabProps {
     spawner: Spawner;

@@ -4,7 +4,7 @@ import { toast } from 'sonner';
 import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import { columns } from '@/pages/spawners/fixed-items/columns.tsx';
 import { DataTable } from '@/pages/spawners/items/data-table.tsx';
-import type { Spawner } from '@/pages/spawners/Spawners.types.ts';
+import type { Spawner } from '@/pages/spawners/spawners.types.ts';
 
 interface FixedItemsTabProps {
     spawner: Spawner;

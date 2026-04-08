@@ -14,7 +14,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from '@/components/ui/input.tsx';
 import { ScrollArea } from '@/components/ui/scroll-area.tsx';
 import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts';
-import type { Node } from '@/pages/nodes/Nodes.types.ts';
+import type { Node } from '@/pages/nodes/nodes.types.ts';
 import { TreeSidebarItem } from '@/pages/spawners/nodes/tree-sidebar-item.tsx';
 import { countAllLeafItems, countFilteredLeafItems } from '@/pages/spawners/nodes/utils.ts';
 import { getItemName } from '@/utils/get-item-name.ts';

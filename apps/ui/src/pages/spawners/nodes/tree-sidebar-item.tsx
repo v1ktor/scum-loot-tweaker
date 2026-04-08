@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
-import type { Node } from '@/pages/nodes/Nodes.types.ts';
+import type { Node } from '@/pages/nodes/nodes.types.ts';
 import {
     countAllLeafItems,
     countLeafItems,

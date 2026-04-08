@@ -3,7 +3,7 @@ import { InputField } from '@/components/input-field/input-field.tsx';
 import { MultiSelect } from '@/components/multiselect/multiselect.tsx';
 import { SwitchField } from '@/components/switch-field/switch-field.tsx';
 import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts';
-import type { Option, Spawner } from '@/pages/spawners/Spawners.types.ts';
+import type { Option, Spawner } from '@/pages/spawners/spawners.types.ts';
 import { AllowDuplicatesTooltip } from '@/pages/spawners/tooltips/allow-duplicates-tooltip.tsx';
 import { InitialDamageTooltip } from '@/pages/spawners/tooltips/initial-damage-tooltip.tsx';
 import { InitialUsageTooltip } from '@/pages/spawners/tooltips/initial-usage-tooltip.tsx';

@@ -4,9 +4,9 @@ import Layout from '@/app/layout.tsx';
 import { ThemeProvider } from '@/components/theme-provider/theme-provider.tsx';
 import { Toaster } from '@/components/ui/sonner.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
-import { Changelog } from '@/pages/changelog/Changelog.tsx';
-import { Home } from '@/pages/home/Home.tsx';
-import { Spawners } from '@/pages/spawners/Spawners.tsx';
+import { Changelog } from '@/pages/changelog/changelog.tsx';
+import { Home } from '@/pages/home/home.tsx';
+import { Spawners } from '@/pages/spawners/spawners.tsx';
 
 export function App() {
     ReactGA.initialize('G-81R7K0PWNF');

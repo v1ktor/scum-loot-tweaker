@@ -31,37 +31,8 @@ export type Spawner = {
     PostSpawnActions?: string[];
 };
 
-export type ItemSelection = {
-    selectedItem: Option | null;
-    selectedRarity: Option | null;
-};
-
-export type SettingsState = {
-    probabilityValue: string;
-    quantityMinValue: string;
-    quantityMaxValue: string;
-    allowDuplicatesValue: string;
-    shouldFilterItemsByZoneValue: string;
-    initialDamageValue: string;
-    randomDamageValue: string;
-    initialUsageValue: string;
-    randomUsageValue: string;
-};
-
 export type DataTableMeta = {
     onDelete?: (rowIndex: number) => void;
     onUpdateRarity?: (rowIndex: number, rarity: Rarity) => void;
     onUpdateItem?: (rowIndex: number, itemId: string) => void;
-};
-
-export const settingsInitialState: SettingsState = {
-    probabilityValue: '',
-    quantityMinValue: '',
-    quantityMaxValue: '',
-    allowDuplicatesValue: '',
-    shouldFilterItemsByZoneValue: '',
-    initialDamageValue: '',
-    randomDamageValue: '',
-    initialUsageValue: '',
-    randomUsageValue: '',
 };

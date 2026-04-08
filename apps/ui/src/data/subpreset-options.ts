@@ -1,5 +1,5 @@
 import { spawnerFiles } from 'virtual:file-list';
-import type { Option } from '@/pages/spawners/Spawners.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 
 function filenameToId(filename: string): string {
     return filename.replace('.json', '');

@@ -18,7 +18,7 @@ import { Item } from '@/components/ui/item.tsx';
 import { Rarity } from '@/data/rarity.ts';
 import { RARITY_OPTIONS } from '@/data/rarity-options.ts';
 import { NodeTreeDialog } from '@/pages/spawners/nodes/node-tree-dialog.tsx';
-import type { Spawner, SpawnerNode } from '@/pages/spawners/Spawners.types.ts';
+import type { Spawner, SpawnerNode } from '@/pages/spawners/spawners.types.ts';
 
 const getUniqueId = () => crypto.randomUUID();
 

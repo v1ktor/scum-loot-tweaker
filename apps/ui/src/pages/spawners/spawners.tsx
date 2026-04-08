@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/combobox.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
 import { SPAWNER_OPTIONS } from '@/data/spawner-options.ts';
-import type { Spawner } from '@/pages/spawners/Spawners.types.ts';
+import type { Spawner } from '@/pages/spawners/spawners.types.ts';
 import { FixedItemsTab } from '@/pages/spawners/tabs/fixed-items-tab.tsx';
 import { ItemsTab } from '@/pages/spawners/tabs/items-tab.tsx';
 import { NodesTab } from '@/pages/spawners/tabs/nodes-tab.tsx';
