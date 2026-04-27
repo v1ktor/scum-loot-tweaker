@@ -1,8 +1,0 @@
-{
-	"BlockAllDefaultQuests": false,
-	"BlockQuestNames": [
-		"Quests/Override/Example_Elimination.json",
-		"Quests/Override/Example_Fetch.json",
-		"Quests/Override/Example_Interact.json"
-	]
-}

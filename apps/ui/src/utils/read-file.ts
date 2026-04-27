@@ -17,8 +17,8 @@ export async function readFile<T>(option: Option, fileType: FILE_TYPE): Promise<
     try {
         const url =
             fileType === FILE_TYPE.Spawners
-                ? `${config.DATA_PATH}/${import.meta.env.VITE_CURRENT_SCUM_VERSION}/Loot/${fileType}/Presets/Default/${option.value}`
-                : `${config.DATA_PATH}/${import.meta.env.VITE_CURRENT_SCUM_VERSION}/Loot/${fileType}/Default/${option.value}`;
+                ? `${config.DATA_PATH}/Loot/${fileType}/Presets/Default/${option.value}`
+                : `${config.DATA_PATH}/Loot/${fileType}/Default/${option.value}`;
         const response = await fetch(url);
 
         if (!response.ok) {

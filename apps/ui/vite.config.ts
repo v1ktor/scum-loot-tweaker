@@ -17,7 +17,7 @@ function fileListPlugin(version: string): Plugin {
         load(id) {
             if (id !== resolvedId) return;
 
-            const dataRoot = path.resolve(__dirname, '../../public/data', version, 'Loot');
+            const dataRoot = path.resolve(__dirname, '../../public/data', 'Loot');
             const spawnerDir = path.join(dataRoot, 'Spawners/Presets/Default');
             const nodeDir = path.join(dataRoot, 'Nodes/Default');
 
@@ -67,20 +67,20 @@ export default defineConfig(({ mode }) => {
             viteStaticCopy({
                 targets: [
                     {
-                        src: `../../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/Spawners/Presets/Default/*.json`,
-                        dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/Spawners/Presets/Default/`,
+                        src: `../../../public/data/Loot/Spawners/Presets/Default/*.json`,
+                        dest: `data/Loot/Spawners/Presets/Default/`,
                     },
                     {
-                        src: `../../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/Nodes/Default/*.json`,
-                        dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/Nodes/Default/`,
+                        src: `../../../public/data/Loot/Nodes/Default/*.json`,
+                        dest: `data/Loot/Nodes/Default/`,
                     },
                     {
-                        src: `../../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/Items/Default/*.json`,
-                        dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/Items/Default/`,
+                        src: `../../../public/data/Loot/Items/Default/*.json`,
+                        dest: `data/Loot/Items/Default/`,
                     },
                     {
-                        src: `../../../public/data/${VITE_CURRENT_SCUM_VERSION}/Loot/CooldownGroups/Default/*.json`,
-                        dest: `data/${VITE_CURRENT_SCUM_VERSION}/Loot/CooldownGroups/Default/`,
+                        src: `../../../public/data/Loot/CooldownGroups/Default/*.json`,
+                        dest: `data/Loot/CooldownGroups/Default/`,
                     },
                     { src: `../../../public/CNAME`, dest: `.` },
                 ],
