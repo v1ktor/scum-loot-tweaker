@@ -1,0 +1,47 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_M1911"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_M1911_Engraved"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_M1911_Gold"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_M1911_JayW"
+		}
+	],
+	"FixedItems": [
+		"Magazine_M1911",
+		"Magazine_M1911",
+		"Magazine_M1911",
+		"Magazine_M1911",
+		"Cal_45_Ammobox",
+		"Cal_45_Ammobox",
+		"Cal_45_Ammobox_TR",
+		"Cal_45_Ammobox_TR",
+		"Cal_45_AP_Ammobox",
+		"WeaponSuppressor_45ACP",
+		"WeaponSights_Shark",
+		"WeaponFlashlight_M9",
+		"Batteries",
+		"Weapon_Parts_M1911",
+		"M1911_Rail"
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

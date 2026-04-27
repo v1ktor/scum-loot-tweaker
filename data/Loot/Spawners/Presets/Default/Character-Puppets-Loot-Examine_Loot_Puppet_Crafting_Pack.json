@@ -1,0 +1,28 @@
+{
+	"FixedItems": [
+		"Drill",
+		"Rebar_Cutter",
+		"Rope1",
+		"Barbed_Wire",
+		"Duct_Tape",
+		"Nails_Package_Box",
+		"Bolts_Package_Box",
+		"Wire",
+		"CD_Player",
+		"Gun_Powder",
+		"1H_Metal_Pipe",
+		"Rubber_band",
+		"Rubber_band",
+		"Rubber_band",
+		"Rubber_band",
+		"Rubber_band",
+		"Car_Battery_Cables",
+		"Parking_Sensor",
+		"Hose"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

@@ -1,0 +1,13 @@
+{
+	"FixedItems": [
+		"Ammo_Crossbow_Bolt_Wooden"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 60,
+	"RandomDamage": 20,
+	"InitialUsage": 0,
+	"RandomUsage": 0,
+	"PostSpawnActions": [
+		"SetAmmoAmount_SmallStash"
+	]
+}

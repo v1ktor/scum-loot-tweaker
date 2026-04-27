@@ -1,0 +1,41 @@
+{
+	"Items": [
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_MP5"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_MP5_K"
+		},
+		{
+			"Rarity": "Uncommon",
+			"Id": "Weapon_MP5_SD"
+		}
+	],
+	"FixedItems": [
+		"Magazine_MP5",
+		"Magazine_MP5",
+		"Magazine_MP5",
+		"Magazine_MP5",
+		"Cal_9mm_Ammobox",
+		"Cal_9mm_Ammobox",
+		"Cal_9mm_Ammobox_TR",
+		"Cal_9mm_Ammobox_TR",
+		"Cal_9mm_AP_Ammobox",
+		"WeaponSuppressor_MP5",
+		"Weapon_Parts_MP5",
+		"WeaponSights_RedDot_CA401B",
+		"MP5_Rail_Short"
+	],
+	"QuantityMin": 1,
+	"QuantityMax": 1,
+	"AllowDuplicates": false,
+	"ShouldFilterItemsByZone": false,
+	"ShouldApplyLocationSpecificProbabilityModifier": false,
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

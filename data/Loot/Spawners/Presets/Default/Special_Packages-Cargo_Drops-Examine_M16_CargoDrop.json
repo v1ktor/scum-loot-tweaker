@@ -1,0 +1,10 @@
+{
+	"FixedItems": [
+		"Weapon_M16A4"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": true,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}

@@ -1,0 +1,21 @@
+{
+	"FixedItems": [
+		"Weapon_MAC10",
+		"Magazine_MAC10",
+		"Magazine_MAC10",
+		"Magazine_MAC10",
+		"Magazine_MAC10",
+		"Cal_9mm_Ammobox",
+		"Cal_9mm_Ammobox",
+		"Cal_9mm_Ammobox_TR",
+		"Cal_9mm_Ammobox_TR",
+		"Cal_9mm_AP_Ammobox",
+		"WeaponSuppressor_MAC10",
+		"Weapon_Parts_MAC10"
+	],
+	"ShouldApplyLocationSpecificDamageModifier": false,
+	"InitialDamage": 0,
+	"RandomDamage": 0,
+	"InitialUsage": 0,
+	"RandomUsage": 0
+}
