@@ -10,6 +10,10 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@tanstack/react-query": "^5.80.7",
+        "@trpc/client": "^11.16.0",
+        "@trpc/server": "^11.16.0",
+        "@trpc/tanstack-react-query": "^11.16.0",
         "@base-ui/react": "^1.2.0",
         "@radix-ui/react-avatar": "^1.1.11",
         "@radix-ui/react-dialog": "^1.1.15",

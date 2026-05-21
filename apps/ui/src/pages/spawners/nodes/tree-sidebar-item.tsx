@@ -8,11 +8,13 @@ import {
     nodeHasMatchingLeafs,
     nodeMatchesFilter,
 } from '@/pages/spawners/nodes/utils.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 
 export interface TreeSidebarItemProps {
     node: Node;
     depth: number;
     filter: string;
+    itemsOptions: Option[];
     selectedNode: Node | null;
     onSelect: (node: Node, path: string[]) => void;
     defaultExpanded?: boolean;
@@ -23,6 +25,7 @@ export function TreeSidebarItem({
     node,
     depth,
     filter,
+    itemsOptions,
     selectedNode,
     onSelect,
     defaultExpanded = false,
@@ -34,12 +37,12 @@ export function TreeSidebarItem({
     const hasLeafItems = node.Children?.some((c) => !c.Children || c.Children.length === 0) ?? false;
     const isSelected = selectedNode === node;
 
-    if (filter && !nodeMatchesFilter(node, filter)) {
+    if (filter && !nodeMatchesFilter(node, filter, itemsOptions)) {
         return null;
     }
 
     const visibleBranches = filter
-        ? branchChildren.filter((child) => nodeMatchesFilter(child, filter))
+        ? branchChildren.filter((child) => nodeMatchesFilter(child, filter, itemsOptions))
         : branchChildren;
 
     return (
@@ -68,7 +71,7 @@ export function TreeSidebarItem({
                 )}
                 <span className="truncate">{node.Name}</span>
                 {!filter && hasLeafItems && <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />}
-                {filter && nodeHasMatchingLeafs(node, filter) && (
+                {filter && nodeHasMatchingLeafs(node, filter, itemsOptions) && (
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
                 )}
                 <span className="text-[10px] text-muted-foreground shrink-0">
@@ -90,6 +93,7 @@ export function TreeSidebarItem({
                             node={child}
                             depth={depth + 1}
                             filter={filter}
+                            itemsOptions={itemsOptions}
                             selectedNode={selectedNode}
                             onSelect={onSelect}
                             defaultExpanded={defaultExpanded}

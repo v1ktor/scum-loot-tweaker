@@ -1,4 +1,5 @@
 import type { Node } from '@/pages/nodes/nodes.types.ts';
+import type { Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
 type Branch = Node & { Children: Node[] };
@@ -18,31 +19,31 @@ export function countAllLeafItems(node: Node): number {
     return countLeafItems(node) + branches.reduce((sum, branch) => sum + countAllLeafItems(branch), 0);
 }
 
-export function nodeHasMatchingLeafs(node: Node, filter: string): boolean {
+export function nodeHasMatchingLeafs(node: Node, filter: string, itemsOptions: Option[]): boolean {
     return (
         node.Children?.some((c) => {
-            return isLeaf(c) && getItemName(c.Name).toLowerCase().includes(filter.toLowerCase());
+            return isLeaf(c) && getItemName(c.Name, itemsOptions).toLowerCase().includes(filter.toLowerCase());
         }) ?? false
     );
 }
 
-export function nodeMatchesFilter(node: Node, filter: string): boolean {
+export function nodeMatchesFilter(node: Node, filter: string, itemsOptions: Option[]): boolean {
     if (!filter) return true;
 
     if (!isBranch(node)) {
-        return getItemName(node.Name).toLowerCase().includes(filter.toLowerCase());
+        return getItemName(node.Name, itemsOptions).toLowerCase().includes(filter.toLowerCase());
     }
 
-    return node.Children.some((child) => nodeMatchesFilter(child, filter));
+    return node.Children.some((child) => nodeMatchesFilter(child, filter, itemsOptions));
 }
 
-export function countFilteredLeafItems(node: Node, filter: string): number {
+export function countFilteredLeafItems(node: Node, filter: string, itemsOptions: Option[]): number {
     if (!isBranch(node)) return 0;
 
     return node.Children.reduce((sum, child) => {
         if (!child.Children || child.Children.length === 0) {
-            return getItemName(child.Name).toLowerCase().includes(filter.toLowerCase()) ? sum + 1 : sum;
+            return getItemName(child.Name, itemsOptions).toLowerCase().includes(filter.toLowerCase()) ? sum + 1 : sum;
         }
-        return sum + countFilteredLeafItems(child, filter);
+        return sum + countFilteredLeafItems(child, filter, itemsOptions);
     }, 0);
 }

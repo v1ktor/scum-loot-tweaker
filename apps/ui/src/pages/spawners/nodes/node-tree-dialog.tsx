@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from '@/components/ui/input.tsx';
 import { ScrollArea } from '@/components/ui/scroll-area.tsx';
 import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts';
+import { useItemsOptions } from '@/hooks/use-items-options.ts';
 import type { Node } from '@/pages/nodes/nodes.types.ts';
 import { TreeSidebarItem } from '@/pages/spawners/nodes/tree-sidebar-item.tsx';
 import { countAllLeafItems, countFilteredLeafItems } from '@/pages/spawners/nodes/utils.ts';
@@ -30,6 +31,7 @@ interface NodeTreeDialogProps {
 }
 
 export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
+    const { itemsOptions } = useItemsOptions();
     const [title, setTitle] = useState('');
     const [treeNode, setTreeNode] = useState<Node | null>(null);
     const [filter, setFilter] = useState('');
@@ -129,7 +131,8 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                                 </div>
                                 {filter && treeNode && (
                                     <span className="text-xs text-muted-foreground whitespace-nowrap">
-                                        {countFilteredLeafItems(treeNode, filter)}/{countAllLeafItems(treeNode)} items
+                                        {countFilteredLeafItems(treeNode, filter, itemsOptions)}/
+                                        {countAllLeafItems(treeNode)} items
                                     </span>
                                 )}
                                 <Button
@@ -162,6 +165,7 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                                         node={treeNode}
                                         depth={0}
                                         filter={filter}
+                                        itemsOptions={itemsOptions}
                                         selectedNode={selectedNode}
                                         onSelect={(node, path) => {
                                             setSelectedNode(node);
@@ -214,7 +218,7 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                                                         ) ?? [];
                                                     const filteredItems = filter
                                                         ? leafItems.filter((item) =>
-                                                              getItemName(item.Name)
+                                                              getItemName(item.Name, itemsOptions)
                                                                   .toLowerCase()
                                                                   .includes(filter.toLowerCase()),
                                                           )
@@ -231,7 +235,7 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                                                                     </div>
                                                                     <div className="flex flex-col gap-0.5 min-w-0">
                                                                         <span className="text-sm font-medium truncate">
-                                                                            {getItemName(item.Name)}
+                                                                            {getItemName(item.Name, itemsOptions)}
                                                                         </span>
                                                                         <div className="flex flex-wrap items-center gap-1">
                                                                             <Badge

@@ -58,6 +58,7 @@
                         "ignoreRestSiblings": true
                     }
                 },
+                "useImportExtensions": "error",
                 "useParseIntRadix": "off",
                 "useValidForDirection": "error"
             },
@@ -120,6 +121,26 @@
         },
         {
             "includes": ["**/deploy.mjs"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noConsole": "off"
+                    }
+                }
+            }
+        },
+        {
+            "includes": ["**/scripts/seed.ts", "**/scripts/nuke.ts"],
+            "linter": {
+                "rules": {
+                    "suspicious": {
+                        "noConsole": "off"
+                    }
+                }
+            }
+        },
+        {
+            "includes": ["**/src/test/**"],
             "linter": {
                 "rules": {
                     "suspicious": {

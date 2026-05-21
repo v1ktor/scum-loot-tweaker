@@ -19,10 +19,9 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx';
-import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import type { DataTableMeta, Option } from '@/pages/spawners/spawners.types.ts';
 
-export const columns: ColumnDef<string>[] = [
+export const createColumns = (itemsOptions: Option[]): ColumnDef<string>[] => [
     {
         id: 'select',
         header: ({ table }) => (
@@ -46,7 +45,7 @@ export const columns: ColumnDef<string>[] = [
         id: 'Id',
         accessorFn: (row) => row || undefined,
         filterFn: (row, _columnId, filterValue: string) => {
-            const label = ITEMS_OPTIONS.find((o) => o.value === row.getValue('Id'))?.label ?? '';
+            const label = itemsOptions.find((o) => o.value === row.getValue('Id'))?.label ?? '';
             return label.toLowerCase().includes(filterValue.toLowerCase());
         },
         header: ({ column }) => {
@@ -60,11 +59,11 @@ export const columns: ColumnDef<string>[] = [
         cell: ({ row, table }) => {
             const meta = table.options.meta as DataTableMeta | undefined;
             const currentId = row.getValue('Id') as string;
-            const currentOption = ITEMS_OPTIONS.find((o) => o.value === currentId) || (currentId as unknown as Option);
+            const currentOption = itemsOptions.find((o) => o.value === currentId) || (currentId as unknown as Option);
 
             return (
                 <Combobox
-                    items={ITEMS_OPTIONS}
+                    items={itemsOptions}
                     itemToStringValue={(item: Option) => item.label}
                     value={currentOption ?? null}
                     onValueChange={(next) => {

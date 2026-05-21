@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import { AlertCircleIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx';
@@ -12,31 +13,33 @@ import {
     ComboboxList,
 } from '@/components/ui/combobox.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
-import { SPAWNER_OPTIONS } from '@/data/spawner-options.ts';
+import { filenameToLabel } from '@/data/spawner-options.ts';
 import type { Spawner } from '@/pages/spawners/spawners.types.ts';
 import { FixedItemsTab } from '@/pages/spawners/tabs/fixed-items-tab.tsx';
 import { ItemsTab } from '@/pages/spawners/tabs/items-tab.tsx';
 import { NodesTab } from '@/pages/spawners/tabs/nodes-tab.tsx';
 import { SettingsTab } from '@/pages/spawners/tabs/settings-tab.tsx';
 import { SubpresetsTab } from '@/pages/spawners/tabs/subpresets-tab.tsx';
-import { FILE_TYPE, readFile } from '@/utils/read-file.ts';
+import { queryClient } from '@/query-client.ts';
+import { trpc } from '@/trpc.ts';
 
 export function Spawners() {
     const [spawner, setSpawner] = useState<Spawner>({});
     const [fileName, setFileName] = useState<string>('');
     const [downloadUrl, setDownloadUrl] = useState<string>('');
 
+    const { data: spawners = [] } = useQuery(trpc.spawners.list.queryOptions());
+    const spawnerOptions = spawners
+        .map((filename) => ({
+            value: filename,
+            label: filenameToLabel(filename),
+        }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+
     const handleChange = async (args: { value: string; label: string }) => {
-        let data: Spawner;
-
-        try {
-            data = await readFile<Spawner>({ value: args.value, label: args.label }, FILE_TYPE.Spawners);
-            setFileName(args.value);
-        } catch (error) {
-            throw new Error(`${error}`);
-        }
-
-        setSpawner(data);
+        const spawner = await queryClient.fetchQuery(trpc.spawners.get.queryOptions(args.value));
+        setFileName(args.value);
+        setSpawner(spawner);
     };
 
     const handleDownload = () => {
@@ -93,7 +96,7 @@ export function Spawners() {
 
                 <div className="my-4">
                     <Combobox
-                        items={SPAWNER_OPTIONS}
+                        items={spawnerOptions}
                         itemToStringValue={(item: { label: string; value: string }) => item.label}
                         onValueChange={(next) => {
                             if (!next) {
@@ -103,7 +106,7 @@ export function Spawners() {
                                 return;
                             }
 
-                            const selected = SPAWNER_OPTIONS.find((x) => x.value === next.value);
+                            const selected = spawnerOptions.find((x) => x.value === next.value);
                             if (selected) {
                                 void handleChange(selected);
                             }

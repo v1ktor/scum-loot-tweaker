@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: app_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: scum_tools
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: app_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+    entrypoint: /bin/sh -c "mkdir -p /var/lib/pgadmin/storage/admin_admin.com && cp /tmp/pgpass.src /var/lib/pgadmin/storage/admin_admin.com/pgpassfile && chmod 600 /var/lib/pgadmin/storage/admin_admin.com/pgpassfile && /entrypoint.sh"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
+      - ./pgadmin/pgpass:/tmp/pgpass.src:ro
+
+volumes:
+  postgres_data:
+  pgadmin_data:

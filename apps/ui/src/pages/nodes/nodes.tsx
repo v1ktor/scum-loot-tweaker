@@ -3,12 +3,14 @@ import Select, { type GroupBase, type SingleValue } from 'react-select';
 import { Alert } from '@/components/alert/Alert.tsx';
 import { DROPDOWN_STYLES } from '@/components/dropdown/Dropdown.styles.ts';
 import { NODES_OPTIONS } from '@/data/nodes-options.ts';
+import { useItemsOptions } from '@/hooks/use-items-options.ts';
 import type { Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 import { FILE_TYPE, readFile } from '@/utils/read-file.ts';
 import type { Node } from './nodes.types.ts';
 
 export function Nodes() {
+    const { itemsOptions } = useItemsOptions();
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
     const [parsedNodes, setParsedNodes] = useState<Node[]>([]);
 
@@ -85,7 +87,7 @@ export function Nodes() {
                                 {node.Children &&
                                     node.Children.map((item, index) => (
                                         <div key={index}>
-                                            {getItemName(item.Name)}{' '}
+                                            {getItemName(item.Name, itemsOptions)}{' '}
                                             <span style={{ color: '#f9c666' }}>{item.Rarity}</span>
                                         </div>
                                     ))}
