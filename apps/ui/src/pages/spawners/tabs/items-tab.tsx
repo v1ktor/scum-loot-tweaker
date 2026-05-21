@@ -1,9 +1,9 @@
 import type { SortingState } from '@tanstack/react-table';
 import { type Dispatch, type SetStateAction, useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import { Rarity } from '@/data/rarity.ts';
-import { columns } from '@/pages/spawners/items/columns.tsx';
+import { useItemsOptions } from '@/hooks/use-items-options.ts';
+import { createColumns } from '@/pages/spawners/items/columns.tsx';
 import { DataTable } from '@/pages/spawners/items/data-table.tsx';
 import type { Spawner, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
 
@@ -14,6 +14,8 @@ interface ItemsTabProps {
 
 export function ItemsTab(props: ItemsTabProps) {
     const { spawner, setSpawner } = props;
+    const { itemsOptions } = useItemsOptions();
+    const columns = createColumns(itemsOptions);
     const [rows, setRows] = useState<SpawnerItem[]>(spawner.Items ?? []);
 
     const syncToSpawner = useCallback(
@@ -82,8 +84,8 @@ export function ItemsTab(props: ItemsTabProps) {
                 let cmp = 0;
 
                 if (id === 'Id') {
-                    const labelA = ITEMS_OPTIONS.find((o) => o.value === a.Id)?.label ?? '';
-                    const labelB = ITEMS_OPTIONS.find((o) => o.value === b.Id)?.label ?? '';
+                    const labelA = itemsOptions.find((o) => o.value === a.Id)?.label ?? '';
+                    const labelB = itemsOptions.find((o) => o.value === b.Id)?.label ?? '';
 
                     cmp = labelA.localeCompare(labelB);
                 }

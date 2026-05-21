@@ -20,12 +20,11 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx';
-import { ITEMS_OPTIONS } from '@/data/items-options.ts';
 import type { Rarity } from '@/data/rarity.ts';
 import { RARITY_OPTIONS } from '@/data/rarity-options.ts';
 import type { DataTableMeta, Option, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
 
-export const columns: ColumnDef<SpawnerItem>[] = [
+export const createColumns = (itemsOptions: Option[]): ColumnDef<SpawnerItem>[] => [
     {
         id: 'select',
         header: ({ table }) => (
@@ -49,7 +48,7 @@ export const columns: ColumnDef<SpawnerItem>[] = [
         id: 'Id',
         accessorFn: (row) => row.Id || undefined,
         filterFn: (row, _columnId, filterValue: string) => {
-            const label = ITEMS_OPTIONS.find((o) => o.value === row.getValue('Id'))?.label ?? '';
+            const label = itemsOptions.find((o) => o.value === row.getValue('Id'))?.label ?? '';
             return label.toLowerCase().includes(filterValue.toLowerCase());
         },
         header: ({ column }) => {
@@ -63,11 +62,11 @@ export const columns: ColumnDef<SpawnerItem>[] = [
         cell: ({ row, table }) => {
             const meta = table.options.meta as DataTableMeta | undefined;
             const currentId = row.getValue('Id') as string;
-            const currentOption = ITEMS_OPTIONS.find((o) => o.value === currentId);
+            const currentOption = itemsOptions.find((o) => o.value === currentId);
 
             return (
                 <Combobox
-                    items={ITEMS_OPTIONS}
+                    items={itemsOptions}
                     itemToStringValue={(item: Option) => item.label}
                     value={currentOption ?? null}
                     onValueChange={(next) => {

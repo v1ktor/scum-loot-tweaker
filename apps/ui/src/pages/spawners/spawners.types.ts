@@ -1,38 +1,17 @@
-import type { Rarity } from '@/data/rarity.ts';
+import type { inferRouterOutputs } from '@trpc/server';
+import type { AppRouter } from '../../../../server/src/api/procedures/router.ts';
+
+type RouterOutputs = inferRouterOutputs<AppRouter>;
 
 export type Option = { label: string; value: string };
 
-export type SpawnerItem = {
-    Id: string;
-    Rarity: Rarity;
-};
+export type Spawner = RouterOutputs['spawners']['byId'];
 
-export type SpawnerNode = {
-    Ids: string[];
-    Rarity: Rarity;
-};
-
-export type Spawner = {
-    Nodes?: SpawnerNode[];
-    FixedItems?: string[];
-    Items?: SpawnerItem[];
-    Subpresets?: SpawnerItem[];
-    Probability?: number;
-    QuantityMin?: number;
-    QuantityMax?: number;
-    AllowDuplicates?: boolean;
-    InitialDamage?: number;
-    RandomDamage?: number;
-    InitialUsage?: number;
-    RandomUsage?: number;
-    ShouldFilterItemsByZone?: boolean;
-    ShouldApplyLocationSpecificDamageModifier?: boolean;
-    ShouldApplyLocationSpecificProbabilityModifier?: boolean;
-    PostSpawnActions?: string[];
-};
+export type SpawnerItem = NonNullable<Spawner['Items']>[number];
+export type SpawnerNode = NonNullable<Spawner['Nodes']>[number];
 
 export type DataTableMeta = {
     onDelete?: (rowIndex: number) => void;
-    onUpdateRarity?: (rowIndex: number, rarity: Rarity) => void;
+    onUpdateRarity?: (rowIndex: number, rarity: SpawnerItem['Rarity']) => void;
     onUpdateItem?: (rowIndex: number, itemId: string) => void;
 };

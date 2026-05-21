@@ -14,7 +14,7 @@ import React from 'react';
 import { IconButton } from '@/components/icon-button/icon-button.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { Input } from '@/components/ui/input.tsx';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table.tsx';
 import type { Rarity } from '@/data/rarity.ts';
 
 interface DataTableProps<TData, TValue> {

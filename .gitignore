@@ -25,3 +25,5 @@ packages/*/dist
 *.njsproj
 *.sln
 *.sw?
+
+apps/server/coverage

@@ -2,10 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import { defineConfig, loadEnv, type Plugin } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-function fileListPlugin(version: string): Plugin {
+function fileListPlugin(): Plugin {
     const virtualModuleId = 'virtual:file-list';
     const resolvedId = `\0${virtualModuleId}`;
 
@@ -38,9 +38,7 @@ function fileListPlugin(version: string): Plugin {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-    const { VITE_CURRENT_SCUM_VERSION } = loadEnv(mode, path.resolve(__dirname, '../../'));
-
+export default defineConfig(() => {
     return {
         base: '/',
         root: 'src/',
@@ -51,7 +49,7 @@ export default defineConfig(({ mode }) => {
             emptyOutDir: true,
         },
         plugins: [
-            fileListPlugin(VITE_CURRENT_SCUM_VERSION),
+            fileListPlugin(),
             react(),
             tailwindcss(),
             {

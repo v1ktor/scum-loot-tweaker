@@ -1,7 +1,7 @@
 import { spawnerFiles } from 'virtual:file-list';
 import type { Option } from '@/pages/spawners/spawners.types.ts';
 
-function filenameToLabel(filename: string): string {
+export function filenameToLabel(filename: string): string {
     return filename.replace(/-/g, ' ').replace(/_/g, ' ').replace('.json', '');
 }
 
