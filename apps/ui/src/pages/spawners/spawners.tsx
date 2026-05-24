@@ -27,7 +27,7 @@ export function Spawners() {
     const [fileName, setFileName] = useState<string>('');
     const [downloadUrl, setDownloadUrl] = useState<string>('');
 
-    const { data: spawners = [] } = useQuery(trpc.spawners.list.queryOptions());
+    const { data: spawners = [], isLoading } = useQuery(trpc.spawners.list.queryOptions());
     const spawnerOptions = spawners
         .map((filename) => ({
             value: filename,
@@ -112,7 +112,7 @@ export function Spawners() {
                         }}
                         autoHighlight={true}
                     >
-                        <ComboboxInput placeholder="Select a spawner" showClear={true} />
+                        <ComboboxInput placeholder={isLoading ? 'Loading spawners...' : 'Select a spawner'} disabled={isLoading} showClear={true} />
                         <ComboboxContent>
                             <ComboboxEmpty>No items found.</ComboboxEmpty>
                             <ComboboxList>
