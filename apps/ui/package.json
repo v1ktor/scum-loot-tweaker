@@ -44,7 +44,8 @@
         "react-tooltip": "^5.30.0",
         "sonner": "^2.0.7",
         "tailwind-merge": "^3.4.0",
-        "tailwindcss": "^4.2.2"
+        "tailwindcss": "^4.2.2",
+        "zod": "^4.3.6"
     },
     "devDependencies": {
         "@types/react": "^19.1.17",
