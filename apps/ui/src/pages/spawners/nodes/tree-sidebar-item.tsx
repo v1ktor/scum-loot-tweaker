@@ -1,4 +1,4 @@
-import type { LootNode } from '@scum-loot-tweaker/server/src/api/models/nodes';
+import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import { ChevronRightIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';

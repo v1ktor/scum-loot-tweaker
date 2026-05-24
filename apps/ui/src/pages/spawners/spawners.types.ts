@@ -10,6 +10,8 @@ export type Spawner = RouterOutputs['spawners']['get'];
 export type SpawnerItem = NonNullable<Spawner['Items']>[number];
 export type SpawnerNode = NonNullable<Spawner['Nodes']>[number];
 
+export type LootNode = RouterOutputs['nodes']['get'];
+
 export type DataTableMeta = {
     onDelete?: (rowIndex: number) => void;
     onUpdateRarity?: (rowIndex: number, rarity: SpawnerItem['Rarity']) => void;

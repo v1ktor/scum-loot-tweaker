@@ -1,4 +1,4 @@
-import type { LootNode } from '@scum-loot-tweaker/server/src/api/models/nodes';
+import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import type { Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
