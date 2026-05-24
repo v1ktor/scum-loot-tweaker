@@ -1,13 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "skipLibCheck": true,
-    "strict": true
-  },
-  "references": [
-    { "path": "apps/ui" },
-    { "path": "apps/server" }
-  ]
+    "compilerOptions": {
+        "target": "ES2024",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "skipLibCheck": true,
+        "strict": true
+    },
+    "references": [{ "path": "apps/ui" }, { "path": "apps/server" }]
 }

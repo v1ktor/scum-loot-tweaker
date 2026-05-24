@@ -4,6 +4,7 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
+        "lint": "biome check --write .",
         "dev": "vite",
         "build": "shx rm -rf dist && tsc && vite build",
         "deploy": "node scripts/deploy.mjs",
