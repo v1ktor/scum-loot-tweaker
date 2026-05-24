@@ -3,6 +3,6 @@ export enum Rarity {
     Common = 'Common',
     Uncommon = 'Uncommon',
     Rare = 'Rare',
-    VeryRare = 'Very Rare',
-    ExtremelyRare = 'Extremely Rare',
+    VeryRare = 'VeryRare',
+    ExtremelyRare = 'ExtremelyRare',
 }

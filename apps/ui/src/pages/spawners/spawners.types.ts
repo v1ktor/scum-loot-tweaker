@@ -5,7 +5,7 @@ type RouterOutputs = inferRouterOutputs<AppRouter>;
 
 export type Option = { label: string; value: string };
 
-export type Spawner = RouterOutputs['spawners']['byId'];
+export type Spawner = RouterOutputs['spawners']['get'];
 
 export type SpawnerItem = NonNullable<Spawner['Items']>[number];
 export type SpawnerNode = NonNullable<Spawner['Nodes']>[number];

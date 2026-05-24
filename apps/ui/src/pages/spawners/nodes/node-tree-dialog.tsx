@@ -1,3 +1,4 @@
+import type { LootNode } from '@scum-loot-tweaker/server/src/api/models/nodes';
 import { ChevronsDownUpIcon, ChevronsUpDownIcon, PackageIcon, XIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
@@ -15,11 +16,11 @@ import { Input } from '@/components/ui/input.tsx';
 import { ScrollArea } from '@/components/ui/scroll-area.tsx';
 import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts';
 import { useItemsOptions } from '@/hooks/use-items-options.ts';
-import type { Node } from '@/pages/nodes/nodes.types.ts';
 import { TreeSidebarItem } from '@/pages/spawners/nodes/tree-sidebar-item.tsx';
 import { countAllLeafItems, countFilteredLeafItems } from '@/pages/spawners/nodes/utils.ts';
+import { queryClient } from '@/query-client.ts';
+import { trpc } from '@/trpc.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
-import { FILE_TYPE, readFile } from '@/utils/read-file.ts';
 
 function getActionLabel(action: string): string {
     return POST_SPAWN_ACTIONS_OPTIONS.find((o) => o.value === action)?.label ?? action;
@@ -33,16 +34,16 @@ interface NodeTreeDialogProps {
 export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
     const { itemsOptions } = useItemsOptions();
     const [title, setTitle] = useState('');
-    const [treeNode, setTreeNode] = useState<Node | null>(null);
+    const [treeNode, setTreeNode] = useState<LootNode | null>(null);
     const [filter, setFilter] = useState('');
-    const [selectedNode, setSelectedNode] = useState<Node | null>(null);
+    const [selectedNode, setSelectedNode] = useState<LootNode | null>(null);
     const [selectedPath, setSelectedPath] = useState<string[]>([]);
     const [defaultExpanded, setDefaultExpanded] = useState(false);
 
     const navigateToBreadcrumb = (index: number) => {
         if (!treeNode) return;
         const targetPath = selectedPath.slice(0, index + 1);
-        let current: Node | undefined = treeNode;
+        let current: LootNode | undefined = treeNode;
         for (let i = 1; i < targetPath.length; i++) {
             current = current?.Children?.find((c) => c.Name === targetPath[i]);
             if (!current) return;
@@ -60,9 +61,8 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
         const pathParts = parts.slice(1);
 
         try {
-            const data = await readFile<Node>({ value: fileName, label: fileName }, FILE_TYPE.Nodes);
-            let current: Node | undefined = data;
-            let parent: Node | undefined;
+            let current: LootNode | undefined = await queryClient.fetchQuery(trpc.nodes.get.queryOptions(fileName));
+            let parent: LootNode | undefined;
 
             for (const part of pathParts) {
                 parent = current;
@@ -78,7 +78,7 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
             setResetKey((k) => k + 1);
 
             if (current && (!current.Children || current.Children.length === 0)) {
-                const wrapper: Node = {
+                const wrapper: LootNode = {
                     Name: parent?.Name ?? nodeId,
                     Rarity: parent?.Rarity ?? current.Rarity,
                     Children: [current],
