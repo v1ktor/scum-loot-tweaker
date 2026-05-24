@@ -1,4 +1,3 @@
-import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import { ChevronRightIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
@@ -8,7 +7,7 @@ import {
     nodeHasMatchingLeafs,
     nodeMatchesFilter,
 } from '@/pages/spawners/nodes/utils.ts';
-import type { Option } from '@/pages/spawners/spawners.types.ts';
+import type { LootNode, Option } from '@/pages/spawners/spawners.types.ts';
 
 export interface TreeSidebarItemProps {
     node: LootNode;

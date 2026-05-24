@@ -1,4 +1,3 @@
-import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import { ChevronsDownUpIcon, ChevronsUpDownIcon, PackageIcon, XIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
@@ -18,6 +17,7 @@ import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts
 import { useItemsOptions } from '@/hooks/use-items-options.ts';
 import { TreeSidebarItem } from '@/pages/spawners/nodes/tree-sidebar-item.tsx';
 import { countAllLeafItems, countFilteredLeafItems } from '@/pages/spawners/nodes/utils.ts';
+import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import { queryClient } from '@/query-client.ts';
 import { trpc } from '@/trpc.ts';
 import { getItemName } from '@/utils/get-item-name.ts';

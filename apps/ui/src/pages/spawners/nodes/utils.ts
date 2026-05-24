@@ -1,5 +1,4 @@
-import type { LootNode } from '@/pages/spawners/spawners.types.ts';
-import type { Option } from '@/pages/spawners/spawners.types.ts';
+import type { LootNode, Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
 type Branch = LootNode & { Children: LootNode[] };
