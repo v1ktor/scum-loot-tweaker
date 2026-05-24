@@ -2,17 +2,16 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { TRPCError } from '@trpc/server';
 import { z } from 'zod';
-import { DATA_DIR } from '../../../config/paths.ts';
+import { NODES_DIR } from '../../../config/paths.ts';
 import { publicProcedure } from '../../../connections/trpc/trpc.ts';
 import { GetNodeSchema } from '../../models/nodes/index.ts';
 
 export const get = publicProcedure.input(z.string()).query(({ input }) => {
     const filename = input;
 
-    const nodesDir = path.join(DATA_DIR, 'Loot/Nodes/Default');
-    const fullPath = path.join(nodesDir, filename);
+    const fullPath = path.join(NODES_DIR, filename);
 
-    const doesFileExist = fs.existsSync(nodesDir) && fs.existsSync(fullPath);
+    const doesFileExist = fs.existsSync(NODES_DIR) && fs.existsSync(fullPath);
 
     if (!doesFileExist) {
         throw new TRPCError({
