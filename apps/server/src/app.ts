@@ -23,11 +23,9 @@ export function buildApp(opts: FastifyServerOptions = {}) {
         routerOptions: {
             maxParamLength: 5000,
         },
-        logger: {
-            transport: {
-                target: 'pino-pretty',
-            },
-        },
+        logger: process.env.NODE_ENV === 'production'
+            ? true
+            : { transport: { target: 'pino-pretty' } },
         ...opts,
     }).withTypeProvider<ZodTypeProvider>();
 
