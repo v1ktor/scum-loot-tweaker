@@ -53,6 +53,8 @@ export const GetNodeSchema: z.ZodType<LootNode> = z.lazy(() =>
     }),
 );
 
+export type GetNode = z.infer<typeof GetNodeSchema>;
+
 export type LootChildrenNode = {
     Name: string;
     Rarity: z.infer<typeof RaritySchema>;
