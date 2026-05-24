@@ -1,22 +1,21 @@
 import { ChevronRightIcon } from 'lucide-react';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
-import type { Node } from '@/pages/nodes/nodes.types.ts';
 import {
     countAllLeafItems,
     countLeafItems,
     nodeHasMatchingLeafs,
     nodeMatchesFilter,
 } from '@/pages/spawners/nodes/utils.ts';
-import type { Option } from '@/pages/spawners/spawners.types.ts';
+import type { LootNode, Option } from '@/pages/spawners/spawners.types.ts';
 
 export interface TreeSidebarItemProps {
-    node: Node;
+    node: LootNode;
     depth: number;
     filter: string;
     itemsOptions: Option[];
-    selectedNode: Node | null;
-    onSelect: (node: Node, path: string[]) => void;
+    selectedNode: LootNode | null;
+    onSelect: (node: LootNode, path: string[]) => void;
     defaultExpanded?: boolean;
     path?: string[];
 }

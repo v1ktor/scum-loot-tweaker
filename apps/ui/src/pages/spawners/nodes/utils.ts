@@ -1,17 +1,16 @@
-import type { Node } from '@/pages/nodes/nodes.types.ts';
-import type { Option } from '@/pages/spawners/spawners.types.ts';
+import type { LootNode, Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
-type Branch = Node & { Children: Node[] };
+type Branch = LootNode & { Children: LootNode[] };
 
-const isBranch = (node: Node): node is Branch => !!node.Children && node.Children.length > 0;
-const isLeaf = (node: Node) => !isBranch(node);
+const isBranch = (node: LootNode): node is Branch => !!node.Children && node.Children.length > 0;
+const isLeaf = (node: LootNode) => !isBranch(node);
 
-export function countLeafItems(node: Node): number {
+export function countLeafItems(node: LootNode): number {
     return node.Children?.filter(isLeaf).length ?? 0;
 }
 
-export function countAllLeafItems(node: Node): number {
+export function countAllLeafItems(node: LootNode): number {
     if (!isBranch(node)) return 0;
 
     const branches = node.Children.filter(isBranch);
@@ -19,7 +18,7 @@ export function countAllLeafItems(node: Node): number {
     return countLeafItems(node) + branches.reduce((sum, branch) => sum + countAllLeafItems(branch), 0);
 }
 
-export function nodeHasMatchingLeafs(node: Node, filter: string, itemsOptions: Option[]): boolean {
+export function nodeHasMatchingLeafs(node: LootNode, filter: string, itemsOptions: Option[]): boolean {
     return (
         node.Children?.some((c) => {
             return isLeaf(c) && getItemName(c.Name, itemsOptions).toLowerCase().includes(filter.toLowerCase());
@@ -27,7 +26,7 @@ export function nodeHasMatchingLeafs(node: Node, filter: string, itemsOptions: O
     );
 }
 
-export function nodeMatchesFilter(node: Node, filter: string, itemsOptions: Option[]): boolean {
+export function nodeMatchesFilter(node: LootNode, filter: string, itemsOptions: Option[]): boolean {
     if (!filter) return true;
 
     if (!isBranch(node)) {
@@ -37,7 +36,7 @@ export function nodeMatchesFilter(node: Node, filter: string, itemsOptions: Opti
     return node.Children.some((child) => nodeMatchesFilter(child, filter, itemsOptions));
 }
 
-export function countFilteredLeafItems(node: Node, filter: string, itemsOptions: Option[]): number {
+export function countFilteredLeafItems(node: LootNode, filter: string, itemsOptions: Option[]): number {
     if (!isBranch(node)) return 0;
 
     return node.Children.reduce((sum, child) => {
