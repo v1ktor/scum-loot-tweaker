@@ -1,11 +1,11 @@
 import type { SortingState } from '@tanstack/react-table';
-import { type Dispatch, type SetStateAction, useCallback, useEffect, useState } from 'react';
+import { type Dispatch, type SetStateAction, useCallback, useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 import { Rarity } from '@/data/rarity.ts';
-import { SUBPRESET_OPTIONS } from '@/data/subpreset-options.ts';
+import { useSpawnerOptions } from '@/hooks/use-spawner-options.ts';
 import { DataTable } from '@/pages/spawners/items/data-table.tsx';
 import type { Spawner, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
-import { columns } from '@/pages/spawners/subpresets/columns.tsx';
+import { makeColumns } from '@/pages/spawners/subpresets/columns.tsx';
 
 interface SubpresetsTabProps {
     spawner: Spawner;
@@ -13,6 +13,8 @@ interface SubpresetsTabProps {
 }
 
 export function SubpresetsTab({ spawner, setSpawner }: SubpresetsTabProps) {
+    const { spawnerOptions } = useSpawnerOptions();
+    const columns = useMemo(() => makeColumns(spawnerOptions), [spawnerOptions]);
     const [rows, setRows] = useState<SpawnerItem[]>(spawner.Subpresets ?? []);
 
     const syncToSpawner = useCallback(
@@ -81,8 +83,8 @@ export function SubpresetsTab({ spawner, setSpawner }: SubpresetsTabProps) {
                 let cmp = 0;
 
                 if (id === 'Id') {
-                    const labelA = SUBPRESET_OPTIONS.find((o) => o.value === a.Id)?.label ?? '';
-                    const labelB = SUBPRESET_OPTIONS.find((o) => o.value === b.Id)?.label ?? '';
+                    const labelA = spawnerOptions.find((o) => o.value === a.Id)?.label ?? '';
+                    const labelB = spawnerOptions.find((o) => o.value === b.Id)?.label ?? '';
                     cmp = labelA.localeCompare(labelB);
                 }
 

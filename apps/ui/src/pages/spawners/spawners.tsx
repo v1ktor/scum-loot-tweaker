@@ -13,7 +13,6 @@ import {
     ComboboxList,
 } from '@/components/ui/combobox.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
-import { filenameToLabel } from '@/data/spawner-options.ts';
 import type { Spawner } from '@/pages/spawners/spawners.types.ts';
 import { FixedItemsTab } from '@/pages/spawners/tabs/fixed-items-tab.tsx';
 import { ItemsTab } from '@/pages/spawners/tabs/items-tab.tsx';
@@ -32,7 +31,7 @@ export function Spawners() {
     const spawnerOptions = spawners
         .map((filename) => ({
             value: filename,
-            label: filenameToLabel(filename),
+            label: filename.replace(/-/g, ' ').replace(/_/g, ' ').replace('.json', ''),
         }))
         .sort((a, b) => a.label.localeCompare(b.label));
 
