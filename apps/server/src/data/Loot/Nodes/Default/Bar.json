@@ -127,52 +127,8 @@
 							"Rarity": "Uncommon",
 							"Children": [
 								{
-									"Name": "BakingSoda",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "BlackPepper",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "Rice",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "SeaSalt_01",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "SeaSalt_02",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "SoySauce",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "SpicesMix_01",
-									"Rarity": "Rare"
-								},
-								{
 									"Name": "Sugar",
 									"Rarity": "Rare"
-								},
-								{
-									"Name": "VegetableOil",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "Vinegar",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "WhiteFlour",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "Yeast",
-									"Rarity": "Uncommon"
 								}
 							]
 						},
@@ -203,34 +159,6 @@
 							"Rarity": "Rare",
 							"Children": [
 								{
-									"Name": "Candy",
-									"Rarity": "Rare",
-									"Children": [
-										{
-											"Name": "Candy_Bob",
-											"Rarity": "ExtremelyRare"
-										}
-									]
-								},
-								{
-									"Name": "Cereal",
-									"Rarity": "Rare",
-									"Children": [
-										{
-											"Name": "Cereal_BunnyStars",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Corn_flakes",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Instant_OatMeal",
-											"Rarity": "Rare"
-										}
-									]
-								},
-								{
 									"Name": "Chips",
 									"Rarity": "Rare",
 									"Children": [
@@ -245,50 +173,12 @@
 									]
 								},
 								{
-									"Name": "Chocolate",
-									"Rarity": "Rare",
-									"Children": [
-										{
-											"Name": "ChocolateCandy_01",
-											"Rarity": "Uncommon"
-										},
-										{
-											"Name": "ChocolateCandy_08",
-											"Rarity": "Rare"
-										}
-									]
-								},
-								{
 									"Name": "NutsAndBerries",
 									"Rarity": "Rare",
 									"Children": [
 										{
-											"Name": "Barberry",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Blackberry",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Blueberries",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Currant",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Grapes_Raw",
-											"Rarity": "VeryRare"
-										},
-										{
 											"Name": "Hazelnuts",
 											"Rarity": "Rare"
-										},
-										{
-											"Name": "Mulberry",
-											"Rarity": "VeryRare"
 										},
 										{
 											"Name": "Oak_Nuts",
@@ -296,20 +186,6 @@
 										},
 										{
 											"Name": "Walnut",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Wild_Strawberry",
-											"Rarity": "VeryRare"
-										}
-									]
-								},
-								{
-									"Name": "Pastries",
-									"Rarity": "Rare",
-									"Children": [
-										{
-											"Name": "Toaster_Pastries",
 											"Rarity": "Rare"
 										}
 									]

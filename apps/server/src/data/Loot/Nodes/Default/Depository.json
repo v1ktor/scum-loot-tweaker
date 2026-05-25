@@ -29,6 +29,64 @@
 					"Rarity": "Rare",
 					"Children": [
 						{
+							"Name": "Cans",
+							"Rarity": "VeryRare",
+							"Children": [
+								{
+									"Name": "BakedBeans",
+									"Rarity": "Rare"
+								},
+								{
+									"Name": "BeefRavioli",
+									"Rarity": "Rare"
+								},
+								{
+									"Name": "BlackOlives",
+									"Rarity": "Rare"
+								},
+								{
+									"Name": "Canned_Corn",
+									"Rarity": "Rare"
+								},
+								{
+									"Name": "Canned_Tuna",
+									"Rarity": "Uncommon"
+								},
+								{
+									"Name": "CannedFruitCocktail",
+									"Rarity": "VeryRare"
+								},
+								{
+									"Name": "CannedGoulash",
+									"Rarity": "VeryRare"
+								},
+								{
+									"Name": "CannedPeach",
+									"Rarity": "VeryRare"
+								},
+								{
+									"Name": "CannedPear",
+									"Rarity": "VeryRare"
+								},
+								{
+									"Name": "CannedPeas",
+									"Rarity": "VeryRare"
+								},
+								{
+									"Name": "CannedSardine",
+									"Rarity": "Uncommon"
+								},
+								{
+									"Name": "CannedSpaghetti",
+									"Rarity": "Rare"
+								},
+								{
+									"Name": "GuavaHalves",
+									"Rarity": "Uncommon"
+								}
+							]
+						},
+						{
 							"Name": "MRE_Cheeseburger",
 							"Rarity": "Uncommon"
 						},

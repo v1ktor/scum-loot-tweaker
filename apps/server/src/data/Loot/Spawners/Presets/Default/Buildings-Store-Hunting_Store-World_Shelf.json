@@ -14,7 +14,6 @@
 				"ItemLootTreeNodes.HuntingStore.Bows",
 				"ItemLootTreeNodes.HuntingStore.Fishing",
 				"ItemLootTreeNodes.HuntingStore.LightsFire",
-				"ItemLootTreeNodes.HuntingStore.Other",
 				"ItemLootTreeNodes.HuntingStore.Repositories",
 				"ItemLootTreeNodes.HuntingStore.Clothes.Military.Torso",
 				"ItemLootTreeNodes.HuntingStore.Clothes.Military.Legs",
@@ -30,7 +29,10 @@
 				"ItemLootTreeNodes.HuntingStore.WeaponParts.Attachments.Rails",
 				"ItemLootTreeNodes.HuntingStore.WeaponParts.Attachments.Flashlights",
 				"ItemLootTreeNodes.HuntingStore.WeaponParts.Magazines.Handguns",
-				"ItemLootTreeNodes.HuntingStore.WeaponParts.Magazines.Rifles"
+				"ItemLootTreeNodes.HuntingStore.WeaponParts.Magazines.Rifles",
+				"ItemLootTreeNodes.HuntingStore.Other.Flares",
+				"ItemLootTreeNodes.HuntingStore.Other.FoodDrink",
+				"ItemLootTreeNodes.HuntingStore.Other.Money"
 			]
 		}
 	],

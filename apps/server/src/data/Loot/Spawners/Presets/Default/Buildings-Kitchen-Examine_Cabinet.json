@@ -1,13 +1,27 @@
 {
 	"Nodes": [
 		{
+			"Rarity": "Rare",
+			"Ids": [
+				"ItemLootTreeNodes.Kitchen.Drinks",
+				"ItemLootTreeNodes.Kitchen.Food.Cans",
+				"ItemLootTreeNodes.Kitchen.Food.Condiments",
+				"ItemLootTreeNodes.Kitchen.Food.Snacks",
+				"ItemLootTreeNodes.Kitchen.Items"
+			]
+		},
+		{
 			"Rarity": "Uncommon",
 			"Ids": [
-				"ItemLootTreeNodes.Kitchen"
+				"ItemLootTreeNodes.Kitchen.Food.CookingIngredients",
+				"ItemLootTreeNodes.Kitchen.Food.Dairy",
+				"ItemLootTreeNodes.Kitchen.Food.Fruit",
+				"ItemLootTreeNodes.Kitchen.Food.Veggies",
+				"ItemLootTreeNodes.Kitchen.Food.Animal"
 			]
 		}
 	],
-	"Probability": 18,
+	"Probability": 30,
 	"QuantityMin": 1,
 	"QuantityMax": 2,
 	"AllowDuplicates": false,

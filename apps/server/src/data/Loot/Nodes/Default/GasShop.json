@@ -403,52 +403,6 @@
 							"Rarity": "Rare",
 							"Children": [
 								{
-									"Name": "Cans",
-									"Rarity": "Rare",
-									"Children": [
-										{
-											"Name": "BakedBeans",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "BeefRavioli",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "BeefStew",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "BlackOlives",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "CannedGoulash",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "CannedSardine",
-											"Rarity": "Uncommon"
-										},
-										{
-											"Name": "CannedSpaghetti",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Chow_Mein",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "MRE_Cheeseburger",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Spon",
-											"Rarity": "Rare"
-										}
-									]
-								},
-								{
 									"Name": "Drink",
 									"Rarity": "Rare",
 									"Children": [
@@ -477,16 +431,8 @@
 											"Rarity": "VeryRare"
 										},
 										{
-											"Name": "Isopropyl_alcohol",
-											"Rarity": "ExtremelyRare"
-										},
-										{
 											"Name": "Kicmovaca",
 											"Rarity": "Rare"
-										},
-										{
-											"Name": "Milk",
-											"Rarity": "VeryRare"
 										},
 										{
 											"Name": "PETBottle01",
@@ -571,52 +517,6 @@
 												{
 													"Name": "ChocolateCandy_08",
 													"Rarity": "Rare"
-												}
-											]
-										},
-										{
-											"Name": "NutsAndBerries",
-											"Rarity": "Rare",
-											"Children": [
-												{
-													"Name": "Barberry",
-													"Rarity": "VeryRare"
-												},
-												{
-													"Name": "Blackberry",
-													"Rarity": "VeryRare"
-												},
-												{
-													"Name": "Blueberries",
-													"Rarity": "VeryRare"
-												},
-												{
-													"Name": "Currant",
-													"Rarity": "Rare"
-												},
-												{
-													"Name": "Grapes_Raw",
-													"Rarity": "VeryRare"
-												},
-												{
-													"Name": "Hazelnuts",
-													"Rarity": "Rare"
-												},
-												{
-													"Name": "Mulberry",
-													"Rarity": "VeryRare"
-												},
-												{
-													"Name": "Oak_Nuts",
-													"Rarity": "VeryRare"
-												},
-												{
-													"Name": "Walnut",
-													"Rarity": "Rare"
-												},
-												{
-													"Name": "Wild_Strawberry",
-													"Rarity": "VeryRare"
 												}
 											]
 										},

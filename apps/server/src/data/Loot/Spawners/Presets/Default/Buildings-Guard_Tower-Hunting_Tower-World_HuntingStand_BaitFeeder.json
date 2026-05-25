@@ -3,14 +3,11 @@
 		{
 			"Rarity": "Uncommon",
 			"Ids": [
-				"ItemLootTreeNodes.HuntingTower.Clothes",
-				"ItemLootTreeNodes.HuntingTower.FoodDrink",
-				"ItemLootTreeNodes.HuntingTower.Misc",
-				"ItemLootTreeNodes.HuntingTower.Weapons"
+				"ItemLootTreeNodes.HuntingStore.Other.AnimalBaitFeederItem"
 			]
 		}
 	],
-	"Probability": 20,
+	"Probability": 7,
 	"QuantityMin": 1,
 	"QuantityMax": 1,
 	"AllowDuplicates": false,
