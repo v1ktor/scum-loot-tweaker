@@ -1444,7 +1444,7 @@
 							"Children": [
 								{
 									"Name": "Cans",
-									"Rarity": "VeryRare",
+									"Rarity": "Rare",
 									"Children": [
 										{
 											"Name": "BakedBeans",
@@ -1526,7 +1526,7 @@
 								},
 								{
 									"Name": "Snacks",
-									"Rarity": "Rare",
+									"Rarity": "VeryRare",
 									"Children": [
 										{
 											"Name": "Candy",

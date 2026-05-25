@@ -135,6 +135,10 @@
 							"Rarity": "VeryRare",
 							"Children": [
 								{
+									"Name": "BabyFood",
+									"Rarity": "Uncommon"
+								},
+								{
 									"Name": "BakedBeans",
 									"Rarity": "Rare"
 								},
@@ -199,10 +203,6 @@
 									"Rarity": "Uncommon"
 								},
 								{
-									"Name": "MRE_Cheeseburger",
-									"Rarity": "VeryRare"
-								},
-								{
 									"Name": "Spon",
 									"Rarity": "Rare"
 								},
@@ -244,7 +244,7 @@
 						},
 						{
 							"Name": "CookingIngredients",
-							"Rarity": "Uncommon",
+							"Rarity": "Common",
 							"Children": [
 								{
 									"Name": "BakingSoda",

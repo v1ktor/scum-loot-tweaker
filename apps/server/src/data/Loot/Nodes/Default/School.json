@@ -61,72 +61,6 @@
 					"Rarity": "Rare",
 					"Children": [
 						{
-							"Name": "Cans",
-							"Rarity": "VeryRare",
-							"Children": [
-								{
-									"Name": "BakedBeans",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "BeefRavioli",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "BeefStew",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "BlackOlives",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "Canned_Corn",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "Canned_Tuna",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "CannedFruitCocktail",
-									"Rarity": "VeryRare"
-								},
-								{
-									"Name": "CannedGoulash",
-									"Rarity": "VeryRare"
-								},
-								{
-									"Name": "CannedPeach",
-									"Rarity": "VeryRare"
-								},
-								{
-									"Name": "CannedPear",
-									"Rarity": "VeryRare"
-								},
-								{
-									"Name": "CannedPeas",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "CannedSardine",
-									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "CannedSpaghetti",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "Chow_Mein",
-									"Rarity": "Rare"
-								},
-								{
-									"Name": "GuavaHalves",
-									"Rarity": "Uncommon"
-								}
-							]
-						},
-						{
 							"Name": "Fruit",
 							"Rarity": "Rare",
 							"Children": [
@@ -206,7 +140,7 @@
 						},
 						{
 							"Name": "Snacks",
-							"Rarity": "Uncommon",
+							"Rarity": "Rare",
 							"Children": [
 								{
 									"Name": "Candy",

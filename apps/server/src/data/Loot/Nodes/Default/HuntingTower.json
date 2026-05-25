@@ -124,7 +124,7 @@
 				},
 				{
 					"Name": "FoodDrink",
-					"Rarity": "Uncommon",
+					"Rarity": "Rare",
 					"Children": [
 						{
 							"Name": "Drink",
@@ -293,6 +293,16 @@
 						{
 							"Name": "Rope1",
 							"Rarity": "VeryRare"
+						}
+					]
+				},
+				{
+					"Name": "Other",
+					"Rarity": "Uncommon",
+					"Children": [
+						{
+							"Name": "AnimalBaitFeederItem",
+							"Rarity": "Uncommon"
 						}
 					]
 				},

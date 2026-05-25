@@ -1030,7 +1030,7 @@
 				},
 				{
 					"Name": "Food",
-					"Rarity": "Rare",
+					"Rarity": "VeryRare",
 					"Children": [
 						{
 							"Name": "Snacks",

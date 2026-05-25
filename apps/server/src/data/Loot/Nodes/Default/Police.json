@@ -760,7 +760,7 @@
 				},
 				{
 					"Name": "FoodDrink",
-					"Rarity": "Rare",
+					"Rarity": "VeryRare",
 					"Children": [
 						{
 							"Name": "Drink",

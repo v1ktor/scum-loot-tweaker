@@ -2458,8 +2458,12 @@
 				},
 				{
 					"Name": "Other",
-					"Rarity": "Rare",
+					"Rarity": "Common",
 					"Children": [
+						{
+							"Name": "AnimalBaitFeederItem",
+							"Rarity": "Uncommon"
+						},
 						{
 							"Name": "Flares",
 							"Rarity": "Rare",
@@ -2476,7 +2480,7 @@
 							"Children": [
 								{
 									"Name": "Cans",
-									"Rarity": "Uncommon",
+									"Rarity": "Rare",
 									"Children": [
 										{
 											"Name": "BakedBeans",
@@ -2537,10 +2541,6 @@
 										{
 											"Name": "GuavaHalves",
 											"Rarity": "Uncommon"
-										},
-										{
-											"Name": "MRE_Cheeseburger",
-											"Rarity": "Rare"
 										},
 										{
 											"Name": "Spon",

@@ -177,52 +177,6 @@
 									]
 								},
 								{
-									"Name": "NutsAndBerries",
-									"Rarity": "Rare",
-									"Children": [
-										{
-											"Name": "Barberry",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Blackberry",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Blueberries",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Currant",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Grapes_Raw",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Hazelnuts",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Mulberry",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Oak_Nuts",
-											"Rarity": "VeryRare"
-										},
-										{
-											"Name": "Walnut",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "Wild_Strawberry",
-											"Rarity": "VeryRare"
-										}
-									]
-								},
-								{
 									"Name": "Pastries",
 									"Rarity": "Rare",
 									"Children": [

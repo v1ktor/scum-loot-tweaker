@@ -136,7 +136,7 @@
 						},
 						{
 							"Name": "Cans",
-							"Rarity": "VeryRare",
+							"Rarity": "ExtremelyRare",
 							"Children": [
 								{
 									"Name": "BabyFood",
@@ -213,10 +213,6 @@
 								{
 									"Name": "GuavaHalves",
 									"Rarity": "Uncommon"
-								},
-								{
-									"Name": "MRE_Cheeseburger",
-									"Rarity": "Rare"
 								},
 								{
 									"Name": "Spon",
@@ -426,7 +422,7 @@
 						},
 						{
 							"Name": "Snacks",
-							"Rarity": "VeryRare",
+							"Rarity": "ExtremelyRare",
 							"Children": [
 								{
 									"Name": "African_Biltong",

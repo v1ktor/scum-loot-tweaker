@@ -1134,7 +1134,7 @@
 							"Children": [
 								{
 									"Name": "Cans",
-									"Rarity": "Uncommon",
+									"Rarity": "VeryRare",
 									"Children": [
 										{
 											"Name": "BakedBeans",
@@ -1162,10 +1162,6 @@
 										},
 										{
 											"Name": "Chow_Mein",
-											"Rarity": "Rare"
-										},
-										{
-											"Name": "MRE_Cheeseburger",
 											"Rarity": "Rare"
 										}
 									]

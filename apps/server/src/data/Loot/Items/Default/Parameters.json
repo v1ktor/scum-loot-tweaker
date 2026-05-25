@@ -1058,6 +1058,22 @@
 			"RandomUsageOverrideUsage": 0
 		},
 		{
+			"Id": "AnimalBaitFeederItem",
+			"IsDisabledForSpawning": false,
+			"AllowedLocations": [
+				"Coastal",
+				"Continental",
+				"Mountain"
+			],
+			"CooldownPerSquadMemberMin": 0,
+			"CooldownPerSquadMemberMax": 0,
+			"CooldownGroup": "",
+			"Variations": [],
+			"ShouldOverrideInitialAndRandomUsage": false,
+			"InitialUsageOverride": 0,
+			"RandomUsageOverrideUsage": 0
+		},
+		{
 			"Id": "Antibiotic_Pill_Single",
 			"IsDisabledForSpawning": false,
 			"AllowedLocations": [
