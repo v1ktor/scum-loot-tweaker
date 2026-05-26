@@ -8,6 +8,7 @@ import type { NavItem } from '@/components/app-sidebar-nav/app-sidebar-nav.types
 import { AppSidebarProfile } from '@/components/app-sidebar-profile/app-sidebar-profile.tsx';
 import { AppSidebarQuestsNav } from '@/components/app-sidebar-quests-nav/app-sidebar-quests-nav.tsx';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar } from '@/components/ui/sidebar.tsx';
+import { NavigationPath } from '@/data/navigation-path.ts';
 
 const scumLootTweakerMenuItems: NavItem[] = [
     {
@@ -40,7 +41,7 @@ const scumQuestMenuItems: NavItem[] = [
     },
     {
         title: 'Vanilla Quests',
-        url: '#',
+        url: NavigationPath.Quests,
         icon: Info,
     },
 ];

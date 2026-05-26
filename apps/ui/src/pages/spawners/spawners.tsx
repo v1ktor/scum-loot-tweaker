@@ -112,7 +112,11 @@ export function Spawners() {
                         }}
                         autoHighlight={true}
                     >
-                        <ComboboxInput placeholder={isLoading ? 'Loading spawners...' : 'Select a spawner'} disabled={isLoading} showClear={true} />
+                        <ComboboxInput
+                            placeholder={isLoading ? 'Loading spawners...' : 'Select a spawner'}
+                            disabled={isLoading}
+                            showClear={true}
+                        />
                         <ComboboxContent>
                             <ComboboxEmpty>No items found.</ComboboxEmpty>
                             <ComboboxList>

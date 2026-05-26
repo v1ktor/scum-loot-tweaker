@@ -10,7 +10,7 @@ export function Home() {
             <h1 className="text-4xl font-extrabold tracking-tight text-balance mb-2">Loot Tweaker</h1>
             <div className="grid grid-cols-2 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
                 <Link to={NavigationPath.Spawners} className="group h-full">
-                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-primary/30 dark:bg-card h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-green-500/50 dark:bg-card h-full">
                         <CardHeader>
                             <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">Spawners</CardTitle>
                             <CardDescription>
@@ -109,23 +109,19 @@ export function Home() {
                         </CardAction>
                     </CardHeader>
                 </Card>
-                <Card className="@container/card card-gradient shadow-xs dark:bg-card">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
-                            Vanilla Quests
-                        </CardTitle>
-                        <CardDescription>
-                            Explore and edit vanilla quests — preview the default quest configurations and tailor them
-                            to your server.
-                        </CardDescription>
-                        <CardAction>
-                            <Badge variant="outline">
-                                <IconRocket />
-                                Coming soon!
-                            </Badge>
-                        </CardAction>
-                    </CardHeader>
-                </Card>
+                <Link to={NavigationPath.Quests} className="group h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-yellow-500/50 dark:bg-card h-full">
+                        <CardHeader>
+                            <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+                                Vanilla Quests
+                            </CardTitle>
+                            <CardDescription>
+                                Explore and edit vanilla quests — preview the default quest configurations and tailor
+                                them to your server.
+                            </CardDescription>
+                        </CardHeader>
+                    </Card>
+                </Link>
                 <Card className="@container/card card-gradient shadow-xs dark:bg-card">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
