@@ -6,6 +6,8 @@ import { Toaster } from '@/components/ui/sonner.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
 import { Changelog } from '@/pages/changelog/changelog.tsx';
 import { Home } from '@/pages/home/home.tsx';
+import { QuestDetail } from '@/pages/quests/quest-detail.tsx';
+import { Quests } from '@/pages/quests/quests.tsx';
 import { Spawners } from '@/pages/spawners/spawners.tsx';
 
 export function App() {
@@ -18,6 +20,8 @@ export function App() {
                     <Route path="/" element={<Home />} />
                     <Route path={NavigationPath.Changelog} element={<Changelog />} />
                     <Route path={NavigationPath.Spawners} element={<Spawners />} />
+                    <Route path={NavigationPath.Quests} element={<Quests />} />
+                    <Route path={`${NavigationPath.Quests}/:giverId/:questId`} element={<QuestDetail />} />
                 </Routes>
             </Layout>
             <Toaster />
