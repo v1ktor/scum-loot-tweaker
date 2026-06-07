@@ -11,6 +11,14 @@ export function Changelog() {
                 </h1>
 
                 <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+                    <span className="text-3xl font-semibold tracking-tight">0.2.0</span>
+                    <span className="text-sm text-muted-foreground">June 07, 2026</span>
+                </h2>
+                <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+                    <li>Added custom spawners pack</li>
+                </ul>
+
+                <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
                     <span className="text-3xl font-semibold tracking-tight">0.1.9</span>
                     <span className="text-sm text-muted-foreground">May 26, 2026</span>
                 </h2>

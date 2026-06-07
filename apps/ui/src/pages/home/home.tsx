@@ -17,6 +17,29 @@ export function Home() {
                                 Explore and modify vanilla spawner presets that define what loot players find when
                                 searching objects in the world.
                             </CardDescription>
+                            <CardAction>
+                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
+                                    Updated for SCUM: Into The Wild
+                                </Badge>
+                            </CardAction>
+                        </CardHeader>
+                    </Card>
+                </Link>
+                <Link to={NavigationPath.CustomSpawners} className="group h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-blue-500/50 dark:bg-card h-full">
+                        <CardHeader>
+                            <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+                                Custom Spawners
+                            </CardTitle>
+                            <CardDescription>
+                                Download a ready-to-use pack of custom spawner presets to enhance the loot experience on
+                                your server.
+                            </CardDescription>
+                            <CardAction>
+                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
+                                    New
+                                </Badge>
+                            </CardAction>
                         </CardHeader>
                     </Card>
                 </Link>
@@ -122,6 +145,23 @@ export function Home() {
                         </CardHeader>
                     </Card>
                 </Link>
+                <Card className="@container/card card-gradient shadow-xs dark:bg-card">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
+                            Custom Quests
+                        </CardTitle>
+                        <CardDescription>
+                            Download a ready-to-use pack of custom quests to enrich your server with new objectives,
+                            rewards, and player progression.
+                        </CardDescription>
+                        <CardAction>
+                            <Badge variant="outline">
+                                <IconRocket />
+                                Coming soon!
+                            </Badge>
+                        </CardAction>
+                    </CardHeader>
+                </Card>
                 <Card className="@container/card card-gradient shadow-xs dark:bg-card">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">

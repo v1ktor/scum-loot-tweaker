@@ -24,7 +24,7 @@ export function AppSidebarQuestsNav({ items }: NavListProps) {
                                     <span>{item.title}</span>
                                 </Link>
                             </SidebarMenuButton>
-                            {item.title != 'Vanilla Quests' && (
+                            {item.comingSoon && (
                                 <SidebarMenuBadge className="text-muted-foreground">Coming soon!</SidebarMenuBadge>
                             )}
                         </SidebarMenuItem>

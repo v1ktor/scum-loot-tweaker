@@ -8,6 +8,8 @@ export type NavItem = {
     icon:
         | ForwardRefExoticComponent<Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>>
         | ForwardRefExoticComponent<IconProps & RefAttributes<Icon>>;
+    comingSoon?: boolean;
+    isNew?: boolean;
 };
 
 export type NavListProps = {
