@@ -1,5 +1,5 @@
 import { IconBrandDiscordFilled, IconBrandGithubFilled, IconTagFilled } from '@tabler/icons-react';
-import { Cog, Info } from 'lucide-react';
+import { Cog, Download, Info } from 'lucide-react';
 import { useState } from 'react';
 import { AppSidebarHeader } from '@/components/app-sidebar-header/app-sidebar-header.tsx';
 import { AppSidebarLootTweakerNav } from '@/components/app-sidebar-loot-tweaker-nav/app-sidebar-loot-tweaker-nav.tsx';
@@ -20,16 +20,25 @@ const scumLootTweakerMenuItems: NavItem[] = [
         title: 'Nodes',
         url: '#',
         icon: Cog,
+        comingSoon: true,
     },
     {
         title: 'Parameters',
         url: '#',
         icon: Cog,
+        comingSoon: true,
     },
     {
         title: 'Cooldown Groups',
         url: '#',
         icon: Cog,
+        comingSoon: true,
+    },
+    {
+        title: 'Custom Spawners',
+        url: NavigationPath.CustomSpawners,
+        icon: Download,
+        isNew: true,
     },
 ];
 
@@ -38,11 +47,18 @@ const scumQuestMenuItems: NavItem[] = [
         title: 'Quest Editor',
         url: '#',
         icon: Cog,
+        comingSoon: true,
     },
     {
         title: 'Vanilla Quests',
         url: NavigationPath.Quests,
         icon: Info,
+    },
+    {
+        title: 'Custom Quests',
+        url: '#',
+        icon: Download,
+        comingSoon: true,
     },
 ];
 
