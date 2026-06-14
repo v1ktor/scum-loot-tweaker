@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
 import {
     countAllLeafItems,
@@ -18,6 +18,7 @@ export interface TreeSidebarItemProps {
     onSelect: (node: LootNode, path: string[]) => void;
     defaultExpanded?: boolean;
     path?: string[];
+    selectedPath?: string[];
 }
 
 export function TreeSidebarItem({
@@ -29,9 +30,19 @@ export function TreeSidebarItem({
     onSelect,
     defaultExpanded = false,
     path = [],
+    selectedPath,
 }: TreeSidebarItemProps) {
-    const [expanded, setExpanded] = useState(depth === 0 || defaultExpanded);
     const currentPath = [...path, node.Name];
+    const isInSelectedPath =
+        !!selectedPath &&
+        selectedPath.length > currentPath.length &&
+        currentPath.every((name, i) => selectedPath[i] === name);
+
+    const [expanded, setExpanded] = useState(depth === 0 || defaultExpanded || isInSelectedPath);
+
+    useEffect(() => {
+        if (isInSelectedPath) setExpanded(true);
+    }, [isInSelectedPath]);
     const branchChildren = node.Children?.filter((c) => c.Children && c.Children.length > 0) ?? [];
     const hasLeafItems = node.Children?.some((c) => !c.Children || c.Children.length === 0) ?? false;
     const isSelected = selectedNode === node;
@@ -47,15 +58,11 @@ export function TreeSidebarItem({
     return (
         <div className="relative">
             <div
-                className={`flex items-center gap-1 py-1 px-1.5 rounded-sm text-sm transition-colors ${
+                className={`flex items-center gap-1 py-1 px-1.5 rounded-sm text-sm transition-colors cursor-pointer ${
                     isSelected ? 'bg-accent text-accent-foreground' : 'hover:bg-accent/50 text-muted-foreground'
-                } ${hasLeafItems ? 'cursor-pointer' : ''}`}
+                }`}
                 style={{ paddingLeft: depth * 12 + 6 }}
-                onClick={() => {
-                    if (hasLeafItems) {
-                        onSelect(node, currentPath);
-                    }
-                }}
+                onClick={() => onSelect(node, currentPath)}
             >
                 {branchChildren.length > 0 ? (
                     <ChevronRightIcon
@@ -97,6 +104,7 @@ export function TreeSidebarItem({
                             onSelect={onSelect}
                             defaultExpanded={defaultExpanded}
                             path={currentPath}
+                            selectedPath={selectedPath}
                         />
                     ))}
                 </div>

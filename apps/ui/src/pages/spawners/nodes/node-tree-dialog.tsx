@@ -1,30 +1,9 @@
-import { ChevronsDownUpIcon, ChevronsUpDownIcon, PackageIcon, XIcon } from 'lucide-react';
 import { useState } from 'react';
-import { Badge } from '@/components/ui/badge.tsx';
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb.tsx';
-import { Button } from '@/components/ui/button.tsx';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog.tsx';
-import { Input } from '@/components/ui/input.tsx';
-import { ScrollArea } from '@/components/ui/scroll-area.tsx';
-import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts';
-import { useItemsOptions } from '@/hooks/use-items-options.ts';
-import { TreeSidebarItem } from '@/pages/spawners/nodes/tree-sidebar-item.tsx';
-import { countAllLeafItems, countFilteredLeafItems } from '@/pages/spawners/nodes/utils.ts';
+import { NodeTreeView } from '@/pages/spawners/nodes/node-tree-view.tsx';
 import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import { queryClient } from '@/query-client.ts';
 import { trpc } from '@/trpc.ts';
-import { getItemName } from '@/utils/get-item-name.ts';
-
-function getActionLabel(action: string): string {
-    return POST_SPAWN_ACTIONS_OPTIONS.find((o) => o.value === action)?.label ?? action;
-}
 
 interface NodeTreeDialogProps {
     open: boolean;
@@ -32,28 +11,8 @@ interface NodeTreeDialogProps {
 }
 
 export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
-    const { itemsOptions } = useItemsOptions();
     const [title, setTitle] = useState('');
     const [treeNode, setTreeNode] = useState<LootNode | null>(null);
-    const [filter, setFilter] = useState('');
-    const [selectedNode, setSelectedNode] = useState<LootNode | null>(null);
-    const [selectedPath, setSelectedPath] = useState<string[]>([]);
-    const [defaultExpanded, setDefaultExpanded] = useState(false);
-
-    const navigateToBreadcrumb = (index: number) => {
-        if (!treeNode) return;
-        const targetPath = selectedPath.slice(0, index + 1);
-        let current: LootNode | undefined = treeNode;
-        for (let i = 1; i < targetPath.length; i++) {
-            current = current?.Children?.find((c) => c.Name === targetPath[i]);
-            if (!current) return;
-        }
-        if (current) {
-            setSelectedNode(current);
-            setSelectedPath(targetPath);
-        }
-    };
-    const [resetKey, setResetKey] = useState(0);
 
     const openForNode = async (nodeId: string) => {
         const parts = nodeId.split('.');
@@ -72,11 +31,6 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                 if (!current) break;
             }
 
-            setTitle(nodeId);
-            setFilter('');
-            setDefaultExpanded(true);
-            setResetKey((k) => k + 1);
-
             if (current && (!current.Children || current.Children.length === 0)) {
                 const wrapper: LootNode = {
                     Name: parent?.Name ?? nodeId,
@@ -84,19 +38,15 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                     Children: [current],
                 };
                 setTreeNode(wrapper);
-                setSelectedNode(wrapper);
             } else {
                 setTreeNode(current ?? null);
-                setSelectedNode(current ?? null);
-                setSelectedPath(current ? [current.Name] : []);
             }
 
+            setTitle(nodeId);
             onOpenChange(true);
         } catch {
             setTitle(nodeId);
             setTreeNode(null);
-            setFilter('');
-            setSelectedNode(null);
             onOpenChange(true);
         }
     };
@@ -111,169 +61,7 @@ export function NodeTreeDialog({ open, onOpenChange }: NodeTreeDialogProps) {
                         <DialogDescription>Node tree structure.</DialogDescription>
                     </DialogHeader>
                     {treeNode ? (
-                        <>
-                            <div className="flex items-center gap-2">
-                                <div className="relative flex-1">
-                                    <Input
-                                        placeholder="Filter items..."
-                                        value={filter}
-                                        onChange={(e) => setFilter(e.target.value)}
-                                        className={filter ? 'pr-8' : ''}
-                                    />
-                                    {filter && (
-                                        <button
-                                            className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                                            onClick={() => setFilter('')}
-                                        >
-                                            <XIcon className="h-4 w-4" />
-                                        </button>
-                                    )}
-                                </div>
-                                {filter && treeNode && (
-                                    <span className="text-xs text-muted-foreground whitespace-nowrap">
-                                        {countFilteredLeafItems(treeNode, filter, itemsOptions)}/
-                                        {countAllLeafItems(treeNode)} items
-                                    </span>
-                                )}
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    title="Expand all"
-                                    onClick={() => {
-                                        setDefaultExpanded(true);
-                                        setResetKey((k) => k + 1);
-                                    }}
-                                >
-                                    <ChevronsUpDownIcon className="h-4 w-4" />
-                                </Button>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    title="Collapse all"
-                                    onClick={() => {
-                                        setDefaultExpanded(false);
-                                        setResetKey((k) => k + 1);
-                                    }}
-                                >
-                                    <ChevronsDownUpIcon className="h-4 w-4" />
-                                </Button>
-                            </div>
-                            <div className="flex gap-4 overflow-hidden min-h-0 flex-1">
-                                <ScrollArea className="w-64 shrink-0 rounded-md border p-2">
-                                    <TreeSidebarItem
-                                        key={`${resetKey}-${defaultExpanded}`}
-                                        node={treeNode}
-                                        depth={0}
-                                        filter={filter}
-                                        itemsOptions={itemsOptions}
-                                        selectedNode={selectedNode}
-                                        onSelect={(node, path) => {
-                                            setSelectedNode(node);
-                                            setSelectedPath(path);
-                                        }}
-                                        defaultExpanded={defaultExpanded}
-                                    />
-                                </ScrollArea>
-                                <div className="flex-1 flex flex-col rounded-md border overflow-hidden min-h-0">
-                                    {selectedNode ? (
-                                        <>
-                                            <div className="px-4 py-3 border-b shrink-0">
-                                                <Breadcrumb>
-                                                    <BreadcrumbList>
-                                                        {selectedPath.map((name, i) => (
-                                                            <BreadcrumbItem key={i}>
-                                                                {i > 0 && <BreadcrumbSeparator />}
-                                                                {i === selectedPath.length - 1 ? (
-                                                                    <BreadcrumbPage>{name}</BreadcrumbPage>
-                                                                ) : (
-                                                                    <BreadcrumbLink
-                                                                        className="cursor-pointer"
-                                                                        onClick={() => navigateToBreadcrumb(i)}
-                                                                    >
-                                                                        {name}
-                                                                    </BreadcrumbLink>
-                                                                )}
-                                                            </BreadcrumbItem>
-                                                        ))}
-                                                    </BreadcrumbList>
-                                                </Breadcrumb>
-                                                <div className="flex flex-wrap items-center gap-1 mt-1">
-                                                    <Badge variant="outline">{selectedNode.Rarity}</Badge>
-                                                    {selectedNode.PostSpawnActions?.map((action) => (
-                                                        <Badge
-                                                            key={action}
-                                                            variant="secondary"
-                                                            className="text-[10px] px-1.5 py-0"
-                                                        >
-                                                            {getActionLabel(action)}
-                                                        </Badge>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            <ScrollArea className="flex-1 min-h-0">
-                                                {(() => {
-                                                    const leafItems =
-                                                        selectedNode.Children?.filter(
-                                                            (c) => !c.Children || c.Children.length === 0,
-                                                        ) ?? [];
-                                                    const filteredItems = filter
-                                                        ? leafItems.filter((item) =>
-                                                              getItemName(item.Name, itemsOptions)
-                                                                  .toLowerCase()
-                                                                  .includes(filter.toLowerCase()),
-                                                          )
-                                                        : leafItems;
-                                                    return filteredItems.length > 0 ? (
-                                                        <div className="grid grid-cols-2 gap-2 p-3">
-                                                            {filteredItems.map((item, i) => (
-                                                                <div
-                                                                    key={i}
-                                                                    className="flex items-center gap-3 rounded-md border p-2 hover:bg-accent/50 transition-colors"
-                                                                >
-                                                                    <div className="flex size-10 shrink-0 items-center justify-center rounded-md border bg-muted">
-                                                                        <PackageIcon className="size-5 text-muted-foreground" />
-                                                                    </div>
-                                                                    <div className="flex flex-col gap-0.5 min-w-0">
-                                                                        <span className="text-sm font-medium truncate">
-                                                                            {getItemName(item.Name, itemsOptions)}
-                                                                        </span>
-                                                                        <div className="flex flex-wrap items-center gap-1">
-                                                                            <Badge
-                                                                                variant="outline"
-                                                                                className="w-fit text-[10px] px-1.5 py-0"
-                                                                            >
-                                                                                {item.Rarity}
-                                                                            </Badge>
-                                                                            {item.PostSpawnActions?.map((action) => (
-                                                                                <Badge
-                                                                                    key={action}
-                                                                                    variant="secondary"
-                                                                                    className="w-fit text-[10px] px-1.5 py-0"
-                                                                                >
-                                                                                    {getActionLabel(action)}
-                                                                                </Badge>
-                                                                            ))}
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    ) : (
-                                                        <p className="p-4 text-sm text-muted-foreground">
-                                                            No items in this node.
-                                                        </p>
-                                                    );
-                                                })()}
-                                            </ScrollArea>
-                                        </>
-                                    ) : (
-                                        <p className="p-4 text-sm text-muted-foreground">
-                                            Select a node from the sidebar.
-                                        </p>
-                                    )}
-                                </div>
-                            </div>
-                        </>
+                        <NodeTreeView key={title} treeNode={treeNode} initialExpanded={true} />
                     ) : (
                         <p className="text-sm text-muted-foreground">Node not found.</p>
                     )}
