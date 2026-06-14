@@ -18,9 +18,8 @@ const scumLootTweakerMenuItems: NavItem[] = [
     },
     {
         title: 'Nodes',
-        url: '#',
+        url: NavigationPath.Nodes,
         icon: Cog,
-        comingSoon: true,
     },
     {
         title: 'Parameters',
@@ -38,7 +37,6 @@ const scumLootTweakerMenuItems: NavItem[] = [
         title: 'Custom Spawners',
         url: NavigationPath.CustomSpawners,
         icon: Download,
-        isNew: true,
     },
 ];
 
