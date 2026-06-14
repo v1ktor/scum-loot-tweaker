@@ -35,22 +35,9 @@ const RARITY_WEIGHTS: Record<string, number> = {
 function calcSelectionProbability(item: LootNode, siblings: LootNode[]) {
     if (siblings.length === 0) return 0;
 
-    const groupCounts = new Map<string, number>();
+    const totalWeight = siblings.reduce((sum, s) => sum + (RARITY_WEIGHTS[s.Rarity ?? 'Common'] ?? 1), 0);
 
-    for (const s of siblings) {
-        const r = s.Rarity ?? 'Common';
-        groupCounts.set(r, (groupCounts.get(r) ?? 0) + 1);
-    }
-
-    let totalWeight = 0;
-
-    for (const r of groupCounts.keys()) {
-        totalWeight += RARITY_WEIGHTS[r] ?? 1;
-    }
-
-    const myRarity = item.Rarity ?? 'Common';
-
-    return (RARITY_WEIGHTS[myRarity] ?? 1) / totalWeight / (groupCounts.get(myRarity) ?? 1);
+    return (RARITY_WEIGHTS[item.Rarity ?? 'Common'] ?? 1) / totalWeight;
 }
 
 function formatProbability(prob: number) {
