@@ -43,6 +43,14 @@ export function TreeSidebarItem({
     useEffect(() => {
         if (isInSelectedPath) setExpanded(true);
     }, [isInSelectedPath]);
+
+    useEffect(() => {
+        if (filter) {
+            setExpanded(true);
+        } else {
+            setExpanded(depth === 0 || defaultExpanded || isInSelectedPath);
+        }
+    }, [filter]);
     const branchChildren = node.Children?.filter((c) => c.Children && c.Children.length > 0) ?? [];
     const hasLeafItems = node.Children?.some((c) => !c.Children || c.Children.length === 0) ?? false;
     const isSelected = selectedNode === node;

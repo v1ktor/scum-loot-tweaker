@@ -37,7 +37,6 @@ const scumLootTweakerMenuItems: NavItem[] = [
         title: 'Custom Spawners',
         url: NavigationPath.CustomSpawners,
         icon: Download,
-        isNew: true,
     },
 ];
 

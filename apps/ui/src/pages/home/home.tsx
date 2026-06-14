@@ -37,29 +37,30 @@ export function Home() {
                             </CardDescription>
                             <CardAction>
                                 <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
-                                    New
+                                    Updated for SCUM: Into The Wild
                                 </Badge>
                             </CardAction>
                         </CardHeader>
                     </Card>
                 </Link>
-                <Card className="@container/card card-gradient shadow-xs dark:bg-card">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
-                            Nodes
-                        </CardTitle>
-                        <CardDescription>
-                            Explore vanilla loot templates and create custom ones to fine-tune what spawns in your
-                            world.
-                        </CardDescription>
-                        <CardAction>
-                            <Badge variant="outline">
-                                <IconRocket />
-                                Coming soon!
-                            </Badge>
-                        </CardAction>
-                    </CardHeader>
-                </Card>
+                <Link to={NavigationPath.Nodes} className="group h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-yellow-500/50 dark:bg-card h-full">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
+                                Nodes
+                            </CardTitle>
+                            <CardDescription>
+                                Explore vanilla loot templates and create custom ones to fine-tune what spawns in your
+                                world.
+                            </CardDescription>
+                            <CardAction>
+                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
+                                    Updated for SCUM: Into The Wild
+                                </Badge>
+                            </CardAction>
+                        </CardHeader>
+                    </Card>
+                </Link>
                 <Card className="@container/card card-gradient shadow-xs dark:bg-card">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
