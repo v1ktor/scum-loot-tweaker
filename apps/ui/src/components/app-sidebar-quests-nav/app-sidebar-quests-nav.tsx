@@ -27,6 +27,9 @@ export function AppSidebarQuestsNav({ items }: NavListProps) {
                             {item.comingSoon && (
                                 <SidebarMenuBadge className="text-muted-foreground">Coming soon!</SidebarMenuBadge>
                             )}
+                            {item.isNew && (
+                                <SidebarMenuBadge className="bg-green-500/20 text-green-400 border border-green-500/30 rounded-md px-1.5 text-[10px]">New</SidebarMenuBadge>
+                            )}
                         </SidebarMenuItem>
                     ))}
                 </SidebarMenu>

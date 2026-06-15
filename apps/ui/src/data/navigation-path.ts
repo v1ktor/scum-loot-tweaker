@@ -5,4 +5,5 @@ export enum NavigationPath {
     Nodes = '/nodes',
     Changelog = '/changelog',
     Quests = '/quests',
+    CustomQuests = '/custom-quests/quests',
 }
