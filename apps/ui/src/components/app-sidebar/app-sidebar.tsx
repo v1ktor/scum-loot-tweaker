@@ -54,9 +54,9 @@ const scumQuestMenuItems: NavItem[] = [
     },
     {
         title: 'Custom Quests',
-        url: '#',
+        url: NavigationPath.CustomQuests,
         icon: Download,
-        comingSoon: true,
+        isNew: true,
     },
 ];
 
