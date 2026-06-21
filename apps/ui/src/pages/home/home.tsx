@@ -61,23 +61,22 @@ export function Home() {
                         </CardHeader>
                     </Card>
                 </Link>
-                <Card className="@container/card card-gradient shadow-xs dark:bg-card">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
-                            Parameters
-                        </CardTitle>
-                        <CardDescription>
-                            View and adjust item spawn parameters — control which items can spawn, where they appear,
-                            cooldowns, and usage settings.
-                        </CardDescription>
-                        <CardAction>
-                            <Badge variant="outline">
-                                <IconRocket />
-                                Coming soon!
-                            </Badge>
-                        </CardAction>
-                    </CardHeader>
-                </Card>
+                <Link to={NavigationPath.Parameters} className="group h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-purple-500/50 dark:bg-card h-full">
+                        <CardHeader>
+                            <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">Parameters</CardTitle>
+                            <CardDescription>
+                                View and adjust item spawn parameters — control which items can spawn, where they
+                                appear, cooldowns, and usage settings.
+                            </CardDescription>
+                            <CardAction>
+                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
+                                    Updated for SCUM: Into The Wild
+                                </Badge>
+                            </CardAction>
+                        </CardHeader>
+                    </Card>
+                </Link>
                 <Card className="@container/card card-gradient shadow-xs dark:bg-card">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
@@ -156,11 +155,6 @@ export function Home() {
                                 Download a ready-to-use pack of custom quests to enrich your server with new objectives,
                                 rewards, and player progression.
                             </CardDescription>
-                            <CardAction>
-                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
-                                    New
-                                </Badge>
-                            </CardAction>
                         </CardHeader>
                     </Card>
                 </Link>

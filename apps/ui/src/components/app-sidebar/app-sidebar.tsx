@@ -23,9 +23,8 @@ const scumLootTweakerMenuItems: NavItem[] = [
     },
     {
         title: 'Parameters',
-        url: '#',
+        url: NavigationPath.Parameters,
         icon: Cog,
-        comingSoon: true,
     },
     {
         title: 'Cooldown Groups',
