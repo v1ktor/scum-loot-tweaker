@@ -18,6 +18,15 @@ export interface Parameter {
     RandomUsageOverrideUsage: number;
 }
 
+export interface CooldownGroupCooldown {
+    CooldownMin: number;
+    CooldownMax: number;
+}
+
+export interface ParametersTableMeta {
+    getCooldownGroupCooldown?: (name: string) => CooldownGroupCooldown | undefined;
+}
+
 const Dash = () => <span className="text-muted-foreground">—</span>;
 
 export const columns: ColumnDef<Parameter>[] = [
@@ -62,8 +71,37 @@ export const columns: ColumnDef<Parameter>[] = [
     {
         accessorKey: 'CooldownGroup',
         header: 'Cooldown Group',
-        cell: ({ row }) =>
-            row.original.CooldownGroup ? <Badge variant="outline">{row.original.CooldownGroup}</Badge> : <Dash />,
+        filterFn: 'equalsString',
+        cell: ({ row, table }) => {
+            const group = row.original.CooldownGroup;
+            if (!group) return <Dash />;
+
+            const meta = table.options.meta as ParametersTableMeta | undefined;
+            const cooldown = meta?.getCooldownGroupCooldown?.(group);
+
+            return (
+                <Popover>
+                    <PopoverTrigger asChild>
+                        <Badge variant="outline" className="cursor-pointer hover:bg-accent">
+                            {group}
+                        </Badge>
+                    </PopoverTrigger>
+                    <PopoverContent align="start" className="w-64 p-3">
+                        <div className="text-sm font-medium break-all">{group}</div>
+                        {cooldown ? (
+                            <div className="mt-2 text-sm tabular-nums">
+                                <span className="text-muted-foreground">Cooldown </span>
+                                {cooldown.CooldownMin === cooldown.CooldownMax
+                                    ? `${cooldown.CooldownMin}h`
+                                    : `${cooldown.CooldownMin}h – ${cooldown.CooldownMax}h`}
+                            </div>
+                        ) : (
+                            <div className="mt-2 text-sm text-muted-foreground">No cooldown data found.</div>
+                        )}
+                    </PopoverContent>
+                </Popover>
+            );
+        },
     },
     {
         id: 'cooldownPerSquadMember',

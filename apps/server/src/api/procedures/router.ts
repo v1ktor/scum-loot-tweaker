@@ -1,4 +1,5 @@
 import { router } from '../../connections/trpc/trpc.ts';
+import { cooldownGroupsRouter } from './cooldown-groups/router.ts';
 import { itemsRouter } from './items/router.ts';
 import { nodesRouter } from './nodes/router.ts';
 import { parametersRouter } from './parameters/router.ts';
@@ -9,6 +10,7 @@ export const appRouter = router({
     spawners: spawnersRouter,
     nodes: nodesRouter,
     parameters: parametersRouter,
+    cooldownGroups: cooldownGroupsRouter,
 });
 
 export type AppRouter = typeof appRouter;

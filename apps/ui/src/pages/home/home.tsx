@@ -77,23 +77,24 @@ export function Home() {
                         </CardHeader>
                     </Card>
                 </Link>
-                <Card className="@container/card card-gradient shadow-xs dark:bg-card">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
-                            Cooldown Groups
-                        </CardTitle>
-                        <CardDescription>
-                            Manage cooldown groups that limit rare loot in high-traffic areas, encouraging exploration
-                            across the map.
-                        </CardDescription>
-                        <CardAction>
-                            <Badge variant="outline">
-                                <IconRocket />
-                                Coming soon!
-                            </Badge>
-                        </CardAction>
-                    </CardHeader>
-                </Card>
+                <Link to={NavigationPath.CooldownGroups} className="group h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-red-500/50 dark:bg-card h-full">
+                        <CardHeader>
+                            <CardTitle className="text-2xl font-semibold @[250px]/card:text-3xl">
+                                Cooldown Groups
+                            </CardTitle>
+                            <CardDescription>
+                                Manage cooldown groups that limit rare loot in high-traffic areas, encouraging
+                                exploration across the map.
+                            </CardDescription>
+                            <CardAction>
+                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
+                                    Updated for SCUM: Into The Wild
+                                </Badge>
+                            </CardAction>
+                        </CardHeader>
+                    </Card>
+                </Link>
                 <Card className="@container/card card-gradient shadow-xs dark:bg-card">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">

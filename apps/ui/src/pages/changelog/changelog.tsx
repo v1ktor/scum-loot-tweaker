@@ -16,6 +16,7 @@ export function Changelog() {
                 </h2>
                 <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
                     <li>Added page to inspect items parameters</li>
+                    <li>Added page to inspect cooldown groups</li>
                 </ul>
 
                 <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
