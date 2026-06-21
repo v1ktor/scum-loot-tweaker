@@ -28,9 +28,8 @@ const scumLootTweakerMenuItems: NavItem[] = [
     },
     {
         title: 'Cooldown Groups',
-        url: '#',
+        url: NavigationPath.CooldownGroups,
         icon: Cog,
-        comingSoon: true,
     },
     {
         title: 'Custom Spawners',
@@ -55,7 +54,6 @@ const scumQuestMenuItems: NavItem[] = [
         title: 'Custom Quests',
         url: NavigationPath.CustomQuests,
         icon: Download,
-        isNew: true,
     },
 ];
 

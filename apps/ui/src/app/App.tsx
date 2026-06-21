@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider/theme-provider.tsx';
 import { Toaster } from '@/components/ui/sonner.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
 import { Changelog } from '@/pages/changelog/changelog.tsx';
+import { CooldownGroups } from '@/pages/cooldown-groups/cooldown-groups.tsx';
 import { CustomQuests } from '@/pages/custom-quests/custom-quests.tsx';
 import { CustomSpawners } from '@/pages/custom-spawners/custom-spawners.tsx';
 import { Home } from '@/pages/home/home.tsx';
@@ -26,6 +27,7 @@ export function App() {
                     <Route path={NavigationPath.Spawners} element={<Spawners />} />
                     <Route path={NavigationPath.Nodes} element={<Nodes />} />
                     <Route path={NavigationPath.Parameters} element={<Parameters />} />
+                    <Route path={NavigationPath.CooldownGroups} element={<CooldownGroups />} />
                     <Route path={NavigationPath.CustomSpawners} element={<CustomSpawners />} />
                     <Route path={NavigationPath.CustomQuests} element={<CustomQuests />} />
                     <Route path={NavigationPath.Quests} element={<Quests />} />

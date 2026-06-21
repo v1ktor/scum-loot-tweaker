@@ -16,6 +16,7 @@ import { NavigationPath } from '@/data/navigation-path.ts';
 const breadcrumbMap: Record<string, string> = {
     [NavigationPath.Spawners]: 'Spawners',
     [NavigationPath.Parameters]: 'Parameters',
+    [NavigationPath.CooldownGroups]: 'Cooldown Groups',
     [NavigationPath.Nodes]: 'Nodes',
     [NavigationPath.Changelog]: 'Changelog',
 };

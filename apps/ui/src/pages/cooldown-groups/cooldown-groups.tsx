@@ -10,19 +10,11 @@ import {
     useReactTable,
 } from '@tanstack/react-table';
 import { X } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button.tsx';
-import {
-    Combobox,
-    ComboboxContent,
-    ComboboxEmpty,
-    ComboboxInput,
-    ComboboxItem,
-    ComboboxList,
-} from '@/components/ui/combobox.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table.tsx';
-import { columns } from '@/pages/parameters/columns.tsx';
+import { columns } from '@/pages/cooldown-groups/columns.tsx';
 import { trpc } from '@/trpc.ts';
 
 function getPageItems(current: number, total: number): (number | '…')[] {
@@ -46,35 +38,17 @@ function getPageItems(current: number, total: number): (number | '…')[] {
     return items;
 }
 
-export function Parameters() {
+export function CooldownGroups() {
     const [sorting, setSorting] = useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
-    const { data, isLoading } = useQuery(trpc.parameters.get.queryOptions());
-    const parameters = data?.Parameters ?? [];
+    const { data, isLoading } = useQuery(trpc.cooldownGroups.get.queryOptions());
+    const cooldownGroups = data?.CooldownGroups ?? [];
 
-    const { data: cooldownGroupsData } = useQuery(trpc.cooldownGroups.get.queryOptions());
-    const cooldownGroupCooldowns = useMemo(() => {
-        const map = new Map<string, { CooldownMin: number; CooldownMax: number }>();
-        for (const group of cooldownGroupsData?.CooldownGroups ?? []) {
-            map.set(group.Name, { CooldownMin: group.CooldownMin, CooldownMax: group.CooldownMax });
-        }
-        return map;
-    }, [cooldownGroupsData]);
-
-    const filterValue = (columnFilters.find((filter) => filter.id === 'Id')?.value as string) ?? '';
-    const cooldownGroupFilter = (columnFilters.find((filter) => filter.id === 'CooldownGroup')?.value as string) ?? '';
-
-    const cooldownGroupOptions = useMemo(() => {
-        const groups = new Set<string>();
-        for (const parameter of parameters) {
-            if (parameter.CooldownGroup) groups.add(parameter.CooldownGroup);
-        }
-        return [...groups].sort().map((group) => ({ label: group, value: group }));
-    }, [parameters]);
+    const filterValue = (columnFilters.find((filter) => filter.id === 'Name')?.value as string) ?? '';
 
     const table = useReactTable({
-        data: parameters,
+        data: cooldownGroups,
         columns,
         getCoreRowModel: getCoreRowModel(),
         getSortedRowModel: getSortedRowModel(),
@@ -84,24 +58,21 @@ export function Parameters() {
         onColumnFiltersChange: setColumnFilters,
         initialState: { pagination: { pageSize: 25 } },
         state: { sorting, columnFilters },
-        meta: {
-            getCooldownGroupCooldown: (name: string) => cooldownGroupCooldowns.get(name),
-        },
     });
 
     return (
         <div className="flex flex-1 flex-col gap-4 px-4 py-10">
             <div className="bg-muted/50 w-full rounded-xl text-base p-8">
                 <h1 className="scroll-m-20 flex items-center gap-x-4 text-4xl font-extrabold tracking-tight text-balance">
-                    Parameters
+                    Cooldown Groups
                 </h1>
 
-                <div className="flex flex-wrap items-center gap-2 py-4">
+                <div className="flex items-center py-4">
                     <div className="relative max-w-sm w-full">
                         <Input
-                            placeholder="Search by item..."
+                            placeholder="Search by name..."
                             value={filterValue}
-                            onChange={(event) => table.getColumn('Id')?.setFilterValue(event.target.value)}
+                            onChange={(event) => table.getColumn('Name')?.setFilterValue(event.target.value)}
                             className="pr-9"
                         />
                         {filterValue && (
@@ -111,37 +82,12 @@ export function Parameters() {
                                 size="icon"
                                 aria-label="Clear search"
                                 className="absolute right-1 top-1/2 size-7 -translate-y-1/2 cursor-pointer text-muted-foreground"
-                                onClick={() => table.getColumn('Id')?.setFilterValue('')}
+                                onClick={() => table.getColumn('Name')?.setFilterValue('')}
                             >
                                 <X className="size-4" />
                             </Button>
                         )}
                     </div>
-                    <Combobox
-                        items={cooldownGroupOptions}
-                        value={cooldownGroupOptions.find((option) => option.value === cooldownGroupFilter) ?? null}
-                        itemToStringValue={(item: { label: string; value: string }) => item.label}
-                        onValueChange={(next: { label: string; value: string } | null) =>
-                            table.getColumn('CooldownGroup')?.setFilterValue(next?.value ?? '')
-                        }
-                        autoHighlight={true}
-                    >
-                        <ComboboxInput
-                            placeholder="Filter by cooldown group..."
-                            showClear={true}
-                            className="w-full max-w-sm"
-                        />
-                        <ComboboxContent>
-                            <ComboboxEmpty>No cooldown groups found.</ComboboxEmpty>
-                            <ComboboxList>
-                                {(group: { label: string; value: string }) => (
-                                    <ComboboxItem key={group.value} value={group}>
-                                        {group.label}
-                                    </ComboboxItem>
-                                )}
-                            </ComboboxList>
-                        </ComboboxContent>
-                    </Combobox>
                 </div>
 
                 <div className="overflow-hidden rounded-md border">
@@ -163,7 +109,7 @@ export function Parameters() {
                             {isLoading ? (
                                 <TableRow>
                                     <TableCell colSpan={columns.length} className="h-24 text-center">
-                                        Loading parameters...
+                                        Loading cooldown groups...
                                     </TableCell>
                                 </TableRow>
                             ) : table.getRowModel().rows.length ? (
@@ -189,7 +135,7 @@ export function Parameters() {
 
                 <div className="flex items-center justify-between gap-2 py-4">
                     <div className="text-sm text-muted-foreground">
-                        {table.getFilteredRowModel().rows.length} item(s)
+                        {table.getFilteredRowModel().rows.length} group(s)
                     </div>
                     <div className="flex items-center gap-2">
                         <Button
