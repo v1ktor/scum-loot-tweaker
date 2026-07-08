@@ -1,5 +1,5 @@
 import { IconBrandDiscordFilled, IconBrandGithubFilled, IconTagFilled } from '@tabler/icons-react';
-import { Cog, Download, Info } from 'lucide-react';
+import { Cog, Download, Info, Upload } from 'lucide-react';
 import { useState } from 'react';
 import { AppSidebarHeader } from '@/components/app-sidebar-header/app-sidebar-header.tsx';
 import { AppSidebarLootTweakerNav } from '@/components/app-sidebar-loot-tweaker-nav/app-sidebar-loot-tweaker-nav.tsx';
@@ -15,6 +15,14 @@ const scumLootTweakerMenuItems: NavItem[] = [
         title: 'Spawners',
         url: '/spawners',
         icon: Cog,
+        items: [
+            {
+                title: 'My Spawners',
+                url: NavigationPath.MySpawners,
+                icon: Upload,
+                isNew: true,
+            },
+        ],
     },
     {
         title: 'Nodes',

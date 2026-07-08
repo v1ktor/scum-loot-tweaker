@@ -8,6 +8,9 @@ import {
     SidebarMenuBadge,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubButton,
+    SidebarMenuSubItem,
 } from '@/components/ui/sidebar.tsx';
 
 export function AppSidebarLootTweakerNav({ items }: NavListProps) {
@@ -31,6 +34,25 @@ export function AppSidebarLootTweakerNav({ items }: NavListProps) {
                                 <SidebarMenuBadge className="bg-green-500/20 text-green-400 border border-green-500/30 px-2">
                                     New
                                 </SidebarMenuBadge>
+                            )}
+                            {item.items && item.items.length > 0 && (
+                                <SidebarMenuSub>
+                                    {item.items.map((subItem) => (
+                                        <SidebarMenuSubItem key={subItem.title}>
+                                            <SidebarMenuSubButton asChild>
+                                                <Link to={subItem.url}>
+                                                    {subItem.icon && <subItem.icon />}
+                                                    <span>{subItem.title}</span>
+                                                </Link>
+                                            </SidebarMenuSubButton>
+                                            {subItem.isNew && (
+                                                <SidebarMenuBadge className="top-1 bg-green-500/20 text-green-400 border border-green-500/30 px-2">
+                                                    New
+                                                </SidebarMenuBadge>
+                                            )}
+                                        </SidebarMenuSubItem>
+                                    ))}
+                                </SidebarMenuSub>
                             )}
                         </SidebarMenuItem>
                     ))}

@@ -12,6 +12,7 @@ import {
 interface ConfirmOptions {
     title: string;
     description: string;
+    confirmLabel?: string;
 }
 
 export function useConfirmDialog() {
@@ -54,7 +55,7 @@ export function useConfirmDialog() {
                         Cancel
                     </Button>
                     <Button variant="destructive" onClick={handleConfirm}>
-                        Delete
+                        {options.confirmLabel ?? 'Delete'}
                     </Button>
                 </DialogFooter>
             </DialogContent>
