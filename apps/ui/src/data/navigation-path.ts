@@ -1,5 +1,6 @@
 export enum NavigationPath {
     Spawners = '/spawners',
+    MySpawners = '/spawners/my',
     CustomSpawners = '/custom-spawners',
     Parameters = '/parameters',
     CooldownGroups = '/cooldown-groups',

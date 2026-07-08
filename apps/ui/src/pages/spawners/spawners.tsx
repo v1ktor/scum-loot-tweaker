@@ -1,6 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { AlertCircleIcon } from 'lucide-react';
+import { AlertCircleIcon, CopyPlus } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import { useConfirmDialog } from '@/components/confirm-dialog/confirm-dialog.tsx';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx';
 import { Badge } from '@/components/ui/badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
@@ -13,6 +16,8 @@ import {
     ComboboxList,
 } from '@/components/ui/combobox.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
+import { NavigationPath } from '@/data/navigation-path.ts';
+import { useImportedSpawners } from '@/hooks/use-imported-spawners.ts';
 import type { Spawner } from '@/pages/spawners/spawners.types.ts';
 import { FixedItemsTab } from '@/pages/spawners/tabs/fixed-items-tab.tsx';
 import { ItemsTab } from '@/pages/spawners/tabs/items-tab.tsx';
@@ -26,6 +31,10 @@ export function Spawners() {
     const [spawner, setSpawner] = useState<Spawner>({});
     const [fileName, setFileName] = useState<string>('');
     const [downloadUrl, setDownloadUrl] = useState<string>('');
+
+    const navigate = useNavigate();
+    const { importedSpawners, saveImportedSpawner } = useImportedSpawners();
+    const { confirm, dialog: confirmDialog } = useConfirmDialog();
 
     const { data: spawners = [], isLoading } = useQuery(trpc.spawners.list.queryOptions());
     const spawnerOptions = spawners
@@ -50,6 +59,32 @@ export function Spawners() {
         }
 
         setDownloadUrl(URL.createObjectURL(blob));
+    };
+
+    const handleAddToMySpawners = async () => {
+        if (!fileName) {
+            return;
+        }
+
+        if (importedSpawners[fileName]) {
+            const confirmed = await confirm({
+                title: `Replace "${fileName}"?`,
+                description: 'A spawner with this file name already exists in My Spawners. It will be overwritten.',
+                confirmLabel: 'Replace',
+            });
+
+            if (!confirmed) {
+                return;
+            }
+        }
+
+        saveImportedSpawner(fileName, spawner);
+        toast(`Added "${fileName}" to My Spawners`, {
+            action: {
+                label: 'Open',
+                onClick: () => navigate(NavigationPath.MySpawners),
+            },
+        });
     };
 
     const calculateNumberOfSettings = (data: Spawner) => {
@@ -165,19 +200,24 @@ export function Spawners() {
                         <SubpresetsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
                     </TabsContent>
                 </Tabs>
-                <div className="flex flex-wrap items-center gap-2 md:flex-row pt-8">
+                <div className="flex items-center gap-2 pt-8">
                     {fileName ? (
-                        <Button variant="outline" className="w-full" asChild onClick={handleDownload}>
+                        <Button variant="outline" className="flex-4" asChild onClick={handleDownload}>
                             <a href={downloadUrl} download={fileName}>
                                 Download
                             </a>
                         </Button>
                     ) : (
-                        <Button variant="outline" className="w-full" disabled>
+                        <Button variant="outline" className="flex-4" disabled>
                             Download
                         </Button>
                     )}
+                    <Button variant="outline" className="flex-1" disabled={!fileName} onClick={handleAddToMySpawners}>
+                        <CopyPlus />
+                        Add to My Spawners
+                    </Button>
                 </div>
+                {confirmDialog}
             </div>
         </div>
     );
