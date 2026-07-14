@@ -32,7 +32,8 @@ type Row = {
     quest: Quest;
     giver: QuestGiverConfig;
     type: QuestType;
-    rewardSummary: string;
+    moneySummary: string;
+    fpSummary: string;
     xpSummary: string;
     itemsSummary: string;
     tradeDealSummary: string;
@@ -48,7 +49,8 @@ const COLUMN_LABELS: Record<string, string> = {
     type: 'Type',
     conditions: 'Conditions',
     conditionExtra: 'Extra Info',
-    reward: 'Money · FP',
+    money: 'Money',
+    fp: 'FP',
     xp: 'XP',
     items: 'Items',
     tradeDeal: 'Trade Deal',
@@ -87,14 +89,19 @@ function conditionExtraInfo(conditions: Condition[]): string {
     return parts.join(' · ');
 }
 
-function summarizeReward(quest: Quest): string {
+function summarizeMoney(quest: Quest): string {
     if (!quest.RewardPool.length) return '—';
     const r = quest.RewardPool[0];
     const parts: string[] = [];
     if (r.CurrencyNormal) parts.push(`${r.CurrencyNormal.toLocaleString()} $`);
     if (r.CurrencyGold) parts.push(`${r.CurrencyGold} Gold`);
-    if (r.Fame) parts.push(`${r.Fame} FP`);
     return parts.join(' · ') || '—';
+}
+
+function summarizeFame(quest: Quest): string {
+    if (!quest.RewardPool.length) return '—';
+    const r = quest.RewardPool[0];
+    return r.Fame ? `${r.Fame} FP` : '—';
 }
 
 function summarizeXp(quest: Quest): string {
@@ -134,7 +141,8 @@ function buildRows(giver: QuestGiverConfig, tier: number): Row[] {
             quest,
             giver,
             type: getQuestType(quest.id),
-            rewardSummary: summarizeReward(quest),
+            moneySummary: summarizeMoney(quest),
+            fpSummary: summarizeFame(quest),
             xpSummary: summarizeXp(quest),
             itemsSummary: summarizeItems(quest),
             tradeDealSummary: summarizeTradeDeal(quest),
@@ -148,7 +156,8 @@ const ALL_ROWS: Row[] = QUEST_GIVERS.flatMap((giver) =>
         quest,
         giver,
         type: getQuestType(quest.id),
-        rewardSummary: summarizeReward(quest),
+        moneySummary: summarizeMoney(quest),
+        fpSummary: summarizeFame(quest),
         xpSummary: summarizeXp(quest),
         itemsSummary: summarizeItems(quest),
         tradeDealSummary: summarizeTradeDeal(quest),
@@ -281,10 +290,16 @@ function makeColumns(showNpc: boolean): ColumnDef<Row>[] {
             header: () => <Badge variant="secondary">Rewards</Badge>,
             columns: [
                 {
-                    id: 'reward',
-                    accessorFn: (row) => row.rewardSummary,
-                    header: sortHeader('Money · FP'),
-                    cell: ({ row }) => <span className="text-xs text-green-500">{row.original.rewardSummary}</span>,
+                    id: 'money',
+                    accessorFn: (row) => row.quest.RewardPool[0]?.CurrencyNormal ?? 0,
+                    header: sortHeader('Money'),
+                    cell: ({ row }) => <span className="text-xs text-green-500">{row.original.moneySummary}</span>,
+                },
+                {
+                    id: 'fp',
+                    accessorFn: (row) => row.quest.RewardPool[0]?.Fame ?? 0,
+                    header: sortHeader('FP'),
+                    cell: ({ row }) => <span className="text-xs text-green-500">{row.original.fpSummary}</span>,
                 },
                 {
                     id: 'xp',
@@ -393,7 +408,8 @@ function QuestDataTable({
                 row.original.quest.Title.toLowerCase().includes(q) ||
                 row.original.type.toLowerCase().includes(q) ||
                 row.original.conditionSummary.toLowerCase().includes(q) ||
-                row.original.rewardSummary.toLowerCase().includes(q) ||
+                row.original.moneySummary.toLowerCase().includes(q) ||
+                row.original.fpSummary.toLowerCase().includes(q) ||
                 row.original.xpSummary.toLowerCase().includes(q) ||
                 row.original.itemsSummary.toLowerCase().includes(q) ||
                 row.original.tradeDealSummary.toLowerCase().includes(q)
