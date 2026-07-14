@@ -7,6 +7,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Tier: 3,
         Title: 'The Fat of the Land',
         Description: "Fortune flows from ugly work. Bring me more fat and think on the reward while you're at it.",
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3500,
@@ -41,6 +42,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'No Guts, No Glory',
         Description:
             "Guts smell like regret, but they're still worth something. Bring me a load and earn your reward the repulsive way.",
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3500,
@@ -75,6 +77,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'Skin-Deep',
         Description:
             'Taking the hide is what marks us different from the rest. Bring me a proper stack and earn your place in the food chain.',
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3500,
@@ -109,6 +112,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Tier: 3,
         Title: 'A Head Above',
         Description: 'Bring me a bear head worth keeping. Remember: the meaner the beast, the sweeter the prize.',
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 4500,
@@ -150,6 +154,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'Tusks for Trouble',
         Description:
             'I want a boar head with the tusks still worth looking at. Bring one back before the woods chew on it.',
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3500,
@@ -191,6 +196,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'Boneheaded',
         Description:
             "A bunch of weird folks I know always need bones for some cursed reason. Help me keep them quiet and I'll pay you for it.",
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3000,
@@ -225,6 +231,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'Muzzle Memory',
         Description:
             'Bring me a wolf head clean enough to keep as proof, warning, or decoration. Always goes in that order.',
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 4000,
@@ -266,6 +273,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'Stand Your Ground',
         Description:
             'Real hunting starts when the job can hit back hard. Put a bear down and earn yourself a place close to my fire.',
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 4500,
@@ -300,6 +308,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Title: 'Pork Business',
         Description:
             "Boars are stubborn and built like a bad idea. Put one in the dirt and I'll call that an honest day's work.",
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3500,
@@ -333,6 +342,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         Tier: 3,
         Title: 'Hunting the Hunter',
         Description: 'A wolf knows how to stalk, same as you. In the end, only one gets to walk away.\n',
+        TimeLimitHours: 96,
         RewardPool: [
             {
                 CurrencyNormal: 3500,
