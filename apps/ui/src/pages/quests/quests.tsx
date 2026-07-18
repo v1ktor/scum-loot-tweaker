@@ -45,7 +45,7 @@ export function Quests() {
                     </a>{' '}
                     or{' '}
                     <a
-                        href="https://github.com/v1ktor/scum-loot-tweaker"
+                        href="https://github.com/v1ktor/scum-loot-tweaker/issues"
                         target="_blank"
                         rel="noreferrer"
                         className="font-medium underline underline-offset-2 hover:text-amber-300"
