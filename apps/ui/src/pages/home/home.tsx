@@ -1,4 +1,5 @@
 import { IconRocket } from '@tabler/icons-react';
+import { Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge.tsx';
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.tsx';
@@ -8,6 +9,32 @@ export function Home() {
     return (
         <div className="px-4 lg:px-6 w-full max-w-6xl mx-auto">
             <h1 className="text-4xl font-extrabold tracking-tight text-balance mb-2">Loot Tweaker</h1>
+
+            <div className="mb-4 flex items-center gap-1.5 rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-xs text-amber-400">
+                <Info className="h-3.5 w-3.5 shrink-0" />
+                <span>
+                    Spot a bug? We'd love to hear about it — let us know on{' '}
+                    <a
+                        href="https://discord.gg/8T6q6Xf945"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium underline underline-offset-2 hover:text-amber-300"
+                    >
+                        Discord
+                    </a>{' '}
+                    or{' '}
+                    <a
+                        href="https://github.com/v1ktor/scum-loot-tweaker/issues"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium underline underline-offset-2 hover:text-amber-300"
+                    >
+                        GitHub
+                    </a>
+                    .
+                </span>
+            </div>
+
             <div className="grid grid-cols-2 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
                 <Link to={NavigationPath.Spawners} className="group h-full">
                     <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-green-500/50 dark:bg-card h-full">

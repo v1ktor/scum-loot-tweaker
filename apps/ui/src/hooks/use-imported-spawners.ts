@@ -34,6 +34,14 @@ export function useImportedSpawners() {
         });
     }, []);
 
+    const saveImportedSpawners = useCallback((entries: Record<string, Spawner>) => {
+        setImportedSpawners((prev) => {
+            const next = { ...prev, ...entries };
+            writeStorage(next);
+            return next;
+        });
+    }, []);
+
     const deleteImportedSpawners = useCallback((filenames: string[]) => {
         setImportedSpawners((prev) => {
             const next = { ...prev };
@@ -50,5 +58,11 @@ export function useImportedSpawners() {
         [deleteImportedSpawners],
     );
 
-    return { importedSpawners, saveImportedSpawner, deleteImportedSpawner, deleteImportedSpawners };
+    return {
+        importedSpawners,
+        saveImportedSpawner,
+        saveImportedSpawners,
+        deleteImportedSpawner,
+        deleteImportedSpawners,
+    };
 }
