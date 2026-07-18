@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { AlertCircleIcon, CopyPlus } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useConfirmDialog } from '@/components/confirm-dialog/confirm-dialog.tsx';
@@ -27,6 +27,27 @@ import { SubpresetsTab } from '@/pages/spawners/tabs/subpresets-tab.tsx';
 import { queryClient } from '@/query-client.ts';
 import { trpc } from '@/trpc.ts';
 
+const SPAWNER_ARRAY_KEYS = ['Items', 'FixedItems', 'Nodes', 'Subpresets'] as const;
+
+function withNormalizedArrays(s: Spawner): Spawner {
+    const result = { ...s };
+
+    for (const key of SPAWNER_ARRAY_KEYS) {
+        result[key] ??= [];
+    }
+
+    return result;
+}
+
+function withoutEmptyArrays(s: Spawner): Spawner {
+    const result = { ...s };
+
+    for (const key of SPAWNER_ARRAY_KEYS) {
+        if (result[key]?.length === 0) delete result[key];
+    }
+    return result;
+}
+
 export function Spawners() {
     const [spawner, setSpawner] = useState<Spawner>({});
     const [fileName, setFileName] = useState<string>('');
@@ -35,6 +56,9 @@ export function Spawners() {
     const navigate = useNavigate();
     const { importedSpawners, saveImportedSpawner } = useImportedSpawners();
     const { confirm, dialog: confirmDialog } = useConfirmDialog();
+
+    const baselineSpawnerRef = useRef<Spawner>({});
+    const isDirty = fileName !== '' && JSON.stringify(spawner) !== JSON.stringify(baselineSpawnerRef.current);
 
     const { data: spawners = [], isLoading } = useQuery(trpc.spawners.list.queryOptions());
     const spawnerOptions = spawners
@@ -45,13 +69,47 @@ export function Spawners() {
         .sort((a, b) => a.label.localeCompare(b.label));
 
     const handleChange = async (args: { value: string; label: string }) => {
-        const spawner = await queryClient.fetchQuery(trpc.spawners.get.queryOptions(args.value));
+        const fetched = await queryClient.fetchQuery(trpc.spawners.get.queryOptions(args.value));
+        const normalized = withNormalizedArrays(fetched);
         setFileName(args.value);
-        setSpawner(spawner);
+        setSpawner(normalized);
+        baselineSpawnerRef.current = normalized;
+    };
+
+    const handleClear = () => {
+        setSpawner({});
+        setFileName('');
+        setDownloadUrl('');
+        baselineSpawnerRef.current = {};
+    };
+
+    const switchSpawner = async (next: { value: string; label: string } | null) => {
+        if (isDirty) {
+            const confirmed = await confirm({
+                title: 'Discard unsaved changes?',
+                description:
+                    'Unsaved changes — download this spawner or add it to My Spawners before switching, or your edits will be lost. Switching now will discard them.',
+                confirmLabel: 'Discard changes',
+            });
+
+            if (!confirmed) {
+                return;
+            }
+        }
+
+        if (!next) {
+            handleClear();
+            return;
+        }
+
+        const selected = spawnerOptions.find((x) => x.value === next.value);
+        if (selected) {
+            await handleChange(selected);
+        }
     };
 
     const handleDownload = () => {
-        const json = JSON.stringify(spawner, null, 2);
+        const json = JSON.stringify(withoutEmptyArrays(spawner), null, 2);
         const blob = new Blob([json], { type: 'application/json' });
 
         if (downloadUrl) {
@@ -79,6 +137,7 @@ export function Spawners() {
         }
 
         saveImportedSpawner(fileName, spawner);
+        baselineSpawnerRef.current = spawner;
         toast(`Added "${fileName}" to My Spawners`, {
             action: {
                 label: 'Open',
@@ -132,19 +191,12 @@ export function Spawners() {
                     <Combobox
                         items={spawnerOptions}
                         itemToStringValue={(item: { label: string; value: string }) => item.label}
-                        onValueChange={(next) => {
-                            if (!next) {
-                                setSpawner({});
-                                setFileName('');
-                                setDownloadUrl('');
-                                return;
-                            }
-
-                            const selected = spawnerOptions.find((x) => x.value === next.value);
-                            if (selected) {
-                                void handleChange(selected);
-                            }
-                        }}
+                        value={spawnerOptions.find((x) => x.value === fileName) ?? null}
+                        isItemEqualToValue={(
+                            a: { label: string; value: string } | null,
+                            b: { label: string; value: string } | null,
+                        ) => a?.value === b?.value}
+                        onValueChange={(next) => void switchSpawner(next)}
                         autoHighlight={true}
                     >
                         <ComboboxInput
@@ -200,6 +252,12 @@ export function Spawners() {
                         <SubpresetsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
                     </TabsContent>
                 </Tabs>
+                {isDirty && (
+                    <p className="pt-4 text-sm text-amber-400">
+                        Unsaved changes — download this spawner or add it to My Spawners before switching, or your edits
+                        will be lost.
+                    </p>
+                )}
                 <div className="flex items-center gap-2 pt-8">
                     {fileName ? (
                         <Button variant="outline" className="flex-4" asChild onClick={handleDownload}>

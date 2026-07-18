@@ -20,7 +20,7 @@ const scumLootTweakerMenuItems: NavItem[] = [
                 title: 'My Spawners',
                 url: NavigationPath.MySpawners,
                 icon: Upload,
-                isNew: true,
+                isNew: false,
             },
         ],
     },

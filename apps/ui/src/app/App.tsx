@@ -1,4 +1,3 @@
-import ReactGA from 'react-ga4';
 import { Route, Routes } from 'react-router-dom';
 import Layout from '@/app/layout.tsx';
 import { ThemeProvider } from '@/components/theme-provider/theme-provider.tsx';
@@ -17,8 +16,6 @@ import { Quests } from '@/pages/quests/quests.tsx';
 import { Spawners } from '@/pages/spawners/spawners.tsx';
 
 export function App() {
-    ReactGA.initialize('G-81R7K0PWNF');
-
     return (
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
             <Layout>
