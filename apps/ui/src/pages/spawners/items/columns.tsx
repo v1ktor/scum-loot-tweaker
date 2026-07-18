@@ -60,7 +60,9 @@ export const createColumns = (itemsOptions: Option[]): ColumnDef<SpawnerItem>[] 
         cell: ({ row, table }) => {
             const meta = table.options.meta as DataTableMeta | undefined;
             const currentId = row.getValue('Id') as string;
-            const currentOption = itemsOptions.find((o) => o.value === currentId);
+            const currentOption =
+                itemsOptions.find((o) => o.value === currentId) ??
+                (currentId ? { value: currentId, label: currentId } : null);
 
             return (
                 <Combobox
