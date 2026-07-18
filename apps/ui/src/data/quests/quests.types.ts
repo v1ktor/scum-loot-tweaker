@@ -7,7 +7,8 @@ export type AssociatedNPC =
     | 'Fisherman'
     | 'GeneralGoods'
     | 'Mechanic'
-    | 'HunterTrader';
+    | 'HunterTrader'
+    | 'MasterHunter';
 export type QuestType = 'Fetch' | 'Elimination' | 'Interaction';
 export type Skill =
     | 'Archery'

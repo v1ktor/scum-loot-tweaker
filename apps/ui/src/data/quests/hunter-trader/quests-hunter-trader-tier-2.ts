@@ -8,6 +8,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Work Some Fat Off',
         Description:
             "This island runs on ugly materials, and fat's near the top of the pile. Go get filthy for a decent cause.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 1750,
@@ -42,6 +43,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Gut Reaction',
         Description:
             "No pretty way to say it: guts are useful. Bring some and I'll try not to judge the smell following you in.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 1750,
@@ -76,6 +78,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Skin in the Game',
         Description:
             "Leather keeps moving fast round here. Bring me a few good skins and I'll know you are good for more than making noise.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 1750,
@@ -111,6 +114,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Feel It in Your Bones',
         Description:
             "Bones keep finding uses, and I keep running short. Bring me a proper pile and you'll get a good trade for 'em.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 1500,
@@ -137,6 +141,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Tier: 2,
         Title: 'Head of the Herd',
         Description: "Bring me a deer head in a good enough shape. I like it better when it's still staring.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 2000,
@@ -164,6 +169,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Tier: 2,
         Title: 'Horns First',
         Description: "I want a goat's head, not some tale about where it ran off to. Bring it intact.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 2000,
@@ -192,6 +198,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Why the Long Face?',
         Description:
             "Most trophies are for pride, but this one is about grit. Bring me a horse's head, and I'll put something worth having aside for you.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 2000,
@@ -233,6 +240,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Buck Stops Here',
         Description:
             "Bring down proper game and do it clean. I want proof you can handle it when the target doesn't sit still for you.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 2000,
@@ -267,6 +275,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Climb and Fall',
         Description:
             "Pesky target, bad temper, good practice. Keep your footing and I'll have a reward waiting for you.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 2000,
@@ -296,6 +305,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         Title: 'Break the Gallop',
         Description:
             "This one takes reach, nerve, and a steady hand. Put it down and I'll know you are ready for harder country.",
+        TimeLimitHours: 72,
         RewardPool: [
             {
                 CurrencyNormal: 2000,

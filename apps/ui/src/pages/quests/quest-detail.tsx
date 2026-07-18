@@ -3,13 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
 import { findQuest, getQuestType } from '@/data/quests/index.ts';
-import type {
-    Condition,
-    EliminationCondition,
-    FetchCondition,
-    InteractionCondition,
-    Reward,
-} from '@/data/quests/quests.types.ts';
+import type { Condition, Reward } from '@/data/quests/quests.types.ts';
 
 function RewardSection({ rewards }: { rewards: Reward[] }) {
     if (!rewards.length) return null;
@@ -70,7 +64,7 @@ function ConditionSection({ conditions }: { conditions: Condition[] }) {
             <div className="flex flex-col gap-3">
                 {conditions.map((c, i) => {
                     if (c.Type === 'Fetch') {
-                        const fc = c as FetchCondition;
+                        const fc = c;
                         return (
                             <div key={i} className="rounded-md border bg-card px-4 py-3 text-sm">
                                 {fc.RequiredItems.map((ri, j) => (
@@ -155,7 +149,7 @@ function ConditionSection({ conditions }: { conditions: Condition[] }) {
                         );
                     }
                     if (c.Type === 'Elimination') {
-                        const ec = c as EliminationCondition;
+                        const ec = c;
                         return (
                             <div key={i} className="rounded-md border bg-card px-4 py-3 text-sm">
                                 <div className="mb-2">
@@ -184,7 +178,7 @@ function ConditionSection({ conditions }: { conditions: Condition[] }) {
                         );
                     }
                     if (c.Type === 'Interaction') {
-                        const ic = c as InteractionCondition;
+                        const ic = c;
                         return (
                             <div key={i} className="rounded-md border bg-card px-4 py-3 text-sm">
                                 <div>
@@ -219,7 +213,7 @@ export function QuestDetail() {
     }
 
     const { quest, giver } = result;
-    const questType = getQuestType(quest.id);
+    const questType = getQuestType(quest);
 
     return (
         <div className="flex flex-1 flex-col gap-6 px-6 py-10">

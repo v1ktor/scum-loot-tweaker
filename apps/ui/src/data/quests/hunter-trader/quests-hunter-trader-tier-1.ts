@@ -8,6 +8,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'Fat Chance',
         Description:
             "Fat is filthy work, and I'd like you to realize that. Bring some in and try not to slick up my floor.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 750,
@@ -34,6 +35,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'Save Your Skin',
         Description:
             "Folks keep asking for leather like it's hanging on hooks already. Show me you can work a clean skin and you'll get something in return.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 850,
@@ -61,6 +63,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'Bones to Pick',
         Description:
             "Bones are useful to more people than you'd think. Bring me a handful and I'll make the trouble worth it.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 750,
@@ -86,6 +89,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Tier: 1,
         Title: 'Proof of Mule',
         Description: "I need the head off a donkey, clean and brought back in one piece. Don't ask why.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 1200,
@@ -113,6 +117,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'Plucked It',
         Description:
             "Botching a good bird is easier than you'd think. I want one cleaned proper, feathers off and pride swallowed.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 1000,
@@ -140,6 +145,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'Clean Cut',
         Description:
             'Anybody can make a mess of small game. I wanna see what you do after the kill, so bring back a flawless, naked bunny.',
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 1000,
@@ -166,6 +172,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Tier: 1,
         Title: 'Dinner Runs',
         Description: "I need fresh poultry that hasn't gone sour in the sun. Go fetch it before it flaps off on you.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 1000,
@@ -188,6 +195,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'Long Ears Down',
         Description:
             "Don't take this as a grand hunt. It ain't. Kill a donkey and show me you can do work without a story to dress it up.\n",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 1200,
@@ -210,6 +218,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
         Title: 'No Second Chances',
         Description:
             "Small game's got a way of disappearing the second you think you've got it cornered. Let's hope you won't let that happen.",
+        TimeLimitHours: 48,
         RewardPool: [
             {
                 CurrencyNormal: 1000,
