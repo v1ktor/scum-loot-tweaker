@@ -15,7 +15,10 @@ interface ItemsTabProps {
 export function ItemsTab(props: ItemsTabProps) {
     const { spawner, setSpawner } = props;
     const { itemsOptions } = useItemsOptions();
-    const columns = createColumns(itemsOptions);
+    const columns = createColumns(
+        itemsOptions,
+        (spawner.Nodes ?? []).map((node) => node.Rarity),
+    );
     const [rows, setRows] = useState<SpawnerItem[]>(spawner.Items ?? []);
 
     const syncToSpawner = useCallback(
