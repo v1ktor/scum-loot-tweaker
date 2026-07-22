@@ -17,8 +17,8 @@ export function Changelog() {
                 <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
                     <li>Replaced the spawners dropdown with the category tree view</li>
                     <li>
-                        Added a right-click menu in the category tree view to add a single spawner or an entire
-                        category to My Spawners
+                        Added a right-click menu in the category tree view to add a single spawner or an entire category
+                        to My Spawners
                     </li>
                 </ul>
 
