@@ -34,7 +34,7 @@ export function Quests() {
             <div className="flex items-center gap-1.5 rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-1.5 text-xs text-amber-400">
                 <Info className="h-3.5 w-3.5 shrink-0" />
                 <span>
-                    Conditions and Rewards may not be fully up to date. Found an inconsistency? Report it on{' '}
+                    Quest data may not be fully accurate or up to date. Found an inconsistency? Report it on{' '}
                     <a
                         href="https://discord.gg/8T6q6Xf945"
                         target="_blank"

@@ -3,7 +3,7 @@ import type { Quest } from '@/data/quests/quests.types.ts';
 export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     {
         id: 'T3_RH_Fetch_AnimalFat',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'The Fat of the Land',
         Description: "Fortune flows from ugly work. Bring me more fat and think on the reward while you're at it.",
@@ -37,7 +37,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     },
     {
         id: 'T3_RH_Fetch_AnimalGuts',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'No Guts, No Glory',
         Description:
@@ -72,7 +72,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     },
     {
         id: 'T3_RH_Fetch_AnimalSkin',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Skin-Deep',
         Description:
@@ -108,7 +108,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     },
     {
         id: 'T3_RH_Fetch_BearHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'A Head Above',
         Description: 'Bring me a bear head worth keeping. Remember: the meaner the beast, the sweeter the prize.',
@@ -149,7 +149,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     },
     {
         id: 'T3_RH_Fetch_BoarHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Tusks for Trouble',
         Description:
@@ -191,7 +191,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     },
     {
         id: 'T3_RH_Fetch_Bone',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Boneheaded',
         Description:
@@ -226,7 +226,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
     },
     {
         id: 'T3_RH_Fetch_WolfHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Muzzle Memory',
         Description:
@@ -267,8 +267,8 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         ],
     },
     {
-        id: 'T3_HT_Kill_Bear',
-        AssociatedNPC: 'HunterTrader',
+        id: 'T3_RH_Kill_Bear',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Stand Your Ground',
         Description:
@@ -302,8 +302,8 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         ],
     },
     {
-        id: 'T3_HT_Kill_Boar',
-        AssociatedNPC: 'HunterTrader',
+        id: 'T3_RH_Kill_Boar',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Pork Business',
         Description:
@@ -337,8 +337,8 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
         ],
     },
     {
-        id: 'T3_HT_Kill_Wolf',
-        AssociatedNPC: 'HunterTrader',
+        id: 'T3_RH_Kill_Wolf',
+        AssociatedNPC: 'Hunter',
         Tier: 3,
         Title: 'Hunting the Hunter',
         Description: 'A wolf knows how to stalk, same as you. In the end, only one gets to walk away.\n',

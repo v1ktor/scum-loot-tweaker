@@ -13,9 +13,11 @@ export type Row = {
     fpSummary: string;
     xpSummary: string;
     itemsSummary: string;
+    blueprintSummary: string;
     tradeDealSummary: string;
     conditionSummary: string;
     conditionExtraInfo: string;
+    allowedWeapons: string[];
 };
 
 function summarizeConditions(conditions: Condition[], itemsOptions: Option[]): string {
@@ -49,6 +51,18 @@ function conditionExtraInfo(conditions: Condition[]): string {
     }
 
     return parts.join(' · ');
+}
+
+function collectAllowedWeapons(conditions: Condition[], itemsOptions: Option[]): string[] {
+    const weapons: string[] = [];
+
+    for (const c of conditions) {
+        if (c.Type === 'Elimination' && c.AllowedWeapons?.length) {
+            for (const w of c.AllowedWeapons) weapons.push(getItemName(w, itemsOptions));
+        }
+    }
+
+    return weapons;
 }
 
 function summarizeMoney(quest: Quest): string {
@@ -91,6 +105,16 @@ function summarizeItems(quest: Quest, itemsOptions: Option[]): string {
     return items.map((i) => getItemName(i, itemsOptions)).join('\n');
 }
 
+function summarizeBlueprints(quest: Quest): string {
+    if (!quest.RewardPool.length) return '—';
+
+    const blueprints = quest.RewardPool[0].Blueprints;
+
+    if (!blueprints?.length) return '—';
+
+    return blueprints.join('\n');
+}
+
 function summarizeTradeDeal(quest: Quest, itemsOptions: Option[]): string {
     if (!quest.RewardPool.length) return '—';
 
@@ -123,9 +147,11 @@ function mapQuestsToRows(quests: Quest[], giver: QuestGiverConfig, itemsOptions:
         fpSummary: summarizeFame(quest),
         xpSummary: summarizeXp(quest),
         itemsSummary: summarizeItems(quest, itemsOptions),
+        blueprintSummary: summarizeBlueprints(quest),
         tradeDealSummary: summarizeTradeDeal(quest, itemsOptions),
         conditionSummary: summarizeConditions(quest.Conditions, itemsOptions),
         conditionExtraInfo: conditionExtraInfo(quest.Conditions),
+        allowedWeapons: collectAllowedWeapons(quest.Conditions, itemsOptions),
     }));
 }
 
@@ -142,8 +168,11 @@ export function computeDefaultColumnVisibility(rows: Row[]): VisibilityState {
     if (rows.every((r) => r.fpSummary === '—')) visibility.fp = false;
     if (rows.every((r) => r.xpSummary === '—')) visibility.xp = false;
     if (rows.every((r) => r.itemsSummary === '—')) visibility.items = false;
+    if (rows.every((r) => r.blueprintSummary === '—')) visibility.blueprints = false;
     if (rows.every((r) => r.tradeDealSummary === '—')) visibility.tradeDeal = false;
-    if (rows.every((r) => r.conditionExtraInfo === '')) visibility.conditionExtra = false;
+    if (rows.every((r) => r.conditionExtraInfo === '' && r.allowedWeapons.length === 0)) {
+        visibility.conditionExtra = false;
+    }
 
     return visibility;
 }

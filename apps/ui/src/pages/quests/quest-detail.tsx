@@ -42,6 +42,12 @@ function RewardSection({ rewards }: { rewards: Reward[] }) {
                         <span className="text-blue-400">{item}</span>
                     </div>
                 ))}
+                {r.Blueprints?.map((bp) => (
+                    <div key={bp} className="rounded-md border bg-card px-3 py-2 text-sm">
+                        <span className="text-muted-foreground">Blueprint: </span>
+                        <span className="text-green-400">{bp}</span>
+                    </div>
+                ))}
                 {r.TradeDeal?.map((td) => (
                     <div key={td.Item} className="rounded-md border bg-card px-3 py-2 text-sm">
                         <span className="text-muted-foreground">Trade Deal: </span>
