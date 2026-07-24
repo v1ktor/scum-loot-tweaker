@@ -250,7 +250,7 @@ export function NodesTab(props: NodesTabProps) {
 
                         {node.Ids.map((id, idIndex) => {
                             const resolvedEntry = lookupNodePath(id);
-                            const idShareWithinGroup = calcSelectionProbability(
+                            const idChanceInGroup = calcSelectionProbability(
                                 resolvedEntry?.rarity,
                                 realSiblingIdRarities,
                             );
@@ -284,13 +284,11 @@ export function NodesTab(props: NodesTabProps) {
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Badge variant="outline" className="shrink-0 tabular-nums">
-                                                        {formatProbability(idShareWithinGroup)}
+                                                        {formatProbability(idChanceInGroup)}
                                                     </Badge>
                                                 </TooltipTrigger>
                                                 <TooltipContent>
-                                                    Chance within this group only, if the group is picked. Overall
-                                                    chance out of the whole spawner:{' '}
-                                                    {formatProbability(groupProbability * idShareWithinGroup)}
+                                                    Chance within this group only, if the group is picked.
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>
