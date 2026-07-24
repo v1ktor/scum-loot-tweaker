@@ -1,4 +1,4 @@
-import { FolderIcon, PackageIcon, PlusIcon, ScanEyeIcon, Trash2Icon, XIcon } from 'lucide-react';
+import { FolderIcon, PackageIcon, PlusIcon, ScanEyeIcon, Trash2Icon, TriangleAlertIcon, XIcon } from 'lucide-react';
 import { type Dispatch, type SetStateAction, useCallback, useEffect, useMemo, useState } from 'react';
 import { toast } from 'sonner';
 import { useConfirmDialog } from '@/components/confirm-dialog/confirm-dialog.tsx';
@@ -211,7 +211,10 @@ export function NodesTab(props: NodesTabProps) {
                     ...itemRarities,
                 ]);
                 const realIds = node.Ids.filter((id) => id.trim() !== '');
-                const realSiblingIdRarities = realIds.map((id) => lookupNodePath(id)?.rarity);
+                // Only Ids we can resolve count toward the group's total; unresolved Ids are treated as 0.
+                const resolvedSiblingRarities = realIds
+                    .map((id) => lookupNodePath(id)?.rarity)
+                    .filter((rarity) => rarity !== undefined);
 
                 return (
                     <Item key={node._uiId} variant="outline" className="mb-2">
@@ -250,10 +253,9 @@ export function NodesTab(props: NodesTabProps) {
 
                         {node.Ids.map((id, idIndex) => {
                             const resolvedEntry = lookupNodePath(id);
-                            const idChanceInGroup = calcSelectionProbability(
-                                resolvedEntry?.rarity,
-                                realSiblingIdRarities,
-                            );
+                            const idChanceInGroup = resolvedEntry
+                                ? calcSelectionProbability(resolvedEntry.rarity, resolvedSiblingRarities)
+                                : 0;
 
                             return (
                                 <div key={`${node._uiId}-${idIndex}`} className="flex items-center gap-2 w-full">
@@ -279,7 +281,21 @@ export function NodesTab(props: NodesTabProps) {
                                             </Tooltip>
                                         </TooltipProvider>
                                     )}
-                                    {id.trim() !== '' && realIds.length > 1 && (
+                                    {id.trim() !== '' && !resolvedEntry && (
+                                        <TooltipProvider>
+                                            <Tooltip>
+                                                <TooltipTrigger asChild>
+                                                    <span className="shrink-0">
+                                                        <TriangleAlertIcon className="h-4 w-4 text-destructive" />
+                                                    </span>
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    This Id doesn't match any known node path.
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    )}
+                                    {resolvedEntry && realIds.length > 1 && (
                                         <TooltipProvider>
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
