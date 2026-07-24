@@ -91,10 +91,6 @@ export function Spawners() {
 
     const { data: spawners = [], isLoading } = useQuery(trpc.spawners.list.queryOptions());
 
-    // The ?file= query param is the single source of truth for the selected spawner: the sidebar
-    // only writes to the URL (see switchSpawner) and the effect below loads whatever it points at.
-    // Keeping this one-directional avoids a URL<->state feedback loop that would otherwise revert a
-    // fresh selection during the render tick where fileName has updated but the URL hasn't yet.
     const setFileParam = (filename: string | null) => {
         setSearchParams(
             (prev) => {
