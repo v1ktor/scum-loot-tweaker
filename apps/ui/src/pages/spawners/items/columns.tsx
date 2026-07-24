@@ -20,9 +20,13 @@ import {
 } from '@/components/ui/dropdown-menu.tsx';
 import type { Rarity } from '@/data/rarity.ts';
 import { RARITY_OPTIONS } from '@/data/rarity-options.ts';
+import { calcSelectionProbability, formatProbability } from '@/pages/spawners/rarity-probability.ts';
 import type { DataTableMeta, Option, SpawnerItem } from '@/pages/spawners/spawners.types.ts';
 
-export const createColumns = (itemsOptions: Option[]): ColumnDef<SpawnerItem>[] => [
+export const createColumns = (
+    itemsOptions: Option[],
+    extraSiblingRarities: (string | undefined)[] = [],
+): ColumnDef<SpawnerItem>[] => [
     {
         id: 'select',
         header: ({ table }) => (
@@ -124,6 +128,23 @@ export const createColumns = (itemsOptions: Option[]): ColumnDef<SpawnerItem>[] 
                         ))}
                     </DropdownMenuContent>
                 </DropdownMenu>
+            );
+        },
+    },
+    {
+        id: 'chance',
+        header: 'Chance',
+        cell: ({ row, table }) => {
+            const currentRarity = row.getValue('Rarity') as string;
+            const siblingRarities = [
+                ...(table.options.data as SpawnerItem[]).map((item) => item.Rarity),
+                ...extraSiblingRarities,
+            ];
+
+            return (
+                <Badge variant="secondary" className="tabular-nums">
+                    {formatProbability(calcSelectionProbability(currentRarity, siblingRarities))}
+                </Badge>
             );
         },
     },

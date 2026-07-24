@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { AlertCircleIcon, CopyPlus } from 'lucide-react';
-import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useConfirmDialog } from '@/components/confirm-dialog/confirm-dialog.tsx';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.tsx';
@@ -22,6 +22,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from '@/components/ui/dialog.tsx';
+import { ScrollArea } from '@/components/ui/scroll-area.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
 import { useImportedSpawners } from '@/hooks/use-imported-spawners.ts';
@@ -63,6 +64,8 @@ export function Spawners() {
     const [downloadUrl, setDownloadUrl] = useState<string>('');
 
     const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const fileParam = searchParams.get('file');
     const { importedSpawners, saveImportedSpawner, saveImportedSpawners } = useImportedSpawners();
     const { confirm, dialog: confirmDialog } = useConfirmDialog();
 
@@ -88,20 +91,53 @@ export function Spawners() {
 
     const { data: spawners = [], isLoading } = useQuery(trpc.spawners.list.queryOptions());
 
-    const handleChange = async (args: { value: string; label: string }) => {
-        const fetched = await queryClient.fetchQuery(trpc.spawners.get.queryOptions(args.value));
-        const normalized = withNormalizedArrays(fetched);
-        setFileName(args.value);
-        setSpawner(normalized);
-        baselineSpawnerRef.current = normalized;
+    const setFileParam = (filename: string | null) => {
+        setSearchParams(
+            (prev) => {
+                const next = new URLSearchParams(prev);
+                if (filename) {
+                    next.set('file', filename);
+                } else {
+                    next.delete('file');
+                }
+                return next;
+            },
+            { replace: true },
+        );
     };
 
-    const handleClear = () => {
-        setSpawner({});
-        setFileName('');
-        setDownloadUrl('');
-        baselineSpawnerRef.current = {};
-    };
+    useEffect(() => {
+        if (!fileParam) {
+            if (fileName !== '') {
+                setSpawner({});
+                setFileName('');
+                setDownloadUrl('');
+                baselineSpawnerRef.current = {};
+            }
+            return;
+        }
+
+        if (fileParam === fileName || !spawners.includes(fileParam)) {
+            return;
+        }
+
+        let cancelled = false;
+
+        void queryClient.fetchQuery(trpc.spawners.get.queryOptions(fileParam)).then((fetched) => {
+            if (cancelled) {
+                return;
+            }
+
+            const normalized = withNormalizedArrays(fetched);
+            setFileName(fileParam);
+            setSpawner(normalized);
+            baselineSpawnerRef.current = normalized;
+        });
+
+        return () => {
+            cancelled = true;
+        };
+    }, [fileParam, spawners, fileName]);
 
     const switchSpawner = async (next: { value: string; label: string } | null) => {
         if (isDirty) {
@@ -117,12 +153,7 @@ export function Spawners() {
             }
         }
 
-        if (!next) {
-            handleClear();
-            return;
-        }
-
-        await handleChange(next);
+        setFileParam(next ? next.value : null);
     };
 
     const handleDownload = () => {
@@ -287,89 +318,91 @@ export function Spawners() {
                     }
                 />
 
-                <div className="bg-muted/50 min-h-0 min-w-0 max-w-5xl flex-1 overflow-y-auto rounded-xl p-8">
-                    {breadcrumbSegments.length > 0 && (
-                        <div className="mb-6">
-                            <Breadcrumb>
-                                <BreadcrumbList>
-                                    {[...breadcrumbSegments.slice(0, -1), fileName].map((segment, i, arr) => (
-                                        <BreadcrumbItem key={segment}>
-                                            {i > 0 && <BreadcrumbSeparator />}
-                                            {i === arr.length - 1 ? (
-                                                <BreadcrumbPage className="break-all">{segment}</BreadcrumbPage>
-                                            ) : (
-                                                segment
-                                            )}
-                                        </BreadcrumbItem>
-                                    ))}
-                                </BreadcrumbList>
-                            </Breadcrumb>
-                        </div>
-                    )}
-                    <Tabs defaultValue="settings">
-                        <TabsList>
-                            <TabsTrigger value="settings">
-                                Settings<Badge variant="secondary">{calculateNumberOfSettings(spawner)}</Badge>
-                            </TabsTrigger>
-                            <TabsTrigger value="items">
-                                Items <Badge variant="secondary">{spawner.Items?.length ?? 0}</Badge>
-                            </TabsTrigger>
-                            <TabsTrigger value="fixed-items">
-                                Fixed Items<Badge variant="secondary">{spawner.FixedItems?.length ?? 0}</Badge>
-                            </TabsTrigger>
-                            <TabsTrigger value="nodes">
-                                Nodes <Badge variant="secondary">{spawner.Nodes?.length ?? 0}</Badge>
-                            </TabsTrigger>
-                            <TabsTrigger value="subpresets">
-                                Subpresets <Badge variant="secondary">{spawner.Subpresets?.length ?? 0}</Badge>
-                            </TabsTrigger>
-                        </TabsList>
-
-                        <TabsContent value="settings" className="mt-0">
-                            <SettingsTab spawner={spawner} setSpawner={setSpawner} />
-                        </TabsContent>
-                        <TabsContent value="items" className="mt-0">
-                            <ItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
-                        </TabsContent>
-                        <TabsContent value="fixed-items" className="mt-0">
-                            <FixedItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
-                        </TabsContent>
-                        <TabsContent value="nodes" className="mt-0">
-                            <NodesTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
-                        </TabsContent>
-                        <TabsContent value="subpresets" className="mt-0">
-                            <SubpresetsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
-                        </TabsContent>
-                    </Tabs>
-                    {isDirty && (
-                        <p className="pt-4 text-sm text-amber-400">
-                            Unsaved changes — download this spawner or add it to My Spawners before switching, or your
-                            edits will be lost.
-                        </p>
-                    )}
-                    <div className="flex items-center gap-2 py-8">
-                        {fileName ? (
-                            <Button variant="outline" className="flex-4" asChild onClick={handleDownload}>
-                                <a href={downloadUrl} download={fileName}>
-                                    Download
-                                </a>
-                            </Button>
-                        ) : (
-                            <Button variant="outline" className="flex-4" disabled>
-                                Download
-                            </Button>
+                <ScrollArea className="bg-muted/50 min-h-0 min-w-0 max-w-5xl flex-1 rounded-xl">
+                    <div className="p-8">
+                        {breadcrumbSegments.length > 0 && (
+                            <div className="mb-6">
+                                <Breadcrumb>
+                                    <BreadcrumbList>
+                                        {[...breadcrumbSegments.slice(0, -1), fileName].map((segment, i, arr) => (
+                                            <BreadcrumbItem key={segment}>
+                                                {i > 0 && <BreadcrumbSeparator />}
+                                                {i === arr.length - 1 ? (
+                                                    <BreadcrumbPage className="break-all">{segment}</BreadcrumbPage>
+                                                ) : (
+                                                    segment
+                                                )}
+                                            </BreadcrumbItem>
+                                        ))}
+                                    </BreadcrumbList>
+                                </Breadcrumb>
+                            </div>
                         )}
-                        <Button
-                            variant="outline"
-                            className="flex-1"
-                            disabled={!fileName}
-                            onClick={handleAddToMySpawners}
-                        >
-                            <CopyPlus />
-                            Add to My Spawners
-                        </Button>
+                        <Tabs defaultValue="settings">
+                            <TabsList>
+                                <TabsTrigger value="settings">
+                                    Settings<Badge variant="secondary">{calculateNumberOfSettings(spawner)}</Badge>
+                                </TabsTrigger>
+                                <TabsTrigger value="items">
+                                    Items <Badge variant="secondary">{spawner.Items?.length ?? 0}</Badge>
+                                </TabsTrigger>
+                                <TabsTrigger value="fixed-items">
+                                    Fixed Items<Badge variant="secondary">{spawner.FixedItems?.length ?? 0}</Badge>
+                                </TabsTrigger>
+                                <TabsTrigger value="nodes">
+                                    Nodes <Badge variant="secondary">{spawner.Nodes?.length ?? 0}</Badge>
+                                </TabsTrigger>
+                                <TabsTrigger value="subpresets">
+                                    Subpresets <Badge variant="secondary">{spawner.Subpresets?.length ?? 0}</Badge>
+                                </TabsTrigger>
+                            </TabsList>
+
+                            <TabsContent value="settings" className="mt-0">
+                                <SettingsTab spawner={spawner} setSpawner={setSpawner} />
+                            </TabsContent>
+                            <TabsContent value="items" className="mt-0">
+                                <ItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
+                            </TabsContent>
+                            <TabsContent value="fixed-items" className="mt-0">
+                                <FixedItemsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
+                            </TabsContent>
+                            <TabsContent value="nodes" className="mt-0">
+                                <NodesTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
+                            </TabsContent>
+                            <TabsContent value="subpresets" className="mt-0">
+                                <SubpresetsTab key={fileName} spawner={spawner} setSpawner={setSpawner} />
+                            </TabsContent>
+                        </Tabs>
+                        {isDirty && (
+                            <p className="pt-4 text-sm text-amber-400">
+                                Unsaved changes — download this spawner or add it to My Spawners before switching, or
+                                your edits will be lost.
+                            </p>
+                        )}
+                        <div className="flex items-center gap-2 py-8">
+                            {fileName ? (
+                                <Button variant="outline" className="flex-4" asChild onClick={handleDownload}>
+                                    <a href={downloadUrl} download={fileName}>
+                                        Download
+                                    </a>
+                                </Button>
+                            ) : (
+                                <Button variant="outline" className="flex-4" disabled>
+                                    Download
+                                </Button>
+                            )}
+                            <Button
+                                variant="outline"
+                                className="flex-1"
+                                disabled={!fileName}
+                                onClick={handleAddToMySpawners}
+                            >
+                                <CopyPlus />
+                                Add to My Spawners
+                            </Button>
+                        </div>
                     </div>
-                </div>
+                </ScrollArea>
             </div>
             {confirmDialog}
 
