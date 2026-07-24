@@ -3,7 +3,7 @@ import type { Quest } from '@/data/quests/quests.types.ts';
 export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     {
         id: 'T1_RH_Fetch_AnimalFat',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Fat Chance',
         Description:
@@ -30,7 +30,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Fetch_AnimalSkin',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Save Your Skin',
         Description:
@@ -58,7 +58,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Fetch_Bone',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Bones to Pick',
         Description:
@@ -85,7 +85,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Fetch_DonkeyHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Proof of Mule',
         Description: "I need the head off a donkey, clean and brought back in one piece. Don't ask why.",
@@ -112,7 +112,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Fetch_PluckedChicken',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Plucked It',
         Description:
@@ -140,7 +140,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Fetch_SkinnedRabbit',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Clean Cut',
         Description:
@@ -168,7 +168,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Kill_Chicken',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Dinner Runs',
         Description: "I need fresh poultry that hasn't gone sour in the sun. Go fetch it before it flaps off on you.",
@@ -190,7 +190,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Kill_Donkey',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'Long Ears Down',
         Description:
@@ -213,7 +213,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
     },
     {
         id: 'T1_RH_Kill_Rabbit',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 1,
         Title: 'No Second Chances',
         Description:

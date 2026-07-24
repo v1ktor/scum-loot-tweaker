@@ -11,14 +11,22 @@ export function Changelog() {
                 </h1>
 
                 <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+                    <span className="text-3xl font-semibold tracking-tight">0.5.1</span>
+                    <span className="text-sm text-muted-foreground">July 24, 2026</span>
+                </h2>
+                <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+                    <li>Added information about Master Hunter vanilla quests</li>
+                </ul>
+
+                <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
                     <span className="text-3xl font-semibold tracking-tight">0.5.0</span>
                     <span className="text-sm text-muted-foreground">July 18, 2026</span>
                 </h2>
                 <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
                     <li>Replaced the spawners dropdown with the category tree view</li>
                     <li>
-                        Added a right-click menu in the category tree view to add a single spawner or an entire
-                        category to My Spawners
+                        Added a right-click menu in the category tree view to add a single spawner or an entire category
+                        to My Spawners
                     </li>
                 </ul>
 
