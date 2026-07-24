@@ -39,7 +39,7 @@ export function collapseVariantNames(names: string[]): VariantGroup {
         }
     }
 
-    if (commonWordCount === 0) {
+    if (commonWordCount < 2) {
         return { label: names.join(', '), names, collapsed: false };
     }
 

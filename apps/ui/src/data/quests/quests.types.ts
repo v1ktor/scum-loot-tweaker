@@ -54,6 +54,8 @@ export type Reward = {
     Skills?: SkillReward[];
     TradeDeal?: TradeDeal[];
     Items?: string[];
+    // TODO: Some quests unlock blueprints as rewards, but there is no official documentation on how to structure reward pool
+    Blueprints?: string[];
 };
 
 export type MapLocation = {
