@@ -10,8 +10,6 @@ import { getItemName } from '@/utils/get-item-name.ts';
 import type { Row } from './quest-rows.ts';
 import { VariantList } from './quest-variant-list.tsx';
 
-// Target characters are raw blueprint ids (e.g. BP_Deer_Mutant) with no friendly name, so a single
-// one is shown as-is while multiple collapse to a count + tooltip (VariantList would just show "BP").
 function TargetCharacterList({ names }: { names: string[] }) {
     if (names.length <= 1) {
         return <>{names.join(', ')}</>;
@@ -34,7 +32,6 @@ function TargetCharacterList({ names }: { names: string[] }) {
     );
 }
 
-// Shows the allowed weapons inline when there are few; collapses to a count + tooltip past three.
 function AllowedWeaponsInfo({ weapons }: { weapons: string[] }) {
     if (weapons.length <= 3) {
         return <>Allowed Weapons: {weapons.join(', ')}</>;
