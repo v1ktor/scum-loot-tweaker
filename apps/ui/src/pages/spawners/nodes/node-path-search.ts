@@ -11,18 +11,20 @@ export function searchNodePaths(entries: NodePathEntry[], query: string, limit =
         return [];
     }
 
-    const normalizedQuery = normalize(trimmed);
+    const tokens = normalize(trimmed).split(' ').filter(Boolean);
     const leafMatches: NodePathEntry[] = [];
     const otherMatches: NodePathEntry[] = [];
 
     for (const entry of entries) {
-        if (!normalize(entry.path).includes(normalizedQuery)) {
+        const normalizedPath = normalize(entry.path);
+
+        if (!tokens.every((token) => normalizedPath.includes(token))) {
             continue;
         }
 
-        const lastSegment = entry.path.slice(entry.path.lastIndexOf('.') + 1);
+        const lastSegment = normalize(entry.path.slice(entry.path.lastIndexOf('.') + 1));
 
-        if (normalize(lastSegment).includes(normalizedQuery)) {
+        if (tokens.every((token) => lastSegment.includes(token))) {
             leafMatches.push(entry);
         } else {
             otherMatches.push(entry);
