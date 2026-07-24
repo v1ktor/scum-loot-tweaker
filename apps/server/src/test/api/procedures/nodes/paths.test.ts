@@ -37,7 +37,7 @@ describe('nodes.paths', () => {
         vi.resetAllMocks();
     });
 
-    it('returns an empty array when the nodes directory does not exist', async () => {
+    it('must return an empty array when the nodes directory does not exist', async () => {
         vi.mocked(fs.existsSync).mockReturnValue(false);
 
         const result = await caller.paths();
@@ -45,7 +45,7 @@ describe('nodes.paths', () => {
         expect(result).toEqual([]);
     });
 
-    it('flattens every node in every file into a dotted path', async () => {
+    it('must flatten every node in every file into a dotted path', async () => {
         vi.mocked(fs.existsSync).mockReturnValue(true);
         vi.mocked(fs.readdirSync).mockReturnValue(['Airfield.json'] as unknown as ReturnType<typeof fs.readdirSync>);
         vi.mocked(fs.readFileSync).mockImplementation(() => JSON.stringify(validNode));
@@ -59,7 +59,7 @@ describe('nodes.paths', () => {
         ]);
     });
 
-    it('ignores non-json files', async () => {
+    it('must ignore non-json files', async () => {
         vi.mocked(fs.existsSync).mockReturnValue(true);
         vi.mocked(fs.readdirSync).mockReturnValue(['readme.txt'] as unknown as ReturnType<typeof fs.readdirSync>);
         vi.mocked(fs.readFileSync).mockImplementation(() => JSON.stringify(validNode));
