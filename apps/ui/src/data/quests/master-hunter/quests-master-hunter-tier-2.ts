@@ -1,3 +1,192 @@
 import type { Quest } from '@/data/quests/quests.types.ts';
 
-export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [];
+export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [
+    {
+        id: 'T2_MH_Fetch_MutantBoarHead',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'Tusked and Tainted',
+        Description:
+            'I want a boar head with the tusks still worth looking at. Bring one back before the woods chew on it.',
+        TimeLimitHours: 72,
+        RewardPool: [{ CurrencyNormal: 2250, Fame: 10, Blueprints: ['Boar Skull Trophy'] }],
+        Conditions: [
+            {
+                Type: 'Fetch',
+                SequenceIndex: 0,
+                RequiredItems: [{ AcceptedItems: ['Boar_Head_Mutant'], RequiredNum: 1, MinAcceptedItemHealth: 80 }],
+            },
+        ],
+    },
+    {
+        id: 'T2_MH_Fetch_MutantSkin',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'Hide and Squeamish',
+        Description:
+            'One mutant hide could be luck. Two is interesting. Three... makes a pattern. Try not to drip on anything when you bring them in.',
+        TimeLimitHours: 72,
+        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, Items: ['1H_Hunters_Skinning_Knife_01'] }],
+        Conditions: [
+            {
+                Type: 'Fetch',
+                SequenceIndex: 0,
+                RequiredItems: [{ AcceptedItems: ['Mutant_Animal_Skin'], RequiredNum: 3, MinAcceptedItemHealth: 80 }],
+            },
+        ],
+    },
+    {
+        id: 'T2_MH_Fetch_MutantSteak',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'Too Far Gone',
+        Description:
+            'I need enough mutant steaks to compare cuts and make this place smell properly cursed. Go fetch a few, and keep your lunch where it belongs.',
+        TimeLimitHours: 72,
+        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, Blueprints: ['Hunter Chandelier'] }],
+        Conditions: [
+            {
+                Type: 'Fetch',
+                SequenceIndex: 0,
+                RequiredItems: [
+                    {
+                        AcceptedItems: ['Mutant_Buck_Steak', 'Mutant_Pork_Steak', 'Mutant_Wolf_Steak'],
+                        RequiredNum: 5,
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        id: 'T2_MH_Kill_MutantBoar',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'Swine Sign',
+        Description:
+            "Something twisted has been rooting where it shouldn't. Kill it before the ground starts looking like a landfill.",
+        TimeLimitHours: 72,
+        // TODO: WeaponCharm_Boar_Skull is the best guess since game doesn't allow to spawn that charm. Needs to be verified as the quest item in custom quest
+        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, Items: ['WeaponCharm_Boar_Skull'] }],
+        Conditions: [{ Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['BP_Boar_Mutant'], Amount: 1 }],
+    },
+    {
+        id: 'T2_MH_Kill_MutantBoar_BluntMelee',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'Put It Down Hard',
+        Description:
+            "Look into a mutant pig's eyes and tell me if TEC1 left anything behind. Keep your head straight: hesitate for a split second and you'll be wearing your guts outside.",
+        TimeLimitHours: 72,
+        RewardPool: [{ CurrencyNormal: 2500, Fame: 10, Items: ['Ultimate_QuestReward_Boots'] }],
+        Conditions: [
+            {
+                Type: 'Elimination',
+                SequenceIndex: 0,
+                TargetCharacters: ['BP_Boar_Mutant'],
+                Amount: 1,
+                AllowedWeapons: [
+                    '1H_Beam_Dildo',
+                    '1H_Brass_Knuckles',
+                    '1H_Crowbar',
+                    '1H_Dildo',
+                    '1H_Little_Spade',
+                    '1H_Metal_Pipe',
+                    '1H_Pipe_Wrench',
+                    '1H_Police_Baton',
+                    '2H_Baseball_Bat',
+                    '2H_Baseball_Bat_Blaze',
+                    '2H_Metal_Baseball_Bat',
+                    '2H_Shovel_01',
+                    '2H_Shovel_02',
+                ],
+            },
+        ],
+    },
+    {
+        id: 'T2_MH_Kill_BowOrCrossbow',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'String It Along',
+        Description:
+            'Bolts and arrows are good for keeping pelts clean. All it takes is steady hands and enough patience to make yourself forgotten.',
+        TimeLimitHours: 72,
+        RewardPool: [{ CurrencyNormal: 1850, Fame: 10, Items: ['Weapon_BlackHawk_Crossbow_Quest'] }],
+        Conditions: [
+            {
+                Type: 'Elimination',
+                SequenceIndex: 0,
+                TargetCharacters: [
+                    'BP_Deer_Mutant',
+                    'BP_Boar_Mutant',
+                    'BP_Wolf_Mutant',
+                    'BP_Deer2',
+                    'BP_Boar',
+                    'BP_Wolf3',
+                    'BP_Bear2',
+                    'BP_Rabbit',
+                    'BP_Chicken',
+                    'BP_Donkey2',
+                    'BP_Goat2',
+                    'BP_Horse2',
+                ],
+                Amount: 3,
+                AllowedWeapons: [
+                    'Recurve_Bow',
+                    'Recurve_Bow_50',
+                    'Recurve_Bow_60',
+                    'Recurve_Bow_70',
+                    'Recurve_Bow_80',
+                    'Recurve_Bow_90',
+                    'Recurve_Bow_100',
+                    'Recurve_Bow_Hunter',
+                    'Compound_Bow',
+                    'Compound_Bow_Desert',
+                    'Compound_Bow_Digital',
+                    'Compound_Bow_Snow',
+                    'Compound_Bow_US_Scorpion',
+                    'Compound_Bow_Woodland',
+                    'Compound_Ripper_Bow_Quest',
+                    'Weapon_BlackHawk_Crossbow',
+                    'Weapon_BlackHawk_Crossbow_Quest',
+                ],
+            },
+        ],
+    },
+    {
+        id: 'T2_MH_Kill_SmallAnimals',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 2,
+        Title: 'Cheap Shots',
+        Description:
+            "Rabbits are quick and chickens are stupid in complicated ways, so both make good shooting practice. Don't waste more bullets than the meat's worth.",
+        TimeLimitHours: 72,
+        RewardPool: [{ CurrencyNormal: 1850, Fame: 10, Items: ['Monocular_Trail_Booster'] }],
+        Conditions: [
+            {
+                Type: 'Elimination',
+                SequenceIndex: 0,
+                TargetCharacters: ['BP_Rabbit', 'BP_Chicken'],
+                Amount: 5,
+                AllowedWeapons: [
+                    'Weapon_Block21',
+                    'Weapon_Deagle_357',
+                    'Weapon_Deagle_50',
+                    'Weapon_DEagle_50Gold',
+                    'Weapon_HS9',
+                    'Weapon_Judge44',
+                    'Weapon_Krueger',
+                    'Weapon_M1911',
+                    'Weapon_M1911_Engraved',
+                    'Weapon_M1911_Gold',
+                    'Weapon_M1911_JayW',
+                    'Weapon_M9',
+                    'Weapon_M9_Silver',
+                    'Weapon_PeaceKeeper38',
+                    'Weapon_Serpent357',
+                    'Weapon_SF19',
+                    'Weapon_Viper_M357',
+                ],
+            },
+        ],
+    },
+];

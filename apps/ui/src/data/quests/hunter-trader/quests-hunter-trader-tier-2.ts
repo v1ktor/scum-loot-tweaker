@@ -3,7 +3,7 @@ import type { Quest } from '@/data/quests/quests.types.ts';
 export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     {
         id: 'T2_RH_Fetch_AnimalFat',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Work Some Fat Off',
         Description:
@@ -38,7 +38,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     },
     {
         id: 'T2_RH_Fetch_AnimalGuts',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Gut Reaction',
         Description:
@@ -73,7 +73,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     },
     {
         id: 'T2_RH_Fetch_AnimalSkin',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Skin in the Game',
         Description:
@@ -109,7 +109,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     },
     {
         id: 'T2_RH_Fetch_Bone',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Feel It in Your Bones',
         Description:
@@ -137,7 +137,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     },
     {
         id: 'T2_RH_Fetch_DeerHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Head of the Herd',
         Description: "Bring me a deer head in a good enough shape. I like it better when it's still staring.",
@@ -165,7 +165,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     },
     {
         id: 'T2_RH_Fetch_GoatHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Horns First',
         Description: "I want a goat's head, not some tale about where it ran off to. Bring it intact.",
@@ -193,7 +193,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
     },
     {
         id: 'T2_RH_Fetch_HorseHead',
-        AssociatedNPC: 'HunterTrader',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Why the Long Face?',
         Description:
@@ -234,8 +234,8 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         ],
     },
     {
-        id: 'T2_HT_Kill_Deer',
-        AssociatedNPC: 'HunterTrader',
+        id: 'T2_RH_Kill_Deer',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Buck Stops Here',
         Description:
@@ -269,8 +269,8 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         ],
     },
     {
-        id: 'T2_HT_Kill_Goat',
-        AssociatedNPC: 'HunterTrader',
+        id: 'T2_RH_Kill_Goat',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Climb and Fall',
         Description:
@@ -299,8 +299,8 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
         ],
     },
     {
-        id: 'T2_HT_Kill_Horse',
-        AssociatedNPC: 'HunterTrader',
+        id: 'T2_RH_Kill_Horse',
+        AssociatedNPC: 'Hunter',
         Tier: 2,
         Title: 'Break the Gallop',
         Description:

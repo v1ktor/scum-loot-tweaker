@@ -1,5 +1,5 @@
 /** biome-ignore-all lint/suspicious/noConsole: Seed script - ok to use */
-import { sql } from 'drizzle-orm';
+import { notInArray, sql } from 'drizzle-orm';
 import { db } from '../../src/connections/database/index.ts';
 import { items } from '../../src/connections/database/schema/index.ts';
 import { itemsSeedData } from './items-seed-data.ts';
@@ -22,7 +22,10 @@ async function seed() {
             },
         });
 
-    console.log(`Seeded ${itemsSeedData.length} items.`);
+    const seededIds = itemsSeedData.map((item) => item.id);
+    const removed = await db.delete(items).where(notInArray(items.id, seededIds)).returning({ id: items.id });
+
+    console.log(`Seeded ${itemsSeedData.length} items (removed ${removed.length} stale).`);
 }
 
 seed()

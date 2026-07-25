@@ -3,11 +3,56 @@ import { ArrowUpDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
 import type { Option } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 import type { Row } from './quest-rows.ts';
 import { VariantList } from './quest-variant-list.tsx';
+
+function TargetCharacterList({ names }: { names: string[] }) {
+    if (names.length <= 1) {
+        return <>{names.join(', ')}</>;
+    }
+
+    return (
+        <>
+            of{' '}
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <span className="cursor-help underline decoration-dotted underline-offset-2">
+                            {names.length} characters
+                        </span>
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">{names.join(', ')}</TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
+        </>
+    );
+}
+
+function AllowedWeaponsInfo({ weapons }: { weapons: string[] }) {
+    if (weapons.length <= 3) {
+        return <>Allowed Weapons: {weapons.join(', ')}</>;
+    }
+
+    return (
+        <>
+            Allowed Weapons:{' '}
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <span className="cursor-help underline decoration-dotted underline-offset-2">
+                            {weapons.length} weapons
+                        </span>
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs">{weapons.join(', ')}</TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
+        </>
+    );
+}
 
 export const COLUMN_LABELS: Record<string, string> = {
     npc: 'NPC',
@@ -19,6 +64,7 @@ export const COLUMN_LABELS: Record<string, string> = {
     fp: 'FP',
     xp: 'XP',
     items: 'Items',
+    blueprints: 'Blueprints',
     tradeDeal: 'Trade Deal',
 };
 
@@ -125,7 +171,7 @@ export function makeColumns(showNpc: boolean, itemsOptions: Option[]): ColumnDef
                                                 <span>Kill</span>
                                                 <span className="text-orange-400">{c.Amount}x</span>
                                                 <span className="text-teal-400">
-                                                    <VariantList names={c.TargetCharacters} />
+                                                    <TargetCharacterList names={c.TargetCharacters} />
                                                 </span>
                                             </span>,
                                         ];
@@ -142,11 +188,21 @@ export function makeColumns(showNpc: boolean, itemsOptions: Option[]): ColumnDef
                 },
                 {
                     id: 'conditionExtra',
-                    accessorFn: (row) => row.conditionExtraInfo,
+                    accessorFn: (row) => [row.conditionExtraInfo, ...row.allowedWeapons].join(' '),
                     header: sortHeader('Extra Info'),
-                    cell: ({ row }) => (
-                        <span className="text-xs text-muted-foreground">{row.original.conditionExtraInfo || '—'}</span>
-                    ),
+                    cell: ({ row }) => {
+                        const { conditionExtraInfo, allowedWeapons } = row.original;
+                        if (!conditionExtraInfo && allowedWeapons.length === 0) {
+                            return <span className="text-xs text-muted-foreground">—</span>;
+                        }
+                        return (
+                            <span className="text-xs text-muted-foreground">
+                                {conditionExtraInfo}
+                                {conditionExtraInfo && allowedWeapons.length > 0 ? ' · ' : ''}
+                                {allowedWeapons.length > 0 && <AllowedWeaponsInfo weapons={allowedWeapons} />}
+                            </span>
+                        );
+                    },
                 },
             ],
         },
@@ -189,6 +245,19 @@ export function makeColumns(showNpc: boolean, itemsOptions: Option[]): ColumnDef
                         ) : (
                             <span className="text-xs text-green-500" style={{ whiteSpace: 'pre-line' }}>
                                 {row.original.itemsSummary}
+                            </span>
+                        ),
+                },
+                {
+                    id: 'blueprints',
+                    accessorFn: (row) => row.blueprintSummary,
+                    header: sortHeader('Blueprints'),
+                    cell: ({ row }) =>
+                        row.original.blueprintSummary === '—' ? (
+                            <span className="text-xs text-muted-foreground">—</span>
+                        ) : (
+                            <span className="text-xs text-green-500" style={{ whiteSpace: 'pre-line' }}>
+                                {row.original.blueprintSummary}
                             </span>
                         ),
                 },

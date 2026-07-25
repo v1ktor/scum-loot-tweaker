@@ -16,37 +16,12 @@ import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts
 import { useItemsOptions } from '@/hooks/use-items-options.ts';
 import { TreeSidebarItem } from '@/pages/spawners/nodes/tree-sidebar-item.tsx';
 import { countAllLeafItems, countFilteredLeafItems } from '@/pages/spawners/nodes/utils.ts';
+import { calcSelectionProbability, formatProbability } from '@/pages/spawners/rarity-probability.ts';
 import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
 function getActionLabel(action: string): string {
     return POST_SPAWN_ACTIONS_OPTIONS.find((o) => o.value === action)?.label ?? action;
-}
-
-const RARITY_WEIGHTS: Record<string, number> = {
-    Abundant: 32,
-    Common: 16,
-    Uncommon: 8,
-    Rare: 4,
-    VeryRare: 2,
-    ExtremelyRare: 1,
-};
-
-function calcSelectionProbability(item: LootNode, siblings: LootNode[]) {
-    if (siblings.length === 0) return 0;
-
-    const totalWeight = siblings.reduce((sum, s) => sum + (RARITY_WEIGHTS[s.Rarity ?? 'Common'] ?? 1), 0);
-
-    return (RARITY_WEIGHTS[item.Rarity ?? 'Common'] ?? 1) / totalWeight;
-}
-
-function formatProbability(prob: number) {
-    const pct = prob * 100;
-
-    if (pct === 0) return '0%';
-    if (pct >= 1) return `${pct.toFixed(1)}%`;
-
-    return `${pct.toFixed(2)}%`;
 }
 
 interface NodeTreeViewProps {
@@ -240,7 +215,10 @@ export function NodeTreeView({ treeNode, initialExpanded = false, initialPath, o
                                                         className="w-fit text-[10px] px-1.5 py-0 tabular-nums"
                                                     >
                                                         {formatProbability(
-                                                            calcSelectionProbability(child, allChildren),
+                                                            calcSelectionProbability(
+                                                                child.Rarity,
+                                                                allChildren.map((c) => c.Rarity),
+                                                            ),
                                                         )}
                                                     </Badge>
                                                     {child.PostSpawnActions?.map((action) => (

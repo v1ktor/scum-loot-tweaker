@@ -14,7 +14,7 @@
         "ui:deploy": "npm run deploy --workspace=apps/ui",
         "ui:preview": "npm run preview --workspace=apps/ui",
         "server:dev": "npm run dev --workspace=apps/server",
-        "lint": "npx biome check --write ./apps ./packages"
+        "lint": "npx biome check --write ./apps"
     },
     "repository": {
         "type": "git",

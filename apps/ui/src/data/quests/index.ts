@@ -14,7 +14,7 @@ export type QuestGiverConfig = {
 };
 
 export const QUEST_GIVERS: QuestGiverConfig[] = [
-    { id: 'hunter', npc: 'HunterTrader', name: 'Hunter', quests: HUNTER_TRADER_QUESTS },
+    { id: 'hunter', npc: 'Hunter', name: 'Hunter', quests: HUNTER_TRADER_QUESTS },
     { id: 'master-hunter', npc: 'MasterHunter', name: 'Master Hunter', quests: MASTER_HUNTER_QUESTS },
     { id: 'general-goods', npc: 'GeneralGoods', name: 'General Goods', quests: GENERAL_GOODS_QUESTS },
     { id: 'armorer', npc: 'Armorer', name: 'Armorer', quests: ARMORER_QUESTS },
