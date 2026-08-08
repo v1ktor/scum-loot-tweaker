@@ -1,0 +1,28 @@
+import type { NewCharacter } from '../../src/connections/database/schema/index.ts';
+
+export const charactersSeedData: NewCharacter[] = [
+    { id: 'Puppet', name: 'Puppet (all puppets)' },
+    { id: 'Prisoner', name: 'Prisoner (players)' },
+    { id: 'Razor', name: 'Razor' },
+    { id: 'Sentry', name: 'Sentry' },
+    { id: 'SentryOld', name: 'Sentry (old)' },
+    { id: 'ArmedNPC', name: 'Armed NPC' },
+    { id: 'BP_Zombie_Nuclear', name: 'Nuclear Puppet' },
+    { id: 'BP_Zombie_Nuclear_Fat_Male', name: 'Nuclear Puppet — Fat (male)' },
+    { id: 'BP_Zombie_Nuclear_Fat_Female', name: 'Nuclear Puppet — Fat (female)' },
+    { id: 'BP_Zombie_Nuclear_Muscular_Male', name: 'Nuclear Puppet — Muscular (male)' },
+    { id: 'BP_Zombie_Nuclear_Muscular_Female', name: 'Nuclear Puppet — Muscular (female)' },
+    { id: 'BP_Zombie_Hospital_Normal', name: 'Hospital Puppet' },
+    { id: 'BP_Zombie_Hospital_Fat', name: 'Hospital Puppet — Fat' },
+    { id: 'BP_Zombie_Hospital_Female', name: 'Hospital Puppet — Female' },
+    { id: 'BP_Zombie_Hospital_Muscle', name: 'Hospital Puppet — Muscular' },
+    { id: 'BP_Bear2', name: 'Bear' },
+    { id: 'BP_Boar', name: 'Boar' },
+    { id: 'BP_Wolf3', name: 'Wolf' },
+    { id: 'BP_Deer2', name: 'Deer' },
+    { id: 'BP_Goat2', name: 'Goat' },
+    { id: 'BP_Horse2', name: 'Horse' },
+    { id: 'BP_Chicken', name: 'Chicken' },
+    { id: 'BP_Donkey2', name: 'Donkey' },
+    { id: 'BP_Rabbit', name: 'Rabbit' },
+];

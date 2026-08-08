@@ -1,6 +1,7 @@
+import { isNull } from 'drizzle-orm';
 import { db } from '../index.ts';
 import { items } from '../schema/index.ts';
 
 export function listAllItems() {
-    return db.select().from(items);
+    return db.select().from(items).where(isNull(items.deletedAt));
 }

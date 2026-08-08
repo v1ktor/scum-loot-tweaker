@@ -35,4 +35,22 @@ describe('items.list', () => {
             ]),
         );
     });
+
+    it('excludes items retired by the seed', async () => {
+        await db.insert(items).values([
+            { id: 'Apple', name: 'Apple' },
+            { id: 'Beer', name: 'Beer', deletedAt: new Date() },
+        ]);
+
+        const result = await caller.items.list();
+
+        expect(result).toHaveLength(1);
+        expect(result[0]).toEqual(expect.objectContaining({ id: 'Apple' }));
+    });
+
+    it('returns an empty array when every item is retired', async () => {
+        await db.insert(items).values([{ id: 'Apple', name: 'Apple', deletedAt: new Date() }]);
+
+        expect(await caller.items.list()).toEqual([]);
+    });
 });

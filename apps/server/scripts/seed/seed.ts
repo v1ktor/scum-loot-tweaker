@@ -1,31 +1,24 @@
 /** biome-ignore-all lint/suspicious/noConsole: Seed script - ok to use */
-import { notInArray, sql } from 'drizzle-orm';
-import { db } from '../../src/connections/database/index.ts';
-import { items } from '../../src/connections/database/schema/index.ts';
-import { itemsSeedData } from './items-seed-data.ts';
+import { seedCharacters } from './characters-seed.ts';
+import { seedItems } from './items-seed.ts';
 
+/**
+ * Entry point for `npm run db:seed`.
+ *
+ * Every catalog is seeded the same way: upsert each entry, then retire whatever the seed file no
+ * longer lists.
+ *
+ * Retiring stamps `deletedAt` instead of deleting the row. Item and character ids are referenced by
+ * string — not by foreign key — from spawner presets and quest files that live in the user's
+ * browser, so a removed entry has to stay identifiable rather than vanish. The list queries filter
+ * on `deletedAt`, and re-adding an id to the seed clears the stamp, so a removal is reversible.
+ *
+ * An empty seed file is treated as "nothing to do" rather than "retire everything", so a bad import
+ * or a botched merge can't silently empty a table.
+ */
 async function seed() {
-    if (itemsSeedData.length === 0) {
-        console.log('No items to seed.');
-        return;
-    }
-
-    await db
-        .insert(items)
-        .values(itemsSeedData)
-        .onConflictDoUpdate({
-            target: items.id,
-            set: {
-                name: sql`excluded.name`,
-                description: sql`excluded.description`,
-                updatedAt: new Date(),
-            },
-        });
-
-    const seededIds = itemsSeedData.map((item) => item.id);
-    const removed = await db.delete(items).where(notInArray(items.id, seededIds)).returning({ id: items.id });
-
-    console.log(`Seeded ${itemsSeedData.length} items (removed ${removed.length} stale).`);
+    await seedItems();
+    await seedCharacters();
 }
 
 seed()
