@@ -1,5 +1,5 @@
 import {Download, FileText, Gift, Save, Target, TriangleAlert, X} from 'lucide-react';
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect, useMemo, useRef, useState} from 'react';
 import {useConfirmDialog} from '@/components/confirm-dialog/confirm-dialog.tsx';
 import {Badge} from '@/components/ui/badge.tsx';
 import {Button} from '@/components/ui/button.tsx';
@@ -17,14 +17,14 @@ export function QuestEditor({
                               initialQuest,
                               heading,
                               onSave,
+                              onChange,
                               onCancel,
-                              onDirtyChange,
                             }: {
   initialQuest: Quest;
   heading: string;
-  onSave: (quest: Quest) => void;
+  onSave?: (quest: Quest) => void;
+  onChange?: (quest: Quest) => void;
   onCancel: () => void;
-  onDirtyChange?: (dirty: boolean) => void;
 }) {
   const {itemsOptions} = useItemsOptions();
   const {confirm, dialog: confirmDialog} = useConfirmDialog();
@@ -39,12 +39,19 @@ export function QuestEditor({
     clone.Conditions = ensureConditionIds(clone.Conditions);
     return clone;
   });
+  const autoSaves = onChange !== undefined;
   const [savedSnapshot, setSavedSnapshot] = useState(() => JSON.stringify(draft));
-  const isDirty = useMemo(() => JSON.stringify(draft) !== savedSnapshot, [draft, savedSnapshot]);
+  const isDirty = useMemo(
+    () => !autoSaves && JSON.stringify(draft) !== savedSnapshot,
+    [autoSaves, draft, savedSnapshot],
+  );
+
+  const onChangeRef = useRef(onChange);
+  onChangeRef.current = onChange;
 
   useEffect(() => {
-    onDirtyChange?.(isDirty);
-  }, [isDirty, onDirtyChange]);
+    onChangeRef.current?.(draft);
+  }, [draft]);
 
   useEffect(() => {
     if (!isDirty) return;
@@ -85,7 +92,7 @@ export function QuestEditor({
       return;
     }
     setSavedSnapshot(JSON.stringify(draft));
-    onSave(draft);
+    onSave?.(draft);
   };
 
   const handleCancel = async () => {
@@ -103,6 +110,11 @@ export function QuestEditor({
             {isDirty && (
               <Badge variant="outline" className="font-normal">
                 Unsaved changes
+              </Badge>
+            )}
+            {autoSaves && (
+              <Badge variant="outline" className="font-normal text-muted-foreground">
+                Saved automatically
               </Badge>
             )}
           </h1>
@@ -159,16 +171,18 @@ export function QuestEditor({
             <div className="flex items-center gap-2">
               <Button variant="ghost" onClick={handleCancel}>
                 <X/>
-                Cancel
+                {autoSaves ? 'Close' : 'Cancel'}
               </Button>
               <Button variant="outline" onClick={handleDownload}>
                 <Download/>
                 Download
               </Button>
-              <Button onClick={handleSave}>
-                <Save/>
-                Save to My Quests
-              </Button>
+              {onSave && (
+                <Button onClick={handleSave}>
+                  <Save/>
+                  Save to My Quests
+                </Button>
+              )}
             </div>
           </div>
 

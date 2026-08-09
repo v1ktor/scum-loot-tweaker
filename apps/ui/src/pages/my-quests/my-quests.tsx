@@ -30,6 +30,7 @@ import {columns, type MyQuestsTableMeta} from '@/pages/my-quests/columns.tsx';
 import {UploadQuestTab} from '@/pages/my-quests/upload-quest-tab.tsx';
 import {QuestEditor} from '@/pages/quests/editor/quest-editor.tsx';
 import {downloadBlob, downloadQuest, toGameQuest} from '@/pages/quests/quest-serialization.ts';
+import {QUEST_ID_PATTERN} from '@/pages/quests/quest-validation.ts';
 import type {QuestBody} from '@/utils/parse-quest.ts';
 
 type QuestOption = {value: string; label: string};
@@ -40,7 +41,7 @@ export function MyQuests() {
 
   const [activeTab, setActiveTab] = useState('quests');
   const [selectedId, setSelectedId] = useState('');
-  const [isEditorDirty, setIsEditorDirty] = useState(false);
+  const [editorKey, setEditorKey] = useState('');
   const [sorting, setSorting] = useState<SortingState>([{id: 'title', desc: false}]);
   const [rowSelection, setRowSelection] = useState({});
 
@@ -56,39 +57,28 @@ export function MyQuests() {
     saveImportedQuest(id, {...quest, id});
   };
 
-  const handleEdit = async (id: string) => {
-    if (id !== selectedId) {
-      if (!(await confirmLeavingEditor())) return;
-      setIsEditorDirty(false);
-      setSelectedId(id);
-    }
+  const selectQuest = (id: string) => {
+    setSelectedId(id);
+    setEditorKey(id);
+  };
+
+  const handleEdit = (id: string) => {
+    selectQuest(id);
     setActiveTab('quests');
     requestAnimationFrame(() => editorRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'}));
   };
 
-  const handleSave = (quest: Quest) => {
-    if (selectedId && quest.id !== selectedId) {
+  const handleEditorChange = (quest: Quest) => {
+    if (!selectedId) return;
+
+    const canRename = QUEST_ID_PATTERN.test(quest.id) && !importedQuests[quest.id];
+    const key = quest.id === selectedId || !canRename ? selectedId : quest.id;
+
+    if (key !== selectedId) {
       deleteImportedQuest(selectedId);
-      setSelectedId(quest.id);
+      setSelectedId(key);
     }
-    saveImportedQuest(quest.id, quest);
-    toast('Saved to My Quests');
-  };
-
-  const confirmLeavingEditor = (): Promise<boolean> => {
-    if (!isEditorDirty) return Promise.resolve(true);
-    return confirm({
-      title: 'Discard unsaved changes?',
-      description: 'The quest you are editing has changes that have not been saved.',
-      confirmLabel: 'Discard',
-    });
-  };
-
-  const handleSelect = async (nextId: string) => {
-    if (nextId === selectedId) return;
-    if (!(await confirmLeavingEditor())) return;
-    setIsEditorDirty(false);
-    setSelectedId(nextId);
+    saveImportedQuest(key, quest);
   };
 
   const handleDelete = async (id: string) => {
@@ -104,8 +94,7 @@ export function MyQuests() {
 
     deleteImportedQuest(id);
     if (id === selectedId) {
-      setIsEditorDirty(false);
-      setSelectedId('');
+      selectQuest('');
     }
     toast(`Deleted "${quest?.Title || id}"`);
   };
@@ -156,7 +145,7 @@ export function MyQuests() {
 
     deleteImportedQuests(ids);
     if (ids.includes(selectedId)) {
-      setSelectedId('');
+      selectQuest('');
     }
     setRowSelection({});
     toast(`${ids.length} quest(s) deleted`);
@@ -170,7 +159,7 @@ export function MyQuests() {
         </h1>
 
         <p className="text-sm text-muted-foreground mt-2">
-          Quests you have edited or imported. Pick one to edit, then Save to keep your changes.
+          Quests you have edited or imported. Pick one to edit — all changes are saved automatically.
         </p>
 
         <div className="grid w-full items-start gap-4 py-6">
@@ -238,7 +227,7 @@ export function MyQuests() {
                     isItemEqualToValue={(a: QuestOption | null, b: QuestOption | null) =>
                       a?.value === b?.value
                     }
-                    onValueChange={(next) => void handleSelect(next?.value ?? '')}
+                    onValueChange={(next) => selectQuest(next?.value ?? '')}
                     autoHighlight={true}
                   >
                     <ComboboxInput placeholder="Select an imported quest" showClear={true}/>
@@ -270,15 +259,11 @@ export function MyQuests() {
             {selectedId && importedQuests[selectedId] && (
               <div ref={editorRef} className="mt-6 scroll-mt-20">
                 <QuestEditor
-                  key={selectedId}
+                  key={editorKey}
                   initialQuest={importedQuests[selectedId]}
                   heading="Edit quest"
-                  onSave={handleSave}
-                  onCancel={() => {
-                    setIsEditorDirty(false);
-                    setSelectedId('');
-                  }}
-                  onDirtyChange={setIsEditorDirty}
+                  onChange={handleEditorChange}
+                  onCancel={() => selectQuest('')}
                 />
               </div>
             )}
