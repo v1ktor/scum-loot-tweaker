@@ -170,10 +170,7 @@ export function MyQuests() {
                             available on other devices.
                         </AlertTitle>
                         <AlertCircleIcon />
-                        <AlertTitle>
-                            A downloaded file is a single quest Override. Registering it in the game's quest list is
-                            manual.
-                        </AlertTitle>
+                        <AlertTitle>Place downloaded files in the following directories:</AlertTitle>
                         <AlertDescription>
                             <ul>
                                 <li className="py-1">
