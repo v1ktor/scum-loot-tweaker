@@ -1,5 +1,5 @@
 import { IconBrandDiscordFilled, IconBrandGithubFilled, IconTagFilled } from '@tabler/icons-react';
-import { Cog, Download, Info, Upload } from 'lucide-react';
+import { Cog, Download, Info, Pencil, Upload } from 'lucide-react';
 import { useState } from 'react';
 import { AppSidebarHeader } from '@/components/app-sidebar-header/app-sidebar-header.tsx';
 import { AppSidebarLootTweakerNav } from '@/components/app-sidebar-loot-tweaker-nav/app-sidebar-loot-tweaker-nav.tsx';
@@ -49,14 +49,20 @@ const scumLootTweakerMenuItems: NavItem[] = [
 const scumQuestMenuItems: NavItem[] = [
     {
         title: 'Quest Editor',
-        url: '#',
-        icon: Cog,
-        comingSoon: true,
+        url: NavigationPath.QuestEditor,
+        icon: Pencil,
+        isNew: true,
     },
     {
         title: 'Vanilla Quests',
         url: NavigationPath.Quests,
         icon: Info,
+    },
+    {
+        title: 'My Quests',
+        url: NavigationPath.MyQuests,
+        icon: Upload,
+        isNew: true,
     },
     {
         title: 'Custom Quests',
