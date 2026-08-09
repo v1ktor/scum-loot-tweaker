@@ -437,6 +437,14 @@ function InteractionEditor({
                 </Field>
                 <BoolSwitch
                     label="Spawn only needed"
+                    hint={
+                        'The game rolls a required count between Min and Max needed.\n' +
+                        'On — only that many points spawn, so those specific ones must be used.\n' +
+                        'Off — every point spawns and any of them count towards the total.\n\n' +
+                        'Example: 7 bollards along a road, with Min 3 / Max 5 — say the roll lands on 4.\n' +
+                        'On — only 4 bollards are there and all 4 must be used.\n' +
+                        'Off — all 7 are there and any 4 will do.'
+                    }
                     checked={!!condition.SpawnOnlyNeeded}
                     onChange={(v) => set({ SpawnOnlyNeeded: v })}
                 />
