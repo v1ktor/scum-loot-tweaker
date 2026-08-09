@@ -118,7 +118,7 @@ function summarizeBlueprints(quest: Quest): string {
 function summarizeTradeDeal(quest: Quest, itemsOptions: Option[]): string {
     if (!quest.RewardPool.length) return '—';
 
-    const deals = quest.RewardPool[0].TradeDeal;
+    const deals = quest.RewardPool[0].TradeDeals;
 
     if (!deals?.length) return '—';
 

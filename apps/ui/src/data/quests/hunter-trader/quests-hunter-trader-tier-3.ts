@@ -12,7 +12,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'WeaponSuppressor_30_06',
                         Amount: 1,
@@ -47,7 +47,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Military_Quiver_01',
                         Amount: 1,
@@ -82,7 +82,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'WeaponScope_HuntingScope',
                         Amount: 1,
@@ -117,7 +117,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Weapon_CarbonHunter',
                         Amount: 1,
@@ -159,7 +159,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Weapon_BlackHawk_Crossbow',
                         Amount: 1,
@@ -201,7 +201,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'WeaponSuppressor_Hunter',
                         Amount: 1,
@@ -236,7 +236,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Weapon_DT11B',
                         Amount: 1,
@@ -278,7 +278,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Weapon_Hunter85_V2',
                         Amount: 1,
@@ -313,7 +313,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Compound_Bow',
                         Amount: 1,
@@ -347,7 +347,7 @@ export const HUNTER_TRADER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Recurve_Bow_90',
                         Amount: 1,

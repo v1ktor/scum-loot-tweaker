@@ -41,7 +41,7 @@ function buildRewardRows(reward: Reward | undefined, itemsOptions: Option[]): Re
     for (const item of reward?.Items ?? []) {
         rows.push({ key: `item-${item}`, icon: Package, label: 'Item', value: getItemName(item, itemsOptions) });
     }
-    for (const td of reward?.TradeDeal ?? []) {
+    for (const td of reward?.TradeDeals ?? []) {
         const itemName = getItemName(td.Item, itemsOptions);
         const quantity = td.Amount ? `${td.Amount}x ${itemName}` : itemName;
 

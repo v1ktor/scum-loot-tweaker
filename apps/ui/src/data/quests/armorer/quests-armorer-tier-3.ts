@@ -12,7 +12,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_MP5_SD', Amount: 1, Price: 6000, Fame: 0 },
                     { Item: 'Magazine_MP5', Amount: 3, Price: 400, Fame: 0 },
                     { Item: 'Cal_9mm_Ammobox', Amount: 5, Price: 350, Fame: 0 },
@@ -43,7 +43,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_AKS_74U', Amount: 1, Price: 7500, Fame: 0 },
                     { Item: 'Magazine_AKS_74U', Amount: 3, Price: 400, Fame: 0 },
                     { Item: 'Cal_5_45x39mm_Ammobox', Amount: 5, Price: 750, Fame: 0 },
@@ -74,7 +74,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 7200,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_SVD_Dragunov', Amount: 1, Price: 15000, Fame: 0 },
                     { Item: 'Magazine_SVD_Dragunov', Amount: 3, Price: 500, Fame: 0 },
                     { Item: 'WeaponScope_Dragunov', Amount: 1, Price: 2500, Fame: 0 },
@@ -105,7 +105,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_RPK-74', Amount: 1, Price: 10000, Fame: 0 },
                     { Item: 'Magazine_RPK', Amount: 3, Price: 600, Fame: 0 },
                     { Item: 'Cal_7_62x39mm_Ammobox', Amount: 5, Price: 600, Fame: 0 },
@@ -136,7 +136,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Mine_01', Amount: 2, Price: 3000, Fame: 0 },
                     { Item: 'Armor_Tactical_Vest_01_01', Amount: 1, Price: 1000, Fame: 0 },
                     { Item: 'K6-3_Helmet', Amount: 1, Price: 500, Fame: 0 },
@@ -167,7 +167,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Claymore', Amount: 2, Price: 3500, Fame: 0 }],
+                TradeDeals: [{ Item: 'Claymore', Amount: 2, Price: 3500, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -194,7 +194,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2500,
                 Fame: 20,
-                TradeDeal: [{ Item: 'PromTrap', Amount: 2, Price: 2500, Fame: 0 }],
+                TradeDeals: [{ Item: 'PromTrap', Amount: 2, Price: 2500, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -221,7 +221,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2400,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_SCAR_DMR', Amount: 1, Price: 14000, Fame: 0 },
                     { Item: 'Magazine_SCAR_DMR', Amount: 4, Price: 250, Fame: 0 },
                     { Item: 'Cal_308_Ammobox', Amount: 5, Price: 500, Fame: 0 },
@@ -252,7 +252,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_M82A1', Amount: 1, Price: 20000, Fame: 0 },
                     { Item: 'Magazine_M82A1', Amount: 2, Price: 1500, Fame: 0 },
                     { Item: 'Cal_50BMG_Ammobox', Amount: 3, Price: 2000, Fame: 0 },
@@ -284,7 +284,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 5000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Frag_Grenade', Amount: 3, Price: 2500, Fame: 0 },
                     { Item: 'TNT', Amount: 2, Price: 4000, Fame: 0 },
                 ],
@@ -309,7 +309,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6000,
                 Fame: 30,
-                TradeDeal: [{ Item: 'Gas_Mask_01', Amount: 2, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Gas_Mask_01', Amount: 2, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -350,7 +350,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6000,
                 Fame: 30,
-                TradeDeal: [{ Item: 'Gas_Mask_01', Amount: 2, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Gas_Mask_01', Amount: 2, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -534,7 +534,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6500,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
+                TradeDeals: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
             },
         ],
         Conditions: [
@@ -560,7 +560,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6500,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
+                TradeDeals: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
             },
         ],
         Conditions: [
@@ -586,7 +586,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6500,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
+                TradeDeals: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
             },
         ],
         Conditions: [
@@ -612,7 +612,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 6500,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
+                TradeDeals: [{ Item: 'Weapon_VSS_VZ', Amount: 1, Price: 10000, Fame: 75 }],
             },
         ],
         Conditions: [

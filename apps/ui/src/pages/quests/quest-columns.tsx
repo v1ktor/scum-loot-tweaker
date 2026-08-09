@@ -266,7 +266,7 @@ export function makeColumns(showNpc: boolean, itemsOptions: Option[]): ColumnDef
                     accessorFn: (row) => row.tradeDealSummary,
                     header: sortHeader('Trade Deal'),
                     cell: ({ row }) => {
-                        const deals = row.original.quest.RewardPool[0]?.TradeDeal;
+                        const deals = row.original.quest.RewardPool[0]?.TradeDeals;
                         if (!deals?.length) return <span className="text-xs text-muted-foreground">—</span>;
                         return (
                             <div className="flex flex-col gap-0.5">

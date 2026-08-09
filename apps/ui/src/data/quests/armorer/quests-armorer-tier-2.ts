@@ -12,7 +12,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 3700,
                 Fame: 10,
-                TradeDeal: [{ Item: 'WeaponGhillie_Woodland', Amount: 1, Price: 1800, Fame: 0 }],
+                TradeDeals: [{ Item: 'WeaponGhillie_Woodland', Amount: 1, Price: 1800, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -39,7 +39,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Ghillie_Suit_Jacket_01', Amount: 1, Price: 2000, Fame: 0 },
                     { Item: 'Ghillie_Suit_Pants_01', Amount: 1, Price: 2000, Fame: 0 },
                 ],
@@ -69,7 +69,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2200,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Weapon_Krueger', Amount: 1, Price: 1000, Fame: 0 },
                     { Item: 'Magazine_Krueger', Amount: 3, Price: 200, Fame: 0 },
                     { Item: 'Cal_22_Ammobox', Amount: 5, Price: 100, Fame: 0 },
@@ -100,7 +100,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 4150,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Weapon_MK18', Amount: 1, Price: 7000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Weapon_MK18', Amount: 1, Price: 7000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -127,7 +127,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2600,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Magazine_VHS2', Amount: 3, Price: 800, Fame: 0 },
                     { Item: 'Magazine_AK15', Amount: 3, Price: 400, Fame: 0 },
                     { Item: 'Magazine_AK47', Amount: 5, Price: 500, Fame: 0 },
@@ -158,7 +158,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 4600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Weapon_VHS2', Amount: 1, Price: 8000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Weapon_VHS2', Amount: 1, Price: 8000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -185,7 +185,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2150,
                 Fame: 10,
-                TradeDeal: [{ Item: '1H_Bushman', Amount: 1, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: '1H_Bushman', Amount: 1, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -235,7 +235,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1200,
                 Fame: 10,
-                TradeDeal: [{ Item: 'WeaponSights_RedDot_CA401B', Amount: 1, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'WeaponSights_RedDot_CA401B', Amount: 1, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -262,7 +262,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2500,
                 Fame: 10,
-                TradeDeal: [{ Item: 'WeaponScope_ACOG_01', Amount: 1, Price: 1700, Fame: 0 }],
+                TradeDeals: [{ Item: 'WeaponScope_ACOG_01', Amount: 1, Price: 1700, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -294,7 +294,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1800,
                 Fame: 10,
-                TradeDeal: [{ Item: 'WeaponSights_V3_Holographic', Amount: 1, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'WeaponSights_V3_Holographic', Amount: 1, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -321,7 +321,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1700,
                 Fame: 10,
-                TradeDeal: [{ Item: 'WeaponSuppressor_AK15', Amount: 1, Price: 1800, Fame: 0 }],
+                TradeDeals: [{ Item: 'WeaponSuppressor_AK15', Amount: 1, Price: 1800, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -349,7 +349,7 @@ export const ARMORER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 3000,
                 Fame: 10,
-                TradeDeal: [{ Item: 'WeaponSuppressor_Handgun', Amount: 1, Price: 1000, Fame: 30 }],
+                TradeDeals: [{ Item: 'WeaponSuppressor_Handgun', Amount: 1, Price: 1000, Fame: 30 }],
             },
         ],
         Conditions: [
