@@ -152,13 +152,7 @@ function EliminationCard({
             {!!condition.AllowedWeapons?.length && (
                 <div className="mt-3 border-t pt-3">
                     <div className="mb-1 text-xs text-muted-foreground">Allowed weapons:</div>
-                    <div className="flex flex-wrap gap-1">
-                        {condition.AllowedWeapons.map((w) => (
-                            <Badge key={w} variant="outline">
-                                {getItemName(w, itemsOptions)}
-                            </Badge>
-                        ))}
-                    </div>
+                    <ConditionList items={condition.AllowedWeapons.map((w) => getItemName(w, itemsOptions))} />
                 </div>
             )}
         </div>
