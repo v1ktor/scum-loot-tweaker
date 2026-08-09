@@ -52,17 +52,19 @@ const scumQuestMenuItems: NavItem[] = [
         url: NavigationPath.QuestEditor,
         icon: Pencil,
         isNew: true,
+        items: [
+            {
+                title: 'My Quests',
+                url: NavigationPath.MyQuests,
+                icon: Upload,
+                isNew: true,
+            },
+        ],
     },
     {
         title: 'Vanilla Quests',
         url: NavigationPath.Quests,
         icon: Info,
-    },
-    {
-        title: 'My Quests',
-        url: NavigationPath.MyQuests,
-        icon: Upload,
-        isNew: true,
     },
     {
         title: 'Custom Quests',
