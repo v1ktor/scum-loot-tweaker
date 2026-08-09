@@ -108,7 +108,10 @@ export function QuestEditor({
                     <h1 className="flex flex-wrap items-center gap-3 text-2xl font-bold tracking-tight">
                         {draft.Title || 'Untitled quest'}
                         {isDirty && (
-                            <Badge variant="outline" className="font-normal">
+                            <Badge
+                                variant="outline"
+                                className="border-orange-500/30 bg-orange-500/20 font-normal text-orange-400"
+                            >
                                 Unsaved changes
                             </Badge>
                         )}
