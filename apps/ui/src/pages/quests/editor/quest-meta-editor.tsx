@@ -45,7 +45,7 @@ export function QuestMetaEditor({
             <div className="flex flex-col gap-4">
                 <Field
                     label="Quest ID"
-                    hint="Names the downloaded file and identifies the quest in the game's quest list. Vanilla quests follow T{tier}_{giver}_{type}_{what}, e.g. T1_RH_Fetch_AnimalFat — use the wand to build one from the tier, giver, conditions and title."
+                    hint="Names the downloaded file, which is how the game identifies the quest. Vanilla quests follow T{tier}_{giver}_{type}_{what}, e.g. T1_RH_Fetch_AnimalFat — use the wand to build one from the tier, giver, conditions and title."
                     required
                     error={errorFor('id')}
                 >
