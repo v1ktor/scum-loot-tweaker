@@ -143,23 +143,24 @@ export function Home() {
 
             <h1 className="text-4xl font-extrabold tracking-tight text-balance mb-2 mt-8">Quests</h1>
             <div className="grid grid-cols-2 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
-                <Card className="@container/card card-gradient shadow-xs dark:bg-card">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
-                            Quest Editor
-                        </CardTitle>
-                        <CardDescription>
-                            Simplify custom quest creation — visually design, tweak, and export quests for your server
-                            or sandbox.
-                        </CardDescription>
-                        <CardAction>
-                            <Badge variant="outline">
-                                <IconRocket />
-                                Coming soon!
-                            </Badge>
-                        </CardAction>
-                    </CardHeader>
-                </Card>
+                <Link to={NavigationPath.QuestEditor} className="group h-full">
+                    <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-green-500/50 dark:bg-card h-full">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2 text-2xl font-semibold @[250px]/card:text-3xl">
+                                Quest Editor
+                            </CardTitle>
+                            <CardDescription>
+                                Simplify custom quest creation — visually design, tweak, and export quests for your
+                                server or sandbox.
+                            </CardDescription>
+                            <CardAction>
+                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
+                                    New
+                                </Badge>
+                            </CardAction>
+                        </CardHeader>
+                    </Card>
+                </Link>
                 <Link to={NavigationPath.Quests} className="group h-full">
                     <Card className="@container/card card-gradient shadow-xs transition-colors group-hover:border-yellow-500/50 dark:bg-card h-full">
                         <CardHeader>
