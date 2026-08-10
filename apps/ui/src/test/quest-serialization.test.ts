@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Condition, Quest } from '@/data/quests/quests.types.ts';
-import { toGameQuest } from '@/pages/quests/quest-serialization.ts';
+import { stripUnsupportedRewards, toGameQuest } from '@/pages/quests/quest-serialization.ts';
 import { parseQuestJson } from '@/utils/parse-quest.ts';
 
 const quest = (overrides: Partial<Quest> = {}): Quest => ({
@@ -90,6 +90,27 @@ describe('toGameQuest', () => {
         });
     });
 
+    describe('item rewards', () => {
+        it('never writes Items, which the game silently ignores', () => {
+            const result = toGameQuest(quest({ RewardPool: [{ Items: ['2H_Katana'], Fame: 10 }] }));
+
+            expect(result.RewardPool[0]).not.toHaveProperty('Items');
+            expect(result.RewardPool[0]).toEqual({ Fame: 10 });
+        });
+
+        it('drops Items carried in from an imported vanilla quest', () => {
+            const result = toGameQuest(quest({ RewardPool: [{ Items: ['Recurve_Bow_Hunter'] }] }));
+
+            expect(result.RewardPool[0]).toEqual({});
+        });
+
+        it('never writes Blueprints either', () => {
+            const result = toGameQuest(quest({ RewardPool: [{ Blueprints: ['Deer Skull Trophy'], Fame: 10 }] }));
+
+            expect(result.RewardPool[0]).toEqual({ Fame: 10 });
+        });
+    });
+
     describe('trade deals', () => {
         const deals = [{ Item: 'C4', Price: 420 }];
 
@@ -111,16 +132,6 @@ describe('toGameQuest', () => {
     });
 
     describe('dropping half-filled editor rows', () => {
-        it('removes blank item rewards and the key with them', () => {
-            const result = toGameQuest(quest({ RewardPool: [{ Items: ['', '  '] }] }));
-            expect(result.RewardPool[0]).not.toHaveProperty('Items');
-        });
-
-        it('keeps the filled item rewards', () => {
-            const result = toGameQuest(quest({ RewardPool: [{ Items: ['', 'Rag'] }] }));
-            expect(result.RewardPool[0].Items).toEqual(['Rag']);
-        });
-
         it('removes blank skill rows', () => {
             const skills = [{ Skill: '' as never, Experience: 0 }];
             expect(toGameQuest(quest({ RewardPool: [{ Skills: skills }] })).RewardPool[0]).not.toHaveProperty('Skills');
@@ -141,5 +152,52 @@ describe('toGameQuest', () => {
             expect(result.RewardPool).toHaveLength(2);
             expect(result.RewardPool[1]).toEqual({ CurrencyGold: 1 });
         });
+    });
+});
+
+describe('stripUnsupportedRewards', () => {
+    it('drops Items from every reward pool', () => {
+        const stripped = stripUnsupportedRewards(
+            quest({ RewardPool: [{ Fame: 5, Items: ['Hunting_Quiver_01'] }, { Items: ['Recurve_Bow_Hunter'] }] }),
+        );
+
+        expect(stripped.RewardPool).toEqual([{ Fame: 5 }, {}]);
+    });
+
+    it('drops Blueprints too', () => {
+        const stripped = stripUnsupportedRewards(
+            quest({ RewardPool: [{ Fame: 5, Blueprints: ['Deer Skull Trophy'] }] }),
+        );
+
+        expect(stripped.RewardPool).toEqual([{ Fame: 5 }]);
+    });
+
+    it('drops both when a reward carries each', () => {
+        const stripped = stripUnsupportedRewards(
+            quest({ RewardPool: [{ Items: ['Hunting_Quiver_01'], Blueprints: ['Hunter Bed'], CurrencyNormal: 100 }] }),
+        );
+
+        expect(stripped.RewardPool).toEqual([{ CurrencyNormal: 100 }]);
+    });
+
+    it('leaves the rest of the quest alone', () => {
+        const original = quest({ RewardPool: [{ Fame: 5, Items: ['Hunting_Quiver_01'] }] });
+        const stripped = stripUnsupportedRewards(original);
+
+        expect(stripped).toMatchObject({ id: original.id, Title: original.Title, Tier: original.Tier });
+        expect(stripped.Conditions).toEqual(original.Conditions);
+    });
+
+    it('does not mutate the quest it is given', () => {
+        const original = quest({ RewardPool: [{ Items: ['Hunting_Quiver_01'] }] });
+        stripUnsupportedRewards(original);
+
+        expect(original.RewardPool[0].Items).toEqual(['Hunting_Quiver_01']);
+    });
+
+    it('is a no-op for a quest without item rewards', () => {
+        const original = quest({ RewardPool: [{ Fame: 5 }] });
+
+        expect(stripUnsupportedRewards(original).RewardPool).toEqual([{ Fame: 5 }]);
     });
 });

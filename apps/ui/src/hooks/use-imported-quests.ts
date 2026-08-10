@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { toast } from 'sonner';
 import type { Quest } from '@/data/quests/quests.types.ts';
+import { stripUnsupportedRewards } from '@/pages/quests/quest-serialization.ts';
 
 const STORAGE_KEY = 'imported-quests';
 
@@ -28,7 +29,7 @@ export function useImportedQuests() {
 
     const saveImportedQuest = useCallback((id: string, quest: Quest) => {
         setImportedQuests((prev) => {
-            const next = { ...prev, [id]: quest };
+            const next = { ...prev, [id]: stripUnsupportedRewards(quest) };
             writeStorage(next);
             return next;
         });

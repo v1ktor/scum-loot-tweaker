@@ -1,3 +1,4 @@
+import { TriangleAlert } from 'lucide-react';
 import { Badge } from '@/components/ui/badge.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
 import type { Reward, SkillReward, TradeDeal } from '@/data/quests/quests.types.ts';
@@ -5,7 +6,6 @@ import { updateAt, withoutIndices } from '@/lib/array.ts';
 import type { Option } from '@/pages/spawners/spawners.types.ts';
 import type { QuestError, RewardTab } from '../quest-validation.ts';
 import { EditorDataTable } from './editor-data-table.tsx';
-import { type ItemTableMeta, itemRewardColumns } from './item-reward-columns.tsx';
 import { Field, NumberInput, tabErrorClass } from './quest-editor-fields.tsx';
 import { type SkillTableMeta, skillColumns } from './skill-reward-columns.tsx';
 import { type TradeDealTableMeta, tradeDealColumns } from './trade-deal-columns.tsx';
@@ -19,7 +19,6 @@ export function countRewards(reward: Reward | undefined): number {
     if (reward.Fame !== undefined) count += 1;
 
     count += reward.Skills?.filter((skill) => skill.Skill.trim() !== '').length ?? 0;
-    count += reward.Items?.filter((item) => item.trim() !== '').length ?? 0;
     count += reward.TradeDeals?.filter((deal) => deal.Item.trim() !== '').length ?? 0;
 
     return count;
@@ -60,35 +59,6 @@ function SkillRewards({ skills, onChange }: { skills: SkillReward[]; onChange: (
             }
             onAdd={() => onChange([...skills, { Skill: '' as SkillReward['Skill'], Experience: 0 }])}
             onDeleteIndices={(indices) => onChange(withoutIndices(skills, indices))}
-        />
-    );
-}
-
-function ItemRewards({
-    items,
-    itemsOptions,
-    onChange,
-}: {
-    items: string[];
-    itemsOptions: Option[];
-    onChange: (items: string[]) => void;
-}) {
-    return (
-        <EditorDataTable
-            title="Item rewards"
-            addLabel="Add item"
-            emptyText="No items."
-            columns={itemRewardColumns}
-            data={items}
-            meta={
-                {
-                    itemsOptions,
-                    onUpdate: (index, value) => onChange(updateAt(items, index, value)),
-                    onRemove: (index) => onChange(withoutIndices(items, [index])),
-                } satisfies ItemTableMeta
-            }
-            onAdd={() => onChange([...items, ''])}
-            onDeleteIndices={(indices) => onChange(withoutIndices(items, indices))}
         />
     );
 }
@@ -137,16 +107,31 @@ export function QuestRewardEditor({
     const patch = (next: Partial<Reward>) => onChange({ ...value, ...next });
 
     const skills = value.Skills ?? [];
-    const items = value.Items ?? [];
     const tradeDeals = value.TradeDeals ?? [];
 
     const skillCount = skills.filter((skill) => skill.Skill.trim() !== '').length;
-    const itemCount = items.filter((item) => item.trim() !== '').length;
     const dealCount = tradeDeals.filter((deal) => deal.Item.trim() !== '').length;
     const currencyCount =
         (value.CurrencyNormal !== undefined ? 1 : 0) +
         (value.CurrencyGold !== undefined ? 1 : 0) +
         (value.Fame !== undefined ? 1 : 0);
+
+    const ignoredRewards = [
+        {
+            key: 'items',
+            singular: 'a reward item',
+            plural: 'reward items',
+            names: (value.Items ?? [])
+                .filter((item) => item.trim() !== '')
+                .map((item) => itemsOptions.find((option) => option.value === item)?.label ?? item),
+        },
+        {
+            key: 'blueprints',
+            singular: 'a reward blueprint',
+            plural: 'reward blueprints',
+            names: (value.Blueprints ?? []).filter((blueprint) => blueprint.trim() !== ''),
+        },
+    ].filter((reward) => reward.names.length > 0);
 
     const tabErrorCount = (tab: RewardTab) => errors.filter((e) => e.rewardTab === tab).length;
     const countBadge = (tab: RewardTab, count: number) =>
@@ -158,15 +143,29 @@ export function QuestRewardEditor({
 
     return (
         <Tabs defaultValue="currency">
+            {ignoredRewards.map(({ key, singular, plural, names }) => {
+                const many = names.length > 1;
+
+                return (
+                    <div
+                        key={key}
+                        className="mb-4 flex items-start gap-3 rounded-lg border border-orange-500/30 bg-orange-500/10 p-4"
+                    >
+                        <TriangleAlert className="mt-0.5 h-5 w-5 shrink-0 text-orange-400" />
+                        <p className="text-sm text-orange-400">
+                            The quest has {many ? plural : singular} ({names.join(', ')}) and {many ? 'they' : 'it'}{' '}
+                            will be ignored as there is no official information on how to trigger {many ? 'them' : 'it'}{' '}
+                            in game
+                        </p>
+                    </div>
+                );
+            })}
             <TabsList>
                 <TabsTrigger value="currency" className={tabErrorClass(tabErrorCount('currency') > 0)}>
                     Currency {countBadge('currency', currencyCount)}
                 </TabsTrigger>
                 <TabsTrigger value="skills" className={tabErrorClass(tabErrorCount('skills') > 0)}>
                     Skills {countBadge('skills', skillCount)}
-                </TabsTrigger>
-                <TabsTrigger value="items" className={tabErrorClass(tabErrorCount('items') > 0)}>
-                    Items {countBadge('items', itemCount)}
                 </TabsTrigger>
                 <TabsTrigger value="trade" className={tabErrorClass(tabErrorCount('trade') > 0)}>
                     Trade deals {countBadge('trade', dealCount)}
@@ -178,9 +177,6 @@ export function QuestRewardEditor({
             </TabsContent>
             <TabsContent value="skills" className="mt-4 rounded-lg border bg-card p-4">
                 <SkillRewards skills={skills} onChange={(Skills) => patch({ Skills })} />
-            </TabsContent>
-            <TabsContent value="items" className="mt-4 rounded-lg border bg-card p-4">
-                <ItemRewards items={items} itemsOptions={itemsOptions} onChange={(Items) => patch({ Items })} />
             </TabsContent>
             <TabsContent value="trade" className="mt-4 rounded-lg border bg-card p-4">
                 <TradeDealRewards

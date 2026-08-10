@@ -53,6 +53,7 @@ export type Reward = {
     Fame?: number;
     Skills?: SkillReward[];
     TradeDeals?: TradeDeal[];
+    // TODO: some quests have items as rewards, but there is no official documentation on how to structure reward pool
     Items?: string[];
     // TODO: Some quests unlock blueprints as rewards, but there is no official documentation on how to structure reward pool
     Blueprints?: string[];
