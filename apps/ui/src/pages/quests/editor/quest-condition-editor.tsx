@@ -454,8 +454,6 @@ function InteractionEditor({
 }
 
 function conditionSummary(condition: Condition): string {
-    // Show it's unconfigured before anything else, so a collapsed card can't look complete when it
-    // would actually be dropped on export.
     if (!conditionHasContent(condition)) {
         if (condition.Type === 'Fetch') return 'Empty — add an item';
         if (condition.Type === 'Elimination') return 'Empty — add a target';
@@ -525,8 +523,6 @@ function ConditionCardEditor({
                 <span
                     draggable
                     onDragStart={(event) => {
-                        // Use just the header row as the drag ghost, so an expanded card doesn't
-                        // produce a full-page-sized drag image.
                         if (headerRef.current) event.dataTransfer.setDragImage(headerRef.current, 16, 16);
                         onDragStart(event);
                     }}
