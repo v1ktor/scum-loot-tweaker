@@ -263,7 +263,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Deer2'],
+                TargetCharacters: ['BP_Deer'],
                 Amount: 1,
             },
         ],
@@ -293,7 +293,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Goat2'],
+                TargetCharacters: ['BP_Goat'],
                 Amount: 1,
             },
         ],
@@ -323,7 +323,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Horse2'],
+                TargetCharacters: ['BP_Horse'],
                 Amount: 1,
             },
         ],
