@@ -12,7 +12,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: '1H_Little_Spade', Amount: 1, Price: 100, Fame: 0 }],
+                TradeDeals: [{ Item: '1H_Little_Spade', Amount: 1, Price: 100, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -39,7 +39,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1300,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Barbed_Wire', Amount: 5, Price: 150, Fame: 0 }],
+                TradeDeals: [{ Item: 'Barbed_Wire', Amount: 5, Price: 150, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -66,7 +66,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Tool_Box', Amount: 3, Price: 800, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tool_Box', Amount: 3, Price: 800, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -93,7 +93,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1200,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Padlock', Amount: 5, Price: 50, Fame: 0 }],
+                TradeDeals: [{ Item: 'Padlock', Amount: 5, Price: 50, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -152,7 +152,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1500,
                 Fame: 10,
-                TradeDeal: [{ Item: 'MetalDetector', Amount: 1, Price: 3000, Fame: 0 }],
+                TradeDeals: [{ Item: 'MetalDetector', Amount: 1, Price: 3000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -179,7 +179,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Canteen', Amount: 3, Price: 200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Canteen', Amount: 3, Price: 200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -206,7 +206,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1400,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Smartphone_Battery', Amount: 3, Price: 400, Fame: 0 }],
+                TradeDeals: [{ Item: 'Smartphone_Battery', Amount: 3, Price: 400, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -233,7 +233,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Soap', Amount: 10, Price: 50, Fame: 0 }],
+                TradeDeals: [{ Item: 'Soap', Amount: 10, Price: 50, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -295,7 +295,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1200,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Grinding_Stone_01', Amount: 1, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Grinding_Stone_01', Amount: 1, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -323,7 +323,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1700,
                 Fame: 15,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'PETBottle01', Amount: 3, Price: 50, Fame: 0 },
                     { Item: 'PETBottle03', Amount: 3, Price: 50, Fame: 0 },
                 ],
@@ -352,7 +352,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 8000,
                 Fame: 40,
-                TradeDeal: [{ Item: 'BaseExpansionKit_Lvl1', Amount: 1, Price: 15000, Fame: 90 }],
+                TradeDeals: [{ Item: 'BaseExpansionKit_Lvl1', Amount: 1, Price: 15000, Fame: 90 }],
             },
         ],
         Conditions: [
@@ -387,7 +387,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1700,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Rebar_Cutter', Amount: 1, Price: 2000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Rebar_Cutter', Amount: 1, Price: 2000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -413,7 +413,7 @@ export const GENERAL_GOODS_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1700,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Drill', Amount: 1, Price: 1500, Fame: 0 }],
+                TradeDeals: [{ Item: 'Drill', Amount: 1, Price: 1500, Fame: 0 }],
             },
         ],
         Conditions: [

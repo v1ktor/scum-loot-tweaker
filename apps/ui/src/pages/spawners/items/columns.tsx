@@ -1,16 +1,9 @@
 import type { ColumnDef } from '@tanstack/react-table';
 import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
+import { FreeTextCombobox } from '@/components/free-text-combobox/free-text-combobox.tsx';
 import { Badge } from '@/components/ui/badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { Checkbox } from '@/components/ui/checkbox.tsx';
-import {
-    Combobox,
-    ComboboxContent,
-    ComboboxEmpty,
-    ComboboxInput,
-    ComboboxItem,
-    ComboboxList,
-} from '@/components/ui/combobox.tsx';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -63,35 +56,17 @@ export const createColumns = (
         },
         cell: ({ row, table }) => {
             const meta = table.options.meta as DataTableMeta | undefined;
-            const currentId = row.getValue('Id') as string;
-            const currentOption =
-                itemsOptions.find((o) => o.value === currentId) ??
-                (currentId ? { value: currentId, label: currentId } : null);
 
             return (
-                <Combobox
-                    items={itemsOptions}
-                    itemToStringValue={(item: Option) => item.label}
-                    value={currentOption ?? null}
-                    onValueChange={(next) => {
-                        if (next) {
-                            meta?.onUpdateItem?.(row.index, next.value);
-                        }
-                    }}
-                    autoHighlight={true}
-                >
-                    <ComboboxInput placeholder="Select item" className="h-8 min-w-48" />
-                    <ComboboxContent>
-                        <ComboboxEmpty>No items found.</ComboboxEmpty>
-                        <ComboboxList>
-                            {(item: Option) => (
-                                <ComboboxItem key={item.value} value={item}>
-                                    {item.label}
-                                </ComboboxItem>
-                            )}
-                        </ComboboxList>
-                    </ComboboxContent>
-                </Combobox>
+                <FreeTextCombobox
+                    value={row.getValue('Id') as string}
+                    options={itemsOptions}
+                    placeholder="Select item"
+                    className="h-8 min-w-48"
+                    showClear={false}
+                    emptyText="No items found."
+                    onChange={(next) => next && meta?.onUpdateItem?.(row.index, next)}
+                />
             );
         },
     },

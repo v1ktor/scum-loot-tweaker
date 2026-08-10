@@ -12,7 +12,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1450,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Emergency_bandage', Amount: 3, Price: 300, Fame: 0 },
                     { Item: 'Antibiotics_01', Amount: 1, Price: 1500, Fame: 0 },
                     { Item: 'PotassiumIodide_Pills_01', Amount: 1, Price: 250, Fame: 0 },
@@ -43,7 +43,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1450,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Painkillers_01', Amount: 2, Price: 1500, Fame: 0 }],
+                TradeDeals: [{ Item: 'Painkillers_01', Amount: 2, Price: 1500, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -70,7 +70,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Emergency_bandage', Amount: 3, Price: 300, Fame: 0 }],
+                TradeDeals: [{ Item: 'Emergency_bandage', Amount: 3, Price: 300, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -97,7 +97,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1550,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Antibiotics_01', Amount: 5, Price: 100, Fame: 0 }],
+                TradeDeals: [{ Item: 'Antibiotics_01', Amount: 5, Price: 100, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -157,7 +157,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1500,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Emergency_bandage', Amount: 3, Price: 350, Fame: 0 },
                     { Item: 'Emergency_bandage_Big', Amount: 1, Price: 1550, Fame: 0 },
                 ],
@@ -197,7 +197,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1520,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Hemostatic_Dressing', Amount: 3, Price: 650, Fame: 0 }],
+                TradeDeals: [{ Item: 'Hemostatic_Dressing', Amount: 3, Price: 650, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -224,7 +224,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1500,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Isopropyl_alcohol', Amount: 1, Price: 700, Fame: 0 }],
+                TradeDeals: [{ Item: 'Isopropyl_alcohol', Amount: 1, Price: 700, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -252,7 +252,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1480,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Emergency_bandage_Big', Amount: 2, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Emergency_bandage_Big', Amount: 2, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -304,7 +304,7 @@ export const DOCTOR_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 15,
-                TradeDeal: [{ Item: 'Cigarettes', Amount: 3, Price: 100, Fame: 0 }],
+                TradeDeals: [{ Item: 'Cigarettes', Amount: 3, Price: 100, Fame: 0 }],
             },
         ],
         Conditions: [

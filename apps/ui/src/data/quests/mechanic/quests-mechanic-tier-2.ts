@@ -12,7 +12,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Small_Vehicle_StorageRack', Amount: 1, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Small_Vehicle_StorageRack', Amount: 1, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -39,7 +39,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1450,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Dirtbike_Headlight_Item', Amount: 1, Price: 150, Fame: 0 }],
+                TradeDeals: [{ Item: 'Dirtbike_Headlight_Item', Amount: 1, Price: 150, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -66,7 +66,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1550,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Car_Repair_Kit', Amount: 1, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Car_Repair_Kit', Amount: 1, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -93,7 +93,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1500,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Gasoline_Canister_Small', Amount: 2, Price: 150, Fame: 0 }],
+                TradeDeals: [{ Item: 'Gasoline_Canister_Small', Amount: 2, Price: 150, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -120,7 +120,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1600,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Car_Jack', Amount: 1, Price: 1500, Fame: 0 }],
+                TradeDeals: [{ Item: 'Car_Jack', Amount: 1, Price: 1500, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -147,7 +147,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1580,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Dirtbike_Fender_Item', Amount: 1, Price: 200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Dirtbike_Fender_Item', Amount: 1, Price: 200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -174,7 +174,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1480,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Dirtbike_Hellrider_Skull_Item', Amount: 1, Price: 200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Dirtbike_Hellrider_Skull_Item', Amount: 1, Price: 200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -201,7 +201,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1400,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Dirtbike_Body_Hellrider_Item', Amount: 1, Price: 1000, Fame: 0 },
                     { Item: 'Dirtbike_Body_Item', Amount: 1, Price: 1000, Fame: 0 },
                 ],
@@ -231,7 +231,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1580,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Dirtbike_Front_Shield_Item', Amount: 1, Price: 200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Dirtbike_Front_Shield_Item', Amount: 1, Price: 200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -258,7 +258,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1200,
                 Fame: 10,
-                TradeDeal: [{ Item: 'Dirtbike_Front_Wheel_Cover_Item', Amount: 1, Price: 150, Fame: 0 }],
+                TradeDeals: [{ Item: 'Dirtbike_Front_Wheel_Cover_Item', Amount: 1, Price: 150, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -285,7 +285,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Car_Jack', Amount: 1, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Car_Jack', Amount: 1, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -311,7 +311,7 @@ export const MECHANIC_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Car_Repair_Kit', Amount: 2, Price: 800, Fame: 0 }],
+                TradeDeals: [{ Item: 'Car_Repair_Kit', Amount: 2, Price: 800, Fame: 0 }],
             },
         ],
         Conditions: [

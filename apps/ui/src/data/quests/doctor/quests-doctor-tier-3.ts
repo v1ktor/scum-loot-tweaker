@@ -12,7 +12,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Painkillers_01', Amount: 3, Price: 1800, Fame: 30 },
                     { Item: 'Painkillers_01', Amount: 2, Price: 3000, Fame: 35 },
                     { Item: 'Painkillers_01', Amount: 1, Price: 4400, Fame: 40 },
@@ -44,7 +44,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2500,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Tourniquet', Amount: 10, Price: 500, Fame: 0 },
                     { Item: 'Painkillers_01', Amount: 3, Price: 2800, Fame: 0 },
                     { Item: 'AntiburnGel', Amount: 5, Price: 500, Fame: 0 },
@@ -77,7 +77,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 7500,
                 Fame: 35,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -111,7 +111,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 7500,
                 Fame: 35,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -145,7 +145,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 7500,
                 Fame: 35,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -179,7 +179,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 7500,
                 Fame: 35,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 3, Price: 1200, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -213,7 +213,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2350,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Emergency_bandage', Amount: 10, Price: 150, Fame: 0 },
                     { Item: 'Pressure_Dressing', Amount: 3, Price: 600, Fame: 0 },
                     { Item: 'Tourniquet', Amount: 2, Price: 1400, Fame: 0 },
@@ -249,7 +249,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2400,
                 Fame: 20,
-                TradeDeal: [{ Item: 'PotassiumIodide_Pills_01', Amount: 2, Price: 500, Fame: 0 }],
+                TradeDeals: [{ Item: 'PotassiumIodide_Pills_01', Amount: 2, Price: 500, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -276,7 +276,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 5000,
                 Fame: 40,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 3, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 3, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -316,7 +316,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2500,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 3, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 3, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -368,7 +368,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2400,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 5, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 5, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -396,7 +396,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2200,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 5, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 5, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -424,7 +424,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2450,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Tourniquet', Amount: 5, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Tourniquet', Amount: 5, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -479,7 +479,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 2450,
                 Fame: 25,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Emergency_bandage_Big', Amount: 5, Price: 1000, Fame: 0 },
                     { Item: 'Tourniquet', Amount: 2, Price: 1400, Fame: 0 },
                     { Item: 'Hemostatic_Dressing', Amount: 4, Price: 750, Fame: 0 },
@@ -510,7 +510,7 @@ export const DOCTOR_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 30,
-                TradeDeal: [{ Item: 'PotassiumIodide_Pills_01', Amount: 2, Price: 200, Fame: 0 }],
+                TradeDeals: [{ Item: 'PotassiumIodide_Pills_01', Amount: 2, Price: 200, Fame: 0 }],
             },
         ],
         Conditions: [

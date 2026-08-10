@@ -52,7 +52,8 @@ export type Reward = {
     CurrencyGold?: number;
     Fame?: number;
     Skills?: SkillReward[];
-    TradeDeal?: TradeDeal[];
+    TradeDeals?: TradeDeal[];
+    // TODO: some quests have items as rewards, but there is no official documentation on how to structure reward pool
     Items?: string[];
     // TODO: Some quests unlock blueprints as rewards, but there is no official documentation on how to structure reward pool
     Blueprints?: string[];
@@ -64,6 +65,7 @@ export type MapLocation = {
 };
 
 type ConditionBase = {
+    uid?: string;
     CanBeAutoCompleted?: boolean;
     TrackingCaption?: string;
     SequenceIndex: number;
@@ -124,8 +126,8 @@ export type Quest = {
     AssociatedNPC: AssociatedNPC;
     Tier: 1 | 2 | 3;
     Title: string;
-    Description: string;
-    TimeLimitHours?: number;
+    Description?: string;
+    TimeLimitHours: number;
     RewardPool: Reward[];
     Conditions: Condition[];
 };

@@ -15,4 +15,5 @@ export function createTestDb() {
 export async function cleanDb(db: ReturnType<typeof createTestDb>['db']) {
     await db.delete(schema.items);
     await db.delete(schema.itemCategories);
+    await db.delete(schema.characters);
 }

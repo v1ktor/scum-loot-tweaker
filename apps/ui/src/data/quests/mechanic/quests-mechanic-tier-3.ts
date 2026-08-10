@@ -12,7 +12,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 5000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Wheel_265_60_R18_Item', Amount: 4, Price: 2000, Fame: 0 },
                     { Item: 'Rager_Seat_FrontLeft_Item', Amount: 2, Price: 2500, Fame: 0 },
                 ],
@@ -42,7 +42,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Wheel_155_R65_Item', Amount: 4, Price: 800, Fame: 0 },
                     { Item: 'WW_Seat_FrontLeft_Item', Amount: 2, Price: 600, Fame: 0 },
                 ],
@@ -72,7 +72,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 20,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'Wheel_255_55_R16_Item', Amount: 4, Price: 800, Fame: 0 },
                     { Item: 'Laika_Seat_FrontLeft_Item', Amount: 2, Price: 600, Fame: 0 },
                 ],
@@ -128,7 +128,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3500,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Car_Repair_Kit', Amount: 3, Price: 900, Fame: 0 }],
+                TradeDeals: [{ Item: 'Car_Repair_Kit', Amount: 3, Price: 900, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -181,7 +181,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3600,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 2000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 2000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -208,7 +208,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3600,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 2000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 2000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -235,7 +235,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3000,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 2000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 2000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -262,7 +262,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3050,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Gasoline_Canister', Amount: 5, Price: 300, Fame: 0 }],
+                TradeDeals: [{ Item: 'Gasoline_Canister', Amount: 5, Price: 300, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -313,7 +313,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 30,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'WW_Bumper_Front_Item', Amount: 4, Price: 600, Fame: 0 },
                     { Item: 'Wheel_255_55_R16_Item', Amount: 4, Price: 600, Fame: 0 },
                     { Item: 'Wheel_265_60_R18_Item', Amount: 4, Price: 2000, Fame: 0 },
@@ -343,7 +343,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3000,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 1000, Fame: 0 }],
+                TradeDeals: [{ Item: 'Big_Vehicle_StorageRack', Amount: 1, Price: 1000, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -369,7 +369,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 3000,
                 Fame: 20,
-                TradeDeal: [{ Item: 'Wheel_205_80_R12_Item', Amount: 4, Price: 800, Fame: 0 }],
+                TradeDeals: [{ Item: 'Wheel_205_80_R12_Item', Amount: 4, Price: 800, Fame: 0 }],
             },
         ],
         Conditions: [
@@ -395,7 +395,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 4000,
                 Fame: 25,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'WW_Engine_Alternator_Item', Amount: 1, Price: 1500, Fame: 0 },
                     { Item: 'Laika_Engine_Alternator_Item', Amount: 1, Price: 1200, Fame: 0 },
                     { Item: 'Rager_Engine_Alternator_Item', Amount: 1, Price: 2500, Fame: 0 },
@@ -425,7 +425,7 @@ export const MECHANIC_QUESTS_TIER3: Quest[] = [
             {
                 CurrencyNormal: 5000,
                 Fame: 35,
-                TradeDeal: [
+                TradeDeals: [
                     { Item: 'WW_Seat_FrontLeft_Item', Amount: 1, Price: 500, Fame: 0 },
                     { Item: 'Laika_Seat_FrontLeft_Item', Amount: 1, Price: 500, Fame: 0 },
                     { Item: 'Rager_Seat_FrontLeft_Item', Amount: 1, Price: 2000, Fame: 0 },

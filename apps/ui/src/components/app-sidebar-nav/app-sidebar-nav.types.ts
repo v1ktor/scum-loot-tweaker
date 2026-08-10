@@ -25,3 +25,7 @@ export type NavItem = {
 export type NavListProps = {
     items: NavItem[];
 };
+
+export type NavGroupProps = NavListProps & {
+    label: string;
+};

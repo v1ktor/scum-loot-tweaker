@@ -11,6 +11,14 @@ export function Changelog() {
                 </h1>
 
                 <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+                    <span className="text-3xl font-semibold tracking-tight">0.7.0</span>
+                    <span className="text-sm text-muted-foreground">August 10, 2026</span>
+                </h2>
+                <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+                    <li>Initial release of the quest builder</li>
+                </ul>
+
+                <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
                     <span className="text-3xl font-semibold tracking-tight">0.6.0</span>
                     <span className="text-sm text-muted-foreground">July 25, 2026</span>
                 </h2>

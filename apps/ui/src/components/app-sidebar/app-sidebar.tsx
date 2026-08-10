@@ -1,12 +1,11 @@
 import { IconBrandDiscordFilled, IconBrandGithubFilled, IconTagFilled } from '@tabler/icons-react';
-import { Cog, Download, Info, Upload } from 'lucide-react';
+import { Cog, Download, Info, Pencil, Upload } from 'lucide-react';
 import { useState } from 'react';
 import { AppSidebarHeader } from '@/components/app-sidebar-header/app-sidebar-header.tsx';
-import { AppSidebarLootTweakerNav } from '@/components/app-sidebar-loot-tweaker-nav/app-sidebar-loot-tweaker-nav.tsx';
 import { AppSidebarMiscNav } from '@/components/app-sidebar-misc-nav/app-sidebar-misc-nav.tsx';
+import { AppSidebarNav } from '@/components/app-sidebar-nav/app-sidebar-nav.tsx';
 import type { NavItem } from '@/components/app-sidebar-nav/app-sidebar-nav.types.ts';
 import { AppSidebarProfile } from '@/components/app-sidebar-profile/app-sidebar-profile.tsx';
-import { AppSidebarQuestsNav } from '@/components/app-sidebar-quests-nav/app-sidebar-quests-nav.tsx';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, useSidebar } from '@/components/ui/sidebar.tsx';
 import { NavigationPath } from '@/data/navigation-path.ts';
 
@@ -49,9 +48,17 @@ const scumLootTweakerMenuItems: NavItem[] = [
 const scumQuestMenuItems: NavItem[] = [
     {
         title: 'Quest Editor',
-        url: '#',
-        icon: Cog,
-        comingSoon: true,
+        url: NavigationPath.QuestEditor,
+        icon: Pencil,
+        isNew: true,
+        items: [
+            {
+                title: 'My Quests',
+                url: NavigationPath.MyQuests,
+                icon: Upload,
+                isNew: true,
+            },
+        ],
     },
     {
         title: 'Vanilla Quests',
@@ -99,8 +106,8 @@ export function AppSidebar() {
                 <AppSidebarHeader />
             </SidebarHeader>
             <SidebarContent>
-                <AppSidebarLootTweakerNav items={scumLootTweakerMenuItems} />
-                <AppSidebarQuestsNav items={scumQuestMenuItems} />
+                <AppSidebarNav label="SCUM Loot Tweaker" items={scumLootTweakerMenuItems} />
+                <AppSidebarNav label="SCUM Quests" items={scumQuestMenuItems} />
                 <AppSidebarMiscNav items={items} />
             </SidebarContent>
             <SidebarFooter>

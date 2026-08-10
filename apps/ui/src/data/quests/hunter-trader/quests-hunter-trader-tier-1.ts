@@ -206,7 +206,7 @@ export const HUNTER_TRADER_QUESTS_TIER1: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Donkey2'],
+                TargetCharacters: ['BP_Donkey'],
                 Amount: 1,
             },
         ],

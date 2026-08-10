@@ -13,7 +13,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1750,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Binoculars',
                         Amount: 1,
@@ -48,7 +48,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1750,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: '1H_Bushman',
                         Amount: 1,
@@ -83,7 +83,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1750,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Compass_Advanced',
                         Amount: 1,
@@ -203,7 +203,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Weapon_DT11B_Sawed_Off',
                         Amount: 1,
@@ -245,7 +245,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: 'Manchu_Bow_50',
                         Amount: 1,
@@ -263,7 +263,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Deer2'],
+                TargetCharacters: ['BP_Deer'],
                 Amount: 1,
             },
         ],
@@ -280,7 +280,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: '1H_Traynors_Axe',
                         Amount: 1,
@@ -293,7 +293,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Goat2'],
+                TargetCharacters: ['BP_Goat'],
                 Amount: 1,
             },
         ],
@@ -310,7 +310,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 10,
-                TradeDeal: [
+                TradeDeals: [
                     {
                         Item: '2H_Axe',
                         Amount: 1,
@@ -323,7 +323,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 Type: 'Elimination',
                 SequenceIndex: 0,
-                TargetCharacters: ['BP_Horse2'],
+                TargetCharacters: ['BP_Horse'],
                 Amount: 1,
             },
         ],

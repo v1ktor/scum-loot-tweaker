@@ -13,6 +13,7 @@
         "ui:build": "npm run build --workspace=apps/ui",
         "ui:deploy": "npm run deploy --workspace=apps/ui",
         "ui:preview": "npm run preview --workspace=apps/ui",
+        "ui:test": "npm run test --workspace=apps/ui",
         "server:dev": "npm run dev --workspace=apps/server",
         "lint": "npx biome check --write ./apps"
     },

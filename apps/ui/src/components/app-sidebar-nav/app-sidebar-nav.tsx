@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import type { NavListProps } from '@/components/app-sidebar-nav/app-sidebar-nav.types.ts';
+import type { NavGroupProps } from '@/components/app-sidebar-nav/app-sidebar-nav.types.ts';
 import {
     SidebarGroup,
     SidebarGroupContent,
@@ -13,10 +13,13 @@ import {
     SidebarMenuSubItem,
 } from '@/components/ui/sidebar.tsx';
 
-export function AppSidebarLootTweakerNav({ items }: NavListProps) {
+const NEW_BADGE_CLASS = 'bg-green-500/20 text-green-400 border border-green-500/30 rounded-md px-1.5 text-[10px]';
+const SUB_LIST_FULL_WIDTH = 'mr-px pr-0';
+
+export function AppSidebarNav({ label, items }: NavGroupProps) {
     return (
         <SidebarGroup>
-            <SidebarGroupLabel>SCUM Loot Tweaker</SidebarGroupLabel>
+            <SidebarGroupLabel>{label}</SidebarGroupLabel>
             <SidebarGroupContent>
                 <SidebarMenu>
                     {items.map((item) => (
@@ -30,13 +33,9 @@ export function AppSidebarLootTweakerNav({ items }: NavListProps) {
                             {item.comingSoon && (
                                 <SidebarMenuBadge className="text-muted-foreground">Coming soon!</SidebarMenuBadge>
                             )}
-                            {item.isNew && (
-                                <SidebarMenuBadge className="bg-green-500/20 text-green-400 border border-green-500/30 px-2">
-                                    New
-                                </SidebarMenuBadge>
-                            )}
+                            {item.isNew && <SidebarMenuBadge className={NEW_BADGE_CLASS}>New</SidebarMenuBadge>}
                             {item.items && item.items.length > 0 && (
-                                <SidebarMenuSub>
+                                <SidebarMenuSub className={SUB_LIST_FULL_WIDTH}>
                                     {item.items.map((subItem) => (
                                         <SidebarMenuSubItem key={subItem.title}>
                                             <SidebarMenuSubButton asChild>
@@ -46,7 +45,7 @@ export function AppSidebarLootTweakerNav({ items }: NavListProps) {
                                                 </Link>
                                             </SidebarMenuSubButton>
                                             {subItem.isNew && (
-                                                <SidebarMenuBadge className="top-1 bg-green-500/20 text-green-400 border border-green-500/30 px-2">
+                                                <SidebarMenuBadge className={`top-1 ${NEW_BADGE_CLASS}`}>
                                                     New
                                                 </SidebarMenuBadge>
                                             )}
