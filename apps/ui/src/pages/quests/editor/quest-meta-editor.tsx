@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button.tsx';
 import { ButtonGroup } from '@/components/ui/button-group.tsx';
 import { Textarea } from '@/components/ui/textarea.tsx';
 import { QUEST_GIVERS } from '@/data/quests/index.ts';
+import { TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
 import type { AssociatedNPC, Quest } from '@/data/quests/quests.types.ts';
 import { buildQuestId } from '../quest-id.ts';
 import type { QuestError } from '../quest-validation.ts';
@@ -39,6 +40,13 @@ export function QuestMetaEditor({
 }) {
     const errorFor = (field: string) => errors.find((e) => e.field === field)?.message;
     const suggestedId = buildQuestId(quest);
+
+    const changeTier = (value: string) => {
+        const Tier = Number(value) as Quest['Tier'];
+        const isTierDefault = quest.TimeLimitHours === TIME_LIMIT_HOURS_BY_TIER[quest.Tier];
+
+        onChange(isTierDefault ? { Tier, TimeLimitHours: TIME_LIMIT_HOURS_BY_TIER[Tier] } : { Tier });
+    };
 
     return (
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
@@ -96,16 +104,17 @@ export function QuestMetaEditor({
                     />
                 </Field>
                 <Field label="Tier" required>
-                    <Select
-                        value={String(quest.Tier)}
-                        options={TIER_OPTIONS}
-                        onChange={(tier) => onChange({ Tier: Number(tier) as Quest['Tier'] })}
-                    />
+                    <Select value={String(quest.Tier)} options={TIER_OPTIONS} onChange={changeTier} />
                 </Field>
-                <Field label="Time limit (hours)" error={errorFor('TimeLimitHours')}>
+                <Field
+                    label="Time limit (hours)"
+                    hint="How long the player has to finish the quest. Vanilla quests always use the tier's default: 48 for tier 1, 72 for tier 2, 96 for tier 3."
+                    required
+                    error={errorFor('TimeLimitHours')}
+                >
                     <NumberInput
                         value={quest.TimeLimitHours}
-                        onChange={(TimeLimitHours) => onChange({ TimeLimitHours })}
+                        onChange={(TimeLimitHours) => onChange({ TimeLimitHours: TimeLimitHours ?? 0 })}
                         step={0.5}
                     />
                 </Field>

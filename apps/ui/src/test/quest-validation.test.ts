@@ -7,6 +7,7 @@ const quest = (overrides: Partial<Quest> = {}): Quest => ({
     AssociatedNPC: 'Hunter',
     Tier: 1,
     Title: 'Test quest',
+    TimeLimitHours: 48,
     RewardPool: [{}],
     Conditions: [{ Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['Deer'], Amount: 1 }],
     ...overrides,
@@ -63,6 +64,28 @@ describe('validateQuest', () => {
 
         it.each(['T1_RH_Fetch_AnimalFat', 'custom-quest-1', 'ABC123'])('accepts %j', (id) => {
             expect(messagesFor(quest({ id }), 'id')).toEqual([]);
+        });
+    });
+
+    describe('time limit', () => {
+        it('requires one', () => {
+            const missing = { ...quest(), TimeLimitHours: undefined } as unknown as Quest;
+            expect(messagesFor(missing, 'TimeLimitHours')).toContain('Time limit is required');
+        });
+
+        it('flags an absent limit as a "missing" nag, not a correctness error', () => {
+            const missing = { ...quest(), TimeLimitHours: undefined } as unknown as Quest;
+            expect(validateQuest(missing).find((e) => e.field === 'TimeLimitHours')?.missing).toBe(true);
+        });
+
+        it.each([0, -1])('rejects %s', (TimeLimitHours) => {
+            expect(messagesFor(quest({ TimeLimitHours }), 'TimeLimitHours')).toContain(
+                'Time limit must be greater than 0',
+            );
+        });
+
+        it.each([0.5, 48, 72, 96])('accepts %s', (TimeLimitHours) => {
+            expect(messagesFor(quest({ TimeLimitHours }), 'TimeLimitHours')).toEqual([]);
         });
     });
 

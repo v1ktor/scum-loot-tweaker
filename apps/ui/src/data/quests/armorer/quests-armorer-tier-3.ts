@@ -633,6 +633,7 @@ export const ARMORER_QUESTS_TIER3: Quest[] = [
         Tier: 3,
         Title: 'Zeljava Jets',
         Description: '',
+        TimeLimitHours: 96,
         RewardPool: [],
         Conditions: [
             {

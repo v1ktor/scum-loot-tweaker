@@ -195,11 +195,19 @@ export function validateQuest(quest: Quest): QuestError[] {
 
     if (isBlank(quest.Title))
         errors.push({ tab: 'details', label: 'Title', message: 'Title is required', field: 'Title', missing: true });
-    if (quest.TimeLimitHours !== undefined && !(quest.TimeLimitHours > 0)) {
+    if (quest.TimeLimitHours === undefined) {
         errors.push({
             tab: 'details',
             label: 'Time limit',
-            message: 'Time limit must be greater than 0 (or leave it empty)',
+            message: 'Time limit is required',
+            field: 'TimeLimitHours',
+            missing: true,
+        });
+    } else if (!(quest.TimeLimitHours > 0)) {
+        errors.push({
+            tab: 'details',
+            label: 'Time limit',
+            message: 'Time limit must be greater than 0',
             field: 'TimeLimitHours',
         });
     }

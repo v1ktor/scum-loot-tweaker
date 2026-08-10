@@ -8,6 +8,7 @@ const quest = (overrides: Partial<Quest> = {}): Quest => ({
     AssociatedNPC: 'Hunter',
     Tier: 1,
     Title: 'Test quest',
+    TimeLimitHours: 48,
     RewardPool: [{}],
     Conditions: [],
     ...overrides,

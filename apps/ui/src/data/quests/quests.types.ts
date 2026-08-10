@@ -126,7 +126,7 @@ export type Quest = {
     Tier: 1 | 2 | 3;
     Title: string;
     Description?: string;
-    TimeLimitHours?: number;
+    TimeLimitHours: number;
     RewardPool: Reward[];
     Conditions: Condition[];
 };

@@ -26,7 +26,6 @@ export type NavListProps = {
     items: NavItem[];
 };
 
-/** A {@link NavListProps} group that also renders a heading. */
 export type NavGroupProps = NavListProps & {
     label: string;
 };

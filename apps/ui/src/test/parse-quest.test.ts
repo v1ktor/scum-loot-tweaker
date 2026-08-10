@@ -102,6 +102,27 @@ describe('parseQuestJson', () => {
         expect(result.ok && result.quest.RewardPool[0].TradeDeals).toEqual(deals);
     });
 
+    describe('time limit', () => {
+        it('keeps the value the file supplies', () => {
+            const result = parseQuestJson(questFile({ TimeLimitHours: 12.5 }));
+            expect(result.ok && result.quest.TimeLimitHours).toBe(12.5);
+        });
+
+        it.each([
+            [1, 48],
+            [2, 72],
+            [3, 96],
+        ])('backfills tier %s with %s hours when the file omits it', (Tier, expected) => {
+            const result = parseQuestJson(questFile({ Tier, TimeLimitHours: undefined }));
+            expect(result.ok && result.quest.TimeLimitHours).toBe(expected);
+        });
+
+        it('backfills from the corrected tier when the file tier is out of range', () => {
+            const result = parseQuestJson(questFile({ Tier: 9, TimeLimitHours: undefined }));
+            expect(result.ok && result.quest.TimeLimitHours).toBe(48);
+        });
+    });
+
     it('defaults an absent reward pool to a single empty reward', () => {
         const result = parseQuestJson(questFile({ RewardPool: undefined }));
         expect(result.ok && result.quest.RewardPool).toEqual([{}]);

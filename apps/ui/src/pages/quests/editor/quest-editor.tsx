@@ -199,8 +199,6 @@ export function QuestEditor({
                         <QuestRewardEditor
                             reward={draft.RewardPool[0]}
                             itemsOptions={itemsOptions}
-                            // Only the first pool is editable, but any others are carried through
-                            // untouched rather than dropped the moment this tab is used.
                             onChange={(reward) => patchDraft({ RewardPool: [reward, ...draft.RewardPool.slice(1)] })}
                             errors={fieldErrors}
                         />

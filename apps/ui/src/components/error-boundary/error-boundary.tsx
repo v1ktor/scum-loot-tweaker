@@ -19,7 +19,6 @@ export class ErrorBoundary extends Component<Props, State> {
     }
 
     componentDidCatch(error: Error, info: ErrorInfo) {
-        // The boundary swallows the error, so the console is the only place a stack trace survives.
         // biome-ignore lint/suspicious/noConsole: needed to report a crash that is otherwise hidden
         console.error('Unhandled render error:', error, info.componentStack);
     }

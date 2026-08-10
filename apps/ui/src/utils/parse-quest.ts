@@ -1,3 +1,4 @@
+import { TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
 import type { Condition, Quest, QuestType, Reward } from '@/data/quests/quests.types.ts';
 
 export type QuestBody = Omit<Quest, 'id'>;
@@ -99,9 +100,12 @@ export function parseQuestJson(text: string): ParseQuestResult {
 
     const rewardPool = asArray(obj.RewardPool).map(normalizeReward);
 
+    const tier = obj.Tier === 2 || obj.Tier === 3 ? obj.Tier : 1;
+
     const quest: QuestBody = {
-        ...(obj as Omit<QuestBody, 'Tier' | 'RewardPool' | 'Conditions'>),
-        Tier: obj.Tier === 2 || obj.Tier === 3 ? obj.Tier : 1,
+        ...(obj as Omit<QuestBody, 'Tier' | 'TimeLimitHours' | 'RewardPool' | 'Conditions'>),
+        Tier: tier,
+        TimeLimitHours: typeof obj.TimeLimitHours === 'number' ? obj.TimeLimitHours : TIME_LIMIT_HOURS_BY_TIER[tier],
         RewardPool: rewardPool.length > 0 ? rewardPool : [{}],
         Conditions: conditions,
     };
