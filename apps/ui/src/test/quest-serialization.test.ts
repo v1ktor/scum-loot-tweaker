@@ -31,6 +31,65 @@ describe('toGameQuest', () => {
         expect(result.Conditions[0]).not.toHaveProperty('uid');
     });
 
+    describe('fields the game parser requires to be present', () => {
+        const elimination = (): Condition => ({
+            Type: 'Elimination',
+            SequenceIndex: 0,
+            TargetCharacters: ['Deer'],
+            Amount: 1,
+        });
+        const interaction = (): Condition => ({
+            Type: 'Interaction',
+            SequenceIndex: 0,
+            Locations: [{ AnchorMesh: 'BP_Switch' }],
+            MinNeeded: 1,
+            MaxNeeded: 1,
+        });
+
+        it('writes Description even when the quest has none', () => {
+            const { Description, ...rest } = quest();
+            expect(toGameQuest(rest as Quest).Description).toBe('');
+        });
+
+        it.each([
+            ['Fetch', fetchCondition(['Rag'])],
+            ['Elimination', elimination()],
+            ['Interaction', interaction()],
+        ])('writes TrackingCaption and CanBeAutoCompleted on a bare %s condition', (_type, condition) => {
+            const [written] = toGameQuest(quest({ Conditions: [condition] })).Conditions;
+            expect(written).toMatchObject({ TrackingCaption: '', CanBeAutoCompleted: false });
+        });
+
+        it('writes both Fetch booleans', () => {
+            const [written] = toGameQuest(quest({ Conditions: [fetchCondition(['Rag'])] })).Conditions;
+            expect(written).toMatchObject({ DisablePurchaseOfRequiredItems: false, PlayerKeepsItems: false });
+        });
+
+        it('writes SpawnOnlyNeeded on an Interaction condition', () => {
+            const [written] = toGameQuest(quest({ Conditions: [interaction()] })).Conditions;
+            expect(written).toMatchObject({ SpawnOnlyNeeded: false });
+        });
+
+        it('matches the key set of the shipped Example_Elimination condition', () => {
+            const [written] = toGameQuest(quest({ Conditions: [elimination()] })).Conditions;
+            expect(Object.keys(written).sort()).toEqual(
+                ['TrackingCaption', 'SequenceIndex', 'CanBeAutoCompleted', 'Type', 'TargetCharacters', 'Amount'].sort(),
+            );
+        });
+
+        it('keeps values the user actually set', () => {
+            const condition = { ...fetchCondition(['Rag']), TrackingCaption: 'Bring rags', PlayerKeepsItems: true };
+            const [written] = toGameQuest(quest({ Conditions: [condition] })).Conditions;
+            expect(written).toMatchObject({ TrackingCaption: 'Bring rags', PlayerKeepsItems: true });
+        });
+
+        it('leaves genuinely optional keys out', () => {
+            const [written] = toGameQuest(quest({ Conditions: [elimination()] })).Conditions;
+            expect(written).not.toHaveProperty('AllowedWeapons');
+            expect(written).not.toHaveProperty('LocationsShownOnMap');
+        });
+    });
+
     describe('trade deals', () => {
         const deals = [{ Item: 'C4', Price: 420 }];
 

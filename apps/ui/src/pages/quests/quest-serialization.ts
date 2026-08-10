@@ -55,12 +55,38 @@ function cleanCondition(condition: Condition): Condition {
     };
 }
 
+function withRequiredFields(condition: Condition): Condition {
+    const base = {
+        ...condition,
+        TrackingCaption: condition.TrackingCaption ?? '',
+        CanBeAutoCompleted: condition.CanBeAutoCompleted ?? false,
+    };
+
+    if (base.Type === 'Fetch') {
+        return {
+            ...base,
+            DisablePurchaseOfRequiredItems: base.DisablePurchaseOfRequiredItems ?? false,
+            PlayerKeepsItems: base.PlayerKeepsItems ?? false,
+        };
+    }
+
+    if (base.Type === 'Interaction') {
+        return { ...base, SpawnOnlyNeeded: base.SpawnOnlyNeeded ?? false };
+    }
+
+    return base;
+}
+
 export function toGameQuest(quest: Quest): Omit<Quest, 'id'> {
     const { id, ...gameQuest } = quest;
     return {
         ...gameQuest,
+        Description: gameQuest.Description ?? '',
         RewardPool: gameQuest.RewardPool.map(cleanReward),
-        Conditions: gameQuest.Conditions.map(cleanCondition).filter(conditionHasContent).map(stripConditionId),
+        Conditions: gameQuest.Conditions.map(cleanCondition)
+            .filter(conditionHasContent)
+            .map(stripConditionId)
+            .map(withRequiredFields),
     };
 }
 
