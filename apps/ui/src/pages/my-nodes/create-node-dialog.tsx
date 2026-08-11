@@ -34,6 +34,7 @@ const withJsonExtension = (name: string) => (name.toLowerCase().endsWith('.json'
 export function CreateNodeDialog({ open, onOpenChange, existingFilenames, onCreate }: CreateNodeDialogProps) {
     const [name, setName] = useState('');
     const [template, setTemplate] = useState<Option | null>(null);
+    const [dialogElement, setDialogElement] = useState<HTMLDivElement | null>(null);
 
     const { data: nodeFiles = [] } = useQuery(trpc.nodes.list.queryOptions());
     const { data: templateNode, isFetching: isFetchingTemplate } = useQuery({
@@ -72,7 +73,7 @@ export function CreateNodeDialog({ open, onOpenChange, existingFilenames, onCrea
                 onOpenChange(next);
             }}
         >
-            <DialogContent>
+            <DialogContent ref={setDialogElement}>
                 <DialogHeader>
                     <DialogTitle>New node file</DialogTitle>
                     <DialogDescription>
@@ -107,7 +108,7 @@ export function CreateNodeDialog({ open, onOpenChange, existingFilenames, onCrea
                             autoHighlight
                         >
                             <ComboboxInput placeholder="Empty tree" showClear={true} />
-                            <ComboboxContent>
+                            <ComboboxContent container={dialogElement}>
                                 <ComboboxEmpty>No node files found.</ComboboxEmpty>
                                 <ComboboxList>
                                     {(option: Option) => (
