@@ -28,7 +28,11 @@ import { RARITY_OPTIONS } from '@/data/rarity-options.ts';
 import { useNodePaths } from '@/hooks/use-node-paths.ts';
 import { searchNodePaths } from '@/pages/spawners/nodes/node-path-search.ts';
 import { NodeTreeDialog } from '@/pages/spawners/nodes/node-tree-dialog.tsx';
-import { calcSelectionProbability, formatProbability } from '@/pages/spawners/rarity-probability.ts';
+import {
+    calcSelectionProbability,
+    describeSelectionOdds,
+    formatProbability,
+} from '@/pages/spawners/rarity-probability.ts';
 import type { NodePathEntry, Spawner, SpawnerNode } from '@/pages/spawners/spawners.types.ts';
 
 const getUniqueId = () => crypto.randomUUID();
@@ -78,6 +82,11 @@ function NodeIdCombobox({ nodePaths, value, onChange }: NodeIdComboboxProps) {
                                 <FolderIcon className="h-3.5 w-3.5 shrink-0 text-amber-500" />
                             )}
                             {entry.path}
+                            {entry.isCustom && (
+                                <Badge variant="secondary" className="ml-auto text-[10px] px-1.5 py-0">
+                                    My Nodes
+                                </Badge>
+                            )}
                         </ComboboxItem>
                     )}
                 </ComboboxList>
@@ -239,9 +248,28 @@ export function NodesTab(props: NodesTabProps) {
                                         ))}
                                     </DropdownMenuContent>
                                 </DropdownMenu>
-                                <Badge variant="secondary" className="tabular-nums">
-                                    {formatProbability(groupProbability)}
-                                </Badge>
+                                <TooltipProvider>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <Badge variant="secondary" className="tabular-nums">
+                                                {formatProbability(groupProbability)}
+                                            </Badge>
+                                        </TooltipTrigger>
+                                        <TooltipContent className="max-w-64">
+                                            Chance this node group is picked over the spawner's other node groups and
+                                            items.{' '}
+                                            {describeSelectionOdds(
+                                                node.Rarity,
+                                                [
+                                                    ...realRows.map((r) => r.Rarity),
+                                                    ...(isCurrentRowReal ? [] : [node.Rarity]),
+                                                    ...itemRarities,
+                                                ],
+                                                'entries',
+                                            )}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                </TooltipProvider>
                             </div>
                             <IconButton
                                 onClick={() => handleDeleteNode(nodeIndex)}
@@ -274,6 +302,7 @@ export function NodesTab(props: NodesTabProps) {
                                                 <TooltipContent
                                                     className={resolvedEntry.isLeaf ? undefined : 'max-w-64'}
                                                 >
+                                                    {resolvedEntry.isCustom && 'From your own node files. '}
                                                     {resolvedEntry.isLeaf
                                                         ? 'This Id resolves to an item — its spawn chance is final.'
                                                         : 'This Id resolves to a category, not a specific item — its spawn chance is only the odds of entering that category, not a final item chance. Open the preview to see how it breaks down further inside.'}
@@ -303,8 +332,13 @@ export function NodesTab(props: NodesTabProps) {
                                                         {formatProbability(idChanceInGroup)}
                                                     </Badge>
                                                 </TooltipTrigger>
-                                                <TooltipContent>
-                                                    Chance within this group only, if the group is picked.
+                                                <TooltipContent className="max-w-64">
+                                                    Chance within this group only, if the group is picked.{' '}
+                                                    {describeSelectionOdds(
+                                                        resolvedEntry.rarity,
+                                                        resolvedSiblingRarities,
+                                                        'Ids',
+                                                    )}
                                                 </TooltipContent>
                                             </Tooltip>
                                         </TooltipProvider>
