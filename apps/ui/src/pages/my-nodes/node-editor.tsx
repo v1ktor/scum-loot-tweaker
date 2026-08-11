@@ -2,6 +2,7 @@ import {
     CopyIcon,
     FolderIcon,
     FolderPlusIcon,
+    InfoIcon,
     PackageIcon,
     PackagePlusIcon,
     PlusIcon,
@@ -353,15 +354,41 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                 />
                             </div>
                             <div className="grid gap-1">
-                                <span className="text-sm font-medium">If this Id already exists</span>
+                                <span className="flex items-center gap-1 text-sm font-medium">
+                                    Vanilla items at this Id
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                <button
+                                                    type="button"
+                                                    aria-label="About vanilla items at this Id"
+                                                    className="text-muted-foreground hover:text-foreground"
+                                                >
+                                                    <InfoIcon className="size-3.5" />
+                                                </button>
+                                            </TooltipTrigger>
+                                            <TooltipContent className="max-w-64">
+                                                Only applies when the vanilla tree already has a node with this Id.
+                                                Items you list always use your version — this decides what happens to
+                                                the vanilla ones you did not list.
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+                                </span>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
-                                        <Button variant="ghost" className="h-8 px-2 shrink-0">
-                                            <Badge variant="outline">{mergeMode}</Badge>
+                                        <Button
+                                            variant="ghost"
+                                            className="h-8 px-2 shrink-0 w-32"
+                                            aria-label="Vanilla items at this Id"
+                                        >
+                                            <Badge variant="outline">
+                                                {mergeMode === 'Replace' ? 'Replace' : 'Keep'}
+                                            </Badge>
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="start">
-                                        <DropdownMenuLabel>Children merge mode</DropdownMenuLabel>
+                                        <DropdownMenuLabel>When the game already has this Id</DropdownMenuLabel>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuItem
                                             onClick={() =>
@@ -371,7 +398,7 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                                 }))
                                             }
                                         >
-                                            UpdateOrAdd — merge into the vanilla bag
+                                            Keep — leave the vanilla items and add yours alongside
                                         </DropdownMenuItem>
                                         <DropdownMenuItem
                                             onClick={() =>
@@ -381,29 +408,24 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                                 }))
                                             }
                                         >
-                                            Replace — discard the vanilla children
+                                            Replace — drop the vanilla items, spawn only yours
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                             </div>
                         </div>
-                        <p className="text-xs text-muted-foreground">
-                            When a bag in your file has the same Id as one in the vanilla tree,{' '}
-                            <code className="font-mono">UpdateOrAdd</code> updates matching children and adds new ones;{' '}
-                            <code className="font-mono">Replace</code> throws the vanilla children away.
-                        </p>
                         {isRoot && mergeMode === 'Replace' && (
                             <p className="text-xs text-destructive">
-                                On the root this discards the <em>entire</em> vanilla loot tree, not just one branch —
-                                the game would spawn only what this file defines. Set it on the specific bag you want to
-                                override instead.
+                                On the root this drops the <em>entire</em> vanilla loot tree, not just one branch — the
+                                game would spawn only what this file defines. Set it on the specific sub-node you want
+                                to override instead.
                             </p>
                         )}
                         {isRoot && (
                             <p className="text-xs text-muted-foreground">
-                                <code className="font-mono">{ROOT_NODE_NAME}</code> is the root of every node in the
-                                game, and each node Id below starts with it. The game merges your file into the vanilla
-                                tree by matching Ids, so the root name has to match for anything below it to line up.
+                                Optional — left blank it is saved as <code className="font-mono">{ROOT_NODE_NAME}</code>
+                                , the root of every node in the game. Each node Id below starts with it, and the game
+                                merges your file in by matching Ids, so it has to match for anything below to line up.
                             </p>
                         )}
                         {isRoot && selected.Name.trim() !== '' && selected.Name.trim() !== ROOT_NODE_NAME && (

@@ -265,12 +265,8 @@ describe('validateNodeTree', () => {
         expect(issues).toContainEqual({ path: 'MyLoot', message: 'Duplicate child "AK47"' });
     });
 
-    it('warns when the root has been left unnamed', () => {
-        const issues = validateNodeTree(branch('  ', [branch('MyLoot', [item('AK47')])]));
-        expect(issues).toContainEqual({
-            path: ROOT_NODE_NAME,
-            message: `Root has no name and will fall back to ${ROOT_NODE_NAME}`,
-        });
+    it('says nothing when the root is left unnamed, since it falls back on its own', () => {
+        expect(validateNodeTree(branch('  ', [branch('MyLoot', [item('AK47')])]))).toEqual([]);
     });
 
     it('accepts a renamed root', () => {

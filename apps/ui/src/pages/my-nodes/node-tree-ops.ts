@@ -223,10 +223,6 @@ export function validateNodeTree(root: LootNode): NodeTreeIssue[] {
         }
     };
 
-    if (root.Name.trim() === '') {
-        issues.push({ path: ROOT_NODE_NAME, message: `Root has no name and will fall back to ${ROOT_NODE_NAME}` });
-    }
-
     walk(root, []);
 
     return issues;
