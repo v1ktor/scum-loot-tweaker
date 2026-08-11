@@ -7,7 +7,7 @@ import { GetNodeSchema, type LootNode } from '../../models/nodes/index.ts';
 export type NodePathEntry = {
     path: string;
     isLeaf: boolean;
-    rarity: string;
+    rarity?: string;
 };
 
 function flatten(node: LootNode, prefix: string[], out: NodePathEntry[]): void {
