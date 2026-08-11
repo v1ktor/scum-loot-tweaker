@@ -423,9 +423,8 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                         )}
                         {isRoot && (
                             <p className="text-xs text-muted-foreground">
-                                Optional — left blank it is saved as <code className="font-mono">{ROOT_NODE_NAME}</code>
-                                , the root of every node in the game. Each node Id below starts with it, and the game
-                                merges your file in by matching Ids, so it has to match for anything below to line up.
+                                Defaults to <code className="font-mono">{ROOT_NODE_NAME}</code> - the root every vanilla
+                                node file uses. However, can be set to any name.
                             </p>
                         )}
                         {isRoot && selected.Name.trim() !== '' && selected.Name.trim() !== ROOT_NODE_NAME && (
