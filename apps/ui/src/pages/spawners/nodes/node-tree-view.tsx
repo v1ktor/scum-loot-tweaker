@@ -1,5 +1,5 @@
 import { ChevronsDownUpIcon, ChevronsUpDownIcon, FolderIcon, PackageIcon, XIcon } from 'lucide-react';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
 import {
     Breadcrumb,
@@ -136,19 +136,21 @@ export function NodeTreeView({ treeNode, initialExpanded = false, initialPath, o
                                 <Breadcrumb>
                                     <BreadcrumbList>
                                         {selectedPath.map((name, i) => (
-                                            <BreadcrumbItem key={i}>
+                                            <Fragment key={i}>
                                                 {i > 0 && <BreadcrumbSeparator />}
-                                                {i === selectedPath.length - 1 ? (
-                                                    <BreadcrumbPage>{name}</BreadcrumbPage>
-                                                ) : (
-                                                    <BreadcrumbLink
-                                                        className="cursor-pointer"
-                                                        onClick={() => navigateToBreadcrumb(i)}
-                                                    >
-                                                        {name}
-                                                    </BreadcrumbLink>
-                                                )}
-                                            </BreadcrumbItem>
+                                                <BreadcrumbItem>
+                                                    {i === selectedPath.length - 1 ? (
+                                                        <BreadcrumbPage>{name}</BreadcrumbPage>
+                                                    ) : (
+                                                        <BreadcrumbLink
+                                                            className="cursor-pointer"
+                                                            onClick={() => navigateToBreadcrumb(i)}
+                                                        >
+                                                            {name}
+                                                        </BreadcrumbLink>
+                                                    )}
+                                                </BreadcrumbItem>
+                                            </Fragment>
                                         ))}
                                     </BreadcrumbList>
                                 </Breadcrumb>
