@@ -9,6 +9,7 @@ import { CooldownGroups } from '@/pages/cooldown-groups/cooldown-groups.tsx';
 import { CustomQuests } from '@/pages/custom-quests/custom-quests.tsx';
 import { CustomSpawners } from '@/pages/custom-spawners/custom-spawners.tsx';
 import { Home } from '@/pages/home/home.tsx';
+import { MyNodes } from '@/pages/my-nodes/my-nodes.tsx';
 import { MyQuests } from '@/pages/my-quests/my-quests.tsx';
 import { MySpawners } from '@/pages/my-spawners/my-spawners.tsx';
 import { Nodes } from '@/pages/nodes/nodes.tsx';
@@ -30,6 +31,7 @@ export function App() {
                         <Route path={NavigationPath.Changelog} element={<Changelog />} />
                         <Route path={NavigationPath.Spawners} element={<Spawners />} />
                         <Route path={NavigationPath.MySpawners} element={<MySpawners />} />
+                        <Route path={NavigationPath.MyNodes} element={<MyNodes />} />
                         <Route path={NavigationPath.Nodes} element={<Nodes />} />
                         <Route path={NavigationPath.Parameters} element={<Parameters />} />
                         <Route path={NavigationPath.CooldownGroups} element={<CooldownGroups />} />

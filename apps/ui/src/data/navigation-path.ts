@@ -5,6 +5,7 @@ export enum NavigationPath {
     Parameters = '/parameters',
     CooldownGroups = '/cooldown-groups',
     Nodes = '/nodes',
+    MyNodes = '/nodes/my',
     Changelog = '/changelog',
     Quests = '/quests',
     QuestEditor = '/quests/new',

@@ -27,6 +27,14 @@ const scumLootTweakerMenuItems: NavItem[] = [
         title: 'Nodes',
         url: NavigationPath.Nodes,
         icon: Cog,
+        items: [
+            {
+                title: 'My Nodes',
+                url: NavigationPath.MyNodes,
+                icon: Pencil,
+                isNew: true,
+            },
+        ],
     },
     {
         title: 'Parameters',
