@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Badge } from '@/components/ui/badge.tsx';
-import { isSubNode } from '@/pages/my-nodes/node-tree-ops.ts';
+import { countNodeTree, isSubNode } from '@/pages/my-nodes/node-tree-ops.ts';
 import type { LootNode } from '@/pages/spawners/spawners.types.ts';
 
 export interface EditorTreeItemProps {
@@ -26,6 +26,7 @@ export function EditorTreeItem({ node, path, depth, selectedPath, onSelect }: Ed
     const children = node.Children ?? [];
     const subNodes = children.map((child, index) => ({ child, index })).filter((entry) => isSubNode(entry.child));
     const itemCount = children.length - subNodes.length;
+    const totalItemCount = countNodeTree(node).items;
     const isSelected = samePath(path, selectedPath);
 
     return (
@@ -51,7 +52,10 @@ export function EditorTreeItem({ node, path, depth, selectedPath, onSelect }: Ed
                 <span className={`truncate ${node.Name.trim() === '' ? 'italic text-destructive' : ''}`}>
                     {node.Name.trim() === '' ? 'Unnamed' : node.Name}
                 </span>
-                {itemCount > 0 && <span className="text-[10px] text-muted-foreground shrink-0">{itemCount}</span>}
+                {itemCount > 0 && <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />}
+                <span className="text-[10px] text-muted-foreground shrink-0">
+                    {itemCount}/{totalItemCount}
+                </span>
                 <Badge variant="outline" className="ml-auto text-[10px] px-1 py-0 shrink-0">
                     {node.Rarity}
                 </Badge>
