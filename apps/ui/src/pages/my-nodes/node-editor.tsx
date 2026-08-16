@@ -4,6 +4,7 @@ import {
     FolderIcon,
     FolderPlusIcon,
     InfoIcon,
+    Loader2Icon,
     PackageIcon,
     PackagePlusIcon,
     PlusIcon,
@@ -60,6 +61,7 @@ import {
     uniqueChildName,
     updateNodeAt,
 } from '@/pages/my-nodes/node-tree-ops.ts';
+import { findVanillaNode, type VanillaChild, vanillaFileName } from '@/pages/my-nodes/vanilla-children.ts';
 import { NodeTreeDialog } from '@/pages/spawners/nodes/node-tree-dialog.tsx';
 import {
     calcSelectionProbability,
@@ -67,6 +69,8 @@ import {
     formatProbability,
 } from '@/pages/spawners/rarity-probability.ts';
 import type { LootNode, Option } from '@/pages/spawners/spawners.types.ts';
+import { queryClient } from '@/query-client.ts';
+import { trpc } from '@/trpc.ts';
 import { getItemName } from '@/utils/get-item-name.ts';
 
 interface NodeEditorProps {
@@ -188,6 +192,7 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
     const [expandedChildren, setExpandedChildren] = useState<Set<number>>(new Set());
     const [showVanilla, setShowVanilla] = useState(true);
     const [treeDialogOpen, setTreeDialogOpen] = useState(false);
+    const [copyingPath, setCopyingPath] = useState<string | null>(null);
 
     const { openForNode, dialog: treeDialog } = NodeTreeDialog({
         open: treeDialogOpen,
@@ -229,6 +234,37 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
 
     const handleAddItem = () => {
         onChange(addChildAt(node, path, createItemNode()));
+    };
+
+    const handleCopyVanillaChild = async (child: VanillaChild) => {
+        if (copyingPath) {
+            return;
+        }
+
+        setCopyingPath(child.path);
+
+        try {
+            const file: LootNode = await queryClient.fetchQuery(
+                trpc.nodes.get.queryOptions(vanillaFileName(child.path)),
+            );
+            const found = findVanillaNode(file, child.path);
+
+            if (!found) {
+                toast.error(`"${child.path}" is no longer in the game files`);
+                return;
+            }
+
+            const snapshot = node;
+            onChange(addChildAt(node, path, structuredClone(found)));
+
+            toast(`Copied "${child.name}" into your file`, {
+                action: { label: 'Undo', onClick: () => onChange(snapshot) },
+            });
+        } catch {
+            toast.error(`Failed to load "${vanillaFileName(child.path)}"`);
+        } finally {
+            setCopyingPath(null);
+        }
     };
 
     const handleDuplicateChild = (childIndex: number) => {
@@ -674,7 +710,25 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                                     leftOrnament={<ScanEyeIcon className="h-4 w-4" />}
                                                     onClick={() => openForNode(child.path)}
                                                 />
-                                                <span className="w-20 shrink-0" />
+                                                <IconButton
+                                                    variant="ghost"
+                                                    tooltip={
+                                                        child.isSubNode
+                                                            ? 'Copy this sub-node and everything under it into your file'
+                                                            : 'Copy this item into your file'
+                                                    }
+                                                    leftOrnament={
+                                                        copyingPath === child.path ? (
+                                                            <Loader2Icon className="h-4 w-4 animate-spin" />
+                                                        ) : child.isSubNode ? (
+                                                            <FolderPlusIcon className="h-4 w-4" />
+                                                        ) : (
+                                                            <PackagePlusIcon className="h-4 w-4" />
+                                                        )
+                                                    }
+                                                    onClick={() => handleCopyVanillaChild(child)}
+                                                />
+                                                <span className="w-9 shrink-0" />
                                             </div>
                                         ))}
                                     </>

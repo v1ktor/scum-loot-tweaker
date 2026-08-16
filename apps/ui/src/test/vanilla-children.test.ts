@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { getVanillaChildren } from '@/pages/my-nodes/vanilla-children.ts';
-import type { NodePathEntry } from '@/pages/spawners/spawners.types.ts';
+import { findVanillaNode, getVanillaChildren, vanillaFileName } from '@/pages/my-nodes/vanilla-children.ts';
+import type { LootNode, NodePathEntry } from '@/pages/spawners/spawners.types.ts';
 
 const entry = (path: string, isLeaf: boolean, rarity?: string, isCustom?: boolean): NodePathEntry => ({
     path,
@@ -52,5 +52,46 @@ describe('getVanillaChildren', () => {
 
     it('returns nothing for an empty Id', () => {
         expect(getVanillaChildren(paths, '   ')).toEqual([]);
+    });
+});
+
+const barFile: LootNode = {
+    Name: 'ItemLootTreeNodes',
+    Rarity: 'Uncommon',
+    Children: [
+        {
+            Name: 'Bar',
+            Rarity: 'Uncommon',
+            Children: [
+                { Name: 'Drinks', Rarity: 'Common', Children: [{ Name: 'Beer', Rarity: 'Abundant' }] },
+                { Name: 'Ashtray', Rarity: 'Rare' },
+            ],
+        },
+    ],
+};
+
+describe('vanillaFileName', () => {
+    it('takes the file name from the second segment of the path', () => {
+        expect(vanillaFileName('ItemLootTreeNodes.Bar.Drinks')).toBe('Bar.json');
+    });
+});
+
+describe('findVanillaNode', () => {
+    it('walks the file down to the node the path points at', () => {
+        expect(findVanillaNode(barFile, 'ItemLootTreeNodes.Bar.Drinks')?.Children).toEqual([
+            { Name: 'Beer', Rarity: 'Abundant' },
+        ]);
+    });
+
+    it('finds a leaf item', () => {
+        expect(findVanillaNode(barFile, 'ItemLootTreeNodes.Bar.Ashtray')).toEqual({ Name: 'Ashtray', Rarity: 'Rare' });
+    });
+
+    it('returns the root itself for a single-segment path', () => {
+        expect(findVanillaNode(barFile, 'ItemLootTreeNodes')).toBe(barFile);
+    });
+
+    it('returns nothing when the path is not in the file', () => {
+        expect(findVanillaNode(barFile, 'ItemLootTreeNodes.Bar.Nope.Deeper')).toBeUndefined();
     });
 });

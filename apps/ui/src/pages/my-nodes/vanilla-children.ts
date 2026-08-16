@@ -1,4 +1,4 @@
-import type { NodePathEntry } from '@/pages/spawners/spawners.types.ts';
+import type { LootNode, NodePathEntry } from '@/pages/spawners/spawners.types.ts';
 
 export type VanillaChild = {
     name: string;
@@ -6,6 +6,20 @@ export type VanillaChild = {
     isSubNode: boolean;
     rarity?: string;
 };
+
+export function vanillaFileName(path: string): string {
+    return `${path.split('.')[1] ?? ''}.json`;
+}
+
+export function findVanillaNode(root: LootNode, path: string): LootNode | undefined {
+    let current: LootNode | undefined = root;
+
+    for (const name of path.split('.').slice(1)) {
+        current = current?.Children?.find((child) => child.Name === name);
+    }
+
+    return current;
+}
 
 export function getVanillaChildren(paths: NodePathEntry[], nodeId: string, takenNames?: Set<string>): VanillaChild[] {
     const prefix = `${nodeId.trim()}.`;
