@@ -7,6 +7,7 @@ import {
     PackageIcon,
     PackagePlusIcon,
     PlusIcon,
+    ScanEyeIcon,
     Settings2Icon,
     SquareArrowOutUpRightIcon,
     Trash2Icon,
@@ -59,6 +60,7 @@ import {
     uniqueChildName,
     updateNodeAt,
 } from '@/pages/my-nodes/node-tree-ops.ts';
+import { NodeTreeDialog } from '@/pages/spawners/nodes/node-tree-dialog.tsx';
 import {
     calcSelectionProbability,
     describeSelectionOdds,
@@ -185,6 +187,12 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
     const [selectedPath, setSelectedPath] = useState<number[]>([]);
     const [expandedChildren, setExpandedChildren] = useState<Set<number>>(new Set());
     const [showVanilla, setShowVanilla] = useState(true);
+    const [treeDialogOpen, setTreeDialogOpen] = useState(false);
+
+    const { openForNode, dialog: treeDialog } = NodeTreeDialog({
+        open: treeDialogOpen,
+        onOpenChange: setTreeDialogOpen,
+    });
 
     const path = getNodeAt(node, selectedPath) ? selectedPath : [];
     const selected = getNodeAt(node, path) ?? node;
@@ -606,7 +614,6 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                             <div
                                                 key={child.name}
                                                 className="flex flex-wrap items-center gap-2 opacity-60"
-                                                aria-disabled={true}
                                             >
                                                 <span className="shrink-0">
                                                     {child.isSubNode ? (
@@ -616,6 +623,7 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                                     )}
                                                 </span>
                                                 <span
+                                                    aria-disabled={true}
                                                     title={`${child.path} — defined by the game, read-only`}
                                                     className={`flex-1 min-w-48 flex h-9 items-center truncate rounded-md border border-dashed bg-muted/30 px-3 text-sm cursor-not-allowed ${
                                                         replacesVanilla ? 'line-through' : ''
@@ -656,8 +664,17 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                                         </TooltipContent>
                                                     </Tooltip>
                                                 </TooltipProvider>
-                                                {/* keeps the columns aligned with the editable rows above */}
-                                                <span className="w-31 shrink-0" />
+                                                <IconButton
+                                                    variant="ghost"
+                                                    tooltip={
+                                                        child.isSubNode
+                                                            ? 'View the game tree under this sub-node'
+                                                            : 'View this item in the game tree'
+                                                    }
+                                                    leftOrnament={<ScanEyeIcon className="h-4 w-4" />}
+                                                    onClick={() => openForNode(child.path)}
+                                                />
+                                                <span className="w-20 shrink-0" />
                                             </div>
                                         ))}
                                     </>
@@ -668,6 +685,7 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                 </ScrollArea>
             </div>
             {confirmDialog}
+            {treeDialog}
         </div>
     );
 }
