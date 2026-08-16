@@ -1,4 +1,5 @@
 import {
+    ChevronRightIcon,
     CopyIcon,
     FolderIcon,
     FolderPlusIcon,
@@ -42,6 +43,7 @@ import { POST_SPAWN_ACTIONS_OPTIONS } from '@/data/post-spawn-actions-options.ts
 import type { Rarity } from '@/data/rarity.ts';
 import { RARITY_OPTIONS } from '@/data/rarity-options.ts';
 import { useItemsOptions } from '@/hooks/use-items-options.ts';
+import { useVanillaChildren } from '@/hooks/use-vanilla-children.ts';
 import { EditorTreeItem } from '@/pages/my-nodes/editor-tree-item.tsx';
 import {
     addChildAt,
@@ -63,6 +65,7 @@ import {
     formatProbability,
 } from '@/pages/spawners/rarity-probability.ts';
 import type { LootNode, Option } from '@/pages/spawners/spawners.types.ts';
+import { getItemName } from '@/utils/get-item-name.ts';
 
 interface NodeEditorProps {
     node: LootNode;
@@ -181,6 +184,7 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
 
     const [selectedPath, setSelectedPath] = useState<number[]>([]);
     const [expandedChildren, setExpandedChildren] = useState<Set<number>>(new Set());
+    const [showVanilla, setShowVanilla] = useState(true);
 
     const path = getNodeAt(node, selectedPath) ? selectedPath : [];
     const selected = getNodeAt(node, path) ?? node;
@@ -189,8 +193,17 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
     const isRoot = path.length === 0;
 
     const children = selected.Children ?? [];
-    const siblingRarities = children.map((child) => child.Rarity);
     const mergeMode = selected.ChildrenMergeMode ?? 'UpdateOrAdd';
+    const replacesVanilla = mergeMode === 'Replace';
+
+    const vanillaChildren = useVanillaChildren(
+        nodeId,
+        children.map((child) => child.Name.trim()),
+    );
+    const siblingRarities = [
+        ...children.map((child) => child.Rarity),
+        ...(replacesVanilla ? [] : vanillaChildren.map((child) => child.rarity)),
+    ];
 
     const selectNode = (next: number[]) => {
         setSelectedPath(next);
@@ -567,6 +580,88 @@ export function NodeEditor({ node, onChange }: NodeEditorProps) {
                                         </div>
                                     );
                                 })}
+                            </div>
+                        )}
+
+                        {vanillaChildren.length > 0 && (
+                            <div className="flex flex-col gap-2">
+                                <button
+                                    type="button"
+                                    className="flex items-center gap-1 border-t pt-4 text-xs text-muted-foreground font-medium uppercase tracking-wide"
+                                    onClick={() => setShowVanilla((prev) => !prev)}
+                                >
+                                    <ChevronRightIcon
+                                        className={`h-3.5 w-3.5 transition-transform ${showVanilla ? 'rotate-90' : ''}`}
+                                    />
+                                    Already in the game at this Id ({vanillaChildren.length})
+                                </button>
+                                {showVanilla && (
+                                    <>
+                                        <p className="text-xs text-muted-foreground">
+                                            {replacesVanilla
+                                                ? 'Replace drops these — only the children above will spawn.'
+                                                : 'These spawn alongside your children. They come from the game files, so they cannot be edited here — add a child with the same name to override one.'}
+                                        </p>
+                                        {vanillaChildren.map((child) => (
+                                            <div
+                                                key={child.name}
+                                                className="flex flex-wrap items-center gap-2 opacity-60"
+                                                aria-disabled={true}
+                                            >
+                                                <span className="shrink-0">
+                                                    {child.isSubNode ? (
+                                                        <FolderIcon className="h-4 w-4 text-amber-500" />
+                                                    ) : (
+                                                        <PackageIcon className="h-4 w-4 text-muted-foreground" />
+                                                    )}
+                                                </span>
+                                                <span
+                                                    title={`${child.path} — defined by the game, read-only`}
+                                                    className={`flex-1 min-w-48 flex h-9 items-center truncate rounded-md border border-dashed bg-muted/30 px-3 text-sm cursor-not-allowed ${
+                                                        replacesVanilla ? 'line-through' : ''
+                                                    }`}
+                                                >
+                                                    {child.isSubNode
+                                                        ? child.name
+                                                        : getItemName(child.name, itemsOptions)}
+                                                </span>
+                                                <span className="flex h-8 w-32 shrink-0 items-center px-2">
+                                                    <Badge variant="outline">{child.rarity ?? 'Not set'}</Badge>
+                                                </span>
+                                                <TooltipProvider>
+                                                    <Tooltip>
+                                                        <TooltipTrigger asChild>
+                                                            <Badge
+                                                                variant="secondary"
+                                                                className="shrink-0 tabular-nums w-16"
+                                                            >
+                                                                {replacesVanilla
+                                                                    ? '—'
+                                                                    : formatProbability(
+                                                                          calcSelectionProbability(
+                                                                              child.rarity,
+                                                                              siblingRarities,
+                                                                          ),
+                                                                      )}
+                                                            </Badge>
+                                                        </TooltipTrigger>
+                                                        <TooltipContent className="max-w-64">
+                                                            {replacesVanilla
+                                                                ? 'Dropped by Replace, so it never spawns from this node.'
+                                                                : `Chance of picking this child when this node is rolled. ${describeSelectionOdds(
+                                                                      child.rarity,
+                                                                      siblingRarities,
+                                                                      'children',
+                                                                  )}`}
+                                                        </TooltipContent>
+                                                    </Tooltip>
+                                                </TooltipProvider>
+                                                {/* keeps the columns aligned with the editable rows above */}
+                                                <span className="w-31 shrink-0" />
+                                            </div>
+                                        ))}
+                                    </>
+                                )}
                             </div>
                         )}
                     </div>
