@@ -5,10 +5,13 @@ export const GetNodesSchema = z.object({
     filenames: z.array(z.string()).meta({ examples: [['Airfield.json', 'Bar.json', 'Barn.json']] }),
 });
 
+export const ChildrenMergeModeSchema = z.enum(['UpdateOrAdd', 'Replace']);
+
 export type LootNode = {
     Name: string;
-    Rarity: z.infer<typeof RaritySchema>;
+    Rarity?: z.infer<typeof RaritySchema>;
     Children?: LootNode[];
+    ChildrenMergeMode?: z.infer<typeof ChildrenMergeModeSchema>;
     Variations?: string[];
     PostSpawnActions?: string[];
 };
@@ -16,7 +19,7 @@ export type LootNode = {
 export const GetNodeSchema: z.ZodType<LootNode> = z.lazy(() =>
     z.object({
         Name: z.string().meta({ examples: ['ItemLootTreeNodes'] }),
-        Rarity: RaritySchema,
+        Rarity: RaritySchema.optional(),
         Children: z
             .array(GetNodeSchema)
             .meta({
@@ -42,6 +45,7 @@ export const GetNodeSchema: z.ZodType<LootNode> = z.lazy(() =>
                 ],
             })
             .optional(),
+        ChildrenMergeMode: ChildrenMergeModeSchema.meta({ examples: ['Replace'] }).optional(),
         Variations: z
             .array(z.string())
             .meta({ examples: [['1H_MK5000_Metal']] })

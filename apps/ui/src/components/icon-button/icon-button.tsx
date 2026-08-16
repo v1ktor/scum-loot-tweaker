@@ -25,7 +25,13 @@ export function IconButton({
     rightOrnament,
 }: IconButtonProps) {
     const button = (
-        <Button variant={variant ?? 'outline'} size={size ?? 'sm'} className={className} onClick={onClick}>
+        <Button
+            variant={variant ?? 'outline'}
+            size={size ?? 'sm'}
+            className={className}
+            aria-label={text ? undefined : tooltip}
+            onClick={onClick}
+        >
             {leftOrnament}
             {text}
             {rightOrnament}
