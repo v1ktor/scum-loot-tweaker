@@ -1,0 +1,74 @@
+{
+    "Items": [
+        {
+            "Rarity": "Common",
+            "Id": "Human_guts"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Bone"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Bone"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Working_pants_01_02"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Cigarettes"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Cash"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Cuban_Cigar"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Matches"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "1H_Scout_Black"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Rubber_band"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Military_Shirt_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Mobile_Phone"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Cannabis_Bud"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Can01"
+        }
+    ],
+    "Probability": 20,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 20,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetCashAmount_SmallStash"]
+}

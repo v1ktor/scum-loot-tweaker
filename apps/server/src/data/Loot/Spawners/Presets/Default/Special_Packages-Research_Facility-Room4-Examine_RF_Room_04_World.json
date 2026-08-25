@@ -1,0 +1,80 @@
+{
+    "Items": [
+        {
+            "Rarity": "VeryRare",
+            "Id": "Screwdriver"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Screwdriver_Small"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Tool_Box_Small"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Gas_Mask_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Electrician_Tools"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Fuse_1000A"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Fuse_800A"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Duct_Tape"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Wire"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Electrician_Glove_01_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cigarettes1"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Energy_Drink_Red_Ghoul"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cigarettes"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Hip_Flask"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Lighter"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Vodka"
+        }
+    ],
+    "QuantityMin": 2,
+    "QuantityMax": 2,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 5,
+    "RandomDamage": 35,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

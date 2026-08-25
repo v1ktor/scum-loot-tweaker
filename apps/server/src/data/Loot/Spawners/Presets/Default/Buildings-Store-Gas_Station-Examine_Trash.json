@@ -24,5 +24,7 @@
     "RandomDamage": 40,
     "InitialUsage": 50,
     "RandomUsage": 40,
+    "InitialStack": 0,
+    "RandomStack": 0,
     "PostSpawnActions": ["SetClothesDirtiness_DirtyClothes"]
 }

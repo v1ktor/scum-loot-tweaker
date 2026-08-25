@@ -15,5 +15,7 @@
     "InitialDamage": 50,
     "RandomDamage": 30,
     "InitialUsage": 50,
-    "RandomUsage": 30
+    "RandomUsage": 30,
+    "InitialStack": 0,
+    "RandomStack": 0
 }

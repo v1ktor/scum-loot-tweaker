@@ -380,7 +380,7 @@
                                 },
                                 {
                                     "Name": "Vitamins",
-                                    "Rarity": "Abundant",
+                                    "Rarity": "Common",
                                     "Children": [
                                         {
                                             "Name": "Vitamins_01",

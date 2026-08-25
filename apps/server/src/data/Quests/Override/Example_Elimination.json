@@ -8,7 +8,8 @@
         {
             "CurrencyNormal": 1000,
             "CurrencyGold": 0,
-            "Fame": 200
+            "Fame": 200,
+            "RewardItems": ["Weapon_M9", "Magazine_M9"]
         }
     ],
     "Conditions": [

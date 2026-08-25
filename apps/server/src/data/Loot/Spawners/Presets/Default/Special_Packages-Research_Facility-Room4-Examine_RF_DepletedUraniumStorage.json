@@ -1,0 +1,10 @@
+{
+    "FixedItems": ["Depleted_Uranium"],
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 0,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

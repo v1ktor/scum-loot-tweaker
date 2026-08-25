@@ -1,0 +1,20 @@
+{
+    "Items": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "Depleted_Uranium_Container"
+        }
+    ],
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 10,
+    "RandomDamage": 20,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

@@ -54,5 +54,7 @@
     "RandomDamage": 15,
     "InitialUsage": 0,
     "RandomUsage": 15,
+    "InitialStack": 0,
+    "RandomStack": 0,
     "PostSpawnActions": ["SetAmmoAmount_BigStash", "SetCashAmount_SmallStash"]
 }

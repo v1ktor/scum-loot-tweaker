@@ -1,0 +1,122 @@
+{
+    "Items": [
+        {
+            "Rarity": "Common",
+            "Id": "12_Gauge_Buckshot"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Weapon_CarbonHunter"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Night_Vision_Goggles_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Batteries"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Weapon_Hunter85_V2"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Knife_Sheath"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Fuse_1000A"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Wushu_Spear_Metal"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "1H_Bushman"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Vodka"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Stabproof_Vest_01_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Stabproof_Vest_01_02"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Stabproof_Vest_01_03"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Canned_Tuna"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "MeatSnack_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "MeatSnack_02"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Cal_22_Ammobox"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Cal_308_Ammobox"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "2H_Metal_Baseball_Bat"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_308"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Water_05l"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Waist_Bag_Small_03"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Military_Shovel"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Hiking_Backpack_01_04"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "12_Gauge_Slug"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Hiking_Backpack_01_01"
+        }
+    ],
+    "Probability": 45,
+    "QuantityMin": 1,
+    "QuantityMax": 2,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": false,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 5,
+    "RandomDamage": 30,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetAmmoAmount_SmallStash"]
+}

@@ -213,7 +213,7 @@
                                         },
                                         {
                                             "Name": "Vitamins",
-                                            "Rarity": "Common",
+                                            "Rarity": "Rare",
                                             "Children": [
                                                 {
                                                     "Name": "Vitamins_01",

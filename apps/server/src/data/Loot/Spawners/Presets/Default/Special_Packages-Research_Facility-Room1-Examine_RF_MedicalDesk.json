@@ -1,0 +1,169 @@
+{
+    "Items": [
+        {
+            "Rarity": "Rare",
+            "Id": "1H_Cleaver"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "1H_Scalpel"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "AntiburnGel"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Batteries"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "CanOpener"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Antibiotic_Pill_Single"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Antibiotics_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Antibiotics_02"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Antibiotics_03"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Padlock"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "DialLock_Item"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "ActivatedCharcoal_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "ActivatedCharcoal_02"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "ActivatedCharcoal_03"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Diary"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Emergency_bandage"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Emergency_bandage_Big"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Rags"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Gas_Mask_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Gas_Mask_02"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Gas_Mask_03"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Gas_Mask_04"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Lead_Plate"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Medical_Glove_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Radio"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Saw"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Syringe"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Smartphone_Battery"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tourniquet"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Vitamins_01"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Vitamins_02"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Vitamins_03"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Vodka"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Sewing_kit"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Hospital_Pants"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Hospital_Shirt_01"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Hemostatic_Dressing"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Pressure_Dressing"
+        }
+    ],
+    "Probability": 55,
+    "QuantityMin": 1,
+    "QuantityMax": 3,
+    "AllowDuplicates": true,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 5,
+    "RandomDamage": 30,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

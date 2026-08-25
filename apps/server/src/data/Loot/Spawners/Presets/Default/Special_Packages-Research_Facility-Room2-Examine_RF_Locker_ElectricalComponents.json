@@ -1,0 +1,49 @@
+{
+    "Items": [
+        {
+            "Rarity": "Rare",
+            "Id": "Car_Battery_Cables"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Car_Battery"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Electrician_Tools"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Electrical_Repair_Kit"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Parking_Sensor"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Batteries"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Smartphone_Battery"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "CD_Player"
+        }
+    ],
+    "Probability": 65,
+    "QuantityMin": 1,
+    "QuantityMax": 3,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 0,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

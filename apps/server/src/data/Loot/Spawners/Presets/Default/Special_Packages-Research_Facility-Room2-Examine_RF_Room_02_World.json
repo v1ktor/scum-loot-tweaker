@@ -1,0 +1,109 @@
+{
+    "Items": [
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Crowbar"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Pipe_Wrench"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Batteries"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Car_Battery_Cables"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Construction_Gloves_01_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Duct_Tape"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "ElectricityGenerator_Small"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Hose"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Lock_Item_Medium"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Lock_Item_Advanced"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Rags"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Wire"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Working_Helmet_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Working_Helmet_02"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Waist_Bag_Small_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Waist_Bag_Small_02"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Rope1"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Lockpick_Advanced_Item"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Screwdriver_Small"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Nails"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Bolts"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Smartphone_Battery"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Bag_of_Almonds"
+        }
+    ],
+    "Probability": 40,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 10,
+    "RandomDamage": 35,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

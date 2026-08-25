@@ -1,0 +1,32 @@
+{
+    "Items": [
+        {
+            "Rarity": "Common",
+            "Id": "Antibiotics_03"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Phoenix_Tears_Small"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Phoenix_Tears"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "MemoryModule_Level4"
+        }
+    ],
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": false,
+    "ShouldApplyLocationSpecificProbabilityModifier": false,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 0,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

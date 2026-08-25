@@ -1,0 +1,94 @@
+{
+    "Items": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_22"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "ChocolateCandy_10"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Bushman"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Lighter"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Cigarettes"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Working_pants_01_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Work_Jacket_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Bone"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Human_guts"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Waist_Bag_Small_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Cleaver"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "ChocolateCandy_11"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "African_Biltong"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "FlareItem_Blue"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Thread"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_308"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "12_Gauge_Birdshot"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "1H_Military_Survival_Knife"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Hunter"
+        }
+    ],
+    "Probability": 35,
+    "QuantityMin": 1,
+    "QuantityMax": 2,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": false,
+    "ShouldApplyLocationSpecificProbabilityModifier": false,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 20,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetAmmoAmount_SmallStash"]
+}

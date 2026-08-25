@@ -1,0 +1,85 @@
+{
+    "Items": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "1H_Crowbar"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Tool_Box"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Tool_Box_Small"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "BCULock_Item"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Cal_22_Ammobox_TR"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Chainsaw"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Gasoline_Canister"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Nails_Package_Box"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Bolts_Package_Box"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Screwdriver"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Screwdriver_Small"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Car_Battery"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "AnimalBaitFeederItem"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Car_Battery_Cables"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "1H_Military_Tomahawk"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "1H_Military_Survival_Knife"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "PortableWorkLight"
+        }
+    ],
+    "Probability": 5.5,
+    "QuantityMin": 1,
+    "QuantityMax": 3,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": false,
+    "ShouldApplyLocationSpecificProbabilityModifier": false,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 5,
+    "RandomDamage": 20,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

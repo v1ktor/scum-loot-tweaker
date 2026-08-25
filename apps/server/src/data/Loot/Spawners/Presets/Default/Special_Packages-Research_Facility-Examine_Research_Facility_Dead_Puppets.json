@@ -1,0 +1,22 @@
+{
+    "Nodes": [
+        {
+            "Rarity": "Uncommon",
+            "Ids": ["ItemLootTreeNodes.DeadPuppets.Military"]
+        }
+    ],
+    "Probability": 25,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 50,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetAmmoAmount_SmallStash", "SetClothesDirtiness_DeadPuppets"]
+}

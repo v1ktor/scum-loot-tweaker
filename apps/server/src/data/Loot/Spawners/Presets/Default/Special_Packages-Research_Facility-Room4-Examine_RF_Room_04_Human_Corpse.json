@@ -1,0 +1,86 @@
+{
+    "Items": [
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Military_Survival_Knife"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Canteen"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Tactical_Handgun_Holster_01"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Bone"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Human_guts"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_HS9"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Magazine_HS9"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_9mm_AP"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "MilitaryPants_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Military_Shirt_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cigarettes"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "MilitaryBoots_JNA"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Lighter"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Matches"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Hip_Flask"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Pen"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Rubber_band"
+        }
+    ],
+    "Probability": 45,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": false,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 20,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetAmmoAmount_SmallStash"]
+}
