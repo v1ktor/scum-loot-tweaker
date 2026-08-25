@@ -112,6 +112,7 @@ describe('parseQuestJson', () => {
             [1, 48],
             [2, 72],
             [3, 96],
+            [4, 120],
         ])('backfills tier %s with %s hours when the file omits it', (Tier, expected) => {
             const result = parseQuestJson(questFile({ Tier, TimeLimitHours: undefined }));
             expect(result.ok && result.quest.TimeLimitHours).toBe(expected);

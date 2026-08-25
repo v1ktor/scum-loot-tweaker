@@ -71,7 +71,7 @@ describe('buildQuestId', () => {
     });
 
     describe('tier', () => {
-        it.each([1, 2, 3] as const)('prefixes tier %s', (Tier) => {
+        it.each([1, 2, 3, 4] as const)('prefixes tier %s', (Tier) => {
             expect(buildQuestId(quest({ Tier }))).toBe(`T${Tier}_RH_Fetch_AnimalFat`);
         });
     });

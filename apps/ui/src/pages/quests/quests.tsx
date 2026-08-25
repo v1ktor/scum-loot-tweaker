@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
 import { QUEST_GIVERS } from '@/data/quests/index.ts';
+import { QUEST_TIERS } from '@/data/quests/quest-defaults.ts';
 import { useItemsOptions } from '@/hooks/use-items-options.ts';
 import { QuestDataTable } from './quest-data-table.tsx';
 import { buildAllRows } from './quest-rows.ts';
@@ -96,7 +97,7 @@ export function Quests() {
                         <TabsContent key={giver.npc} value={giver.npc} className="mt-4">
                             <Tabs value={activeTier} onValueChange={setTier}>
                                 <TabsList>
-                                    {([1, 2, 3] as const).map((tier) => {
+                                    {QUEST_TIERS.map((tier) => {
                                         const count = giver.quests.filter((q) => q.Tier === tier).length;
                                         return (
                                             <TabsTrigger key={tier} value={String(tier)} disabled={count === 0}>
@@ -107,7 +108,7 @@ export function Quests() {
                                     })}
                                 </TabsList>
 
-                                {([1, 2, 3] as const).map((tier) => (
+                                {QUEST_TIERS.map((tier) => (
                                     <TabsContent key={tier} value={String(tier)} className="mt-4">
                                         <QuestDataTable
                                             rows={allRows.filter((r) => r.giver === giver && r.quest.Tier === tier)}

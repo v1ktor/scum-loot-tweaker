@@ -124,7 +124,7 @@ export type Condition = EliminationCondition | FetchCondition | InteractionCondi
 export type Quest = {
     id: string;
     AssociatedNPC: AssociatedNPC;
-    Tier: 1 | 2 | 3;
+    Tier: 1 | 2 | 3 | 4;
     Title: string;
     Description?: string;
     TimeLimitHours: number;
