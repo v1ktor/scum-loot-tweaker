@@ -2,7 +2,11 @@
     "Items": [
         {
             "Rarity": "Uncommon",
-            "Id": "Cal_50BMG"
+            "Id": "KeyCard"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "KeyCardApex"
         }
     ],
     "FixedItems": [
@@ -13,10 +17,11 @@
         "Laser_Detonator",
         "Sentry_Aiming_Kit",
         "Sentry_50cal_Rifle",
-        "KeyCard"
+        "Cal_50BMG",
+        "Cal_50BMG"
     ],
-    "QuantityMin": 5,
-    "QuantityMax": 15,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
     "AllowDuplicates": true,
     "ShouldFilterItemsByZone": true,
     "ShouldApplyLocationSpecificProbabilityModifier": true,
@@ -25,5 +30,7 @@
     "RandomDamage": 10,
     "InitialUsage": 0,
     "RandomUsage": 0,
-    "PostSpawnActions": ["KillboxKeycard_Sentry"]
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["KillboxKeycard_Sentry", "SetAmmoAmount_SmallStash"]
 }

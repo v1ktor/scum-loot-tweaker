@@ -1,0 +1,21 @@
+{
+    "Items": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_Cleaning_Kit"
+        }
+    ],
+    "Probability": 45,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 25,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

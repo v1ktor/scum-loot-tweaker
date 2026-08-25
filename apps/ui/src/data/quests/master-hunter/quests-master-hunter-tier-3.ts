@@ -169,4 +169,55 @@ export const MASTER_HUNTER_QUESTS_TIER3: Quest[] = [
             },
         ],
     },
+    // TODO: The August update added the mutant bear quests to DefaultQuestList.json, but the game ships only the
+    {
+        id: 'T3_MH_Fetch_MutantBearHead',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 3,
+        Title: 'Trophy Weight',
+        Description:
+            'Bring me the head of a mutant bear. It has to be whole — I want to see what is left behind the eyes.',
+        TimeLimitHours: 96,
+        // TODO: reward pool unverified
+        RewardPool: [{ CurrencyNormal: 3000, Fame: 20 }],
+        Conditions: [
+            {
+                Type: 'Fetch',
+                SequenceIndex: 0,
+                // TODO: 'Bear_Head_Mutant' is inferred from 'Wolf_Head_Mutant' / 'Boar_Head_Mutant' — confirm the id
+                RequiredItems: [{ AcceptedItems: ['Bear_Head_Mutant'], RequiredNum: 1, MinAcceptedItemHealth: 80 }],
+            },
+        ],
+    },
+    {
+        id: 'T3_MH_Fetch_MutantBearPaws',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 3,
+        Title: 'Four Good Reasons',
+        Description: 'Paws off a mutant bear. Whatever it was digging through out there, I want a look at the claws.',
+        TimeLimitHours: 96,
+        // TODO: reward pool unverified
+        RewardPool: [{ CurrencyNormal: 2600, Fame: 20 }],
+        Conditions: [
+            {
+                Type: 'Fetch',
+                SequenceIndex: 0,
+                // TODO: item id and RequiredNum are guesses — confirm both in-game
+                RequiredItems: [{ AcceptedItems: ['Bear_Paw_Mutant'], RequiredNum: 2, MinAcceptedItemHealth: 80 }],
+            },
+        ],
+    },
+    {
+        id: 'T3_MH_Kill_MutantBear',
+        AssociatedNPC: 'MasterHunter',
+        Tier: 3,
+        Title: 'Bigger Than the Story',
+        Description:
+            'People keep coming back with stories that grow on the walk home. Go and find out how big it really is.',
+        TimeLimitHours: 96,
+        // TODO: reward pool unverified
+        RewardPool: [{ CurrencyNormal: 2750, Fame: 20 }],
+        // TODO: 'BP_Bear_Mutant' is inferred from 'BP_Wolf_Mutant' and is not in the characters seed data yet
+        Conditions: [{ Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['BP_Bear_Mutant'], Amount: 1 }],
+    },
 ];

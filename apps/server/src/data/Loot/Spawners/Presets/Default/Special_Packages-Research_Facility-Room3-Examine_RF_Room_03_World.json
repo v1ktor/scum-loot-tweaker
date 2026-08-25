@@ -1,0 +1,129 @@
+{
+    "Items": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "1H_Kunai"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Cal_22"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "1H_Metal_Sword"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "2H_Katana"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "African_Biltong"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Bushman"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Fuse_1000A"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Stabproof_Vest_01_04"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Stabproof_Vest_01_07"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_30-06_AP"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_338"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_44_Viper"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_5_56x45mm"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "CannedDogFood"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Canteen"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Energy_Drink_Red_Ghoul"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Kicmovaca"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Military_Beanie_02"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Military_Beanie_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tactical_Sunglasses_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Military_Mask_03"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tracksuit_Top_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tracksuit_Pants_02_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tracksuit_Pants_01_02"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Woodcuters_Shirt_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Wushu_Spear_Metal"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Water_05l"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Rope1"
+        }
+    ],
+    "Probability": 40,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": false,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 5,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

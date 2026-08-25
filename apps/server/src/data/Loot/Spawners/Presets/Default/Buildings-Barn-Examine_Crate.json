@@ -10,7 +10,8 @@
                 "ItemLootTreeNodes.Barn.Other.Weapons.Rifles.Weapon_CarbonHunter",
                 "ItemLootTreeNodes.Barn.Other.Weapons.Rifles.Weapon_Hunter85_V2",
                 "ItemLootTreeNodes.Barn.Other.Weapons.Shotguns.Weapon_M1887",
-                "ItemLootTreeNodes.Barn.Other.Weapons.Shotguns.Weapon_M1887_Sawed_off"
+                "ItemLootTreeNodes.Barn.Other.Weapons.Shotguns.Weapon_M1887_Sawed_off",
+                "ItemLootTreeNodes.Barn.Other.Weapons.Rifles.Weapon_SKS"
             ]
         },
         {
@@ -33,6 +34,8 @@
     "RandomDamage": 50,
     "InitialUsage": 0,
     "RandomUsage": 50,
+    "InitialStack": 0,
+    "RandomStack": 0,
     "PostSpawnActions": [
         "SetCashAmount_SmallStash",
         "SetClothesDirtiness_ResidentialClothes",

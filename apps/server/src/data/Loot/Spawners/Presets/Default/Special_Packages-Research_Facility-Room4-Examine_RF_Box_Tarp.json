@@ -1,0 +1,35 @@
+{
+    "Items": [
+        {
+            "Rarity": "Common",
+            "Id": "1H_Bushman"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "BCULock_Item"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "DialLock_Item"
+        }
+    ],
+    "Subpresets": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "Special_Packages-Research_Facility-Room4-Examine_RF_BlackHawkSet"
+        }
+    ],
+    "Probability": 40,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 10,
+    "RandomDamage": 15,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

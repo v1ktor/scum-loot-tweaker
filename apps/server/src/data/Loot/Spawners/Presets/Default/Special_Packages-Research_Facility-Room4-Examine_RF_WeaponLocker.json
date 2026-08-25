@@ -1,0 +1,140 @@
+{
+    "Items": [
+        {
+            "Rarity": "Common",
+            "Id": "Weapon_AK47"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Weapon_AKM"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Weapon_AK15"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Weapon_MK18"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_M16A4"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_SCAR_L"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_AS_Val"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_VSS_VZ"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_VHS2"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_VHS2_Rail"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_RPK-74"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_M249"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_SKS"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_SCAR_DMR"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_SVD_Dragunov"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_MosinNagant"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Weapon_CarbonHunter"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_M1_Garand"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_98k_Karabiner"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWM"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWM_Desert"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWM_Green"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWM_Snake"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWP"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWP_Desert"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWP_Green"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_AWP_Snake"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Weapon_M82A1"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Weapon_M82A1_Black"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Weapon_M82A1_Desert"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Weapon_M82A1_Snow"
+        }
+    ],
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 0,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

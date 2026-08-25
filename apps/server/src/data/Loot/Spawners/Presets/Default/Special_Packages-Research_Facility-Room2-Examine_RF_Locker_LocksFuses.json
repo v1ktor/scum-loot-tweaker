@@ -1,0 +1,101 @@
+{
+    "Items": [
+        {
+            "Rarity": "Rare",
+            "Id": "Weapon_CarbonHunter"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_Parts_Carbon_Hunter"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "WeaponScope_HuntingScope"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_Hunter85_V2"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_22_Ammobox"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Cal_30-06_Ammobox_AP"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_30-06_Ammobox"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Bulletproof_Vest_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Night_Vision_Goggles_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "FlareItem"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tactical_Gloves_01_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Magazine_CarbonHunter"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Magazine_Hunter85_V2"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Weapon_Cleaning_Kit"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tool_Box_Small"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Frag_Grenade"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Weapon_SVD_Dragunov"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Magazine_SVD_Dragunov"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cal_7_62x54mmR_Ammobox"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "WeaponFlashlight_DesertEagle"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tactical_Vest_01"
+        }
+    ],
+    "Probability": 100,
+    "QuantityMin": 2,
+    "QuantityMax": 2,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 0,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

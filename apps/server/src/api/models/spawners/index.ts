@@ -83,6 +83,18 @@ export const GetSpawnerSchema = z.object({
         .min(0)
         .meta({ examples: [20] })
         .optional(),
+    InitialStack: z
+        .number()
+        .int()
+        .min(0)
+        .meta({ examples: [20] })
+        .optional(),
+    RandomStack: z
+        .number()
+        .int()
+        .min(0)
+        .meta({ examples: [20] })
+        .optional(),
     ShouldApplyLocationSpecificDamageModifier: z.boolean().optional(),
     ShouldApplyLocationSpecificProbabilityModifier: z.boolean().optional(),
     PostSpawnActions: z

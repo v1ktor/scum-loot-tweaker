@@ -24,5 +24,7 @@
     "RandomDamage": 50,
     "InitialUsage": 30,
     "RandomUsage": 50,
+    "InitialStack": 0,
+    "RandomStack": 0,
     "PostSpawnActions": ["SetClothesDirtiness_DirtyClothes", "SetCashAmount_SmallStash"]
 }

@@ -2,7 +2,11 @@
     "Items": [
         {
             "Rarity": "Uncommon",
-            "Id": "Cal_7_62x39mm_AP"
+            "Id": "KeyCard"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "KeyCardApex"
         }
     ],
     "FixedItems": [
@@ -16,13 +20,15 @@
         "Cal_40x46",
         "TearGasGrenade",
         "TearGasGrenade",
-        "KeyCard",
         "Sentry_Aiming_Kit",
         "Flashbang",
-        "Flashbang"
+        "Flashbang",
+        "Cal_7_62x39mm_AP",
+        "Cal_7_62x39mm_AP",
+        "Cal_7_62x39mm_AP"
     ],
-    "QuantityMin": 60,
-    "QuantityMax": 120,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
     "AllowDuplicates": true,
     "ShouldFilterItemsByZone": true,
     "ShouldApplyLocationSpecificProbabilityModifier": true,
@@ -31,5 +37,7 @@
     "RandomDamage": 10,
     "InitialUsage": 0,
     "RandomUsage": 0,
-    "PostSpawnActions": ["KillboxKeycard_Sentry"]
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["KillboxKeycard_Sentry", "SetAmmoAmount_BigStash"]
 }

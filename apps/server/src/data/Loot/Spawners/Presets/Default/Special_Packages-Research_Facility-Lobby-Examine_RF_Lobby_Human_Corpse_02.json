@@ -1,0 +1,42 @@
+{
+    "Items": [
+        {
+            "Rarity": "VeryRare",
+            "Id": "Weapon_HS9"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Cal_9mm"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Work_Jacket_02"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Tactical_Handgun_Holster_02"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cigarettes"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Magazine_HS9"
+        }
+    ],
+    "Probability": 20,
+    "QuantityMin": 1,
+    "QuantityMax": 2,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 15,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetAmmoAmount_SmallStash"]
+}

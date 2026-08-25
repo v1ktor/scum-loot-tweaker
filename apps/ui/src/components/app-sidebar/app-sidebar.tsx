@@ -32,7 +32,6 @@ const scumLootTweakerMenuItems: NavItem[] = [
                 title: 'My Nodes',
                 url: NavigationPath.MyNodes,
                 icon: Pencil,
-                isNew: true,
             },
         ],
     },
@@ -58,13 +57,11 @@ const scumQuestMenuItems: NavItem[] = [
         title: 'Quest Editor',
         url: NavigationPath.QuestEditor,
         icon: Pencil,
-        isNew: true,
         items: [
             {
                 title: 'My Quests',
                 url: NavigationPath.MyQuests,
                 icon: Upload,
-                isNew: true,
             },
         ],
     },

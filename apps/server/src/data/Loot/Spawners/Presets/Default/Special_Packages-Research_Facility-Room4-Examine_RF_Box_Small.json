@@ -1,0 +1,97 @@
+{
+    "Items": [
+        {
+            "Rarity": "Uncommon",
+            "Id": "Screwdriver_Small"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Screwdriver"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Lockpick_Item"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Lockpick_Advanced_Item"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "MRE_Cheeseburger"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "MRE_Stew"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "MRE_TunaSalad"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Canteen"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Compass"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Grinding_Stone_02"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "CD_Player"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Fuse_200A"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Fuse_400A"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Fuse_600A"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Fuse_800A"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Fuse_1000A"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Lock_Item_Basic"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Lock_Item_Medium"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Lock_Item_Advanced"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Parking_Sensor"
+        }
+    ],
+    "Probability": 30,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 10,
+    "RandomDamage": 20,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

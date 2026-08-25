@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button.tsx';
 import { ButtonGroup } from '@/components/ui/button-group.tsx';
 import { Textarea } from '@/components/ui/textarea.tsx';
 import { QUEST_GIVERS } from '@/data/quests/index.ts';
-import { TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
+import { QUEST_TIERS, TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
 import type { AssociatedNPC, Quest } from '@/data/quests/quests.types.ts';
 import { buildQuestId } from '../quest-id.ts';
 import type { QuestError } from '../quest-validation.ts';
@@ -23,11 +23,7 @@ const ALL_NPCS: readonly AssociatedNPC[] = [
     'Fisherman',
 ];
 const NPC_OPTIONS = ALL_NPCS.map((npc) => ({ value: npc, label: GIVER_LABELS.get(npc) ?? npc }));
-const TIER_OPTIONS = [
-    { value: '1', label: 'Tier 1' },
-    { value: '2', label: 'Tier 2' },
-    { value: '3', label: 'Tier 3' },
-] as const;
+const TIER_OPTIONS = QUEST_TIERS.map((tier) => ({ value: String(tier), label: `Tier ${tier}` }));
 
 export function QuestMetaEditor({
     quest,

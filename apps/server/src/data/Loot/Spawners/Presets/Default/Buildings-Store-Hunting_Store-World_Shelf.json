@@ -32,7 +32,8 @@
                 "ItemLootTreeNodes.HuntingStore.WeaponParts.Magazines.Rifles",
                 "ItemLootTreeNodes.HuntingStore.Other.Flares",
                 "ItemLootTreeNodes.HuntingStore.Other.FoodDrink",
-                "ItemLootTreeNodes.HuntingStore.Other.Money"
+                "ItemLootTreeNodes.HuntingStore.Other.Money",
+                "ItemLootTreeNodes.HuntingStore.Firearms.Snipers.Weapon_SKS"
             ]
         }
     ],
@@ -46,5 +47,7 @@
     "InitialDamage": 0,
     "RandomDamage": 10,
     "InitialUsage": 0,
-    "RandomUsage": 10
+    "RandomUsage": 10,
+    "InitialStack": 0,
+    "RandomStack": 0
 }

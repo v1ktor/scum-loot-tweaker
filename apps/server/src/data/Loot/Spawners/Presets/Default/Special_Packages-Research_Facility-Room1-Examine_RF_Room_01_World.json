@@ -1,0 +1,105 @@
+{
+    "Items": [
+        {
+            "Rarity": "Rare",
+            "Id": "1H_Scalpel"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "AntiburnGel"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Emergency_bandage"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Diary"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Saw"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Antibiotic_Pill_Single"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Antibiotics_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Antibiotics_02"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Antibiotics_03"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Padlock"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "DialLock_Item"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "ActivatedCharcoal_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "ActivatedCharcoal_02"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "ActivatedCharcoal_03"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Rags"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Syringe"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Sewing_kit"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Medical_Glove_01"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Hip_Flask"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "CanOpener"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "1H_Cleaver"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Vodka"
+        }
+    ],
+    "Probability": 35,
+    "QuantityMin": 1,
+    "QuantityMax": 1,
+    "AllowDuplicates": true,
+    "ShouldFilterItemsByZone": true,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 3,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}

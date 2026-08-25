@@ -102,6 +102,24 @@ export function SettingsTab(props: SettingsTabProps) {
                         tooltipContent={<RandomUsageTooltip />}
                     />
                 </div>
+                <div className="flex gap-4">
+                    <InputField
+                        value={spawner.InitialStack ?? ''}
+                        id="initial-stack"
+                        label="Initial Stack"
+                        onChange={handleFieldChange('InitialStack')}
+                        onClear={handleFieldClear('InitialStack')}
+                        tooltipContent={<p>Tooltip coming soon!</p>}
+                    />
+                    <InputField
+                        value={spawner.RandomStack ?? ''}
+                        id="random-stack"
+                        label="Random Stack"
+                        onChange={handleFieldChange('RandomStack')}
+                        onClear={handleFieldClear('RandomStack')}
+                        tooltipContent={<p>Tooltip coming soon!</p>}
+                    />
+                </div>
                 <MultiSelect
                     id="post-spawn-actions"
                     label="Post spawn actions"

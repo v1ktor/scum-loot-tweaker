@@ -1,0 +1,11 @@
+{
+    "FixedItems": ["Weapon_BlackHawk_Crossbow", "Ammo_Crossbow_Bolt_Metal", "Ammo_Crossbow_Bolt_Metal"],
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 0,
+    "RandomDamage": 0,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0,
+    "PostSpawnActions": ["SetAmmoAmount_Arrows_Full"]
+}

@@ -1,0 +1,125 @@
+{
+    "Items": [
+        {
+            "Rarity": "VeryRare",
+            "Id": "Electrician_Tools"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Electrician_Glove_01_01"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Electrician_Glove_01_03"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Electrician_Glove_01_02"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Fuse_600A"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Fuse_800A"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Fuse_1000A"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Electrical_Repair_Kit"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Rebar_Cutter"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Military_Shirt_04"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "MilitaryBoots_JNA"
+        },
+        {
+            "Rarity": "ExtremelyRare",
+            "Id": "Knife_Sheath"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Wire"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Wire_Cutters_01"
+        },
+        {
+            "Rarity": "Common",
+            "Id": "Human_guts"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Rags"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "WeaponFlashlight_DesertEagle"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Batteries"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Smartphone_Battery"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Cigarettes1"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Lighter"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Bone"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Beer"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "ChocolateCandy_05"
+        },
+        {
+            "Rarity": "VeryRare",
+            "Id": "Drill"
+        },
+        {
+            "Rarity": "Rare",
+            "Id": "Bobby_Pin_Package"
+        },
+        {
+            "Rarity": "Uncommon",
+            "Id": "Bobby_pin"
+        }
+    ],
+    "Probability": 35,
+    "QuantityMin": 1,
+    "QuantityMax": 2,
+    "AllowDuplicates": false,
+    "ShouldFilterItemsByZone": false,
+    "ShouldApplyLocationSpecificProbabilityModifier": true,
+    "ShouldApplyLocationSpecificDamageModifier": true,
+    "InitialDamage": 20,
+    "RandomDamage": 40,
+    "InitialUsage": 0,
+    "RandomUsage": 0,
+    "InitialStack": 0,
+    "RandomStack": 0
+}
