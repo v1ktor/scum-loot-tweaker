@@ -153,11 +153,6 @@ export function Home() {
                                 Simplify custom quest creation — visually design, tweak, and export quests for your
                                 server or sandbox.
                             </CardDescription>
-                            <CardAction>
-                                <Badge className="bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/20">
-                                    New
-                                </Badge>
-                            </CardAction>
                         </CardHeader>
                     </Card>
                 </Link>
