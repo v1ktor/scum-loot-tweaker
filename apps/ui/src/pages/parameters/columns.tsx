@@ -15,7 +15,10 @@ export interface Parameter {
     Variations: string[];
     ShouldOverrideInitialAndRandomUsage: boolean;
     InitialUsageOverride: number;
-    RandomUsageOverrideUsage: number;
+    RandomUsageOverride: number;
+    ShouldOverrideInitialAndRandomStack: boolean;
+    InitialStackOverride: number;
+    RandomStackOverride: number;
 }
 
 export interface CooldownGroupCooldown {
@@ -130,12 +133,25 @@ export const columns: ColumnDef<Parameter>[] = [
         header: 'Usage Override',
         enableSorting: false,
         cell: ({ row }) => {
-            const { ShouldOverrideInitialAndRandomUsage, InitialUsageOverride, RandomUsageOverrideUsage } =
-                row.original;
+            const { ShouldOverrideInitialAndRandomUsage, InitialUsageOverride, RandomUsageOverride } = row.original;
             if (!ShouldOverrideInitialAndRandomUsage) return <Dash />;
             return (
                 <span className="text-sm">
-                    Initial {InitialUsageOverride} · Random {RandomUsageOverrideUsage}
+                    Initial {InitialUsageOverride} · Random {RandomUsageOverride}
+                </span>
+            );
+        },
+    },
+    {
+        id: 'stackOverride',
+        header: 'Stack Override',
+        enableSorting: false,
+        cell: ({ row }) => {
+            const { ShouldOverrideInitialAndRandomStack, InitialStackOverride, RandomStackOverride } = row.original;
+            if (!ShouldOverrideInitialAndRandomStack) return <Dash />;
+            return (
+                <span className="text-sm">
+                    Initial {InitialStackOverride} · Random {RandomStackOverride}
                 </span>
             );
         },
