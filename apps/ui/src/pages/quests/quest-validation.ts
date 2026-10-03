@@ -1,3 +1,4 @@
+import { CookLevelSchema } from '@/data/quests/quests.schema.ts';
 import type { Condition, Quest, Reward } from '@/data/quests/quests.types.ts';
 
 export type QuestErrorTab = 'details' | 'rewards' | 'conditions';
@@ -15,7 +16,7 @@ export type QuestError = {
     missing?: boolean;
 };
 
-const COOK_LEVEL_ORDER = ['Raw', 'Undercooked', 'Cooked', 'Overcooked', 'Burned'] as const;
+const COOK_LEVEL_ORDER = CookLevelSchema.options;
 
 const isBlank = (value: string | undefined): boolean => !value || value.trim() === '';
 const isInt = (value: number): boolean => Number.isInteger(value);

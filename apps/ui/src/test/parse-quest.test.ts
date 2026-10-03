@@ -30,6 +30,96 @@ describe('parseQuestJson', () => {
         if (!result.ok) expect(result.error).toContain(field);
     });
 
+    it('accepts keys in any letter case', () => {
+        const file = JSON.stringify({
+            associatedNpc: 'Armorer',
+            title: 'Test quest',
+            TIER: 2,
+            rewardPool: [{ currencyNormal: 100 }],
+            conditions: [{ type: 'Fetch', requiredItems: [{ acceptedItems: ['Apple'], requiredNum: 3 }] }],
+        });
+        const result = parseQuestJson(file);
+
+        expect(result).toMatchObject({
+            ok: true,
+            quest: {
+                AssociatedNPC: 'Armorer',
+                Title: 'Test quest',
+                Tier: 2,
+                RewardPool: [{ CurrencyNormal: 100 }],
+                Conditions: [{ Type: 'Fetch', RequiredItems: [{ AcceptedItems: ['Apple'], RequiredNum: 3 }] }],
+            },
+        });
+        if (result.ok) expect(result.quest).not.toHaveProperty('associatedNpc');
+    });
+
+    it('accepts enum values in any letter case', () => {
+        const file = questFile({
+            AssociatedNPC: 'masterhunter',
+            RewardPool: [{ Skills: [{ Skill: 'MELEEWEAPONS', Experience: 10 }] }],
+            Conditions: [
+                {
+                    Type: 'fetch',
+                    RequiredItems: [
+                        {
+                            AcceptedItems: ['Apple'],
+                            RequiredNum: 1,
+                            MinAcceptedCookLevel: 'cooked',
+                            MaxAcceptedCookLevel: 'OVERCOOKED',
+                            MinAcceptedCookQuality: 'good',
+                        },
+                    ],
+                },
+                { Type: 'ELIMINATION' },
+            ],
+        });
+        const result = parseQuestJson(file);
+
+        expect(result).toMatchObject({
+            ok: true,
+            quest: {
+                AssociatedNPC: 'MasterHunter',
+                RewardPool: [{ Skills: [{ Skill: 'MeleeWeapons' }] }],
+                Conditions: [
+                    {
+                        Type: 'Fetch',
+                        RequiredItems: [
+                            {
+                                MinAcceptedCookLevel: 'Cooked',
+                                MaxAcceptedCookLevel: 'Overcooked',
+                                MinAcceptedCookQuality: 'Good',
+                            },
+                        ],
+                    },
+                    { Type: 'Elimination' },
+                ],
+            },
+        });
+    });
+
+    it('leaves free-text values such as item names untouched', () => {
+        const file = questFile({ Conditions: [{ Type: 'Fetch', RequiredItems: [{ AcceptedItems: ['apple'] }] }] });
+        const result = parseQuestJson(file);
+
+        expect(result.ok && result.quest.Conditions[0]).toMatchObject({
+            RequiredItems: [{ AcceptedItems: ['apple'] }],
+        });
+    });
+
+    it('rejects an NPC the game does not have', () => {
+        const result = parseQuestJson(questFile({ AssociatedNPC: 'Blacksmith' }));
+        expect(result.ok).toBe(false);
+        if (!result.ok) expect(result.error).toContain('AssociatedNPC');
+    });
+
+    it('points at the field that has the wrong type', () => {
+        const result = parseQuestJson(
+            questFile({ RewardPool: [{ Skills: [{ Skill: 'Rifles', Experience: 'lots' }] }] }),
+        );
+        expect(result.ok).toBe(false);
+        if (!result.ok) expect(result.error).toContain('RewardPool[0].Skills[0].Experience');
+    });
+
     it('drops a stray id so the caller assigns the storage key', () => {
         const result = parseQuestJson(questFile({ id: 'from-the-file' }));
         expect(result.ok).toBe(true);
@@ -75,7 +165,7 @@ describe('parseQuestJson', () => {
             const result = parseQuestJson(questFile({ Conditions: [{ Type: 'Delivery' }] }));
             expect(result.ok).toBe(false);
             if (!result.ok) {
-                expect(result.error).toContain('Condition #1');
+                expect(result.error).toContain('Conditions[0].Type');
                 expect(result.error).toContain('"Delivery"');
             }
         });

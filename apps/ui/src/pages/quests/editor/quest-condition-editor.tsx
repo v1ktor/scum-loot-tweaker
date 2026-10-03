@@ -11,6 +11,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu.tsx';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.tsx';
+import { CookLevelSchema, CookQualitySchema } from '@/data/quests/quests.schema.ts';
 import type {
     Condition,
     CookLevel,
@@ -36,8 +37,8 @@ import {
 } from './quest-editor-fields.tsx';
 import { InteractionLocationsEditor, MapLocationsEditor } from './quest-location-editors.tsx';
 
-const COOK_LEVELS = ['Raw', 'Undercooked', 'Cooked', 'Overcooked', 'Burned'] as const;
-const COOK_QUALITIES = ['Ruined', 'Bad', 'Poor', 'Good', 'Excellent', 'Perfect'] as const;
+const COOK_LEVELS = CookLevelSchema.options;
+const COOK_QUALITIES = CookQualitySchema.options;
 const TYPE_OPTIONS: readonly { value: QuestType; label: string }[] = [
     { value: 'Fetch', label: 'Fetch' },
     { value: 'Elimination', label: 'Elimination' },

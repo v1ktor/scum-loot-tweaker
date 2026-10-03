@@ -1,133 +1,35 @@
-export type AssociatedNPC =
-    | 'Armorer'
-    | 'Banker'
-    | 'Barber'
-    | 'Bartender'
-    | 'Doctor'
-    | 'Fisherman'
-    | 'GeneralGoods'
-    | 'Mechanic'
-    | 'Hunter'
-    | 'MasterHunter';
-export type QuestType = 'Fetch' | 'Elimination' | 'Interaction';
-export type Skill =
-    | 'Archery'
-    | 'Aviation'
-    | 'Awareness'
-    | 'Boxing'
-    | 'Camouflage'
-    | 'Cooking'
-    | 'Demolition'
-    | 'Driving'
-    | 'Endurance'
-    | 'Engineering'
-    | 'Farming'
-    | 'Handgun'
-    | 'Medical'
-    | 'MeleeWeapons'
-    | 'Motorcycle'
-    | 'Rifles'
-    | 'Running'
-    | 'Sniping'
-    | 'Stealth'
-    | 'Survival'
-    | 'Tactics'
-    | 'Thievery';
+import type { z } from 'zod';
+import type {
+    AssociatedNPCSchema,
+    CookLevelSchema,
+    CookQualitySchema,
+    EliminationConditionSchema,
+    FetchConditionSchema,
+    InteractionConditionSchema,
+    InteractionLocationSchema,
+    MapLocationSchema,
+    QuestSchema,
+    QuestTypeSchema,
+    RequiredItemSchema,
+    RewardSchema,
+    SkillRewardSchema,
+    SkillSchema,
+    TradeDealSchema,
+} from './quests.schema.ts';
 
-export type SkillReward = {
-    Skill: Skill;
-    Experience: number;
-};
-
-export type TradeDeal = {
-    Item: string;
-    Price?: number;
-    Amount?: number;
-    AllowExcluded?: boolean;
-    Fame?: number;
-};
-
-export type Reward = {
-    CurrencyNormal?: number;
-    CurrencyGold?: number;
-    Fame?: number;
-    Skills?: SkillReward[];
-    TradeDeals?: TradeDeal[];
-    // TODO: some quests have items as rewards, but there is no official documentation on how to structure reward pool
-    Items?: string[];
-    // TODO: Some quests unlock blueprints as rewards, but there is no official documentation on how to structure reward pool
-    Blueprints?: string[];
-};
-
-export type MapLocation = {
-    Location: { X: number; Y: number; Z: number } | string;
-    SizeFactor: number;
-};
-
-type ConditionBase = {
-    uid?: string;
-    CanBeAutoCompleted?: boolean;
-    TrackingCaption?: string;
-    SequenceIndex: number;
-    LocationsShownOnMap?: MapLocation[];
-};
-
-export type EliminationCondition = ConditionBase & {
-    Type: Extract<QuestType, 'Elimination'>;
-    TargetCharacters: string[];
-    Amount: number;
-    AllowedWeapons?: string[];
-};
-
-export type CookLevel = 'Raw' | 'Undercooked' | 'Cooked' | 'Overcooked' | 'Burned';
-export type CookQuality = 'Ruined' | 'Bad' | 'Poor' | 'Good' | 'Excellent' | 'Perfect';
-
-export type RequiredItem = {
-    AcceptedItems: string[];
-    RequiredNum: number;
-    RandomAdditionalRequiredNum?: number;
-    MinAcceptedItemUses?: number;
-    MinAcceptedCookLevel?: CookLevel;
-    MaxAcceptedCookLevel?: CookLevel;
-    MinAcceptedCookQuality?: CookQuality;
-    MinAcceptedItemMass?: number;
-    MinAcceptedItemHealth?: number;
-    MinAcceptedItemResourceRatio?: number;
-    MinAcceptedItemResourceAmount?: number;
-};
-
-export type FetchCondition = ConditionBase & {
-    Type: Extract<QuestType, 'Fetch'>;
-    DisablePurchaseOfRequiredItems?: boolean;
-    PlayerKeepsItems?: boolean;
-    RequiredItems: RequiredItem[];
-};
-
-export type InteractionLocation = {
-    AnchorMesh: string;
-    Instance?: number;
-    FallbackTransform?: string;
-    VisibleMesh?: string;
-};
-
-export type InteractionCondition = ConditionBase & {
-    Type: Extract<QuestType, 'Interaction'>;
-    Locations: InteractionLocation[];
-    MinNeeded: number;
-    MaxNeeded: number;
-    SpawnOnlyNeeded?: boolean;
-    WorldMarkerShowDistance?: number;
-};
-
+export type AssociatedNPC = z.infer<typeof AssociatedNPCSchema>;
+export type QuestType = z.infer<typeof QuestTypeSchema>;
+export type Skill = z.infer<typeof SkillSchema>;
+export type SkillReward = z.infer<typeof SkillRewardSchema>;
+export type TradeDeal = z.infer<typeof TradeDealSchema>;
+export type Reward = z.infer<typeof RewardSchema>;
+export type MapLocation = z.infer<typeof MapLocationSchema>;
+export type EliminationCondition = z.infer<typeof EliminationConditionSchema>;
+export type CookLevel = z.infer<typeof CookLevelSchema>;
+export type CookQuality = z.infer<typeof CookQualitySchema>;
+export type RequiredItem = z.infer<typeof RequiredItemSchema>;
+export type FetchCondition = z.infer<typeof FetchConditionSchema>;
+export type InteractionLocation = z.infer<typeof InteractionLocationSchema>;
+export type InteractionCondition = z.infer<typeof InteractionConditionSchema>;
 export type Condition = EliminationCondition | FetchCondition | InteractionCondition;
-
-export type Quest = {
-    id: string;
-    AssociatedNPC: AssociatedNPC;
-    Tier: 1 | 2 | 3 | 4;
-    Title: string;
-    Description?: string;
-    TimeLimitHours: number;
-    RewardPool: Reward[];
-    Conditions: Condition[];
-};
+export type Quest = z.infer<typeof QuestSchema>;

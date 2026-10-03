@@ -1,63 +1,80 @@
-import { QUEST_TIERS, TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
-import type { Condition, Quest, QuestType, Reward } from '@/data/quests/quests.types.ts';
+import { z } from 'zod';
+import { TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
+import { QuestBodySchema } from '@/data/quests/quests.schema.ts';
+import type { Quest } from '@/data/quests/quests.types.ts';
 
 export type QuestBody = Omit<Quest, 'id'>;
 
 export type ParseQuestResult = { ok: true; quest: QuestBody } | { ok: false; error: string };
 
-const QUEST_TYPES: readonly QuestType[] = ['Fetch', 'Elimination', 'Interaction'];
+const ImportedQuestSchema = QuestBodySchema.extend({ TimeLimitHours: z.number().optional() });
 
 const isObject = (value: unknown): value is Record<string, unknown> =>
     value !== null && typeof value === 'object' && !Array.isArray(value);
 
-const asArray = (value: unknown): unknown[] => (Array.isArray(value) ? value : []);
+type Spellings = { keys: Map<string, string>; values: Map<string, Map<string, string>> };
 
-function normalizeCondition(raw: Record<string, unknown>, type: QuestType): Condition {
-    const base = {
-        ...raw,
-        Type: type,
-        SequenceIndex: typeof raw.SequenceIndex === 'number' ? raw.SequenceIndex : 0,
-        LocationsShownOnMap: Array.isArray(raw.LocationsShownOnMap)
-            ? (raw.LocationsShownOnMap as Condition['LocationsShownOnMap'])
-            : undefined,
-    };
-
-    if (type === 'Fetch') {
-        const groups = asArray(raw.RequiredItems)
-            .filter(isObject)
-            .map((group) => ({
-                ...group,
-                AcceptedItems: asArray(group.AcceptedItems).filter((item): item is string => typeof item === 'string'),
-                RequiredNum: typeof group.RequiredNum === 'number' ? group.RequiredNum : 1,
-            }));
-        return { ...base, Type: 'Fetch', RequiredItems: groups } as Condition;
+function collectSpellings(schema: z.core.$ZodType, spellings: Spellings, key?: string): Spellings {
+    const def = schema._zod.def;
+    switch (def.type) {
+        case 'object':
+            for (const [name, inner] of Object.entries((def as z.core.$ZodObjectDef).shape)) {
+                spellings.keys.set(name.toLowerCase(), name);
+                collectSpellings(inner, spellings, name);
+            }
+            break;
+        case 'array':
+            collectSpellings((def as z.core.$ZodArrayDef).element, spellings, key);
+            break;
+        case 'optional':
+        case 'default':
+        case 'catch':
+            collectSpellings((def as z.core.$ZodOptionalDef).innerType, spellings, key);
+            break;
+        case 'pipe':
+            collectSpellings((def as z.core.$ZodPipeDef).in, spellings, key);
+            break;
+        case 'union':
+            for (const option of (def as z.core.$ZodUnionDef).options) collectSpellings(option, spellings, key);
+            break;
+        case 'enum':
+        case 'literal': {
+            if (!key) break;
+            const allowed =
+                def.type === 'enum'
+                    ? Object.values((def as z.core.$ZodEnumDef).entries)
+                    : (def as z.core.$ZodLiteralDef<z.core.util.Literal>).values;
+            const lookup = spellings.values.get(key) ?? new Map<string, string>();
+            for (const value of allowed) {
+                if (typeof value === 'string') lookup.set(value.toLowerCase(), value);
+            }
+            spellings.values.set(key, lookup);
+            break;
+        }
     }
-
-    if (type === 'Elimination') {
-        return {
-            ...base,
-            Type: 'Elimination',
-            TargetCharacters: asArray(raw.TargetCharacters).filter((t): t is string => typeof t === 'string'),
-            Amount: typeof raw.Amount === 'number' ? raw.Amount : 1,
-        } as Condition;
-    }
-
-    const locations = asArray(raw.Locations)
-        .filter(isObject)
-        .map((location) => ({
-            ...location,
-            AnchorMesh: typeof location.AnchorMesh === 'string' ? location.AnchorMesh : '',
-        }));
-    return {
-        ...base,
-        Type: 'Interaction',
-        Locations: locations,
-        MinNeeded: typeof raw.MinNeeded === 'number' ? raw.MinNeeded : 1,
-        MaxNeeded: typeof raw.MaxNeeded === 'number' ? raw.MaxNeeded : Math.max(1, locations.length),
-    } as Condition;
+    return spellings;
 }
 
-const normalizeReward = (raw: unknown): Reward => (isObject(raw) ? (raw as Reward) : {});
+const SPELLINGS = collectSpellings(QuestBodySchema, { keys: new Map(), values: new Map() });
+
+function canonicalize(value: unknown): unknown {
+    if (Array.isArray(value)) {
+        return value.map(canonicalize);
+    }
+    if (!isObject(value)) {
+        return value;
+    }
+    return Object.fromEntries(
+        Object.entries(value).map(([rawKey, inner]) => {
+            const key = SPELLINGS.keys.get(rawKey.toLowerCase()) ?? rawKey;
+            const values = SPELLINGS.values.get(key);
+            if (values && typeof inner === 'string') {
+                return [key, values.get(inner.toLowerCase()) ?? inner];
+            }
+            return [key, canonicalize(inner)];
+        }),
+    );
+}
 
 export function parseQuestJson(text: string): ParseQuestResult {
     let raw: unknown;
@@ -72,43 +89,20 @@ export function parseQuestJson(text: string): ParseQuestResult {
         return { ok: false, error: 'Expected a JSON object with a quest' };
     }
 
-    const { id: _id, ...obj } = raw;
+    const result = ImportedQuestSchema.safeParse(canonicalize(raw));
 
-    if (typeof obj.Title !== 'string') {
-        return { ok: false, error: 'Missing "Title" — this does not look like a quest file' };
-    }
-    if (typeof obj.AssociatedNPC !== 'string') {
-        return { ok: false, error: 'Missing "AssociatedNPC"' };
+    if (!result.success) {
+        return { ok: false, error: z.prettifyError(result.error) };
     }
 
-    const rawConditions = asArray(obj.Conditions);
-    const conditions: Condition[] = [];
-    for (const [index, entry] of rawConditions.entries()) {
-        if (!isObject(entry)) {
-            return { ok: false, error: `Condition #${index + 1} is not an object` };
-        }
-        const type = QUEST_TYPES.find((t) => t === entry.Type);
-        if (!type) {
-            const seen = typeof entry.Type === 'string' ? `"${entry.Type}"` : 'nothing';
-            return {
-                ok: false,
-                error: `Condition #${index + 1} has an unsupported "Type" (${seen}) — expected Fetch, Elimination, or Interaction`,
-            };
-        }
-        conditions.push(normalizeCondition(entry, type));
-    }
+    const { TimeLimitHours, RewardPool, ...quest } = result.data;
 
-    const rewardPool = asArray(obj.RewardPool).map(normalizeReward);
-
-    const tier = QUEST_TIERS.find((candidate) => candidate === obj.Tier) ?? 1;
-
-    const quest: QuestBody = {
-        ...(obj as Omit<QuestBody, 'Tier' | 'TimeLimitHours' | 'RewardPool' | 'Conditions'>),
-        Tier: tier,
-        TimeLimitHours: typeof obj.TimeLimitHours === 'number' ? obj.TimeLimitHours : TIME_LIMIT_HOURS_BY_TIER[tier],
-        RewardPool: rewardPool.length > 0 ? rewardPool : [{}],
-        Conditions: conditions,
+    return {
+        ok: true,
+        quest: {
+            ...quest,
+            TimeLimitHours: TimeLimitHours ?? TIME_LIMIT_HOURS_BY_TIER[quest.Tier],
+            RewardPool: RewardPool.length > 0 ? RewardPool : [{}],
+        },
     };
-
-    return { ok: true, quest };
 }
