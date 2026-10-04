@@ -9,38 +9,17 @@ import {
     ComboboxItem,
     ComboboxList,
 } from '@/components/ui/combobox.tsx';
+import { SkillSchema } from '@/data/quests/quests.schema.ts';
 import type { Skill, SkillReward } from '@/data/quests/quests.types.ts';
 import type { EditorColumnMeta } from './editor-data-table.tsx';
 import { NumberInput } from './quest-editor-fields.tsx';
 
 export type SkillOption = { value: Skill; label: string };
 
-export const SKILL_OPTIONS: readonly SkillOption[] = (
-    [
-        'Archery',
-        'Aviation',
-        'Awareness',
-        'Boxing',
-        'Camouflage',
-        'Cooking',
-        'Demolition',
-        'Driving',
-        'Endurance',
-        'Engineering',
-        'Farming',
-        'Handgun',
-        'Medical',
-        'MeleeWeapons',
-        'Motorcycle',
-        'Rifles',
-        'Running',
-        'Sniping',
-        'Stealth',
-        'Survival',
-        'Tactics',
-        'Thievery',
-    ] as const
-).map((skill) => ({ value: skill, label: skill }));
+export const SKILL_OPTIONS: readonly SkillOption[] = SkillSchema.options.map((skill) => ({
+    value: skill,
+    label: skill,
+}));
 
 export interface SkillTableMeta {
     onUpdate: (index: number, next: SkillReward) => void;

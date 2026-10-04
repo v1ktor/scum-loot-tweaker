@@ -4,25 +4,14 @@ import { ButtonGroup } from '@/components/ui/button-group.tsx';
 import { Textarea } from '@/components/ui/textarea.tsx';
 import { QUEST_GIVERS } from '@/data/quests/index.ts';
 import { QUEST_TIERS, TIME_LIMIT_HOURS_BY_TIER } from '@/data/quests/quest-defaults.ts';
+import { AssociatedNPCSchema } from '@/data/quests/quests.schema.ts';
 import type { AssociatedNPC, Quest } from '@/data/quests/quests.types.ts';
 import { buildQuestId } from '../quest-id.ts';
 import type { QuestError } from '../quest-validation.ts';
 import { Field, NumberInput, Select, TextInput } from './quest-editor-fields.tsx';
 
 const GIVER_LABELS = new Map(QUEST_GIVERS.map((giver) => [giver.npc, giver.name]));
-const ALL_NPCS: readonly AssociatedNPC[] = [
-    'Hunter',
-    'MasterHunter',
-    'GeneralGoods',
-    'Armorer',
-    'Mechanic',
-    'Doctor',
-    'Banker',
-    'Barber',
-    'Bartender',
-    'Fisherman',
-];
-const NPC_OPTIONS = ALL_NPCS.map((npc) => ({ value: npc, label: GIVER_LABELS.get(npc) ?? npc }));
+const NPC_OPTIONS = AssociatedNPCSchema.options.map((npc) => ({ value: npc, label: GIVER_LABELS.get(npc) ?? npc }));
 const TIER_OPTIONS = QUEST_TIERS.map((tier) => ({ value: String(tier), label: `Tier ${tier}` }));
 
 export function QuestMetaEditor({
