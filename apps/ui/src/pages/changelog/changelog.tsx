@@ -11,6 +11,14 @@ export function Changelog() {
                 </h1>
 
                 <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
+                    <span className="text-3xl font-semibold tracking-tight">0.8.2</span>
+                    <span className="text-sm text-muted-foreground">October 04, 2026</span>
+                </h2>
+                <ul className="my-6 ml-6 list-disc [&>li]:mt-1">
+                    <li>Fixed a bug that prevented uploading quest file despite having all required fields</li>
+                </ul>
+
+                <h2 className="scroll-m-20 border-b pb-2 mt-6 first:mt-0 flex justify-between items-baseline">
                     <span className="text-3xl font-semibold tracking-tight">0.8.1</span>
                     <span className="text-sm text-muted-foreground">August 25, 2026</span>
                 </h2>
