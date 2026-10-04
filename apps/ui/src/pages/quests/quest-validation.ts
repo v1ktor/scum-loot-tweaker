@@ -3,7 +3,7 @@ import type { Condition, Quest, Reward } from '@/data/quests/quests.types.ts';
 
 export type QuestErrorTab = 'details' | 'rewards' | 'conditions';
 export type ConditionTab = 'objective' | 'requirements' | 'options' | 'map';
-export type RewardTab = 'currency' | 'skills' | 'trade';
+export type RewardTab = 'currency' | 'skills' | 'items' | 'trade';
 
 export type QuestError = {
     tab: QuestErrorTab;

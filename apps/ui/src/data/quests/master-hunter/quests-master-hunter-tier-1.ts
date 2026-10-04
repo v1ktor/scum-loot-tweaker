@@ -26,7 +26,7 @@ export const MASTER_HUNTER_QUESTS_TIER1: Quest[] = [
         Description:
             'Folk get twitchy around mutant corpses and usually start reaching for fire. Get your knife in first, skin the freak, and keep your questions to yourself.',
         TimeLimitHours: 48,
-        RewardPool: [{ CurrencyNormal: 850, Fame: 5, Items: ['Hunting_Quiver_01'] }],
+        RewardPool: [{ CurrencyNormal: 850, Fame: 5, RewardItems: ['Hunting_Quiver_01'] }],
         Conditions: [
             {
                 Type: 'Fetch',
@@ -43,7 +43,7 @@ export const MASTER_HUNTER_QUESTS_TIER1: Quest[] = [
         Description:
             'I need steak cut from mutant flesh for research purposes. No questions asked, just wrap it tight and keep the stink downwind.',
         TimeLimitHours: 48,
-        RewardPool: [{ CurrencyNormal: 1000, Fame: 5, Items: ['AnimalBaitFeederItem_Ridgeline'] }],
+        RewardPool: [{ CurrencyNormal: 1000, Fame: 5, RewardItems: ['AnimalBaitFeederItem_Ridgeline'] }],
         Conditions: [
             {
                 Type: 'Fetch',
@@ -65,7 +65,7 @@ export const MASTER_HUNTER_QUESTS_TIER1: Quest[] = [
         Description: "There's sick game in these woods and it needs thinning. Go check that the freaks still bleed.",
         TimeLimitHours: 48,
         // TODO: WeaponCharm_Deer_Skull is the best guess since game doesn't allow to spawn that charm. Needs to be verified as the quest item in custom quest
-        RewardPool: [{ CurrencyNormal: 1000, Fame: 5, Items: ['WeaponCharm_Deer_Skull'] }],
+        RewardPool: [{ CurrencyNormal: 1000, Fame: 5, RewardItems: ['WeaponCharm_Deer_Skull'] }],
         Conditions: [{ Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['BP_Deer_Mutant'], Amount: 1 }],
     },
     {
@@ -75,7 +75,7 @@ export const MASTER_HUNTER_QUESTS_TIER1: Quest[] = [
         Title: 'Old Ways',
         Description: 'These mutants are tough bastards. Still, the usual methods should work... Go find out.',
         TimeLimitHours: 48,
-        RewardPool: [{ CurrencyNormal: 1500, Fame: 5, Items: ['Ultimate_QuestReward_Pants'] }],
+        RewardPool: [{ CurrencyNormal: 1500, Fame: 5, RewardItems: ['Ultimate_QuestReward_Pants'] }],
         Conditions: [
             {
                 Type: 'Elimination',
@@ -101,7 +101,7 @@ export const MASTER_HUNTER_QUESTS_TIER1: Quest[] = [
         Description:
             "Guns are almost as loud as the other guy in this lodge, and hell knows that's a feat. Prove him people can work in silence.",
         TimeLimitHours: 48,
-        RewardPool: [{ CurrencyNormal: 850, Fame: 5, Items: ['WeaponScope_BlackHawk'] }],
+        RewardPool: [{ CurrencyNormal: 850, Fame: 5, RewardItems: ['WeaponScope_BlackHawk'] }],
         Conditions: [
             {
                 Type: 'Elimination',
@@ -151,7 +151,7 @@ export const MASTER_HUNTER_QUESTS_TIER1: Quest[] = [
         Description:
             "Most trainees can't handle a close kill. No tricks for you today: hit with full force or come back empty-handed.",
         TimeLimitHours: 48,
-        RewardPool: [{ CurrencyNormal: 850, Fame: 5, Items: ['Recurve_Bow_Hunter'] }],
+        RewardPool: [{ CurrencyNormal: 850, Fame: 5, RewardItems: ['Recurve_Bow_Hunter'] }],
         Conditions: [
             {
                 Type: 'Elimination',

@@ -91,17 +91,30 @@ describe('toGameQuest', () => {
     });
 
     describe('item rewards', () => {
-        it('never writes Items, which the game silently ignores', () => {
-            const result = toGameQuest(quest({ RewardPool: [{ Items: ['2H_Katana'], Fame: 10 }] }));
+        it('writes RewardItems the way the shipped Example_Elimination does', () => {
+            const result = toGameQuest(
+                quest({ RewardPool: [{ RewardItems: ['Weapon_M9', 'Magazine_M9'], Fame: 10 }] }),
+            );
 
-            expect(result.RewardPool[0]).not.toHaveProperty('Items');
-            expect(result.RewardPool[0]).toEqual({ Fame: 10 });
+            expect(result.RewardPool[0]).toEqual({ RewardItems: ['Weapon_M9', 'Magazine_M9'], Fame: 10 });
         });
 
-        it('drops Items carried in from an imported vanilla quest', () => {
-            const result = toGameQuest(quest({ RewardPool: [{ Items: ['Recurve_Bow_Hunter'] }] }));
+        it('drops blank reward item rows', () => {
+            const result = toGameQuest(quest({ RewardPool: [{ RewardItems: ['', 'Weapon_M9', '  '] }] }));
 
-            expect(result.RewardPool[0]).toEqual({});
+            expect(result.RewardPool[0]).toEqual({ RewardItems: ['Weapon_M9'] });
+        });
+
+        it('omits RewardItems entirely when every row is blank', () => {
+            const result = toGameQuest(quest({ RewardPool: [{ RewardItems: [''] }] }));
+
+            expect(result.RewardPool[0]).not.toHaveProperty('RewardItems');
+        });
+
+        it('round-trips RewardItems through parse', () => {
+            const exported = JSON.stringify(toGameQuest(quest({ RewardPool: [{ RewardItems: ['Weapon_M9'] }] })));
+            const reparsed = parseQuestJson(exported);
+            expect(reparsed.ok && reparsed.quest.RewardPool[0].RewardItems).toEqual(['Weapon_M9']);
         });
 
         it('never writes Blueprints either', () => {
@@ -156,32 +169,26 @@ describe('toGameQuest', () => {
 });
 
 describe('stripUnsupportedRewards', () => {
-    it('drops Items from every reward pool', () => {
+    it('drops Blueprints from every reward pool', () => {
         const stripped = stripUnsupportedRewards(
-            quest({ RewardPool: [{ Fame: 5, Items: ['Hunting_Quiver_01'] }, { Items: ['Recurve_Bow_Hunter'] }] }),
+            quest({ RewardPool: [{ Fame: 5, Blueprints: ['Deer Skull Trophy'] }, { Blueprints: ['Hunter Bed'] }] }),
         );
 
         expect(stripped.RewardPool).toEqual([{ Fame: 5 }, {}]);
     });
 
-    it('drops Blueprints too', () => {
+    it('keeps RewardItems, which the game supports', () => {
         const stripped = stripUnsupportedRewards(
-            quest({ RewardPool: [{ Fame: 5, Blueprints: ['Deer Skull Trophy'] }] }),
+            quest({
+                RewardPool: [{ RewardItems: ['Hunting_Quiver_01'], Blueprints: ['Hunter Bed'], CurrencyNormal: 100 }],
+            }),
         );
 
-        expect(stripped.RewardPool).toEqual([{ Fame: 5 }]);
-    });
-
-    it('drops both when a reward carries each', () => {
-        const stripped = stripUnsupportedRewards(
-            quest({ RewardPool: [{ Items: ['Hunting_Quiver_01'], Blueprints: ['Hunter Bed'], CurrencyNormal: 100 }] }),
-        );
-
-        expect(stripped.RewardPool).toEqual([{ CurrencyNormal: 100 }]);
+        expect(stripped.RewardPool).toEqual([{ RewardItems: ['Hunting_Quiver_01'], CurrencyNormal: 100 }]);
     });
 
     it('leaves the rest of the quest alone', () => {
-        const original = quest({ RewardPool: [{ Fame: 5, Items: ['Hunting_Quiver_01'] }] });
+        const original = quest({ RewardPool: [{ Fame: 5, Blueprints: ['Deer Skull Trophy'] }] });
         const stripped = stripUnsupportedRewards(original);
 
         expect(stripped).toMatchObject({ id: original.id, Title: original.Title, Tier: original.Tier });
@@ -189,13 +196,13 @@ describe('stripUnsupportedRewards', () => {
     });
 
     it('does not mutate the quest it is given', () => {
-        const original = quest({ RewardPool: [{ Items: ['Hunting_Quiver_01'] }] });
+        const original = quest({ RewardPool: [{ Blueprints: ['Deer Skull Trophy'] }] });
         stripUnsupportedRewards(original);
 
-        expect(original.RewardPool[0].Items).toEqual(['Hunting_Quiver_01']);
+        expect(original.RewardPool[0].Blueprints).toEqual(['Deer Skull Trophy']);
     });
 
-    it('is a no-op for a quest without item rewards', () => {
+    it('is a no-op for a quest without blueprint rewards', () => {
         const original = quest({ RewardPool: [{ Fame: 5 }] });
 
         expect(stripUnsupportedRewards(original).RewardPool).toEqual([{ Fame: 5 }]);

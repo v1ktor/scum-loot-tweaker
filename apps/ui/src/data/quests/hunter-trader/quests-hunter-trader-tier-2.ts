@@ -119,7 +119,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 1500,
                 Fame: 10,
-                Items: ['Utility_Belt_01'],
+                RewardItems: ['Utility_Belt_01'],
             },
         ],
         Conditions: [
@@ -146,7 +146,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 10,
-                Items: ['BowSilencer_SlipOn'],
+                RewardItems: ['BowSilencer_SlipOn'],
             },
         ],
         Conditions: [
@@ -174,7 +174,7 @@ export const HUNTER_TRADER_QUESTS_TIER2: Quest[] = [
             {
                 CurrencyNormal: 2000,
                 Fame: 10,
-                Items: ['Bow_MicroStabilizer'],
+                RewardItems: ['Bow_MicroStabilizer'],
             },
         ],
         Conditions: [

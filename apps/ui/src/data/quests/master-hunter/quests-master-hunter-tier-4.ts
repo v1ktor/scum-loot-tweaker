@@ -14,7 +14,7 @@ export const MASTER_HUNTER_QUESTS_TIER4: Quest[] = [
         TimeLimitHours: 120,
         // TODO: reward pool unverified. 'KeyCardApex' was added to Parameters.json in the same update, so it is a
         // plausible reward for this quest, but that link is a guess.
-        RewardPool: [{ CurrencyNormal: 5000, Fame: 30, Items: ['KeyCardApex'] }],
+        RewardPool: [{ CurrencyNormal: 5000, Fame: 30, RewardItems: ['KeyCardApex'] }],
         // TODO: the real objective structure is unknown — this scaffolds it as one kill per mutant, in sequence
         Conditions: [
             { Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['BP_Deer_Mutant'], Amount: 1 },
