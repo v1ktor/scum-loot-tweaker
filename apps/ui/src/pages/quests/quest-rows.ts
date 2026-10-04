@@ -98,7 +98,7 @@ function summarizeXp(quest: Quest): string {
 function summarizeItems(quest: Quest, itemsOptions: Option[]): string {
     if (!quest.RewardPool.length) return '—';
 
-    const items = quest.RewardPool[0].Items;
+    const items = quest.RewardPool[0].RewardItems;
 
     if (!items?.length) return '—';
 

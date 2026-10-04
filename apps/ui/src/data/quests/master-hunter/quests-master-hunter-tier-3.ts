@@ -9,7 +9,7 @@ export const MASTER_HUNTER_QUESTS_TIER3: Quest[] = [
         Description:
             "Fetching a stack of mutant hides is the sort of work that turns sane folk around. You'll manage fine.",
         TimeLimitHours: 96,
-        RewardPool: [{ CurrencyNormal: 2600, Fame: 20, Items: ['1H_Skinning_Knife_02'] }],
+        RewardPool: [{ CurrencyNormal: 2600, Fame: 20, RewardItems: ['1H_Skinning_Knife_02'] }],
         Conditions: [
             {
                 Type: 'Fetch',
@@ -64,7 +64,7 @@ export const MASTER_HUNTER_QUESTS_TIER3: Quest[] = [
             "Something's been killing more than it eats. Game's clearing out wherever it passes, and that makes me nervous. Find it and end it.",
         TimeLimitHours: 96,
         // TODO: WeaponCharm_Wolf_Skull is the best guess since game doesn't allow to spawn that charm. Needs to be verified as the quest item in custom quest
-        RewardPool: [{ CurrencyNormal: 2750, Fame: 20, Items: ['WeaponCharm_Wolf_Skull'] }],
+        RewardPool: [{ CurrencyNormal: 2750, Fame: 20, RewardItems: ['WeaponCharm_Wolf_Skull'] }],
         Conditions: [{ Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['BP_Wolf_Mutant'], Amount: 1 }],
     },
     {
@@ -75,7 +75,7 @@ export const MASTER_HUNTER_QUESTS_TIER3: Quest[] = [
         Description:
             "Those wolf freaks don't leave much room for bravery once they're on you. Get in close and try not to donate anything precious.",
         TimeLimitHours: 96,
-        RewardPool: [{ CurrencyNormal: 3250, Fame: 20, Items: ['Ultimate_QuestReward_Upper'] }],
+        RewardPool: [{ CurrencyNormal: 3250, Fame: 20, RewardItems: ['Ultimate_QuestReward_Upper'] }],
         Conditions: [
             {
                 Type: 'Elimination',
@@ -127,7 +127,7 @@ export const MASTER_HUNTER_QUESTS_TIER3: Quest[] = [
         Description:
             "I'm starting to believe you're good enough to thin the woods without announcing yourself to every beast for miles... let's find out.",
         TimeLimitHours: 96,
-        RewardPool: [{ CurrencyNormal: 2600, Fame: 20, Items: ['Compound_Ripper_Bow_Quest'] }],
+        RewardPool: [{ CurrencyNormal: 2600, Fame: 20, RewardItems: ['Compound_Ripper_Bow_Quest'] }],
         Conditions: [
             {
                 Type: 'Elimination',

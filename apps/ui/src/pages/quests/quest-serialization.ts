@@ -6,8 +6,11 @@ const isBlank = (value: string): boolean => value.trim() === '';
 function cleanReward(reward: Reward): Reward {
     const cleaned: Reward = { ...reward };
 
-    delete cleaned.Items;
     delete cleaned.Blueprints;
+
+    const items = cleaned.RewardItems?.filter((item) => !isBlank(item));
+    if (items?.length) cleaned.RewardItems = items;
+    else delete cleaned.RewardItems;
 
     const skills = cleaned.Skills?.filter((skill) => !isBlank(skill.Skill));
     if (skills?.length) cleaned.Skills = skills;
@@ -94,7 +97,6 @@ export function stripUnsupportedRewards(quest: Quest): Quest {
         ...quest,
         RewardPool: quest.RewardPool.map((reward) => {
             const stripped = { ...reward };
-            delete stripped.Items;
             delete stripped.Blueprints;
             return stripped;
         }),

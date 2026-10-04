@@ -64,8 +64,7 @@ export const RewardSchema = z.object({
     Fame: z.number().optional(),
     Skills: z.array(SkillRewardSchema).optional(),
     TradeDeals: z.array(TradeDealSchema).optional(),
-    // TODO: some quests have items as rewards, but there is no official documentation on how to structure reward pool
-    Items: z.array(z.string()).optional(),
+    RewardItems: z.array(z.string()).optional(),
     // TODO: Some quests unlock blueprints as rewards, but there is no official documentation on how to structure reward pool
     Blueprints: z.array(z.string()).optional(),
 });

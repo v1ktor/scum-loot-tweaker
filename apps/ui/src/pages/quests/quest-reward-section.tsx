@@ -38,7 +38,7 @@ function buildRewardRows(reward: Reward | undefined, itemsOptions: Option[]): Re
             value: `${skill.Experience.toLocaleString()} XP`,
         });
     }
-    for (const item of reward?.Items ?? []) {
+    for (const item of reward?.RewardItems ?? []) {
         rows.push({ key: `item-${item}`, icon: Package, label: 'Item', value: getItemName(item, itemsOptions) });
     }
     for (const td of reward?.TradeDeals ?? []) {

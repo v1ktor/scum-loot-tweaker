@@ -1,5 +1,6 @@
 import { ARMORER_QUESTS } from './armorer/quests-armorer.ts';
 import { DOCTOR_QUESTS } from './doctor/quests-doctor.ts';
+import { FISHERMAN_QUESTS } from './fisherman/quests-fisherman.ts';
 import { GENERAL_GOODS_QUESTS } from './general-goods/quests-general-goods.ts';
 import { HUNTER_TRADER_QUESTS } from './hunter-trader/quests-hunter-trader.ts';
 import { MASTER_HUNTER_QUESTS } from './master-hunter/quests-master-hunter.ts';
@@ -20,6 +21,7 @@ export const QUEST_GIVERS: QuestGiverConfig[] = [
     { id: 'armorer', npc: 'Armorer', name: 'Armorer', quests: ARMORER_QUESTS },
     { id: 'mechanic', npc: 'Mechanic', name: 'Mechanic', quests: MECHANIC_QUESTS },
     { id: 'medic', npc: 'Doctor', name: 'Medic', quests: DOCTOR_QUESTS },
+    { id: 'fisherman', npc: 'Fisherman', name: 'Fisherman', quests: FISHERMAN_QUESTS },
 ];
 
 export function findQuest(giverId: string, questId: string): { quest: Quest; giver: QuestGiverConfig } | null {

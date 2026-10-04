@@ -26,7 +26,7 @@ export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [
         Description:
             'One mutant hide could be luck. Two is interesting. Three... makes a pattern. Try not to drip on anything when you bring them in.',
         TimeLimitHours: 72,
-        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, Items: ['1H_Hunters_Skinning_Knife_01'] }],
+        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, RewardItems: ['1H_Hunters_Skinning_Knife_01'] }],
         Conditions: [
             {
                 Type: 'Fetch',
@@ -66,7 +66,7 @@ export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [
             "Something twisted has been rooting where it shouldn't. Kill it before the ground starts looking like a landfill.",
         TimeLimitHours: 72,
         // TODO: WeaponCharm_Boar_Skull is the best guess since game doesn't allow to spawn that charm. Needs to be verified as the quest item in custom quest
-        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, Items: ['WeaponCharm_Boar_Skull'] }],
+        RewardPool: [{ CurrencyNormal: 2000, Fame: 10, RewardItems: ['WeaponCharm_Boar_Skull'] }],
         Conditions: [{ Type: 'Elimination', SequenceIndex: 0, TargetCharacters: ['BP_Boar_Mutant'], Amount: 1 }],
     },
     {
@@ -77,7 +77,7 @@ export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [
         Description:
             "Look into a mutant pig's eyes and tell me if TEC1 left anything behind. Keep your head straight: hesitate for a split second and you'll be wearing your guts outside.",
         TimeLimitHours: 72,
-        RewardPool: [{ CurrencyNormal: 2500, Fame: 10, Items: ['Ultimate_QuestReward_Boots'] }],
+        RewardPool: [{ CurrencyNormal: 2500, Fame: 10, RewardItems: ['Ultimate_QuestReward_Boots'] }],
         Conditions: [
             {
                 Type: 'Elimination',
@@ -110,7 +110,7 @@ export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [
         Description:
             'Bolts and arrows are good for keeping pelts clean. All it takes is steady hands and enough patience to make yourself forgotten.',
         TimeLimitHours: 72,
-        RewardPool: [{ CurrencyNormal: 1850, Fame: 10, Items: ['Weapon_BlackHawk_Crossbow_Quest'] }],
+        RewardPool: [{ CurrencyNormal: 1850, Fame: 10, RewardItems: ['Weapon_BlackHawk_Crossbow_Quest'] }],
         Conditions: [
             {
                 Type: 'Elimination',
@@ -160,7 +160,7 @@ export const MASTER_HUNTER_QUESTS_TIER2: Quest[] = [
         Description:
             "Rabbits are quick and chickens are stupid in complicated ways, so both make good shooting practice. Don't waste more bullets than the meat's worth.",
         TimeLimitHours: 72,
-        RewardPool: [{ CurrencyNormal: 1850, Fame: 10, Items: ['Monocular_Trail_Booster'] }],
+        RewardPool: [{ CurrencyNormal: 1850, Fame: 10, RewardItems: ['Monocular_Trail_Booster'] }],
         Conditions: [
             {
                 Type: 'Elimination',
